@@ -1,21 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, type Easing } from "framer-motion";
+import { motion, type Easing } from "framer-motion";
 import { ArrowRight, MapPin, Radar, Ship } from "lucide-react";
-
-/**
- * Cinematic background footage. These files are not yet part of the
- * repository — add real 4K footage (ports, warehouses, manufacturing,
- * heavy equipment) at these paths under /public/videos. Until then,
- * handleVideoError() hides the video layer and the hero falls back
- * cleanly to the aurora/grid/noise background alone.
- */
-const HERO_VIDEOS = [
-  "/videos/hero-port.mp4",
-  "/videos/hero-warehouse.mp4",
-  "/videos/hero-manufacturing.mp4",
-];
+import VideoBackground from "./VideoBackground";
 
 const HEADLINE_LINES = [
   "Strategic Procurement",
@@ -43,61 +30,13 @@ const DIAL_RADIUS = 34;
 const DIAL_CIRCUMFERENCE = 2 * Math.PI * DIAL_RADIUS;
 
 export default function Hero() {
-  const [activeVideo, setActiveVideo] = useState(0);
-  const [videoAvailable, setVideoAvailable] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.55;
-    }
-  }, [activeVideo]);
-
-  const handleVideoEnded = () => {
-    setActiveVideo((current) => (current + 1) % HERO_VIDEOS.length);
-  };
-
-  const handleVideoError = () => {
-    setVideoAvailable(false);
-  };
-
   return (
     <section
       id="home"
       className="relative flex min-h-screen flex-col overflow-hidden bg-[#020617] pt-36 pb-14"
     >
       {/* Layer 1 — cinematic video */}
-      {videoAvailable && (
-        <div aria-hidden className="absolute inset-0 z-0">
-          <AnimatePresence mode="wait">
-            <motion.video
-              key={HERO_VIDEOS[activeVideo]}
-              ref={videoRef}
-              initial={{ opacity: 0, scale: 1 }}
-              animate={{ opacity: 1, scale: 1.04 }}
-              exit={{ opacity: 0 }}
-              transition={{
-                opacity: { duration: 1.4, ease: EXPO_OUT },
-                scale: { duration: 20, ease: "linear" },
-              }}
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              playsInline
-              preload="auto"
-              onEnded={handleVideoEnded}
-              onError={handleVideoError}
-            >
-              <source src={HERO_VIDEOS[activeVideo]} type="video/mp4" />
-            </motion.video>
-          </AnimatePresence>
-
-          {/* Premium graded overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/95 via-[#020617]/75 to-[#020617]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/90 via-[#020617]/30 to-[#020617]/70" />
-          <div className="absolute inset-0 bg-[#020617]/25" />
-        </div>
-      )}
+      <VideoBackground />
 
       {/* Layer 2 — aurora, key light, grid, noise */}
       <div aria-hidden className="absolute inset-0 z-[1] overflow-hidden">
