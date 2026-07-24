@@ -79,19 +79,41 @@ export default function Hero() {
         <div className="grid flex-1 items-start gap-x-12 gap-y-16 lg:grid-cols-[1fr_380px]">
           {/* Headline column */}
           <div className="max-w-4xl pt-4">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: EXPO_OUT }}
-              className="flex items-center gap-2.5"
-            >
-              <span className="h-1 w-1 rounded-full bg-blue-400" />
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-slate-400">
-                Global Procurement Partner
-              </span>
-            </motion.div>
+            {/* ① Brand identity — GOLTENS wordmark */}
+            <div>
+              <h1 className="block overflow-hidden">
+                <motion.span
+                  initial={{ y: "110%" }}
+                  animate={{ y: "0%" }}
+                  transition={{ duration: 0.9, ease: EXPO_OUT }}
+                  className="block text-[clamp(3.25rem,8vw,7.5rem)] font-bold leading-[0.95] tracking-[-0.03em] text-white"
+                >
+                  GOLTENS
+                </motion.span>
+              </h1>
 
-            <h1 className="mt-6 text-[clamp(2.75rem,7.5vw,6.75rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-white">
+              {/* ② Brand descriptor */}
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: EXPO_OUT, delay: 0.45 }}
+                className="mt-2 text-sm font-medium uppercase tracking-[0.35em] text-slate-300 sm:text-base"
+              >
+                General Supplies
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: EXPO_OUT, delay: 0.6 }}
+                className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-slate-500"
+              >
+                Global Procurement · Industrial Solutions · Strategic Sourcing
+              </motion.p>
+            </div>
+
+            {/* ③ Supporting headline */}
+            <p className="mt-12 text-[clamp(2.75rem,7.5vw,6.75rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-white">
               {HEADLINE_LINES.map((line, index) => (
                 <span key={line} className="block overflow-hidden">
                   <motion.span
@@ -100,7 +122,7 @@ export default function Hero() {
                     transition={{
                       duration: 1,
                       ease: EXPO_OUT,
-                      delay: 0.25 + index * 0.12,
+                      delay: 0.85 + index * 0.12,
                     }}
                     className={`block ${index === HEADLINE_LINES.length - 1 ? "text-blue-400" : ""}`}
                   >
@@ -108,12 +130,13 @@ export default function Hero() {
                   </motion.span>
                 </span>
               ))}
-            </h1>
+            </p>
 
+            {/* ④ Description */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: EXPO_OUT, delay: 0.95 }}
+              transition={{ duration: 0.8, ease: EXPO_OUT, delay: 1.55 }}
               className="mt-8 max-w-xl text-lg leading-relaxed text-slate-300"
             >
               From industrial machinery and pumps to electrical systems, IT
@@ -122,10 +145,11 @@ export default function Hero() {
               across Egypt and the region.
             </motion.p>
 
+            {/* ⑤ CTA */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: EXPO_OUT, delay: 1.15 }}
+              transition={{ duration: 0.8, ease: EXPO_OUT, delay: 1.75 }}
               className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4"
             >
               <a
@@ -322,7 +346,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, ease: EXPO_OUT, delay: 1.4 }}
+          transition={{ duration: 0.8, ease: EXPO_OUT, delay: 2.0 }}
           className="mt-20 border-t border-white/10 pt-8"
         >
           <p className="text-center font-mono text-[10px] uppercase tracking-[0.25em] text-slate-500">
@@ -344,7 +368,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, ease: EXPO_OUT, delay: 1.7 }}
+          transition={{ duration: 0.8, ease: EXPO_OUT, delay: 2.3 }}
           className="mt-10 flex flex-col items-center gap-3"
         >
           <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-slate-600">
