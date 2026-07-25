@@ -1,101 +1,119 @@
+import {
+  Armchair,
+  Droplets,
+  Factory,
+  Flame,
+  FlaskConical,
+  Server,
+  Stethoscope,
+  Truck,
+  Wrench,
+  Zap,
+} from "lucide-react";
+
+const PRODUCTS = [
+  {
+    icon: Factory,
+    title: "Industrial Equipment",
+    description:
+      "Motors, compressors, generators, gearboxes and production equipment.",
+  },
+  {
+    icon: Droplets,
+    title: "Pumps & Valves",
+    description:
+      "Centrifugal pumps, submersible pumps, valves and accessories.",
+  },
+  {
+    icon: Zap,
+    title: "Electrical Supplies",
+    description:
+      "Panels, breakers, transformers, cables and electrical components.",
+  },
+  {
+    icon: Flame,
+    title: "Fire Fighting Systems",
+    description: "Fire pumps, extinguishers, hydrants and safety equipment.",
+  },
+  {
+    icon: Server,
+    title: "IT Infrastructure",
+    description:
+      "Servers, networking, storage, laptops and enterprise hardware.",
+  },
+  {
+    icon: Truck,
+    title: "Vehicles & Fleet",
+    description:
+      "Passenger vehicles, commercial vehicles and special-purpose transport.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Chemicals",
+    description: "Industrial chemicals, lubricants and maintenance products.",
+  },
+  {
+    icon: Armchair,
+    title: "Office Furniture",
+    description:
+      "Workstations, meeting rooms, storage and commercial furniture.",
+  },
+  {
+    icon: Wrench,
+    title: "Spare Parts",
+    description:
+      "OEM and aftermarket spare parts for industrial equipment.",
+  },
+  {
+    icon: Stethoscope,
+    title: "Medical Equipment",
+    description:
+      "Hospital equipment, laboratory devices and healthcare procurement.",
+  },
+];
+
 export default function Products() {
-  const products = [
-    {
-      icon: "⚙️",
-      title: "Industrial Equipment",
-      description:
-        "Pumps, compressors, motors, generators, gearboxes and industrial machinery.",
-    },
-    {
-      icon: "💧",
-      title: "Pumps & Valves",
-      description:
-        "Centrifugal pumps, submersible pumps, valves, fittings and accessories.",
-    },
-    {
-      icon: "⚡",
-      title: "Electrical Supplies",
-      description:
-        "Panels, breakers, transformers, cables and electrical components.",
-    },
-    {
-      icon: "💻",
-      title: "IT & Networking",
-      description:
-        "Servers, laptops, desktops, printers, networking and storage solutions.",
-    },
-    {
-      icon: "🚒",
-      title: "Fire Fighting",
-      description:
-        "Fire pumps, extinguishers, cabinets, hoses and firefighting systems.",
-    },
-    {
-      icon: "🚛",
-      title: "Vehicles & Spare Parts",
-      description:
-        "Passenger vehicles, pickups, heavy equipment and genuine spare parts.",
-    },
-    {
-      icon: "🧪",
-      title: "Industrial Chemicals",
-      description:
-        "Industrial chemicals, laboratory chemicals and treatment solutions.",
-    },
-    {
-      icon: "🪑",
-      title: "Office Furniture",
-      description:
-        "Office desks, chairs, filing cabinets and workspace solutions.",
-    },
-  ];
-
   return (
-    <section
-      id="products"
-      className="bg-slate-950 py-24 px-6 text-white"
-    >
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center">
-          <span className="rounded-full border border-blue-500 px-4 py-2 text-sm text-blue-400">
-            OUR PRODUCTS
-          </span>
+    <section id="products" className="bg-canvas">
+      <div className="mx-auto max-w-[1440px] px-6 pt-24 pb-0 lg:px-[120px] lg:pt-32 lg:pb-0">
+        <div className="max-w-2xl">
+          <p className="font-mono text-xs tracking-[0.25em] text-ink-muted uppercase">
+            Products
+          </p>
 
-          <h2 className="mt-6 text-5xl font-bold">
-            Complete Procurement Solutions
+          <h2 className="mt-6 text-balance text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.1] font-bold tracking-[-0.02em] text-ink">
+            Everything your project needs.
+            <br />
+            One procurement partner.
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-300">
-            We provide complete procurement and industrial supply solutions for
-            government entities, contractors, factories, hospitals and private
-            companies across Egypt.
+          <p className="mt-6 text-lg leading-relaxed text-ink-muted">
+            From industrial machinery to IT infrastructure, GOLTENS delivers
+            complete procurement solutions through a global supplier
+            network.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-          {products.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-2xl border border-slate-700 bg-slate-900 p-8 transition hover:-translate-y-2 hover:border-blue-500"
-            >
-              <div className="text-5xl">{item.icon}</div>
-
-              <h3 className="mt-6 text-2xl font-bold">
-                {item.title}
-              </h3>
-
-              <p className="mt-4 text-slate-300">
-                {item.description}
-              </p>
-
-              <a
-                href="#contact"
-                className="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold transition hover:bg-blue-700"
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+          {PRODUCTS.map((product) => {
+            const Icon = product.icon;
+            return (
+              <div
+                key={product.title}
+                className="flex min-h-[280px] flex-col rounded-sm border border-border p-10 transition-all duration-200 hover:-translate-y-1 hover:border-ink"
               >
-                Request Quote
-              </a>
-            </div>
-          ))}
+                <Icon className="h-8 w-8 text-blue" strokeWidth={1.5} />
+
+                <h3 className="mt-8 text-lg font-semibold text-ink">
+                  {product.title}
+                </h3>
+
+                <p className="mt-5 max-w-[90%] text-sm leading-relaxed text-ink-muted">
+                  {product.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

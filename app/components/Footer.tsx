@@ -1,85 +1,81 @@
+import Link from "next/link";
+
+const QUICK_LINKS = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Industries", href: "/industries" },
+  { name: "Contact", href: "/#contact" },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
-      <div className="mx-auto max-w-7xl px-6 py-16">
-
+    <footer className="border-t border-border bg-stone">
+      <div className="mx-auto max-w-[1440px] px-6 py-16 lg:px-[120px]">
         <div className="grid gap-10 md:grid-cols-3">
-
-          {/* Company */}
           <div>
-            <h3 className="text-2xl font-bold text-blue-500">
+            <h3 className="text-lg font-bold tracking-tight text-ink">
               GOLTENS GENERAL SUPPLIES
             </h3>
 
-            <p className="mt-4 text-gray-400">
-              Supplying industrial equipment, pumps, valves,
-              electrical supplies, mechanical spare parts and
-              engineering solutions across Egypt.
+            <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+              Supplying industrial equipment, pumps, valves, electrical
+              supplies, mechanical spare parts and engineering solutions
+              across Egypt.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold">
+            <h3 className="text-sm font-semibold tracking-[0.15em] text-ink uppercase">
               Quick Links
             </h3>
 
-            <ul className="mt-4 space-y-2 text-gray-400">
-              <li>Home</li>
-              <li>About</li>
-              <li>Services</li>
-              <li>Brands</li>
-              <li>Contact</li>
+            <ul className="mt-4 space-y-2">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-ink-muted transition-colors hover:text-ink"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h3 className="text-xl font-semibold">
+            <h3 className="text-sm font-semibold tracking-[0.15em] text-ink uppercase">
               Contact Us
             </h3>
 
-            <div className="mt-4 space-y-3 text-gray-400">
-              <p>📍 El Bagour, Menoufia, Egypt</p>
-
+            <div className="mt-4 space-y-2 text-sm text-ink-muted">
+              <p>El Bagour, Menoufia, Egypt</p>
               <p>
-                📞
-                <a
-                  href="tel:+201030626051"
-                  className="ml-2 hover:text-white"
-                >
+                <a href="tel:+201030626051" className="hover:text-ink">
                   0103 062 6051
                 </a>
               </p>
-
               <p>
-                📞
-                <a
-                  href="tel:+201225600983"
-                  className="ml-2 hover:text-white"
-                >
+                <a href="tel:+201225600983" className="hover:text-ink">
                   0122 560 0983
                 </a>
               </p>
-
               <p>
-                📧
                 <a
                   href="mailto:Admin@goltenssupplies.com"
-                  className="ml-2 hover:text-white"
+                  className="hover:text-ink"
                 >
                   Admin@goltenssupplies.com
                 </a>
               </p>
             </div>
           </div>
-
         </div>
 
-        <div className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500">
+        <div className="mt-12 border-t border-border pt-6 text-center text-sm text-ink-muted">
           © 2026 GOLTENS GENERAL SUPPLIES. All Rights Reserved.
         </div>
-
       </div>
     </footer>
   );

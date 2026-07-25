@@ -1,97 +1,84 @@
-import {
-  Factory,
-  Droplets,
-  Wrench,
-  Zap,
-  Cog,
-  ShieldCheck,
-} from "lucide-react";
+import { ClipboardCheck, Cog, Landmark, Search, Truck, Users } from "lucide-react";
+
+const SERVICES = [
+  {
+    icon: Search,
+    title: "Strategic Sourcing",
+    description:
+      "Identify, evaluate and secure the most qualified global manufacturers and suppliers for complex procurement requirements.",
+  },
+  {
+    icon: Landmark,
+    title: "Government Procurement",
+    description:
+      "Tender management, public procurement compliance and institutional supply execution for government entities and public organisations.",
+  },
+  {
+    icon: Cog,
+    title: "Technical Procurement",
+    description:
+      "Procurement of industrial machinery, pumps, electrical systems, instrumentation and engineered equipment.",
+  },
+  {
+    icon: Users,
+    title: "Supplier Management",
+    description:
+      "Supplier qualification, auditing and long-term vendor relationship management to ensure quality and reliability.",
+  },
+  {
+    icon: Truck,
+    title: "Logistics Coordination",
+    description:
+      "International shipping, customs clearance, delivery planning and end-to-end logistics coordination.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "After-Sales Support",
+    description:
+      "Warranty coordination, documentation, spare parts sourcing and post-delivery technical support.",
+  },
+];
 
 export default function Services() {
-  const services = [
-    {
-      icon: <Factory className="h-12 w-12 text-blue-600" />,
-      title: "Pumps & Pumping Systems",
-      desc: "Industrial pumps, booster systems, submersible pumps and complete pumping solutions.",
-    },
-    {
-      icon: <Factory className="h-12 w-12 text-blue-600" />,
-      title: "Heavy & Light Equipment",
-      desc: "Heavy machinery, construction equipment, forklifts and industrial equipment.",
-    },
-    {
-      icon: <Cog className="h-12 w-12 text-blue-600" />,
-      title: "Industrial Machinery",
-      desc: "Colloid mills, production equipment and industrial machinery.",
-    },
-    {
-      icon: <Zap className="h-12 w-12 text-blue-600" />,
-      title: "Electrical Supplies",
-      desc: "Cables, switchgear, lighting, control panels and electrical accessories.",
-    },
-    {
-      icon: <ShieldCheck className="h-12 w-12 text-blue-600" />,
-      title: "IT Equipment",
-      desc: "Laptops, desktops, servers, networking equipment and printers.",
-    },
-    {
-      icon: <Droplets className="h-12 w-12 text-blue-600" />,
-      title: "Industrial Chemicals",
-      desc: "Industrial chemicals, treatment chemicals and specialized materials.",
-    },
-    {
-      icon: <Wrench className="h-12 w-12 text-blue-600" />,
-      title: "Vehicles",
-      desc: "Passenger vehicles, commercial vehicles and transportation solutions.",
-    },
-    {
-      icon: <ShieldCheck className="h-12 w-12 text-blue-600" />,
-      title: "Fire Fighting Systems",
-      desc: "Fire pumps, extinguishers, safety systems and firefighting equipment.",
-    },
-    {
-      icon: <Cog className="h-12 w-12 text-blue-600" />,
-      title: "Office Furniture",
-      desc: "Office furniture, workstations, meeting rooms and commercial furnishing.",
-    },
-  ];
-
   return (
-    <section id="services" className="bg-slate-50 px-6 py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold text-slate-900">
-           Our Solutions
+    <section id="services" className="bg-canvas">
+      <div className="mx-auto max-w-[1440px] px-6 pt-24 pb-0 lg:px-[120px] lg:pt-32 lg:pb-0">
+        <div className="max-w-2xl">
+          <p className="font-mono text-xs tracking-[0.25em] text-ink-muted uppercase">
+            Services
+          </p>
+
+          <h2 className="mt-6 text-balance text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.1] font-bold tracking-[-0.02em] text-ink">
+            Procurement services built for complex projects.
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-600">
-             supply products and procurement solutions for governmentComprehensive procurement and supply solutions for government entities,
-hospitals, universities, industrial facilities, contractors and private
-organizations across Egypt.
+          <p className="mt-6 text-lg leading-relaxed text-ink-muted">
+            From supplier discovery to final delivery, GOLTENS manages the
+            complete procurement lifecycle for government, industrial and
+            commercial organizations.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="rounded-2xl bg-white p-10 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-            >
-              <div className="mb-6">{service.icon}</div>
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
+          {SERVICES.map((service) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={service.title}
+                className="flex min-h-[240px] flex-col rounded-sm border border-border p-8 transition-all duration-200 hover:-translate-y-0.5 hover:border-ink"
+              >
+                <Icon className="h-8 w-8 text-blue" strokeWidth={1.5} />
 
-              <h3 className="mb-4 text-2xl font-bold">
-                {service.title}
-              </h3>
+                <h3 className="mt-6 text-lg font-semibold text-ink">
+                  {service.title}
+                </h3>
 
-              <p className="leading-8 text-slate-600">
-                {service.desc}
-              </p>
-
-              Comprehensive procurement and supply solutions for government entities,
-hospitals, universities, industrial facilities, contractors and private
-organizations across Egypt.
-            </div>
-          ))}
+                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                  {service.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

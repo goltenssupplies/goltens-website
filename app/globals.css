@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #1a1712;
+  --color-ink-muted: #5c5648;
+  --color-canvas: #faf7f1;
+  --color-stone: #e6decb;
+  --color-border: #ddd5c4;
+  --color-blue: #1c3a5e;
+  --color-blue-hover: #16304e;
+  --color-deep: #111010;
+  --color-deep-ink: #faf7f1;
+  --color-error: #b3402a;
+  --color-success: #4b6b4e;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  --font-sans: var(--font-geist-sans), -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+}

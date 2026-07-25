@@ -1,61 +1,72 @@
-import { Factory, Target, Eye } from "lucide-react";
+const CAPABILITIES = [
+  "Government & institutional procurement",
+  "Industrial equipment & machinery sourcing",
+  "International manufacturer partnerships",
+  "Regulatory & compliance navigation",
+  "Logistics & delivery execution",
+  "Quality assurance & after-sales support",
+];
+
+const STATS = [
+  { value: "16+", label: "Years Experience" },
+  { value: "500+", label: "Global Suppliers" },
+  { value: "20+", label: "Industries" },
+  { value: "Nationwide", label: "Coverage" },
+];
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="max-w-7xl mx-auto px-6 py-24"
-    >
-      <div className="text-center">
-        <h2 className="text-5xl font-bold text-slate-900">
-          About GOLTENS
-        </h2>
+    <section id="about" className="bg-canvas">
+      <div className="mx-auto max-w-[1440px] px-6 pt-24 pb-0 lg:px-[120px] lg:pt-32 lg:pb-0">
+        <div className="grid gap-16 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <p className="font-mono text-xs tracking-[0.25em] text-ink-muted uppercase">
+              About GOLTENS
+            </p>
 
-        <p className="mt-6 max-w-3xl mx-auto text-xl text-slate-600">
-          GOLTENS GENERAL SUPPLIES is committed to delivering reliable
-          industrial equipment and engineering solutions for government and
-          private sector projects across Egypt.
-        </p>
-      </div>
+            <h2 className="mt-6 text-balance text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.1] font-bold tracking-[-0.02em] text-ink">
+              Two decades of procurement, executed without compromise.
+            </h2>
 
-      <div className="grid md:grid-cols-3 gap-8 mt-16">
-        <div className="rounded-2xl border border-blue-200 bg-white p-8 shadow-lg">
-          <Factory className="text-blue-600" size={48} />
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
+              GOLTENS GENERAL SUPPLIES is a strategic procurement and
+              market-access partner for governments, industrial operators
+              and international manufacturers. For over sixteen years,
+              we&apos;ve connected complex projects to the global suppliers,
+              technical expertise and execution capability that standard
+              channels can&apos;t provide — across industries, borders and
+              regulatory environments, with the same standard of precision
+              every time.
+            </p>
+          </div>
 
-          <h3 className="mt-6 text-2xl font-bold">
-            Industrial Excellence
-          </h3>
+          <div className="lg:col-span-5 lg:pt-2">
+            <p className="font-mono text-xs tracking-[0.2em] text-ink-muted uppercase">
+              Capabilities
+            </p>
 
-          <p className="mt-4 text-slate-600 leading-8">
-            Supplying high-quality industrial equipment, pumps, valves,
-            electrical and mechanical solutions.
-          </p>
+            <ul className="mt-6 border-t border-border">
+              {CAPABILITIES.map((item) => (
+                <li
+                  key={item}
+                  className="border-b border-border py-4 text-base text-ink"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div className="rounded-2xl border border-blue-200 bg-white p-8 shadow-lg">
-          <Target className="text-blue-600" size={48} />
-
-          <h3 className="mt-6 text-2xl font-bold">
-            Our Mission
-          </h3>
-
-          <p className="mt-4 text-slate-600 leading-8">
-            Deliver dependable products and responsive technical support while
-            building long-term partnerships with our clients.
-          </p>
-        </div>
-
-        <div className="rounded-2xl border border-blue-200 bg-white p-8 shadow-lg">
-          <Eye className="text-blue-600" size={48} />
-
-          <h3 className="mt-6 text-2xl font-bold">
-            Our Vision
-          </h3>
-
-          <p className="mt-4 text-slate-600 leading-8">
-            To become one of Egypt's leading industrial suppliers recognized
-            for quality, integrity and engineering excellence.
-          </p>
+        <div className="mt-20 grid grid-cols-2 gap-px overflow-hidden border border-border bg-border lg:mt-24 lg:grid-cols-4">
+          {STATS.map((stat) => (
+            <div key={stat.label} className="bg-canvas p-8 lg:p-10">
+              <p className="text-4xl font-bold tracking-tight text-blue lg:text-5xl">
+                {stat.value}
+              </p>
+              <p className="mt-2 text-sm text-ink-muted">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

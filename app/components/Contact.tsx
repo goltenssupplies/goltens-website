@@ -1,123 +1,234 @@
 "use client";
 
 import { useState } from "react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+
+const GENERAL_WHATSAPP_LINK =
+  "https://wa.me/201030626051?text=Hello%20GOLTENS%20GENERAL%20SUPPLIES,%20I%20would%20like%20to%20request%20a%20quotation.";
+
+const CONTACT_CARDS = [
+  {
+    icon: Phone,
+    label: "Phone",
+    lines: ["+20 103 062 6051", "+20 122 560 0983"],
+    href: "tel:+201030626051",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    lines: ["Admin@goltenssupplies.com"],
+    href: "mailto:Admin@goltenssupplies.com",
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    lines: ["Chat with our team"],
+    href: GENERAL_WHATSAPP_LINK,
+  },
+  {
+    icon: MapPin,
+    label: "Office",
+    lines: ["El Bagour, Menoufia, Egypt"],
+    href: undefined,
+  },
+];
+
+const inputClasses =
+  "mt-2 h-12 w-full rounded-lg border border-border bg-canvas px-4 text-ink outline-none transition-colors focus:border-blue focus:ring-2 focus:ring-blue/20";
+
 export default function Contact() {
-    const [form, setForm] = useState({
-  name: "",
-  company: "",
-  email: "",
-  phone: "",
-  message: "",
-});
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
   const whatsappMessage = encodeURIComponent(`
 New Quote Request
 
-👤 Name: ${form.name}
-🏢 Company: ${form.company}
-📧 Email: ${form.email}
-📞 Phone: ${form.phone}
+Name: ${form.name}
+Company: ${form.company}
+Email: ${form.email}
+Phone: ${form.phone}
 
-📝 Requirements:
+Requirements:
 ${form.message}
 `);
 
-const whatsappLink =
-  "https://wa.me/201030626051?text=" + whatsappMessage;
+  const quoteWhatsappLink = "https://wa.me/201030626051?text=" + whatsappMessage;
+
   return (
-    <section
-      id="contact"
-      className="bg-slate-900 px-6 py-24 text-white"
-    >
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold">Request a Quote</h2>
+    <section id="contact" className="bg-canvas px-6 pt-24 pb-8 lg:px-[120px] lg:pt-32 lg:pb-10">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          {/* Left column */}
+          <div>
+            <p className="font-mono text-xs tracking-[0.25em] text-ink-muted uppercase">
+              Request a Quote
+            </p>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Tell us about your requirements and our team will get back to you
-            with a customized quotation.
-          </p>
-        </div>
+            <h2 className="mt-6 text-balance text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.1] font-bold tracking-[-0.02em] text-ink">
+              Let&apos;s discuss your procurement requirements.
+            </h2>
 
-        <div className="mt-16 grid gap-10 lg:grid-cols-2">
-          <form className="space-y-6 rounded-2xl bg-slate-800 p-8">
-           <input
-  type="text"
-  placeholder="Full Name"
-  value={form.name}
-onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-  setForm({ ...form, name: e.target.value })
-}
-  className="w-full rounded-lg border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
-/>
+            <p className="mt-6 text-lg leading-relaxed text-ink-muted">
+              Tell us what you&apos;re looking for and our procurement
+              specialists will prepare a tailored quotation.
+            </p>
 
-            <input
-  type="text"
-  placeholder="Company Name"
-  value={form.company}
-  onChange={(e) => setForm({ ...form, company: e.target.value })}
-  className="w-full rounded-lg border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
-/>
+            <form className="mt-12 space-y-8">
+              <div>
+                <label
+                  htmlFor="contact-name"
+                  className="text-xs tracking-[0.15em] text-ink-muted uppercase"
+                >
+                  Full Name
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className={inputClasses}
+                />
+              </div>
 
-            <a
-  href={whatsappLink}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="block w-full rounded-lg bg-green-600 py-4 text-center font-semibold text-white transition hover:bg-green-700"
->
-  Request via WhatsApp
-</a>
+              <div>
+                <label
+                  htmlFor="contact-company"
+                  className="text-xs tracking-[0.15em] text-ink-muted uppercase"
+                >
+                  Company
+                </label>
+                <input
+                  id="contact-company"
+                  type="text"
+                  value={form.company}
+                  onChange={(e) => setForm({ ...form, company: e.target.value })}
+                  className={inputClasses}
+                />
+              </div>
 
-            <input
-  type="tel"
-  placeholder="Phone Number"
-  value={form.phone}
-  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-  className="w-full rounded-lg border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
-/>
+              <div className="grid gap-8 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="contact-email"
+                    className="text-xs tracking-[0.15em] text-ink-muted uppercase"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    className={inputClasses}
+                  />
+                </div>
 
-            <textarea
-  rows={6}
-  placeholder="Describe your requirements..."
-  value={form.message}
-  onChange={(e) => setForm({ ...form, message: e.target.value })}
-  className="w-full rounded-lg border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
-/>
+                <div>
+                  <label
+                    htmlFor="contact-phone"
+                    className="text-xs tracking-[0.15em] text-ink-muted uppercase"
+                  >
+                    Phone
+                  </label>
+                  <input
+                    id="contact-phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    className={inputClasses}
+                  />
+                </div>
+              </div>
 
-            <a
-  href="https://wa.me/201030626051"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="block w-full rounded-lg bg-green-600 py-4 text-center font-semibold text-white transition hover:bg-green-700"
->
-  Request via WhatsApp
-</a>
-          </form>
+              <div>
+                <label
+                  htmlFor="contact-message"
+                  className="text-xs tracking-[0.15em] text-ink-muted uppercase"
+                >
+                  Requirements
+                </label>
+                <textarea
+                  id="contact-message"
+                  rows={5}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  className="mt-2 w-full rounded-lg border border-border bg-canvas px-4 py-3 text-ink outline-none transition-colors focus:border-blue focus:ring-2 focus:ring-blue/20"
+                />
+              </div>
 
-          <div className="space-y-6">
-            <div className="rounded-2xl bg-slate-800 p-8">
-              <h3 className="text-xl font-bold">📞 Phone</h3>
-              <p className="mt-4 text-slate-300">+20 103 062 6051</p>
-              <p className="text-slate-300">+20 122 560 0983</p>
+              <div className="pt-2">
+                <a
+                  href={quoteWhatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center rounded-md bg-blue px-6 text-sm font-medium text-canvas transition-colors duration-200 hover:bg-blue-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue"
+                >
+                  Request Quote
+                </a>
+
+                <a
+                  href={GENERAL_WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 block text-sm text-ink-muted underline decoration-border underline-offset-4 transition-colors hover:text-ink"
+                >
+                  Or contact us via WhatsApp
+                </a>
+              </div>
+            </form>
+          </div>
+
+          {/* Right column */}
+          <div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {CONTACT_CARDS.map((card) => {
+                const Icon = card.icon;
+                const content = (
+                  <>
+                    <Icon className="h-8 w-8 text-blue" strokeWidth={1.5} />
+                    <h3 className="mt-6 text-lg font-semibold text-ink">
+                      {card.label}
+                    </h3>
+                    {card.lines.map((line) => (
+                      <p key={line} className="mt-1 text-sm leading-relaxed text-ink-muted">
+                        {line}
+                      </p>
+                    ))}
+                  </>
+                );
+
+                if (!card.href) {
+                  return (
+                    <div
+                      key={card.label}
+                      className="rounded-lg border border-border p-8"
+                    >
+                      {content}
+                    </div>
+                  );
+                }
+
+                return (
+                  <a
+                    key={card.label}
+                    href={card.href}
+                    target={card.href.startsWith("http") ? "_blank" : undefined}
+                    rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="rounded-lg border border-border p-8 transition-all duration-200 hover:-translate-y-1 hover:border-ink"
+                  >
+                    {content}
+                  </a>
+                );
+              })}
             </div>
 
-            <div className="rounded-2xl bg-slate-800 p-8">
-              <h3 className="text-xl font-bold">💬 WhatsApp</h3>
-
-              <a
-                href="https://wa.me/201030626051?text=Hello%20GOLTENS%20GENERAL%20SUPPLIES,%20I%20would%20like%20to%20request%20a%20quotation."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block rounded-lg bg-green-600 px-6 py-3 font-semibold text-white transition hover:bg-green-700"
-              >
-                Chat on WhatsApp
-              </a>
-            </div>
-
-            <div className="rounded-2xl bg-slate-800 p-8">
-              <h3 className="text-xl font-bold">📍 Location</h3>
-              <p className="mt-4 text-slate-300">
-                El Bagour, Menoufia, Egypt
-              </p>
+            <div className="mt-10 border-t border-border pt-6">
+              <p className="text-sm text-ink-muted">Response within 24 hours.</p>
             </div>
           </div>
         </div>
