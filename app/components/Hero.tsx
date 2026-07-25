@@ -76,107 +76,104 @@ export default function Hero() {
 
       {/* Layer 3 — content */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col px-6 lg:px-16">
-        <div className="grid flex-1 items-start gap-x-12 gap-y-16 lg:grid-cols-[1fr_380px]">
-          {/* Headline column */}
-          <div className="max-w-4xl pt-4">
-            {/* ① Brand identity — GOLTENS wordmark */}
-            <div>
-              <h1 className="block overflow-hidden">
-                <motion.span
-                  initial={{ y: "110%" }}
-                  animate={{ y: "0%" }}
-                  transition={{ duration: 0.9, ease: EXPO_OUT }}
-                  className="block text-[clamp(3.25rem,8vw,7.5rem)] font-bold leading-[0.95] tracking-[-0.03em] text-white"
-                >
-                  GOLTENS
-                </motion.span>
-              </h1>
-
-              {/* ② Brand descriptor */}
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: EXPO_OUT, delay: 0.45 }}
-                className="mt-2 text-sm font-medium uppercase tracking-[0.35em] text-slate-300 sm:text-base"
+        <div className="flex flex-1 flex-col justify-center gap-y-24">
+          {/* Chapter 1 — Identity. Isolated as the page's sole focal point. */}
+          <div>
+            <h1 className="block overflow-hidden">
+              <motion.span
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 0.9, ease: EXPO_OUT }}
+                className="block text-[clamp(3.75rem,9.5vw,8.75rem)] font-bold leading-[0.95] tracking-[-0.03em] text-white"
               >
-                General Supplies
-              </motion.p>
+                GOLTENS
+              </motion.span>
+            </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: EXPO_OUT, delay: 0.6 }}
-                className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-slate-500"
-              >
-                Global Procurement · Industrial Solutions · Strategic Sourcing
-              </motion.p>
-            </div>
-
-            {/* ③ Supporting headline */}
-            <p className="mt-12 text-[clamp(2.75rem,7.5vw,6.75rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-white">
-              {HEADLINE_LINES.map((line, index) => (
-                <span key={line} className="block overflow-hidden">
-                  <motion.span
-                    initial={{ y: "115%" }}
-                    animate={{ y: "0%" }}
-                    transition={{
-                      duration: 1,
-                      ease: EXPO_OUT,
-                      delay: 0.85 + index * 0.12,
-                    }}
-                    className={`block ${index === HEADLINE_LINES.length - 1 ? "text-blue-400" : ""}`}
-                  >
-                    {line}
-                  </motion.span>
-                </span>
-              ))}
-            </p>
-
-            {/* ④ Description */}
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: EXPO_OUT, delay: 1.55 }}
-              className="mt-8 max-w-xl text-lg leading-relaxed text-slate-300"
+              transition={{ duration: 0.7, ease: EXPO_OUT, delay: 0.45 }}
+              className="mt-2 text-sm font-medium uppercase tracking-[0.35em] text-slate-300 sm:text-base"
             >
-              From industrial machinery and pumps to electrical systems, IT
-              infrastructure and fire safety — complete, compliant
-              procurement for government entities and industrial facilities
-              across Egypt and the region.
+              General Supplies
             </motion.p>
 
-            {/* ⑤ CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: EXPO_OUT, delay: 1.75 }}
-              className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4"
+              transition={{ duration: 0.7, ease: EXPO_OUT, delay: 0.6 }}
+              className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-slate-500"
             >
-              <a
-                href="#contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-sm font-medium text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-blue-600/30"
-              >
-                Request a Quote
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-
-              <a
-                href="#products"
-                className="group inline-flex items-center gap-1.5 text-sm font-medium text-slate-300 transition-colors duration-300 hover:text-white"
-              >
-                Explore Capabilities
-                <span className="relative -bottom-px block h-px w-6 bg-slate-500 transition-all duration-300 group-hover:w-8 group-hover:bg-white" />
-              </a>
-            </motion.div>
+              Global Procurement · Industrial Solutions · Strategic Sourcing
+            </motion.p>
           </div>
 
-          {/* Operations Panel — desktop only */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EXPO_OUT, delay: 0.7 }}
-            className="hidden lg:mt-6 lg:block lg:w-[380px] lg:justify-self-end"
-          >
+          {/* Chapter 2 — Message, paired with the Operations Panel */}
+          <div className="grid gap-x-12 gap-y-12 lg:grid-cols-[1fr_380px] lg:items-start">
+            <div className="max-w-2xl">
+              <p className="text-[clamp(2.25rem,6.25vw,5.5rem)] font-semibold leading-[1] tracking-[-0.02em] text-white">
+                {HEADLINE_LINES.map((line, index) => (
+                  <span key={line} className="block overflow-hidden">
+                    <motion.span
+                      initial={{ y: "115%" }}
+                      animate={{ y: "0%" }}
+                      transition={{
+                        duration: 1,
+                        ease: EXPO_OUT,
+                        delay: 0.85 + index * 0.12,
+                      }}
+                      className={`block ${index === HEADLINE_LINES.length - 1 ? "text-blue-400" : ""}`}
+                    >
+                      {line}
+                    </motion.span>
+                  </span>
+                ))}
+              </p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: EXPO_OUT, delay: 1.55 }}
+                className="mt-8 max-w-xl text-lg leading-relaxed text-slate-300"
+              >
+                From industrial machinery and pumps to electrical systems, IT
+                infrastructure and fire safety — complete, compliant
+                procurement for government entities and industrial facilities
+                across Egypt and the region.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: EXPO_OUT, delay: 1.75 }}
+                className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4"
+              >
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-sm font-medium text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-blue-600/30"
+                >
+                  Request a Quote
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+
+                <a
+                  href="#products"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-slate-300 transition-colors duration-300 hover:text-white"
+                >
+                  Explore Capabilities
+                  <span className="relative -bottom-px block h-px w-6 bg-slate-500 transition-all duration-300 group-hover:w-8 group-hover:bg-white" />
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Operations Panel — desktop only */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: EXPO_OUT, delay: 0.7 }}
+              className="hidden lg:block lg:w-[380px] lg:justify-self-end"
+            >
             <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl backdrop-blur-2xl">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-slate-200">
@@ -340,6 +337,7 @@ export default function Hero() {
               </div>
             </div>
           </motion.div>
+          </div>
         </div>
 
         {/* Trusted by */}
