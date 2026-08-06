@@ -1,0 +1,795 @@
+{
+  "common": {
+    "siteName": "GOLTENS GENERAL SUPPLIES",
+    "switchLanguage": "العربية",
+    "skipToContent": "Skip to main content",
+    "requestQuotation": "Request a Quotation",
+    "rfqTrayLabel": "{count, plural, one {View RFQ cart, # item} other {View RFQ cart, # items}}",
+    "compareTrayLabel": "{count, plural, one {View comparison, # product} other {View comparison, # products}}"
+  },
+  "meta": {
+    "home": {
+      "title": "GOLTENS GENERAL SUPPLIES — Procurement & General Supplies in Egypt",
+      "description": "GOLTENS GENERAL SUPPLIES sources, verifies, and delivers general supplies for government entities, universities, industrial companies, healthcare organizations, and the private sector across Egypt."
+    },
+    "contact": {
+      "title": "Contact Us — GOLTENS GENERAL SUPPLIES",
+      "description": "Contact GOLTENS GENERAL SUPPLIES for professional supply solutions for government, industrial, and commercial projects across Egypt."
+    },
+    "about": {
+      "title": "About Us — GOLTENS GENERAL SUPPLIES",
+      "description": "Learn about GOLTENS GENERAL SUPPLIES, your trusted partner for general supplies and procurement serving government, industrial, healthcare, and educational organizations across Egypt."
+    },
+    "sectors": {
+      "title": "Procurement Sectors — GOLTENS GENERAL SUPPLIES",
+      "description": "Integrated procurement solutions for government entities, projects, factories, hospitals, and companies, through a global network of approved suppliers and brands, upholding the highest standards of quality and speed of execution."
+    },
+    "brands": {
+      "title": "Global Brands — GOLTENS GENERAL SUPPLIES",
+      "description": "We supply genuine products from leading international manufacturers through trusted procurement channels with full technical and commercial support."
+    },
+    "knowledge": {
+      "title": "Knowledge Center — GOLTENS GENERAL SUPPLIES",
+      "description": "Technical guides, buying guides, industry standards, and procurement articles from GOLTENS GENERAL SUPPLIES."
+    },
+    "privacy": {
+      "title": "Privacy Policy — GOLTENS GENERAL SUPPLIES",
+      "description": "How GOLTENS GENERAL SUPPLIES collects, uses, and protects the information you share with us."
+    },
+    "terms": {
+      "title": "Terms & Conditions — GOLTENS GENERAL SUPPLIES",
+      "description": "The terms and conditions governing your use of the GOLTENS GENERAL SUPPLIES website."
+    },
+    "disclaimer": {
+      "title": "Disclaimer — GOLTENS GENERAL SUPPLIES",
+      "description": "Important disclaimers regarding the information published on the GOLTENS GENERAL SUPPLIES website."
+    },
+    "cookiePolicy": {
+      "title": "Cookie Policy — GOLTENS GENERAL SUPPLIES",
+      "description": "How GOLTENS GENERAL SUPPLIES uses cookies on this website."
+    },
+    "accessibility": {
+      "title": "Accessibility Statement — GOLTENS GENERAL SUPPLIES",
+      "description": "Our commitment to making the GOLTENS GENERAL SUPPLIES website accessible to everyone."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "sectors": "Sectors",
+    "brands": "Brands",
+    "about": "About Us",
+    "contact": "Contact",
+    "primaryNav": "Primary",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "label": "Enterprise Procurement Solutions",
+    "headline": "Egypt's Trusted Link to the World's Leading Manufacturers",
+    "paragraph": "Procurement for government, industrial, and institutional projects — sourcing certified equipment from a trusted global manufacturer network, backed by technical support at every stage.",
+    "primaryCta": "Request a Quote",
+    "secondaryCta": "Explore Solutions",
+    "trustBar": [
+      {
+        "slug": "government",
+        "title": "Government Entities",
+        "subtitle": "Supply solutions aligned with government requirements."
+      },
+      {
+        "slug": "industrial",
+        "title": "Industrial Companies",
+        "subtitle": "Equipment and operating materials for factories and production lines."
+      },
+      {
+        "slug": "contractors",
+        "title": "Contractors & Construction",
+        "subtitle": "Materials and equipment supply for construction and engineering projects."
+      },
+      {
+        "slug": "healthcare",
+        "title": "Hospitals",
+        "subtitle": "Supplies for hospitals and medical centers."
+      },
+      {
+        "slug": "universities",
+        "title": "Universities",
+        "subtitle": "Integrated solutions for universities and educational institutions."
+      }
+    ]
+  },
+  "sectors": {
+    "eyebrow": "What We Supply",
+    "title": "Procurement Sectors",
+    "description": "We provide integrated procurement solutions for government entities, projects, factories, hospitals, and companies, through a global network of approved suppliers and brands, upholding the highest standards of quality and speed of execution.",
+    "exploreSector": "Explore Sector",
+    "comingSoon": "Coming Soon",
+    "relatedTitle": "Related Sectors",
+    "relatedSolutionsTitle": "Related Solutions",
+    "heroRequestQuote": "Request a Quote",
+    "heroDownloadCatalogue": "Download Catalogue",
+    "aboutTitle": "About {sector}",
+    "applicationsTitle": "Applications",
+    "projectsTitle": "Projects We Serve",
+    "projectsRecommended": "Recommended",
+    "productsTitle": "Products",
+    "productsEmptyTitle": "Product catalog coming soon",
+    "productsComingSoon": "A detailed product catalog for this sector is coming soon. Share your requirements and our team will respond directly.",
+    "brandsTitle": "Available Brands",
+    "brandsFallback": "We source genuine products from trusted global brands, subject to availability. Contact us to discuss the options available for this sector.",
+    "brandsDisclaimer": "Products supplied according to project requirements.",
+    "advantagesTitle": "Why Choose GOLTENS",
+    "cataloguesTitle": "Technical Catalogues",
+    "catalogueDownload": "Download",
+    "cataloguesDefaultCompanyProfile": "Company Profile",
+    "cataloguesDefaultCatalog": "{sector} Catalog",
+    "cataloguesDefaultDatasheets": "Technical Datasheets",
+    "cataloguesDefaultCertificates": "Certificates",
+    "articlesTitle": "Knowledge Center",
+    "articlesEmptyTitle": "Articles are coming soon.",
+    "articlesEmptyBody": "Insights and technical articles for this sector will be published here soon.",
+    "articlesReadMore": "Read More",
+    "faqTitle": "Frequently Asked Questions",
+    "faqDefaultQ1": "What brands does GOLTENS supply for {sector}?",
+    "faqDefaultA1": "We source genuine products from trusted global manufacturers for {sector}, subject to availability. Contact us to discuss the brands relevant to your project.",
+    "faqDefaultQ2": "Can GOLTENS supply {sector} for government and private projects?",
+    "faqDefaultA2": "Yes, we supply procurement solutions for {sector} across government, industrial, and commercial projects.",
+    "faqDefaultQ3": "How can I request a quotation?",
+    "faqDefaultA3": "Share your requirements using the request quotation form on this page, and our team will respond with a tailored quotation.",
+    "ctaTitle": "Ready to source for this sector?",
+    "ctaDescription": "Share your requirements and our team will get back to you with a tailored quotation."
+  },
+  "products": {
+    "overviewTitle": "Overview",
+    "featuresTitle": "Features",
+    "applicationsTitle": "Applications",
+    "specificationsTitle": "Technical Information",
+    "brandsTitle": "Compatible Brands",
+    "brandsFallback": "We source genuine products from trusted global brands, subject to availability. Contact us to discuss the options available for this product.",
+    "brandsDisclaimer": "Available through GOLTENS international procurement network.",
+    "cataloguesTitle": "Available Catalogues",
+    "cataloguesDefault": "{product} Datasheet",
+    "articlesTitle": "Related Articles",
+    "relatedProductsTitle": "Related Products",
+    "relatedProductsEmptyTitle": "More products in this category are coming soon",
+    "relatedProductsEmptyBody": "Share your requirements and our team will respond directly with the options available.",
+    "faqTitle": "Frequently Asked Questions",
+    "ctaTitle": "Ready to request a quotation for this product?",
+    "ctaDescription": "Share your requirements and our team will get back to you with a tailored quotation.",
+    "relatedSectorTitle": "Related Sector",
+    "relatedSolutionsTitle": "Related Solutions",
+    "filterSearchLabel": "Search products",
+    "filterSearchPlaceholder": "Search products...",
+    "filterAllLabel": "All",
+    "filterNoResultsTitle": "No products match your search.",
+    "filterNoResultsDescription": "Try a different name or category, or share your requirements — our sourcing network covers far more than this list.",
+    "addToRfqLabel": "Add to RFQ",
+    "addToRfqAddedLabel": "Added to RFQ",
+    "addToCompareLabel": "Add to Compare",
+    "addToCompareAddedLabel": "Added to Compare"
+  },
+  "solutions": {
+    "eyebrow": "Project Solutions",
+    "breadcrumbLabel": "Solutions",
+    "listingTitle": "Project Solutions",
+    "listingDescription": "Start from your project, not a product — GOLTENS connects the sectors, products, brands, catalogues, and articles that genuinely apply to what you're building.",
+    "exploreSolution": "Explore Solution",
+    "overviewTitle": "Overview",
+    "procurementScopeTitle": "Procurement Scope",
+    "procurementScopeIntro": "What GOLTENS sources for {solution} projects:",
+    "relatedSectorsTitle": "Related Sectors",
+    "productsTitle": "Featured Products",
+    "productsEmptyTitle": "Featured products coming soon",
+    "productsEmptyBody": "A curated product list for {solution} projects is coming soon. Share your requirements and our team will respond directly.",
+    "brandsTitle": "Featured Brands",
+    "brandsFallback": "We source genuine products from trusted global brands, subject to availability. Contact us to discuss the options available for this project type.",
+    "cataloguesTitle": "Downloadable Catalogues",
+    "articlesTitle": "Knowledge Center Articles",
+    "articlesEmptyTitle": "Articles are coming soon.",
+    "articlesEmptyBody": "Insights and technical articles relevant to {solution} projects will be published here soon.",
+    "faqTitle": "Frequently Asked Questions",
+    "ctaTitle": "Ready to request a quotation for this project?",
+    "ctaDescription": "Share your requirements and our team will get back to you with a tailored quotation.",
+    "relatedSolutionsTitle": "Related Solutions"
+  },
+  "knowledge": {
+    "eyebrow": "Resource Library",
+    "breadcrumbLabel": "Knowledge Center",
+    "listingTitle": "Knowledge Center",
+    "listingDescription": "Technical guides, buying guides, industry standards, and procurement articles — sourced from real GOLTENS expertise, published as it becomes available rather than filled with placeholder content.",
+    "filterAllLabel": "All",
+    "types": {
+      "article": "Article",
+      "technical-guide": "Technical Guide",
+      "buying-guide": "Buying Guide",
+      "maintenance-guide": "Maintenance Guide",
+      "brand-guide": "Brand Guide",
+      "product-comparison": "Product Comparison",
+      "industry-standard": "Industry Standard",
+      "video": "Video",
+      "case-study": "Case Study"
+    },
+    "readMoreLabel": "Read More",
+    "readingTimeLabel": "{minutes, plural, one {# min read} other {# min read}}",
+    "publishedLabel": "Published {date}",
+    "updatedLabel": "Updated {date}",
+    "versionLabel": "Version {version}",
+    "authorLabel": "By {author}",
+    "galleryTitle": "Gallery",
+    "attachmentsTitle": "Downloads",
+    "comparisonTitle": "Comparison",
+    "relatedReadingTitle": "Related Reading",
+    "relatedSectorsTitle": "Related Sectors",
+    "relatedProductsTitle": "Related Products",
+    "relatedBrandsTitle": "Related Brands",
+    "relatedSolutionsTitle": "Related Solutions",
+    "faqTitle": "Frequently Asked Questions",
+    "ctaTitle": "Have a project this relates to?",
+    "ctaDescription": "Share your requirements and our procurement team will get back to you with a tailored quotation.",
+    "requestQuote": "Request a Quote",
+    "emptyTitle": "No results yet.",
+    "emptyBody": "Content matching this filter is coming soon. Try another type, or contact us directly.",
+    "relatedKnowledgeTitle": "Related Knowledge"
+  },
+  "brands": {
+    "eyebrow": "Trusted Supplier Network",
+    "title": "Global Procurement Network",
+    "description": "We deliver complete procurement solutions through a trusted international supplier network, sourcing genuine products from leading global manufacturers according to each project's requirements.",
+    "statGlobalNetwork": "Global Supplier Network",
+    "statProductRange": "Wide Product Range",
+    "statProjects": "Government & Private Projects",
+    "statDelivery": "Nationwide Delivery",
+    "viewCapability": "View Capability",
+    "disclaimer": "All trademarks and logos belong to their respective owners and are displayed for identification purposes only. Their appearance does not imply authorized distributorship, partnership or endorsement unless explicitly stated.",
+    "independenceDisclaimer": "GOLTENS is an independent procurement and general supplies company and is not necessarily an authorized distributor of the brands displayed unless explicitly stated.",
+    "searchLabel": "Search brands",
+    "searchPlaceholder": "Search brands...",
+    "filterAllLabel": "All",
+    "noResultsTitle": "No brands match your search.",
+    "noResultsDescription": "Try a different name or category, or contact us — our sourcing network includes hundreds of manufacturers beyond this list.",
+    "viewAllBrands": "View All Brands",
+    "aboutTitle": "About {brand}",
+    "aboutText": "GOLTENS supplies genuine {brand} products, sourced through our trusted supplier network, subject to availability.",
+    "categoryLabel": "Category",
+    "relatedSectorLabel": "Related Sector",
+    "industriesServedTitle": "Industries Served",
+    "whyChooseTitle": "Why Choose {brand}",
+    "capabilitiesTitle": "Procurement Capabilities",
+    "productsTitle": "Products Supplied by GOLTENS",
+    "productsComingSoon": "A detailed list of {brand} products we supply is coming soon. Share your requirements and our team will respond directly.",
+    "modelLabel": "Model:",
+    "comingSoon": "Coming Soon",
+    "relatedProductsTitle": "Related Products",
+    "relatedProductsEmptyTitle": "A detailed product list is coming soon",
+    "relatedProductsEmptyBody": "Share your requirements and our team will respond directly with the options available for this brand.",
+    "relatedSolutionsTitle": "Related Solutions",
+    "relatedBrandsTitle": "Related Brands",
+    "requestQuote": "Request a Quote",
+    "contactProcurementTeam": "Contact Procurement Team",
+    "ctaTitle": "Looking for a brand not listed?",
+    "ctaDescription": "Our international procurement team can source thousands of other brands according to your project's needs.",
+    "viewSupplierDirectory": "View Full Supplier Directory",
+    "supplierInfoTitle": "Supplier Information",
+    "countryLabel": "Country",
+    "websiteLabel": "Official Website",
+    "visitWebsite": "Visit Website",
+    "viewInSupplierDirectory": "View in Supplier Directory"
+  },
+  "rfq": {
+    "eyebrow": "Request for Quotation",
+    "title": "Your RFQ Cart",
+    "description": "Review the products you've added, adjust quantities, and submit one itemized request — our procurement team will respond with a tailored quotation.",
+    "emptyTitle": "Your RFQ cart is empty",
+    "emptyBody": "Browse our procurement sectors and add products to build a request for quotation.",
+    "browseSectors": "Browse Sectors",
+    "decreaseQuantity": "Decrease quantity",
+    "increaseQuantity": "Increase quantity",
+    "removeLabel": "Remove {name} from RFQ cart",
+    "form": {
+      "companyName": {
+        "label": "Company Name",
+        "placeholder": "Your company name"
+      },
+      "contactName": {
+        "label": "Contact Name",
+        "placeholder": "Your full name"
+      },
+      "email": { "label": "Email Address", "placeholder": "you@company.com" },
+      "phone": { "label": "Phone Number", "placeholder": "+20 1XX XXX XXXX" },
+      "notes": {
+        "label": "Additional Notes",
+        "placeholder": "Any additional details about your request (project name, delivery timeline, etc.)"
+      }
+    },
+    "upload": {
+      "label": "Attach Supporting Documents (optional)",
+      "dropzoneLabel": "Drag files here or click to upload",
+      "hint": "PDF, Excel, Word, ZIP, or image files up to 25MB each.",
+      "removeLabel": "Remove {name}",
+      "tooLarge": "{name} is larger than 25MB and was not added."
+    },
+    "validation": {
+      "required": "This field is required.",
+      "invalidEmail": "Please enter a valid email address."
+    },
+    "error": {
+      "title": "Something went wrong",
+      "description": "We couldn't submit your request. Please try again, or contact us directly."
+    },
+    "submitting": "Submitting...",
+    "submit": "Submit RFQ",
+    "formNote": "By submitting, you agree to be contacted by our procurement team regarding this request.",
+    "success": {
+      "title": "Your RFQ has been submitted",
+      "description": "Thank you — our procurement team will review your request and respond with a tailored quotation shortly.",
+      "action": "Back to Home"
+    }
+  },
+  "compare": {
+    "eyebrow": "Product Comparison",
+    "title": "Compare Products",
+    "description": "Compare technical specifications side by side for products in the same category, sourced directly from our product catalog.",
+    "emptyTitle": "No products selected for comparison",
+    "emptyBody": "Browse our procurement sectors and add products to compare their specifications.",
+    "browseSectors": "Browse Sectors",
+    "removeLabel": "Remove {name} from comparison",
+    "addAllToRfq": "Add All to RFQ",
+    "clearAll": "Clear All",
+    "tableTitle": "Specification Comparison",
+    "noValueLabel": "—"
+  },
+  "suppliers": {
+    "eyebrow": "Supplier Directory",
+    "title": "Supplier Directory",
+    "description": "Browse the global manufacturers and suppliers GOLTENS sources from, filterable by procurement category and country of origin.",
+    "searchLabel": "Search suppliers",
+    "searchPlaceholder": "Search suppliers...",
+    "countryFilterLabel": "Country",
+    "filterAllCategory": "All Categories",
+    "filterAllCountry": "All Countries",
+    "columnSupplier": "Supplier",
+    "columnCategory": "Category",
+    "columnCountry": "Country",
+    "columnWebsite": "Website",
+    "visitWebsite": "Visit Website",
+    "noResultsTitle": "No suppliers match your search.",
+    "noResultsDescription": "Try a different name, category, or country, or contact us — our sourcing network includes hundreds of manufacturers beyond this list.",
+    "disclaimer": "All trademarks and logos belong to their respective owners and are displayed for identification purposes only. Their appearance does not imply authorized distributorship, partnership or endorsement unless explicitly stated."
+  },
+  "downloads": {
+    "viewDownloadCenter": "Browse the Download Center",
+    "searchLabel": "Search documents",
+    "searchPlaceholder": "Search by document or product name...",
+    "filterAllLabel": "All",
+    "downloadLabel": "Download",
+    "comingSoonLabel": "Coming Soon",
+    "noResultsTitle": "No documents match your search.",
+    "noResultsDescription": "Try a different name, category, or document type, or share your requirements — our team can provide documentation directly.",
+    "kind": {
+      "datasheet": "Datasheets",
+      "manual": "Manuals",
+      "certificate": "Certificates",
+      "drawing": "Drawings",
+      "catalogue": "Catalogues"
+    },
+    "center": {
+      "eyebrow": "Download Center",
+      "title": "Download Center",
+      "description": "Every technical document available across our product catalog — datasheets, manuals, certificates, drawings, and catalogues — in one searchable library.",
+      "datasheetLibraryCard": "Browse technical datasheets for products across our catalog.",
+      "certificationLibraryCard": "Browse product certificates and compliance documentation."
+    },
+    "datasheets": {
+      "eyebrow": "Technical Documentation",
+      "title": "Datasheet Library",
+      "description": "Technical datasheets for products across our catalog, searchable and filterable by procurement sector.",
+      "emptyLibraryTitle": "No datasheets published yet",
+      "emptyLibraryBody": "Technical datasheets are being prepared for our product catalog. Share your requirements and our team will send you the documentation you need directly."
+    },
+    "certifications": {
+      "eyebrow": "Certifications",
+      "title": "Certifications Library",
+      "description": "Product certificates and compliance documentation across our catalog, searchable and filterable by procurement sector.",
+      "emptyLibraryTitle": "No certifications published yet",
+      "emptyLibraryBody": "Certification documents are being compiled for our product catalog. Share your requirements and our team will provide the compliance documentation you need directly."
+    }
+  },
+  "finalCta": {
+    "title": "Ready to Start Your Next Procurement Project?",
+    "description": "Share your project requirements and our procurement team will respond with a tailored solution.",
+    "requestQuote": "Request a Quote",
+    "emailProcurementTeam": "Email Procurement Team"
+  },
+  "whyChooseUs": {
+    "title": "Why Choose GOLTENS?",
+    "subtitle": "Your trusted procurement partner for industrial, governmental and commercial projects.",
+    "items": [
+      "Genuine products from global brands.",
+      "Competitive pricing for every project.",
+      "Fast delivery across Egypt.",
+      "Expertise in industrial procurement.",
+      "Technical support before and after sales.",
+      "A network of local and global suppliers."
+    ]
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "title": "Your Trusted Partner in Industrial & Government Procurement",
+    "description": "GOLTENS GENERAL SUPPLIES is an Egyptian procurement company supplying general supplies and equipment, serving government entities, industrial, healthcare, and educational organizations, and the private sector across Egypt.",
+    "storyTitle": "Our Story",
+    "storyParagraphs": [
+      "GOLTENS GENERAL SUPPLIES was founded to be a trusted link between projects in Egypt and the world's leading manufacturers and suppliers, through a supply network covering industrial chemicals, fire-fighting equipment, pumps, industrial oils, commercial vehicles, and heavy equipment.",
+      "We work with government entities, universities, hospitals, industrial companies, and contractors, and in every procurement process we hold quality, authenticity, and speed of execution as priorities, backed by technical support before and after the sale."
+    ],
+    "missionTitle": "Our Mission",
+    "missionText": "To deliver reliable, fast procurement solutions that connect Egypt's projects with the world's leading manufacturers, upholding the highest standards of quality and professionalism at every stage.",
+    "visionTitle": "Our Vision",
+    "visionText": "To be the leading, most trusted procurement partner for industrial and government projects in Egypt and the region.",
+    "valuesTitle": "Our Values",
+    "values": [
+      {
+        "title": "Quality & Authenticity",
+        "description": "We supply only genuine products from trusted global brands."
+      },
+      {
+        "title": "Reliability & Commitment",
+        "description": "Full commitment to agreed timelines and specifications on every project."
+      },
+      {
+        "title": "Technical Expertise",
+        "description": "A specialized team that understands the requirements of industrial, government, and healthcare sectors."
+      },
+      {
+        "title": "Comprehensive Coverage",
+        "description": "Fast delivery covering every region and governorate of Egypt."
+      }
+    ],
+    "whyTitle": "Why GOLTENS?",
+    "whyIntro": "What sets our procurement partnership apart.",
+    "whyPoints": [
+      {
+        "title": "A Certified Global Network",
+        "description": "Direct sourcing channels with certified international manufacturers and suppliers."
+      },
+      {
+        "title": "Support Before & After Sale",
+        "description": "Technical guidance at every stage, from specification to after-sales support."
+      },
+      {
+        "title": "On-Time Execution",
+        "description": "Reliable lead times and fast delivery, project after project."
+      },
+      {
+        "title": "Sector Expertise",
+        "description": "Deep experience in government, industrial, and institutional procurement."
+      }
+    ],
+    "qualityTitle": "Our Commitment to Quality",
+    "qualityIntro": "Every shipment is measured against the same standard, regardless of project size.",
+    "qualityPoints": [
+      {
+        "title": "Genuine, Certified Products",
+        "description": "Sourced through GOLTENS' trusted international supplier network."
+      },
+      {
+        "title": "Quality Assurance",
+        "description": "Every order is checked against your technical specifications before it ships."
+      },
+      {
+        "title": "Full Technical Support",
+        "description": "Our engineering team is available before and after every order."
+      }
+    ],
+    "servedTitle": "Industries We Serve",
+    "ctaTitle": "Have a question about our services?",
+    "ctaButton": "Contact Us"
+  },
+  "contact": {
+    "eyebrow": "Get in Touch",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "websiteLabel": "Website",
+    "whatsappLabel": "WhatsApp",
+    "linkedinLabel": "LinkedIn",
+    "facebookLabel": "Facebook",
+    "whatsappAction": "Chat on WhatsApp",
+    "locationLabel": "Head Office",
+    "location": "Cairo, Egypt",
+    "hoursLabel": "Business Hours",
+    "hoursDays": "Sunday – Thursday",
+    "hoursTime": "09:00 AM – 05:00 PM",
+    "rfqPrompt": "Prefer to reach us directly?"
+  },
+  "footer": {
+    "description": "GOLTENS General Supplies delivers professional procurement and industrial supply solutions for government, industrial and commercial projects across Egypt.",
+    "ctaButton": "Contact Us",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms & Conditions",
+    "disclaimer": "Disclaimer",
+    "cookiePolicy": "Cookie Policy",
+    "accessibility": "Accessibility Statement",
+    "copyright": "© {year} GOLTENS General Supplies. All Rights Reserved.",
+    "columns": {
+      "company": {
+        "heading": "Company",
+        "about": "About",
+        "sectors": "Sectors",
+        "brands": "Brands",
+        "contact": "Contact"
+      },
+      "sectors": {
+        "heading": "Sectors",
+        "industrialEquipment": "Industrial Equipment & Pumps",
+        "fireProtection": "Fire Protection Systems",
+        "heavyEquipment": "Heavy Equipment & Machinery",
+        "commercialVehicles": "Commercial Vehicles & Fleet Solutions",
+        "industrialChemicals": "Industrial Chemicals & Lubricants"
+      },
+      "contact": {
+        "heading": "Contact"
+      }
+    }
+  },
+  "privacy": {
+    "eyebrow": "Privacy Policy",
+    "title": "Privacy Policy",
+    "updated": "Last updated: August 5, 2026",
+    "intro": "GOLTENS GENERAL SUPPLIES (\"GOLTENS,\" \"we,\" \"us,\" or \"our\") respects your privacy. This Privacy Policy explains what information we collect through this website, how we use it, and the choices you have.",
+    "sections": [
+      {
+        "heading": "Information We Collect",
+        "body": "We collect the information you provide directly to us — such as your name, company name, email address, phone number, and project details — when you submit a request for quotation, complete a contact form, or otherwise communicate with us. We do not require you to create an account or provide payment information to use this website."
+      },
+      {
+        "heading": "How We Use Your Information",
+        "body": "We use the information you provide to respond to your inquiry, prepare and deliver quotations, communicate about your project, and improve the services we offer. We do not use your information for automated decision-making or unsolicited marketing."
+      },
+      {
+        "heading": "How We Share Your Information",
+        "body": "We do not sell your personal information. We may share it with the manufacturers or suppliers relevant to your specific request, solely to prepare an accurate quotation, and with service providers who help us operate this website, such as our email delivery provider, under obligations to protect your information."
+      },
+      {
+        "heading": "Data Retention",
+        "body": "We retain the information you provide for as long as necessary to respond to your inquiry, fulfill any resulting engagement, and comply with our legal and accounting obligations, after which it is securely deleted or anonymized."
+      },
+      {
+        "heading": "Cookies",
+        "body": "This website uses only the cookies necessary for its basic functionality, such as remembering your selected language. See our Cookie Policy for details."
+      },
+      {
+        "heading": "Data Security",
+        "body": "We apply reasonable technical and organizational measures to protect the information you share with us against unauthorized access, loss, or misuse. No method of transmission over the internet is completely secure, and we cannot guarantee absolute security."
+      },
+      {
+        "heading": "Your Rights",
+        "body": "You may request access to, correction of, or deletion of the personal information you have provided to us at any time by contacting us using the details below."
+      },
+      {
+        "heading": "Children's Privacy",
+        "body": "This website is intended for business use and is not directed at children. We do not knowingly collect personal information from children."
+      },
+      {
+        "heading": "Changes to This Policy",
+        "body": "We may update this Privacy Policy from time to time to reflect changes in our practices or for legal or operational reasons. The \"Last updated\" date above indicates when this policy was last revised."
+      },
+      {
+        "heading": "Contact Us",
+        "body": "If you have any questions about this Privacy Policy or how your information is handled, please contact us at {email} or {phone}."
+      }
+    ]
+  },
+  "terms": {
+    "eyebrow": "Terms & Conditions",
+    "title": "Terms & Conditions",
+    "updated": "Last updated: August 5, 2026",
+    "intro": "These Terms & Conditions (\"Terms\") govern your use of this website, operated by GOLTENS GENERAL SUPPLIES. By accessing or using this website, you agree to these Terms.",
+    "sections": [
+      {
+        "heading": "Use of This Website",
+        "body": "This website is provided to share information about our procurement capabilities and to receive requests for quotation. You agree to use it only for lawful purposes and to provide accurate information when submitting any request."
+      },
+      {
+        "heading": "Quotations & Pricing",
+        "body": "Prices, specifications, and availability referenced on this website are indicative only. Every quotation is confirmed individually based on your specific requirements and is not a binding offer until formally issued and accepted in writing."
+      },
+      {
+        "heading": "Product & Brand Information",
+        "body": "Brand and manufacturer names displayed on this website identify the products we can source, subject to availability. Their appearance does not imply an authorized distributorship, partnership, or endorsement unless explicitly stated. See our Disclaimer for further detail."
+      },
+      {
+        "heading": "Intellectual Property",
+        "body": "The content of this website, including text, graphics, and logos, is the property of GOLTENS GENERAL SUPPLIES or its licensors and is protected by applicable intellectual property laws. You may not reproduce or distribute this content without our prior written consent."
+      },
+      {
+        "heading": "Third-Party Links",
+        "body": "This website may reference or link to third-party manufacturer websites. We are not responsible for the content, accuracy, or practices of any third-party site."
+      },
+      {
+        "heading": "Limitation of Liability",
+        "body": "To the fullest extent permitted by law, GOLTENS GENERAL SUPPLIES shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website. Our liability in connection with any confirmed order is governed by the terms of that specific agreement."
+      },
+      {
+        "heading": "Governing Law",
+        "body": "These Terms are governed by the laws of the Arab Republic of Egypt. Any dispute arising from these Terms or your use of this website shall be subject to the exclusive jurisdiction of the competent courts of Egypt."
+      },
+      {
+        "heading": "Changes to These Terms",
+        "body": "We may update these Terms from time to time. Continued use of this website after any change constitutes your acceptance of the revised Terms."
+      },
+      {
+        "heading": "Contact Us",
+        "body": "For any questions about these Terms, please contact us at {email} or {phone}."
+      }
+    ]
+  },
+  "disclaimer": {
+    "eyebrow": "Disclaimer",
+    "title": "Disclaimer",
+    "updated": "Last updated: August 5, 2026",
+    "intro": "The following disclaimer applies to all information published on this website.",
+    "sections": [
+      {
+        "heading": "General Information",
+        "body": "The content of this website is provided for general informational purposes about GOLTENS GENERAL SUPPLIES and our procurement capabilities. While we take reasonable care to keep it accurate and current, we make no warranty of any kind, express or implied, about its completeness, accuracy, or reliability."
+      },
+      {
+        "heading": "No Professional Advice",
+        "body": "Nothing on this website constitutes engineering, legal, financial, or other professional advice. Any procurement, technical, or specification decision should be confirmed directly with our team based on your project's specific requirements."
+      },
+      {
+        "heading": "Third-Party Brands & Trademarks",
+        "body": "All trademarks, brand names, and logos displayed on this website belong to their respective owners and are used for identification purposes only. GOLTENS GENERAL SUPPLIES is an independent procurement and general supplies company. Their appearance does not imply an authorized distributorship, partnership, or endorsement by the brand owner unless explicitly stated."
+      },
+      {
+        "heading": "Availability & Specifications",
+        "body": "Product availability, specifications, and lead times referenced on this website are subject to change and are confirmed individually for each request. We are not responsible for decisions made solely on the basis of website content without direct confirmation from our team."
+      },
+      {
+        "heading": "External Links",
+        "body": "This website may reference third-party websites for informational purposes. We do not control and are not responsible for the content or availability of any external site."
+      },
+      {
+        "heading": "Limitation of Liability",
+        "body": "To the fullest extent permitted by law, GOLTENS GENERAL SUPPLIES disclaims liability for any loss or damage arising from reliance on the content of this website."
+      },
+      {
+        "heading": "Contact Us",
+        "body": "If you have questions about this Disclaimer, please contact us at {email}."
+      }
+    ]
+  },
+  "cookiePolicy": {
+    "eyebrow": "Cookie Policy",
+    "title": "Cookie Policy",
+    "updated": "Last updated: August 5, 2026",
+    "intro": "This Cookie Policy explains how GOLTENS GENERAL SUPPLIES uses cookies on this website.",
+    "sections": [
+      {
+        "heading": "What Are Cookies",
+        "body": "Cookies are small text files stored on your device by your browser. They are widely used to make websites function correctly and to remember your preferences."
+      },
+      {
+        "heading": "How We Use Cookies",
+        "body": "This website uses only essential and functional cookies required for it to work correctly — such as a cookie that remembers your selected language (English or Arabic) so you don't need to reselect it on every visit. We do not currently use advertising or third-party tracking cookies."
+      },
+      {
+        "heading": "Managing Cookies",
+        "body": "Most browsers allow you to control cookies through their settings, including blocking or deleting them. Please note that disabling essential cookies may affect how parts of this website function, such as your language preference."
+      },
+      {
+        "heading": "Changes to This Policy",
+        "body": "We may update this Cookie Policy if the cookies we use change. The \"Last updated\" date above indicates when this policy was last revised."
+      },
+      {
+        "heading": "Contact Us",
+        "body": "If you have questions about our use of cookies, please contact us at {email}."
+      }
+    ]
+  },
+  "accessibility": {
+    "eyebrow": "Accessibility Statement",
+    "title": "Accessibility Statement",
+    "updated": "Last updated: August 5, 2026",
+    "intro": "GOLTENS GENERAL SUPPLIES is committed to making this website accessible to the widest possible audience, including people with disabilities.",
+    "sections": [
+      {
+        "heading": "Our Commitment",
+        "body": "We aim to design and build this website in line with the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA, using semantic HTML, keyboard-accessible navigation, and sufficient color contrast throughout."
+      },
+      {
+        "heading": "Ongoing Efforts",
+        "body": "Accessibility is an ongoing effort. We continue to review and improve this website as new content and features are added, and we welcome feedback that helps us identify areas to improve."
+      },
+      {
+        "heading": "Known Limitations",
+        "body": "Despite our efforts, some parts of this website may not yet be fully accessible. If you encounter a barrier while using this site, please let us know so we can address it."
+      },
+      {
+        "heading": "Feedback",
+        "body": "If you experience any difficulty accessing content on this website, please contact us at {email}. We will do our best to respond promptly and provide the information you need in an accessible format."
+      },
+      {
+        "heading": "Technical Specifications",
+        "body": "This website is built using modern, standards-based web technologies and is designed to be compatible with current browsers and assistive technologies, including screen readers."
+      }
+    ]
+  },
+  "contactPage": {
+    "headline": "Contact the GOLTENS Experts",
+    "subtitle": "Our engineering and procurement team is ready to support your industrial, governmental, and commercial projects.",
+    "features": [
+      "Professional Procurement Solutions",
+      "Global Network of Manufacturers",
+      "Commitment to Quality"
+    ],
+    "form": {
+      "companyName": {
+        "label": "Company Name",
+        "placeholder": "e.g. Cairo University"
+      },
+      "contactName": {
+        "label": "Full Name",
+        "placeholder": "Full name"
+      },
+      "email": {
+        "label": "Business Email",
+        "placeholder": "you@organization.com"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "+20 1xx xxx xxxx"
+      },
+      "productCategory": {
+        "label": "Product / Service Required",
+        "placeholder": "e.g. Industrial pumps, fire fighting equipment..."
+      },
+      "projectName": {
+        "label": "Project Name",
+        "placeholder": "e.g. New Cairo Hospital Extension"
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "e.g. Egypt"
+      },
+      "brandRequired": {
+        "label": "Brand Required",
+        "placeholder": "e.g. Grundfos, Siemens..."
+      },
+      "product": {
+        "label": "Product",
+        "placeholder": "e.g. Centrifugal pump, 50HP"
+      },
+      "quantity": {
+        "label": "Quantity",
+        "placeholder": "e.g. 10 units"
+      },
+      "message": {
+        "label": "Project Details",
+        "placeholder": "Describe the items or specifications you're sourcing."
+      }
+    },
+    "upload": {
+      "label": "Attachment (Optional)",
+      "dropzoneLabel": "Drag a file here, or click to browse",
+      "hint": "PDF, Excel, Word, or ZIP — up to 25MB per file.",
+      "removeLabel": "Remove {name}",
+      "tooLarge": "{name} exceeds the 25MB limit and wasn't added."
+    },
+    "submit": "Send Request",
+    "submitting": "Submitting…",
+    "formNote": "The GOLTENS team will review your request and get in touch with you if needed.",
+    "validation": {
+      "required": "This field is required.",
+      "invalidEmail": "Enter a valid email address."
+    },
+    "success": {
+      "title": "Your request has been received successfully.",
+      "description": "Our team will review your request and contact you if needed.",
+      "action": "Back to Home"
+    },
+    "error": {
+      "title": "We couldn't submit your request.",
+      "description": "Something went wrong on our end. Please try again, or reach us directly.",
+      "action": "Try Again"
+    }
+  }
+}
