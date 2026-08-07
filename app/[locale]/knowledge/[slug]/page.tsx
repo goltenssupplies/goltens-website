@@ -3,10 +3,21 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import type { KnowledgeCardItem } from "@/components/knowledge/KnowledgeCard";
+import { KnowledgeArticleCTA } from "@/components/knowledge/KnowledgeArticleCTA";
+import { KnowledgeArticleHeader } from "@/components/knowledge/KnowledgeArticleHeader";
+import { KnowledgeArticleHeroImage } from "@/components/knowledge/KnowledgeArticleHeroImage";
+import {
+  KnowledgeArticleSections,
+  type KnowledgeArticleSectionItem,
+} from "@/components/knowledge/KnowledgeArticleSections";
 import { KnowledgeComparisonTable } from "@/components/knowledge/KnowledgeComparisonTable";
 import { KnowledgeGallery } from "@/components/knowledge/KnowledgeGallery";
-import { KnowledgeGrid } from "@/components/knowledge/KnowledgeGrid";
-import { KnowledgeHero } from "@/components/knowledge/KnowledgeHero";
+import { KnowledgeMobileToc } from "@/components/knowledge/KnowledgeMobileToc";
+import { KnowledgeRelatedList } from "@/components/knowledge/KnowledgeRelatedList";
+import {
+  KnowledgeTableOfContents,
+  type KnowledgeTocItem,
+} from "@/components/knowledge/KnowledgeTableOfContents";
 import { RelatedSectors } from "@/components/sectors/RelatedSectors";
 import type { SectorCardItem } from "@/components/sectors/SectorCard";
 import {
@@ -19,9 +30,11 @@ import {
   type SectorProductItem,
 } from "@/components/sectors/SectorProducts";
 import { SectorQuoteCTA } from "@/components/sectors/SectorQuoteCTA";
+import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 import { Stack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import {
@@ -40,7 +53,11 @@ import { getSectorContent } from "@/data/sector-content";
 import { getSectorById } from "@/data/sectors";
 import { getSolutionById } from "@/data/solutions";
 import type { Locale } from "@/i18n/routing";
-import { formatKnowledgeDate, getReadingTimeMinutes } from "@/lib/knowledge";
+import {
+  formatKnowledgeDate,
+  getKnowledgeReadingContent,
+  getReadingTimeMinutes,
+} from "@/lib/knowledge";
 import { buildMetadata } from "@/lib/metadata";
 import { buildComparisonRows } from "@/lib/product-comparison";
 import {
@@ -50,6 +67,7 @@ import {
 } from "@/lib/structured-data";
 import { getSectorImage } from "@/lib/sectors";
 import { siteUrl } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 const REQUEST_QUOTE_ANCHOR = "request-quote";
 const MAX_RELATED_READING = 3;
@@ -161,8 +179,10 @@ export default async function KnowledgeDetailPage({
   const isArabic = (locale as Locale) === "ar";
   const title = isArabic ? item.title_ar : item.title_en;
   const summary = isArabic ? item.summary_ar : item.summary_en;
+  // Legacy flat-paragraph fallback, only rendered when `item.sections` is absent.
   const body = (isArabic ? item.content_ar : item.content_en) ?? summary;
   const paragraphs = body.split("\n\n");
+  const readingContent = getKnowledgeReadingContent(item, isArabic);
 
   const t = await getTranslations("knowledge");
   const tNav = await getTranslations("nav");
@@ -172,22 +192,93 @@ export default async function KnowledgeDetailPage({
 
   const pageUrl = `${siteUrl}/${locale}/knowledge/${slug}`;
   const typeLabel = t(`types.${item.type}`);
-  const readingTimeMinutes = getReadingTimeMinutes(body);
+  const readingTimeMinutes = getReadingTimeMinutes(readingContent);
+  const readingTimeLabel = t("readingTimeLabel", {
+    minutes: readingTimeMinutes,
+  });
+  const lastUpdatedLabel = t("updatedLabel", {
+    date: formatKnowledgeDate(
+      item.updatedAt ?? item.publishedAt,
+      locale as Locale,
+    ),
+  });
 
-  const metaParts = [
-    item.author ? t("authorLabel", { author: item.author }) : null,
-    t("publishedLabel", {
-      date: formatKnowledgeDate(item.publishedAt, locale as Locale),
-    }),
-    item.updatedAt
-      ? t("updatedLabel", {
-          date: formatKnowledgeDate(item.updatedAt, locale as Locale),
-        })
-      : null,
-    item.version ? t("versionLabel", { version: item.version }) : null,
-    t("readingTimeLabel", { minutes: readingTimeMinutes }),
-  ].filter((part): part is string => Boolean(part));
-  const metaLine = metaParts.join(" · ");
+  // Structured H2 body — only built when the item has been authored with
+  // `sections`; the page falls back to the flat `paragraphs` render below
+  // for any item that hasn't (see `KnowledgeSection` doc comment).
+  const sectionItems: KnowledgeArticleSectionItem[] = (item.sections ?? []).map(
+    (section, index) => {
+      const listEntries = isArabic ? section.list_ar : section.list_en;
+      return {
+        id: `section-${index}`,
+        heading: isArabic ? section.heading_ar : section.heading_en,
+        paragraphs: (isArabic ? section.body_ar : section.body_en).split(
+          "\n\n",
+        ),
+        list: listEntries?.length
+          ? { items: listEntries, style: section.listStyle ?? "bullet" }
+          : undefined,
+        subsections: section.subsections?.map((subsection) => {
+          const subsectionList = isArabic
+            ? subsection.list_ar
+            : subsection.list_en;
+          return {
+            heading: isArabic ? subsection.heading_ar : subsection.heading_en,
+            paragraphs: (isArabic
+              ? subsection.body_ar
+              : subsection.body_en
+            ).split("\n\n"),
+            list: subsectionList?.length
+              ? {
+                  items: subsectionList,
+                  style: subsection.listStyle ?? "bullet",
+                }
+              : undefined,
+          };
+        }),
+        callout: section.callout
+          ? {
+              title:
+                (isArabic
+                  ? section.callout.title_ar
+                  : section.callout.title_en) ?? t("importantNoteTitle"),
+              body: isArabic
+                ? section.callout.body_ar
+                : section.callout.body_en,
+            }
+          : undefined,
+        table: section.table
+          ? {
+              caption: isArabic
+                ? section.table.caption_ar
+                : section.table.caption_en,
+              headers: isArabic
+                ? section.table.headers_ar
+                : section.table.headers_en,
+              rows: section.table.rows.map((row) => ({
+                label: isArabic ? row.label_ar : row.label_en,
+                values: isArabic ? row.values_ar : row.values_en,
+              })),
+            }
+          : undefined,
+        image: section.image
+          ? {
+              src: section.image.src,
+              caption: isArabic
+                ? section.image.caption_ar
+                : section.image.caption_en,
+            }
+          : undefined,
+      };
+    },
+  );
+  const tocItems: KnowledgeTocItem[] =
+    sectionItems.length > 1
+      ? sectionItems.map((section) => ({
+          id: section.id,
+          label: section.heading,
+        }))
+      : [];
 
   // Downloadable attachments — item-owned PDFs plus real Sector/Product
   // catalogues resolved via `catalogueRefs`; never a duplicated file entry.
@@ -278,14 +369,17 @@ export default async function KnowledgeDetailPage({
   const relatedReadingItems: KnowledgeCardItem[] = relatedReadingSource
     .slice(0, MAX_RELATED_READING)
     .map((related) => {
-      const relatedBody =
-        (isArabic ? related.content_ar : related.content_en) ??
-        (isArabic ? related.summary_ar : related.summary_en);
+      const relatedReadingContent = getKnowledgeReadingContent(
+        related,
+        isArabic,
+      );
       return toKnowledgeCardItem(
         related,
         isArabic,
         t(`types.${related.type}`),
-        t("readingTimeLabel", { minutes: getReadingTimeMinutes(relatedBody) }),
+        t("readingTimeLabel", {
+          minutes: getReadingTimeMinutes(relatedReadingContent),
+        }),
       );
     });
 
@@ -339,44 +433,83 @@ export default async function KnowledgeDetailPage({
         />
       )}
 
-      <KnowledgeHero
-        title={title}
-        summary={summary}
-        image={item.coverImage}
-        typeLabel={typeLabel}
-        metaLine={metaLine}
-        homeLabel={tNav("home")}
-        knowledgeLabel={t("breadcrumbLabel")}
-        navLabel={t("breadcrumbLabel")}
-        requestQuoteLabel={t("requestQuote")}
-        requestQuoteHref={REQUEST_QUOTE_ANCHOR}
+      <Section
+        background="obsidian"
+        spacing="lg"
+        className="pt-28 pb-12 lg:pt-32 lg:pb-14"
+      >
+        <Container>
+          <div className="mx-auto max-w-5xl">
+            <KnowledgeArticleHeader
+              title={title}
+              excerpt={summary}
+              categoryLabel={typeLabel}
+              lastUpdatedLabel={lastUpdatedLabel}
+              readingTimeLabel={readingTimeLabel}
+              homeLabel={tNav("home")}
+              knowledgeLabel={t("breadcrumbLabel")}
+              navLabel={t("breadcrumbLabel")}
+            />
+
+            <div className="mt-8 lg:mt-10">
+              <KnowledgeArticleHeroImage image={item.coverImage} />
+            </div>
+
+            <div className="mt-8 lg:mt-10">
+              <KnowledgeMobileToc title={t("onThisPage")} items={tocItems} />
+            </div>
+
+            <div
+              className={cn(
+                "mt-8 lg:mt-12",
+                tocItems.length > 0 &&
+                  "lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start lg:gap-16",
+              )}
+            >
+              <div className="min-w-0 max-w-[46rem]">
+                {sectionItems.length > 0 ? (
+                  <KnowledgeArticleSections items={sectionItems} />
+                ) : (
+                  <Reveal>
+                    <Stack gap="sm">
+                      {paragraphs.map((paragraph) => (
+                        <Text
+                          key={paragraph}
+                          tone="inverse"
+                          className="leading-[1.75] opacity-85"
+                        >
+                          {paragraph}
+                        </Text>
+                      ))}
+                    </Stack>
+                  </Reveal>
+                )}
+              </div>
+              {tocItems.length > 0 && (
+                <KnowledgeTableOfContents
+                  title={t("onThisPage")}
+                  items={tocItems}
+                />
+              )}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <KnowledgeArticleCTA
+        title={t("articleCtaTitle")}
+        buttonLabel={t("requestQuote")}
+        href={REQUEST_QUOTE_ANCHOR}
       />
 
-      <PremiumDarkSection>
-        <Reveal>
-          <Stack gap="md" className="mx-auto max-w-3xl">
-            {paragraphs.map((paragraph) => (
-              <Text
-                key={paragraph}
-                size="lg"
-                tone="inverse"
-                className="leading-[1.8] opacity-85"
-              >
-                {paragraph}
-              </Text>
-            ))}
-          </Stack>
-        </Reveal>
-      </PremiumDarkSection>
-
       {item.images && item.images.length > 0 && (
-        <PremiumDarkSection>
+        <PremiumDarkSection spacing="md">
           <KnowledgeGallery title={t("galleryTitle")} images={item.images} />
         </PremiumDarkSection>
       )}
 
       {comparisonProductItems.length > 0 && (
-        <PremiumDarkSection>
+        <PremiumDarkSection spacing="md">
           <KnowledgeComparisonTable
             title={t("comparisonTitle")}
             products={comparisonProductItems}
@@ -387,7 +520,7 @@ export default async function KnowledgeDetailPage({
       )}
 
       {catalogueItems.length > 0 && (
-        <PremiumDarkSection>
+        <PremiumDarkSection spacing="md">
           <SectorCatalogues
             title={t("attachmentsTitle")}
             items={catalogueItems}
@@ -398,7 +531,7 @@ export default async function KnowledgeDetailPage({
       )}
 
       {relatedProductItems.length > 0 && (
-        <PremiumDarkSection>
+        <PremiumDarkSection spacing="md">
           <SectorProducts
             title={t("relatedProductsTitle")}
             items={relatedProductItems}
@@ -415,7 +548,7 @@ export default async function KnowledgeDetailPage({
       )}
 
       {relatedSectorItems.length > 0 && (
-        <PremiumDarkSection>
+        <PremiumDarkSection spacing="md">
           <RelatedSectors
             title={t("relatedSectorsTitle")}
             items={relatedSectorItems}
@@ -425,7 +558,7 @@ export default async function KnowledgeDetailPage({
       )}
 
       {relatedSolutionItems.length > 0 && (
-        <PremiumDarkSection>
+        <PremiumDarkSection spacing="md">
           <RelatedSectors
             title={t("relatedSolutionsTitle")}
             items={relatedSolutionItems}
@@ -436,25 +569,25 @@ export default async function KnowledgeDetailPage({
       )}
 
       {relatedReadingItems.length > 0 && (
-        <PremiumDarkSection>
+        <PremiumDarkSection spacing="md">
           <div>
             <Reveal>
-              <Heading level={2} tone="inverse" className="mb-10 lg:mb-12">
+              <Heading
+                level={2}
+                size={3}
+                tone="inverse"
+                className="mx-auto mb-8 max-w-3xl lg:mb-10"
+              >
                 {t("relatedReadingTitle")}
               </Heading>
             </Reveal>
-            <KnowledgeGrid
-              items={relatedReadingItems}
-              readMoreLabel={t("readMoreLabel")}
-              emptyTitle={t("emptyTitle")}
-              emptyBody={t("emptyBody")}
-            />
+            <KnowledgeRelatedList items={relatedReadingItems} />
           </div>
         </PremiumDarkSection>
       )}
 
       {faqItems.length > 0 && (
-        <PremiumDarkSection>
+        <PremiumDarkSection spacing="md">
           <SectorFAQ title={t("faqTitle")} items={faqItems} />
         </PremiumDarkSection>
       )}

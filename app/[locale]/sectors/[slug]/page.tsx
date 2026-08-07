@@ -5,29 +5,28 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import type { KnowledgeCardItem } from "@/components/knowledge/KnowledgeCard";
 import { KnowledgeGrid } from "@/components/knowledge/KnowledgeGrid";
-import { ProductExplorer } from "@/components/products/ProductExplorer";
+import {
+  ProductExplorer,
+  type ProductExplorerCategory,
+  type ProductExplorerItem,
+} from "@/components/products/ProductExplorer";
 import { RelatedSectors } from "@/components/sectors/RelatedSectors";
 import { SectorAbout } from "@/components/sectors/SectorAbout";
 import {
   SectorAdvantages,
   type SectorAdvantageItem,
 } from "@/components/sectors/SectorAdvantages";
-import { SectorApplications } from "@/components/sectors/SectorApplications";
 import { SectorArticles } from "@/components/sectors/SectorArticles";
-import { SectorAvailableProducts } from "@/components/sectors/SectorAvailableProducts";
-import { SectorCatalogues } from "@/components/sectors/SectorCatalogues";
 import type { SectorCardItem } from "@/components/sectors/SectorCard";
 import { SectorFAQ } from "@/components/sectors/SectorFAQ";
 import { SectorHero } from "@/components/sectors/SectorHero";
-import { SectorProjects } from "@/components/sectors/SectorProjects";
 import { SectorQuoteCTA } from "@/components/sectors/SectorQuoteCTA";
-import { Button } from "@/components/ui/Button";
 import { ContactCard } from "@/components/ui/ContactCard";
 import { Grid } from "@/components/ui/Grid";
 import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
-import { getAvailableProducts } from "@/data/available-products";
+import { Text } from "@/components/ui/Text";
 import { getKnowledgeItemsForSector } from "@/data/knowledge";
 import { getCategoriesBySector } from "@/data/product-categories";
 import { getProductsBySector } from "@/data/products";
@@ -55,7 +54,6 @@ import {
 } from "@/lib/site";
 
 const REQUEST_QUOTE_ANCHOR = "request-quote";
-const CATALOGUES_ANCHOR = "catalogues";
 
 interface SectorPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -116,12 +114,11 @@ export default async function SectorPage({ params }: SectorPageProps) {
   const t = await getTranslations("sectors");
   const tNav = await getTranslations("nav");
   const tContact = await getTranslations("contact");
-  const tCommon = await getTranslations("common");
   const tWhyChooseUs = await getTranslations("whyChooseUs");
   const tKnowledge = await getTranslations("knowledge");
-  const tProducts = await getTranslations("products");
   const tSolutions = await getTranslations("solutions");
-  const tDownloads = await getTranslations("downloads");
+  const tProducts = await getTranslations("products");
+  const tCommon = await getTranslations("common");
 
   const pageUrl = `${siteUrl}/${locale}/sectors/${slug}`;
 
@@ -140,34 +137,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
       }
     : null;
 
-  // Products — sourced from the Product Engine registry (`data/products/`),
-  // not `content`; always rendered, `ProductExplorer`/`SectorProducts` show
-  // an honest empty state themselves when this is []. Each card now links
-  // to a real product detail page. `categoryId` drives `ProductExplorer`'s
-  // category filter — it's a no-op display prop for `SectorProducts` when
-  // that filter bar doesn't render (one category or fewer).
-  const productItems = getProductsBySector(sector.id).map((product) => ({
-    slug: product.slug,
-    title: isArabic ? product.name_ar : product.name_en,
-    description: isArabic
-      ? product.shortDescription_ar
-      : product.shortDescription_en,
-    image: product.images?.[0] ?? null,
-    href: `/sectors/${slug}/products/${product.slug}`,
-    sectorId: product.sectorId,
-    categoryId: product.categoryId,
-  }));
-
-  // Product categories actually registered for this sector — drives
-  // `ProductExplorer`'s filter chips (hidden automatically when a sector's
-  // products span one category or fewer).
-  const productCategories = getCategoriesBySector(sector.id).map(
-    (category) => ({
-      id: category.id,
-      label: isArabic ? category.name_ar : category.name_en,
-    }),
-  );
-
   // Related Solutions — real Project Solutions that genuinely draw from
   // this sector, via the reverse of `Solution.relatedSectorSlugs`.
   // `RelatedSectors` renders nothing when this is [].
@@ -181,28 +150,38 @@ export default async function SectorPage({ params }: SectorPageProps) {
     icon: solution.icon,
   }));
 
-  // Available Products — a flat, generic product-category list (no
-  // manufacturer/model names): the customer chooses the product, GOLTENS
-  // sources the manufacturer after quotation.
-  const availableProducts = getAvailableProducts(sector.id);
-  const availableProductItems = isArabic
-    ? (availableProducts?.ar ?? [])
-    : (availableProducts?.en ?? []);
+  // Sector Products / Product Explorer — every real `Product` from the
+  // Product Engine (`data/products/`) that belongs to this sector, grouped
+  // by its `ProductCategory`. Single source of truth: no per-sector product
+  // list is ever duplicated here, only mapped/localized from the shared
+  // registry. Each card links to the real product detail route
+  // (`/sectors/[slug]/products/[product]`).
+  const sectorProducts = getProductsBySector(sector.id);
+  const sectorProductCategories = getCategoriesBySector(sector.id);
 
-  // Applications — only rendered when a sector has curated its own; never
-  // a generic/irrelevant default list.
-  const applicationItems = (content.applications ?? []).map((application) => ({
-    title: isArabic ? application.title_ar : application.title_en,
-    icon: application.icon,
-  }));
+  const productExplorerItems: ProductExplorerItem[] = sectorProducts.map(
+    (product) => ({
+      slug: product.slug,
+      title: isArabic ? product.name_ar : product.name_en,
+      description: isArabic
+        ? product.shortDescription_ar
+        : product.shortDescription_en,
+      image: product.images?.[0] ?? null,
+      href: `/sectors/${slug}/products/${product.slug}`,
+      sectorId: product.sectorId,
+      categoryId: product.categoryId,
+    }),
+  );
 
-  // Projects We Serve — only rendered when a sector has curated its own;
-  // same "never a generic/irrelevant default list" rule as Applications.
-  const projectItems = (content.projects ?? []).map((project) => ({
-    title: isArabic ? project.title_ar : project.title_en,
-    description: isArabic ? project.description_ar : project.description_en,
-    image: project.image,
-  }));
+  const productExplorerCategories: ProductExplorerCategory[] =
+    sectorProductCategories.map((category) => ({
+      id: category.id,
+      label: isArabic ? category.name_ar : category.name_en,
+    }));
+
+  // Industries We Serve — the same static list on every sector page (not
+  // per-sector content), per the content refinement brief.
+  const industriesServedItems = t.raw("industriesServedItems") as string[];
 
   // Advantages — a sector's own, or the sitewide "Why Choose GOLTENS" list
   // (already-approved, reused, never invented).
@@ -216,43 +195,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
         title: label,
         icon: DEFAULT_ADVANTAGE_ICONS[index % DEFAULT_ADVANTAGE_ICONS.length],
       }));
-
-  // Catalogues — a sector's own, or a generic 4-tile default naming this
-  // sector, all honestly "Coming Soon" until a real fileUrl is added.
-  const catalogueItems = content.catalogues?.length
-    ? content.catalogues.map((catalogue) => ({
-        id: catalogue.id,
-        title: isArabic ? catalogue.title_ar : catalogue.title_en,
-        brand: catalogue.brand,
-        language: catalogue.language,
-        fileUrl: catalogue.fileUrl,
-      }))
-    : [
-        {
-          id: "company-profile",
-          title: t("cataloguesDefaultCompanyProfile"),
-          language: "en/ar",
-          fileUrl: null,
-        },
-        {
-          id: "sector-catalog",
-          title: t("cataloguesDefaultCatalog", { sector: title }),
-          language: "en",
-          fileUrl: null,
-        },
-        {
-          id: "technical-datasheets",
-          title: t("cataloguesDefaultDatasheets"),
-          language: "en",
-          fileUrl: null,
-        },
-        {
-          id: "certificates",
-          title: t("cataloguesDefaultCertificates"),
-          language: "en/ar",
-          fileUrl: null,
-        },
-      ];
 
   // Articles — always []  today (no real article content exists anywhere
   // yet); `SectorArticles` shows an honest empty state.
@@ -392,8 +334,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
         navLabel={tNav("sectors")}
         requestQuoteLabel={t("heroRequestQuote")}
         requestQuoteHref={REQUEST_QUOTE_ANCHOR}
-        secondaryCtaLabel={t("heroDownloadCatalogue")}
-        secondaryCtaHref={CATALOGUES_ANCHOR}
       />
 
       {about && (
@@ -408,19 +348,24 @@ export default async function SectorPage({ params }: SectorPageProps) {
       )}
 
       <PremiumDarkSection>
+        <Reveal>
+          <Text tone="inverse" className="mb-10 max-w-3xl opacity-80 lg:mb-12">
+            {t("scopeOfSupplyIntro")}
+          </Text>
+        </Reveal>
         <ProductExplorer
-          title={t("productsTitle")}
-          items={productItems}
-          categories={productCategories}
-          requestQuoteLabel={tCommon("requestQuotation")}
-          requestQuoteHref={REQUEST_QUOTE_ANCHOR}
-          emptyTitle={t("productsEmptyTitle")}
-          emptyBody={t("productsComingSoon")}
+          title={t("scopeOfSupplyTitle")}
+          items={productExplorerItems}
+          categories={productExplorerCategories}
           searchLabel={tProducts("filterSearchLabel")}
           searchPlaceholder={tProducts("filterSearchPlaceholder")}
           filterAllLabel={tProducts("filterAllLabel")}
           noResultsTitle={tProducts("filterNoResultsTitle")}
           noResultsDescription={tProducts("filterNoResultsDescription")}
+          requestQuoteLabel={tCommon("requestQuotation")}
+          requestQuoteHref={REQUEST_QUOTE_ANCHOR}
+          emptyTitle={t("productsEmptyTitle")}
+          emptyBody={t("productsComingSoon")}
           addToRfqLabel={tProducts("addToRfqLabel")}
           addToRfqAddedLabel={tProducts("addToRfqAddedLabel")}
           addToCompareLabel={tProducts("addToCompareLabel")}
@@ -429,26 +374,25 @@ export default async function SectorPage({ params }: SectorPageProps) {
       </PremiumDarkSection>
 
       <PremiumDarkSection>
-        <SectorAvailableProducts
-          title={t("availableProductsTitle")}
-          items={availableProductItems}
-        />
+        <Reveal>
+          <Heading level={2} tone="inverse" className="mb-10 lg:mb-12">
+            {t("industriesServedTitle")}
+          </Heading>
+        </Reveal>
+        <ul className="grid grid-cols-2 gap-x-8 gap-y-4 sm:grid-cols-3 lg:grid-cols-4">
+          {industriesServedItems.map((item) => (
+            <li key={item} className="flex items-start gap-3">
+              <span
+                aria-hidden="true"
+                className="bg-gold mt-2.5 size-1.5 shrink-0 rounded-full"
+              />
+              <Text tone="inverse" className="opacity-80">
+                {item}
+              </Text>
+            </li>
+          ))}
+        </ul>
       </PremiumDarkSection>
-
-      {applicationItems.length > 0 && (
-        <PremiumDarkSection>
-          <SectorApplications
-            title={t("applicationsTitle")}
-            items={applicationItems}
-          />
-        </PremiumDarkSection>
-      )}
-
-      {projectItems.length > 0 && (
-        <PremiumDarkSection>
-          <SectorProjects title={t("projectsTitle")} items={projectItems} />
-        </PremiumDarkSection>
-      )}
 
       <PremiumDarkSection>
         <SectorAdvantages title={t("advantagesTitle")} items={advantageItems} />
@@ -460,27 +404,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
         subtitle={t("ctaDescription")}
         defaultProductCategory={title}
       />
-
-      <div id={CATALOGUES_ANCHOR} className="scroll-mt-20">
-        <PremiumDarkSection>
-          <SectorCatalogues
-            title={t("cataloguesTitle")}
-            items={catalogueItems}
-            downloadLabel={t("catalogueDownload")}
-            comingSoonLabel={t("comingSoon")}
-          />
-          <div className="mt-8">
-            <Button
-              href="/downloads"
-              variant="secondary"
-              size="sm"
-              className="border-canvas/30 text-canvas hover:bg-canvas/10 w-fit"
-            >
-              {tDownloads("viewDownloadCenter")}
-            </Button>
-          </div>
-        </PremiumDarkSection>
-      </div>
 
       <PremiumDarkSection>
         <SectorArticles

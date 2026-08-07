@@ -1,23 +1,80 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #1a1712;
-  --color-ink-muted: #5c5648;
-  --color-canvas: #faf7f1;
-  --color-stone: #e6decb;
-  --color-border: #ddd5c4;
-  --color-blue: #1c3a5e;
-  --color-blue-hover: #16304e;
-  --color-deep: #111010;
-  --color-deep-ink: #faf7f1;
-  --color-error: #b3402a;
-  --color-success: #4b6b4e;
+  /* Colour system — approved Graphite + Premium Gold palette.
+     Accent is the brand's Premium Gold — deliberately muted/metallic
+     rather than a bright, saturated orange, to stay in the same
+     sophisticated register as the rest of the Graphite neutrals. Used
+     sparingly (thin rules, small icon badges, a single primary CTA),
+     never as a dominant field colour. */
+  --color-primary: #2b2b29;
+  --color-secondary: #6e6e68;
+  --color-accent: #a6803d;
+  /* A brighter, more saturated gold used only for the closing section's
+     premium contact cards — those sit on a near-black glass surface and
+     need more pop than the muted sitewide `accent` gives against a light
+     ground. Deliberately a separate token rather than changing `accent`
+     itself, which stays the brand's primary gold everywhere else. */
+  --color-gold: #d4a017;
+  /* Premium near-black surface for the homepage's dark-themed content
+     sections (What We Do, Industries) — cooler and deeper than `primary`,
+     which stays as-is for the Hero/CTA/Footer's existing warmer graphite
+     dark. A deliberately separate token, not a replacement. */
+  --color-obsidian: #0b0f14;
+  --color-canvas: #f3f2ef;
+  --color-stone: #e3e1dc;
+  --color-border: #d4d1cb;
+  --color-ink: #1e1d1b;
+  --color-ink-muted: #5a5852;
+  --color-success: #3f6b4f;
+  --color-warning: #a6752e;
+  --color-error: #8c3a2e;
 
+  /* Radius system — no value larger than radius-md exists in this system */
   --radius-sm: 2px;
   --radius-md: 4px;
 
-  --font-sans: var(--font-geist-sans), -apple-system, "Segoe UI", sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  /* Typography — IBM Plex family, split by script.
+     Base body font is switched per-locale at the <body> level
+     (font-sans for English/LTR, font-sans-arabic for Arabic/RTL).
+     Display (Condensed) is Latin-only — Arabic headings intentionally
+     stay uncondensed; see naming-conventions.md. */
+  --font-sans: var(--font-plex-sans), -apple-system, "Segoe UI", sans-serif;
+  --font-sans-arabic:
+    var(--font-plex-sans-arabic), "Segoe UI", Tahoma, sans-serif;
+  --font-display:
+    var(--font-plex-sans-condensed), var(--font-plex-sans), sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  /* Smooth in-page scrolling for every anchor link (nav menu, footer
+     anchors, etc.) — disabled back to instant jumps under
+     prefers-reduced-motion, same as every other animation on the site.
+     `scroll-padding-top` compensates for the fixed 88px header (see
+     Navbar.tsx) plus a little breathing room: without it, every anchor
+     jump on the site (nav links, the Hero's sector links, footer anchors)
+     lands its target flush against the viewport top, hidden behind the
+     header — a real bug that predates this comment, now fixed once,
+     globally, rather than per-section. */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 112px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Isolates numeric/Latin content (phone numbers, +country codes) from the
+     surrounding bidi context so it always renders in its typed digit order,
+     even inside an RTL (Arabic) ancestor. Pair with dir="ltr" on the same
+     element for belt-and-suspenders isolation. */
+  .ltr {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
 }
 
 @keyframes fade-up {
@@ -35,8 +92,160 @@
   animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@keyframes button-ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.45;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-button-ripple {
+  animation: button-ripple 600ms ease-out forwards;
+}
+
+/* Ambient Hero background motion — a slow drift on the grid texture and a
+   breathing glow behind the slideshow's logo slide. Kept slow and
+   low-amplitude ("very subtle") so they read as premium ambience, not as
+   attention-grabbing motion. */
+@keyframes grid-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-14px, -10px);
+  }
+}
+
+.animate-grid-drift {
+  animation: grid-drift 24s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 7s ease-in-out infinite;
+}
+
+/* Hero slide-progress fill — driven by inline `animation-duration` (matches
+   the slide interval) and `animation-play-state` (pause-on-hover), keyed by
+   slide index in the component so each new slide gets a fresh instance. */
+@keyframes hero-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* "Why GOLTENS" generated background (`WhyChooseUsBackground.tsx`) — a
+   rising, fading drift for the floating gold particles. Each particle sets
+   its own `animation-duration`/`animation-delay` inline (same technique as
+   the Hero's `hero-progress` bar) so ~24 particles never look
+   synchronized despite sharing one keyframe. */
+@keyframes particle-float {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: var(--particle-peak-opacity, 0.6);
+  }
+  85% {
+    opacity: var(--particle-peak-opacity, 0.6);
+  }
+  100% {
+    transform: translateY(-48px);
+    opacity: 0;
+  }
+}
+
+/* Slow "drawing" pulse traveling along the background's SVG connection
+   lines — a dash pattern animated via `stroke-dashoffset`, not a redraw,
+   so it's a single GPU-cheap property change. */
+@keyframes connection-dash {
+  to {
+    stroke-dashoffset: -200;
+  }
+}
+
+.why-choose-particle {
+  animation-name: particle-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.why-choose-connection-line {
+  animation: connection-dash 6s linear infinite;
+}
+
+/* Hero's own particle/network layer — same `particle-float`/
+   `connection-dash` keyframes as "Why GOLTENS", under separate class names
+   so this file doesn't touch or rename what that section depends on. */
+.hero-particle {
+  animation-name: particle-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.hero-connection-line {
+  animation: connection-dash 8s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-up,
+  .animate-button-ripple,
+  .animate-grid-drift,
+  .animate-glow-pulse,
+  .why-choose-particle,
+  .why-choose-connection-line,
+  .hero-particle,
+  .hero-connection-line {
     animation: none;
   }
+}
+
+/* Faint technical-grid texture used behind dark, high-contrast sections
+   (Hero, Contact CTA) for depth without a photograph. */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, currentColor 8%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, currentColor 8%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 40px 40px;
+}
+
+/* Faint dot-matrix texture, loosely evoking the halftone dot sphere in the
+   GOLTENS mark — a field of tiny dots rather than a line grid. Colour via
+   `currentColor` (pair with e.g. `text-gold/[0.05]`), same convention as
+   `.bg-grid-pattern`. */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 22px 22px;
 }
