@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-import { GlobalBrands } from "@/components/sections/home/GlobalBrands";
+import { Capabilities } from "@/components/sections/home/Capabilities";
 import { Hero } from "@/components/sections/home/Hero";
 import { Sectors } from "@/components/sections/home/Sectors";
 import { WhyChooseUs } from "@/components/sections/home/WhyChooseUs";
 import { Button } from "@/components/ui/Button";
-import { buttonVariants } from "@/components/ui/button-variants";
 import { CTA } from "@/components/ui/CTA";
 import type { Locale } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/metadata";
-import { contactEmail } from "@/lib/site";
-import { cn } from "@/lib/utils";
 
 interface HomePageProps {
   params: Promise<{ locale: string }>;
@@ -32,11 +29,17 @@ export async function generateMetadata({
 }
 
 /**
- * The homepage's single closing CTA — deliberately the only conversion
- * band after `GlobalBrands` (rendered with `showCta={false}` here so its
- * own trailing `BrandCTA` doesn't duplicate this one immediately above
- * `WhyChooseUs`, which has no CTA of its own). Copy is distinct from the
- * Hero's own CTA wording by design.
+ * The homepage's single closing CTA — deliberately the only conversion band
+ * on the page. Copy is distinct from the Hero's own CTA wording by design.
+ *
+ * Section order: Hero -> Sectors ("What We Supply", curated) -> WhyChooseUs
+ * ("Why GOLTENS", 5 points) -> Capabilities ("How We Work", 4 steps) -> this
+ * closing CTA. `IndustriesServed` (a plain-text industries list) was removed
+ * — it duplicated `Sectors`' own "who we serve" framing right below it.
+ * `GlobalBrands` (the former "Global Procurement Network" sector-capability
+ * grid) is deliberately not rendered here — it duplicated `Sectors` with a
+ * second, differently-curated set of sector cards. It still renders on
+ * `/about`, unchanged.
  */
 export default async function HomePage() {
   const t = await getTranslations("finalCta");
@@ -45,26 +48,21 @@ export default async function HomePage() {
     <>
       <Hero />
       <Sectors />
-      <GlobalBrands showCta={false} />
       <WhyChooseUs />
+      <Capabilities />
       <CTA
         title={t("title")}
         description={t("description")}
+        premium
         actions={
-          <>
-            <Button href="/contact" variant="accent" size="lg">
-              {t("requestQuote")}
-            </Button>
-            <a
-              href={`mailto:${contactEmail}`}
-              className={cn(
-                buttonVariants({ variant: "secondary", size: "lg" }),
-                "border-canvas/40 text-canvas hover:bg-canvas/10",
-              )}
-            >
-              {t("emailProcurementTeam")}
-            </a>
-          </>
+          <Button
+            href="/contact"
+            variant="accent"
+            size="lg"
+            className="hover:shadow-[0_0_28px_rgba(166,128,61,0.45)]"
+          >
+            {t("requestQuote")}
+          </Button>
         }
       />
     </>

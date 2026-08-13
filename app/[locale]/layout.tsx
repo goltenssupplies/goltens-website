@@ -22,6 +22,7 @@ import {
   contactEmail,
   contactPhoneDisplay,
   contactPhoneHref,
+  salesEmail,
   siteUrl,
 } from "@/lib/site";
 import { organizationJsonLd } from "@/lib/structured-data";
@@ -99,17 +100,19 @@ export default async function LocaleLayout({
   const direction = directionByLocale[locale];
   const t = await getTranslations({ locale, namespace: "nav" });
   const tFooter = await getTranslations({ locale, namespace: "footer" });
-  const tContact = await getTranslations({ locale, namespace: "contact" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
 
   // Every nav item is a real, dedicated page — not a same-page anchor — so
   // each one works correctly from any page, not just the homepage. "Sectors"
-  // has its own `/sectors` listing page; the homepage's own `Sectors`
-  // section stays as a teaser and is unaffected by this.
+  // and "Solutions" each have their own `/sectors` / `/solutions` listing
+  // page; the homepage's own `Sectors` section stays as a teaser and is
+  // unaffected by this.
   const navItems = [
     { label: t("home"), href: "/" },
     { label: t("sectors"), href: "/sectors" },
+    { label: t("solutions"), href: "/solutions" },
     { label: t("about"), href: "/about" },
+    { label: t("contact"), href: "/contact" },
   ];
 
   const legalLinks = [
@@ -120,33 +123,15 @@ export default async function LocaleLayout({
     { label: tFooter("accessibility"), href: "/accessibility" },
   ];
 
-  const footerCompanyLinks = [
-    { label: tFooter("columns.company.about"), href: "/about" },
-    { label: tFooter("columns.company.sectors"), href: "/sectors" },
-    { label: tFooter("columns.company.contact"), href: "/contact" },
-  ];
-
-  const footerSectorLinks = [
-    {
-      label: tFooter("columns.sectors.industrialEquipment"),
-      href: "/sectors/industrial-equipment",
-    },
-    {
-      label: tFooter("columns.sectors.fireProtection"),
-      href: "/sectors/fire-protection",
-    },
-    {
-      label: tFooter("columns.sectors.heavyEquipment"),
-      href: "/sectors/heavy-equipment",
-    },
-    {
-      label: tFooter("columns.sectors.commercialVehicles"),
-      href: "/sectors/commercial-vehicles",
-    },
-    {
-      label: tFooter("columns.sectors.industrialChemicals"),
-      href: "/sectors/industrial-chemicals",
-    },
+  // Footer "Quick Links" column — the site's real top-level nav
+  // destinations. No separate sectors/services column (removed by explicit
+  // client direction), so Sectors stays listed here rather than dropped.
+  const footerQuickLinks = [
+    { label: t("home"), href: "/" },
+    { label: t("about"), href: "/about" },
+    { label: t("sectors"), href: "/sectors" },
+    { label: t("solutions"), href: "/solutions" },
+    { label: t("contact"), href: "/contact" },
   ];
 
   return (
@@ -183,22 +168,20 @@ export default async function LocaleLayout({
                 />
                 <main id="main-content">{children}</main>
                 <Footer
-                  description={tFooter("description")}
-                  ctaLabel={tFooter("ctaButton")}
-                  ctaHref="/contact"
-                  companyHeading={tFooter("columns.company.heading")}
-                  companyLinks={footerCompanyLinks}
-                  productsHeading={tFooter("columns.sectors.heading")}
-                  productLinks={footerSectorLinks}
-                  contactHeading={tFooter("columns.contact.heading")}
-                  location={tContact("location")}
+                  quickLinksHeading={tFooter("quickLinksHeading")}
+                  quickLinks={footerQuickLinks}
+                  contactHeading={tFooter("contactHeading")}
                   email={contactEmail}
+                  emailLabel={tFooter("emailLabel")}
+                  salesEmail={salesEmail}
+                  salesEmailLabel={tFooter("salesEmailLabel")}
                   phone={
                     <span dir="ltr" className="ltr">
                       {contactPhoneDisplay}
                     </span>
                   }
                   phoneHref={contactPhoneHref}
+                  legalLinksHeading={tFooter("legalLinksHeading")}
                   legalLinks={legalLinks}
                   bottomText={tFooter("copyright", {
                     year: new Date().getFullYear(),

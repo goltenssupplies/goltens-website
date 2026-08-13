@@ -466,7 +466,7 @@ export default async function KnowledgeDetailPage({
                   "lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start lg:gap-16",
               )}
             >
-              <div className="min-w-0 max-w-[46rem]">
+              <div className="max-w-[46rem] min-w-0">
                 {sectionItems.length > 0 ? (
                   <KnowledgeArticleSections items={sectionItems} />
                 ) : (
@@ -594,6 +594,7 @@ export default async function KnowledgeDetailPage({
 
       <SectorQuoteCTA
         id={REQUEST_QUOTE_ANCHOR}
+        locale={locale as Locale}
         title={ctaTitle}
         subtitle={t("ctaDescription")}
         defaultProductCategory={title}
