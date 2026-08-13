@@ -98,6 +98,27 @@
       }
     ]
   },
+  "capabilities": {
+    "title": "How We Work",
+    "items": [
+      {
+        "title": "Receive the Request",
+        "description": "We receive your request and define the quantities and specifications needed."
+      },
+      {
+        "title": "Search & Qualify",
+        "description": "We search for and qualify the right suppliers for the product."
+      },
+      {
+        "title": "Match Specs & Quote",
+        "description": "We match the technical specification and issue a clear quotation."
+      },
+      {
+        "title": "Supply & Deliver",
+        "description": "We coordinate procurement and deliver on the agreed schedule."
+      }
+    ]
+  },
   "sectors": {
     "eyebrow": "What We Supply",
     "title": "Procurement Sectors",

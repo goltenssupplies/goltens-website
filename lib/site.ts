@@ -10,3 +10,4 @@ export const contactEmail = "admin@goltenssupplies.com";
 export const contactPhoneDisplay = "+20 122 560 0983";
 export const contactPhoneHref = "tel:+201225600983";
 export const contactWhatsAppHref = "https://wa.me/201225600983";
+export const salesEmail = "sales@goltenssupplies.com";
