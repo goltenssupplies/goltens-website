@@ -56,6 +56,7 @@
   "nav": {
     "home": "Home",
     "sectors": "Sectors",
+    "solutions": "Solutions",
     "brands": "Brands",
     "about": "About Us",
     "contact": "Contact",
@@ -513,6 +514,11 @@
   },
   "footer": {
     "description": "GOLTENS General Supplies delivers professional procurement and industrial supply solutions for government, industrial and commercial projects across Egypt.",
+    "quickLinksHeading": "Quick Links",
+    "contactHeading": "Contact",
+    "emailLabel": "General Enquiries",
+    "salesEmailLabel": "Sales & Quotes",
+    "legalLinksHeading": "Legal Links",
     "ctaButton": "Contact Us",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms & Conditions",
