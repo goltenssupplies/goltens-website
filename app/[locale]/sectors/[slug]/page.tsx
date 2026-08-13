@@ -32,7 +32,6 @@ import { getCategoriesBySector } from "@/data/product-categories";
 import { getProductsBySector } from "@/data/products";
 import { getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug, getSortedSectors, SECTORS } from "@/data/sectors";
-import { getSolutionsBySectorSlug } from "@/data/solutions";
 import type { Locale } from "@/i18n/routing";
 import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { buildMetadata } from "@/lib/metadata";
@@ -116,7 +115,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
   const tContact = await getTranslations("contact");
   const tWhyChooseUs = await getTranslations("whyChooseUs");
   const tKnowledge = await getTranslations("knowledge");
-  const tSolutions = await getTranslations("solutions");
   const tProducts = await getTranslations("products");
   const tCommon = await getTranslations("common");
 
@@ -136,19 +134,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
           : content.about.complianceNote_en,
       }
     : null;
-
-  // Related Solutions — real Project Solutions that genuinely draw from
-  // this sector, via the reverse of `Solution.relatedSectorSlugs`.
-  // `RelatedSectors` renders nothing when this is [].
-  const relatedSolutionItems: SectorCardItem[] = getSolutionsBySectorSlug(
-    sector.slug,
-  ).map((solution) => ({
-    slug: solution.slug,
-    title: isArabic ? solution.title_ar : solution.title_en,
-    description: isArabic ? solution.description_ar : solution.description_en,
-    image: solution.heroImage,
-    icon: solution.icon,
-  }));
 
   // Sector Products / Product Explorer — every real `Product` from the
   // Product Engine (`data/products/`) that belongs to this sector, grouped
@@ -400,6 +385,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
       <SectorQuoteCTA
         id={REQUEST_QUOTE_ANCHOR}
+        locale={locale as Locale}
         title={t("ctaTitle")}
         subtitle={t("ctaDescription")}
         defaultProductCategory={title}
@@ -437,15 +423,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
           title={t("relatedTitle")}
           items={relatedItems}
           exploreLabel={t("exploreSector")}
-        />
-      </PremiumDarkSection>
-
-      <PremiumDarkSection>
-        <RelatedSectors
-          title={t("relatedSolutionsTitle")}
-          items={relatedSolutionItems}
-          exploreLabel={tSolutions("exploreSolution")}
-          hrefBase="/solutions"
         />
       </PremiumDarkSection>
 
