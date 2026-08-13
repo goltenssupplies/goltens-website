@@ -19,6 +19,9 @@ export interface FooterProps {
   quickLinksHeading: string;
   quickLinks: FooterLink[];
   contactHeading: string;
+  /** Rendered as-is, e.g. wrapped `dir="ltr"` at the call site for a phone number. */
+  phone: ReactNode;
+  phoneHref: string;
   email: string;
   /** Small label above `email`, e.g. "General Enquiries" — distinguishes it from `salesEmail`. */
   emailLabel: string;
@@ -26,9 +29,6 @@ export interface FooterProps {
   salesEmail: string;
   /** Small label above `salesEmail`, e.g. "Sales & Quotes". */
   salesEmailLabel: string;
-  /** Rendered as-is, e.g. wrapped `dir="ltr"` at the call site for a phone number. */
-  phone: ReactNode;
-  phoneHref: string;
   legalLinksHeading: string;
   legalLinks: FooterLink[];
   /** Full bottom-bar copyright line, e.g. "© 2026 GOLTENS. All Rights Reserved." */
@@ -86,12 +86,12 @@ export function Footer({
   quickLinksHeading,
   quickLinks,
   contactHeading,
+  phone,
+  phoneHref,
   email,
   emailLabel,
   salesEmail,
   salesEmailLabel,
-  phone,
-  phoneHref,
   legalLinksHeading,
   legalLinks,
   bottomText,

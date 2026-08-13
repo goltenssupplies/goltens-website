@@ -1,39 +1,29 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
-import type { KnowledgeCardItem } from "@/components/knowledge/KnowledgeCard";
-import { KnowledgeGrid } from "@/components/knowledge/KnowledgeGrid";
 import {
   ProductExplorer,
   type ProductExplorerCategory,
   type ProductExplorerItem,
 } from "@/components/products/ProductExplorer";
-import { RelatedSectors } from "@/components/sectors/RelatedSectors";
 import { SectorAbout } from "@/components/sectors/SectorAbout";
 import {
   SectorAdvantages,
   type SectorAdvantageItem,
 } from "@/components/sectors/SectorAdvantages";
-import { SectorArticles } from "@/components/sectors/SectorArticles";
-import type { SectorCardItem } from "@/components/sectors/SectorCard";
 import { SectorFAQ } from "@/components/sectors/SectorFAQ";
 import { SectorHero } from "@/components/sectors/SectorHero";
 import { SectorQuoteCTA } from "@/components/sectors/SectorQuoteCTA";
-import { ContactCard } from "@/components/ui/ContactCard";
-import { Grid } from "@/components/ui/Grid";
 import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { Text } from "@/components/ui/Text";
-import { getKnowledgeItemsForSector } from "@/data/knowledge";
 import { getCategoriesBySector } from "@/data/product-categories";
 import { getProductsBySector } from "@/data/products";
 import { getSectorContent } from "@/data/sector-content";
-import { getSectorBySlug, getSortedSectors, SECTORS } from "@/data/sectors";
+import { getSectorBySlug, SECTORS } from "@/data/sectors";
 import type { Locale } from "@/i18n/routing";
-import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { buildMetadata } from "@/lib/metadata";
 import {
   DEFAULT_ADVANTAGE_ICONS,
@@ -44,13 +34,7 @@ import {
   faqJsonLd,
   serviceJsonLd,
 } from "@/lib/structured-data";
-import {
-  contactEmail,
-  contactPhoneDisplay,
-  contactPhoneHref,
-  contactWhatsAppHref,
-  siteUrl,
-} from "@/lib/site";
+import { siteUrl } from "@/lib/site";
 
 const REQUEST_QUOTE_ANCHOR = "request-quote";
 
@@ -112,9 +96,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
   const t = await getTranslations("sectors");
   const tNav = await getTranslations("nav");
-  const tContact = await getTranslations("contact");
   const tWhyChooseUs = await getTranslations("whyChooseUs");
-  const tKnowledge = await getTranslations("knowledge");
   const tProducts = await getTranslations("products");
   const tCommon = await getTranslations("common");
 
@@ -181,40 +163,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
         icon: DEFAULT_ADVANTAGE_ICONS[index % DEFAULT_ADVANTAGE_ICONS.length],
       }));
 
-  // Articles — always []  today (no real article content exists anywhere
-  // yet); `SectorArticles` shows an honest empty state.
-  const articleItems = (content.articles ?? []).map((article) => ({
-    slug: article.slug,
-    title: isArabic ? article.title_ar : article.title_en,
-    summary: isArabic ? article.summary_ar : article.summary_en,
-    coverImage: article.coverImage,
-  }));
-
-  // Related Knowledge — guides/comparisons/standards etc. genuinely tied to
-  // this sector via immutable id, excluding `type: "article"` (already
-  // covered by the Knowledge Center section above, sourced from the same
-  // registry) so nothing is ever shown twice.
-  const relatedKnowledgeItems: KnowledgeCardItem[] = getKnowledgeItemsForSector(
-    sector.id,
-  )
-    .filter((knowledgeItem) => knowledgeItem.type !== "article")
-    .map((knowledgeItem) => {
-      const knowledgeBody =
-        (isArabic ? knowledgeItem.content_ar : knowledgeItem.content_en) ??
-        (isArabic ? knowledgeItem.summary_ar : knowledgeItem.summary_en);
-      return {
-        slug: knowledgeItem.slug,
-        type: knowledgeItem.type,
-        title: isArabic ? knowledgeItem.title_ar : knowledgeItem.title_en,
-        summary: isArabic ? knowledgeItem.summary_ar : knowledgeItem.summary_en,
-        coverImage: knowledgeItem.coverImage,
-        typeLabel: tKnowledge(`types.${knowledgeItem.type}`),
-        readingTimeLabel: tKnowledge("readingTimeLabel", {
-          minutes: getReadingTimeMinutes(knowledgeBody),
-        }),
-      };
-    });
-
   // FAQs — a sector's own, or a shared generic default set, so the page's
   // FAQPage schema is always genuinely populated.
   const faqItems = content.faqs?.length
@@ -226,59 +174,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
         question: t(`faqDefaultQ${n}`, { sector: title }),
         answer: t(`faqDefaultA${n}`, { sector: title }),
       }));
-
-  // Related sectors — a sector's own curated slugs, or the next few other
-  // sectors by `order`.
-  const relatedSlugs = content.relatedSectorSlugs?.length
-    ? content.relatedSectorSlugs
-    : getSortedSectors()
-        .filter((item) => item.slug !== slug)
-        .slice(0, 5)
-        .map((item) => item.slug);
-  const relatedItems: SectorCardItem[] = relatedSlugs
-    .map((relatedSlug) => getSectorBySlug(relatedSlug))
-    .filter((item): item is NonNullable<typeof item> => item !== undefined)
-    .map((item) => ({
-      slug: item.slug,
-      title: isArabic ? item.title_ar : item.title_en,
-      description: isArabic ? item.description_ar : item.description_en,
-      image: item.image,
-      icon: item.icon,
-    }));
-
-  const contactItems = [
-    {
-      icon: <Phone className="size-5" />,
-      label: tContact("phoneLabel"),
-      value: (
-        <span dir="ltr" className="ltr">
-          {contactPhoneDisplay}
-        </span>
-      ),
-      href: contactPhoneHref,
-    },
-    {
-      icon: <Mail className="size-5" />,
-      label: tContact("emailLabel"),
-      value: contactEmail,
-      href: `mailto:${contactEmail}`,
-    },
-    {
-      icon: <MessageCircle className="size-5" />,
-      label: tContact("whatsappLabel"),
-      value: (
-        <span dir="ltr" className="ltr">
-          {contactPhoneDisplay}
-        </span>
-      ),
-      href: contactWhatsAppHref,
-    },
-    {
-      icon: <MapPin className="size-5" />,
-      label: tContact("locationLabel"),
-      value: tContact("location"),
-    },
-  ];
 
   return (
     <>
@@ -392,59 +287,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
       />
 
       <PremiumDarkSection>
-        <SectorArticles
-          title={t("articlesTitle")}
-          items={articleItems}
-          sectorSlug={slug}
-          readMoreLabel={t("articlesReadMore")}
-          emptyTitle={t("articlesEmptyTitle")}
-          emptyBody={t("articlesEmptyBody")}
-        />
-      </PremiumDarkSection>
-
-      {relatedKnowledgeItems.length > 0 && (
-        <PremiumDarkSection>
-          <Reveal>
-            <Heading level={2} tone="inverse" className="mb-10 lg:mb-12">
-              {tKnowledge("relatedKnowledgeTitle")}
-            </Heading>
-          </Reveal>
-          <KnowledgeGrid
-            items={relatedKnowledgeItems}
-            readMoreLabel={tKnowledge("readMoreLabel")}
-            emptyTitle={tKnowledge("emptyTitle")}
-            emptyBody={tKnowledge("emptyBody")}
-          />
-        </PremiumDarkSection>
-      )}
-
-      <PremiumDarkSection>
-        <RelatedSectors
-          title={t("relatedTitle")}
-          items={relatedItems}
-          exploreLabel={t("exploreSector")}
-        />
-      </PremiumDarkSection>
-
-      <PremiumDarkSection>
         <SectorFAQ title={t("faqTitle")} items={faqItems} />
-      </PremiumDarkSection>
-
-      <PremiumDarkSection>
-        <Reveal>
-          <Grid columns={2} gap="lg">
-            {contactItems.map((item) => (
-              <ContactCard
-                key={item.label}
-                icon={item.icon}
-                label={item.label}
-                value={item.value}
-                href={item.href}
-                tone="inverse"
-              />
-            ))}
-          </Grid>
-        </Reveal>
       </PremiumDarkSection>
     </>
   );

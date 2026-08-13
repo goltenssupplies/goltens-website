@@ -171,16 +171,16 @@ export default async function LocaleLayout({
                   quickLinksHeading={tFooter("quickLinksHeading")}
                   quickLinks={footerQuickLinks}
                   contactHeading={tFooter("contactHeading")}
-                  email={contactEmail}
-                  emailLabel={tFooter("emailLabel")}
-                  salesEmail={salesEmail}
-                  salesEmailLabel={tFooter("salesEmailLabel")}
                   phone={
                     <span dir="ltr" className="ltr">
                       {contactPhoneDisplay}
                     </span>
                   }
                   phoneHref={contactPhoneHref}
+                  email={contactEmail}
+                  emailLabel={tFooter("emailLabel")}
+                  salesEmail={salesEmail}
+                  salesEmailLabel={tFooter("salesEmailLabel")}
                   legalLinksHeading={tFooter("legalLinksHeading")}
                   legalLinks={legalLinks}
                   bottomText={tFooter("copyright", {
