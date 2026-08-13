@@ -354,6 +354,7 @@ export default async function SolutionPage({ params }: SolutionPageProps) {
 
       <SectorQuoteCTA
         id={REQUEST_QUOTE_ANCHOR}
+        locale={locale as Locale}
         title={t("ctaTitle")}
         subtitle={t("ctaDescription")}
         defaultProductCategory={title}
