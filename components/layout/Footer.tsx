@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
-import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Divider } from "@/components/ui/Divider";
 import { Reveal } from "@/components/ui/Reveal";
@@ -17,23 +16,22 @@ export interface FooterLink {
 }
 
 export interface FooterProps {
-  /** Short company description — a sentence, not the full About-page copy. */
-  description: string;
-  /** Gold CTA button label, e.g. "تواصل معنا" — scrolls to the homepage's contact/RFQ section. */
-  ctaLabel: string;
-  ctaHref: Parameters<typeof Link>[0]["href"];
-  companyHeading: string;
-  companyLinks: FooterLink[];
-  productsHeading: string;
-  productLinks: FooterLink[];
+  quickLinksHeading: string;
+  quickLinks: FooterLink[];
   contactHeading: string;
-  location: string;
   email: string;
+  /** Small label above `email`, e.g. "General Enquiries" — distinguishes it from `salesEmail`. */
+  emailLabel: string;
+  /** Sales / RFQ inbox, shown alongside `email` so quote requests have a dedicated address. */
+  salesEmail: string;
+  /** Small label above `salesEmail`, e.g. "Sales & Quotes". */
+  salesEmailLabel: string;
   /** Rendered as-is, e.g. wrapped `dir="ltr"` at the call site for a phone number. */
   phone: ReactNode;
   phoneHref: string;
+  legalLinksHeading: string;
   legalLinks: FooterLink[];
-  /** Full bottom-bar copyright line, e.g. "© 2026 GOLTENS General Supplies. All Rights Reserved." */
+  /** Full bottom-bar copyright line, e.g. "© 2026 GOLTENS. All Rights Reserved." */
   bottomText: string;
   className?: string;
 }
@@ -44,30 +42,57 @@ const columnLinkClass =
 const columnHeadingClass =
   "text-gold/90 text-xs font-semibold tracking-[0.16em] uppercase";
 
+// A short gold underline beneath every column heading — a small, repeated
+// typographic accent (not a full-width rule) that reads as a deliberate
+// hierarchy marker rather than decoration.
+function ColumnHeading({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex flex-col gap-2">
+      <Text as="h3" className={columnHeadingClass}>
+        {children}
+      </Text>
+      <span aria-hidden="true" className="bg-gold/40 block h-px w-6" />
+    </div>
+  );
+}
+
 /**
- * Site-wide footer: a four-column premium layout (brand + CTA, Company,
- * Products, Contact) over a dark-charcoal surface, then a legal bar
- * (copyright + Privacy/Terms). The gold CTA links to `/contact` — the
- * site's single, dedicated contact page — same as every other "get in
- * touch" entry point (Navbar, Hero). Social icons are omitted — no real
- * LinkedIn/Facebook company page URLs exist yet; add a `socialLinks` prop
- * here once they do, rather than link to nothing. The site URL is
- * deliberately not shown here — it's redundant chrome in the address bar
- * the visitor is already in.
+ * Site-wide footer: a dark-navy surface organised into exactly three
+ * logical areas, side by side from `sm` up on a deliberately asymmetric
+ * `1.4fr 1fr 1fr` grid (not equal thirds) — Identity gets the extra share
+ * so the enlarged logo reads as the area's clear primary visual element,
+ * not just another column. Identity is the logo plus the fixed brand
+ * sign-off directly beneath it — same "QUALITY • RELIABILITY •
+ * COMPETITIVENESS" Latin tagline as the homepage's `HeroIntro` preloader,
+ * kept untranslated for the same reason: it's a fixed brand mark, not
+ * sentence copy, and deliberately the ONLY thing under the logo — no
+ * description/blurb — set off from the link columns by a vertical rule.
+ * Quick Links (the site's real top-level nav destinations) and Contact
+ * (phone + a general-enquiries email + a sales/RFQ email, each labeled —
+ * no address, no CTA button; the Navbar/Hero already carry the site's
+ * single request-a-quote path) fill the remaining two columns. Previously
+ * had a fourth "What We Supply" sectors column — removed by explicit
+ * client direction to cut clutter and give the logo more room; do not
+ * reintroduce it. Below the three columns: a thin gold divider, then Legal
+ * Links as its own small, quieter subsection (smaller/muted links than the
+ * columns above — still clearly tappable, and a legal requirement rather
+ * than "extra" content), a lighter divider, and finally the bare copyright
+ * line. WhatsApp is available as a quick channel on the Contact page
+ * itself. Social icons are omitted — no real LinkedIn/Facebook company
+ * page URLs exist yet; add a `socialLinks` prop here once they do, rather
+ * than link to nothing.
  */
 export function Footer({
-  description,
-  ctaLabel,
-  ctaHref,
-  companyHeading,
-  companyLinks,
-  productsHeading,
-  productLinks,
+  quickLinksHeading,
+  quickLinks,
   contactHeading,
-  location,
   email,
+  emailLabel,
+  salesEmail,
+  salesEmailLabel,
   phone,
   phoneHref,
+  legalLinksHeading,
   legalLinks,
   bottomText,
   className,
@@ -75,11 +100,14 @@ export function Footer({
   return (
     <footer
       className={cn(
-        "relative overflow-hidden bg-[#0d1117] text-canvas",
+        "text-canvas relative overflow-hidden bg-[#0d1117]",
         className,
       )}
     >
-      <div aria-hidden="true" className="bg-gold absolute inset-x-0 top-0 h-px" />
+      <div
+        aria-hidden="true"
+        className="bg-gold absolute inset-x-0 top-0 h-px"
+      />
       {/* Faint technical-grid texture, standing in for a global-network
           motif — same subtle-depth treatment the Hero and Contact CTA
           already use on their own dark surfaces, so the footer reads as
@@ -90,109 +118,128 @@ export function Footer({
       />
       <div
         aria-hidden="true"
-        className="bg-gold/5 pointer-events-none absolute -top-40 -start-40 size-96 rounded-full blur-3xl"
+        className="bg-gold/5 pointer-events-none absolute -start-40 -top-40 size-96 rounded-full blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="bg-gold/5 pointer-events-none absolute -end-40 -bottom-40 size-96 rounded-full blur-3xl"
+        className="pointer-events-none absolute -end-40 -bottom-40 size-96 rounded-full blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(111,143,179,0.06) 0%, transparent 70%)",
+        }}
       />
 
-      <Container className="relative py-16 lg:py-20">
+      <Container className="relative py-12 lg:py-20">
         <Reveal>
-          <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-8">
-            <div className="flex flex-col items-start gap-5 sm:col-span-2 lg:col-span-1">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-[1.4fr_1fr_1fr] lg:gap-x-16">
+            <div className="border-canvas/10 flex flex-col items-start gap-4 sm:border-e sm:pe-10 lg:pe-14">
               <LogoImage variant="dark" className="h-16 lg:h-20" />
-              <Text size="sm" tone="inverse" className="max-w-xs opacity-60">
-                {description}
-              </Text>
-              <Button
-                href={ctaHref}
-                variant="accent"
-                className="from-gold to-accent hover:to-gold w-fit border-0 bg-gradient-to-r text-ink shadow-[0_8px_30px_rgba(212,175,55,0.3)] transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(212,175,55,0.45)] active:translate-y-0"
+              {/* Fixed Latin brand sign-off, not translated copy — same
+                  convention and exact wording as `HeroIntro`'s preloader
+                  tagline, so the two brand touchpoints match. */}
+              <p
+                dir="ltr"
+                className="text-gold/70 text-[10px] tracking-[0.1em] whitespace-nowrap lg:text-[11px]"
               >
-                {ctaLabel}
-              </Button>
+                QUALITY • RELIABILITY • COMPETITIVENESS
+              </p>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <Text as="h3" className={columnHeadingClass}>
-                {companyHeading}
-              </Text>
-              <Stack as="nav" gap="sm">
-                {companyLinks.map((link) => (
-                  <Link key={link.label} href={link.href} className={columnLinkClass}>
+            <div className="flex flex-col gap-3">
+              <ColumnHeading>{quickLinksHeading}</ColumnHeading>
+              <nav className="flex flex-col gap-2">
+                {quickLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className={columnLinkClass}
+                  >
                     {link.label}
                   </Link>
                 ))}
-              </Stack>
+              </nav>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <Text as="h3" className={columnHeadingClass}>
-                {productsHeading}
-              </Text>
-              <Stack as="nav" gap="sm">
-                {productLinks.map((link) => (
-                  <Link key={link.label} href={link.href} className={columnLinkClass}>
-                    {link.label}
-                  </Link>
-                ))}
-              </Stack>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <Text as="h3" className={columnHeadingClass}>
-                {contactHeading}
-              </Text>
-              <Stack gap="sm" className="text-sm">
-                <span className="text-canvas/65 inline-flex items-center gap-2.5">
-                  <MapPin aria-hidden="true" className="text-gold size-4 shrink-0" />
-                  {location}
-                </span>
+            <div className="flex flex-col gap-3">
+              <ColumnHeading>{contactHeading}</ColumnHeading>
+              <Stack gap="xs" className="text-sm">
                 <a
                   href={phoneHref}
                   className="text-canvas/65 hover:text-gold inline-flex items-center gap-2.5 transition-colors duration-200"
                 >
-                  <Phone aria-hidden="true" className="text-gold size-4 shrink-0" />
+                  <Phone
+                    aria-hidden="true"
+                    className="text-gold size-4 shrink-0"
+                  />
                   {phone}
                 </a>
-                <a
-                  href={`mailto:${email}`}
-                  className="text-canvas/65 hover:text-gold inline-flex items-center gap-2.5 transition-colors duration-200"
-                >
-                  <Mail aria-hidden="true" className="text-gold size-4 shrink-0" />
-                  {email}
-                </a>
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-canvas/40 ps-[26px] text-[11px] tracking-wide">
+                    {emailLabel}
+                  </span>
+                  <a
+                    href={`mailto:${email}`}
+                    className="text-canvas/65 hover:text-gold inline-flex items-center gap-2.5 transition-colors duration-200"
+                  >
+                    <Mail
+                      aria-hidden="true"
+                      className="text-gold size-4 shrink-0"
+                    />
+                    {email}
+                  </a>
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-canvas/40 ps-[26px] text-[11px] tracking-wide">
+                    {salesEmailLabel}
+                  </span>
+                  <a
+                    href={`mailto:${salesEmail}`}
+                    className="text-canvas/65 hover:text-gold inline-flex items-center gap-2.5 transition-colors duration-200"
+                  >
+                    <Mail
+                      aria-hidden="true"
+                      className="text-gold size-4 shrink-0"
+                    />
+                    {salesEmail}
+                  </a>
+                </div>
               </Stack>
             </div>
           </div>
         </Reveal>
 
-        <Divider className="border-canvas/10 my-12" />
+        <Divider className="border-gold/25 my-8 lg:my-10" />
 
-        <Stack
-          direction="row"
-          justify="between"
-          align="center"
-          gap="sm"
-          wrap
-          className="text-sm"
-        >
-          <Text size="sm" tone="inverse" className="opacity-45">
-            {bottomText}
+        {/* Legal Links — a small, separate subsection: its own quiet
+            heading plus smaller/muted links (text-xs, lower opacity) than
+            the main Quick Links column above, so it reads as secondary
+            without being hard to read or tap. Wraps onto one or two rows
+            with a tight gap instead of spreading across the full width. */}
+        <div className="flex flex-col gap-1.5 sm:flex-row sm:items-baseline sm:gap-3">
+          <Text
+            as="h3"
+            className="text-canvas/50 shrink-0 text-[11px] font-semibold tracking-[0.16em] uppercase"
+          >
+            {legalLinksHeading}
           </Text>
-          <Stack direction="row" gap="lg" wrap>
+          <Stack direction="row" gap="xs" wrap className="gap-x-4 gap-y-1">
             {legalLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-canvas/60 hover:text-gold text-sm transition-colors duration-200"
+                className="text-canvas/45 hover:text-gold text-xs transition-colors duration-200"
               >
                 {link.label}
               </Link>
             ))}
           </Stack>
-        </Stack>
+        </div>
+
+        <Divider className="border-canvas/10 my-3" />
+
+        <Text size="xs" tone="inverse" className="opacity-45">
+          {bottomText}
+        </Text>
       </Container>
     </footer>
   );

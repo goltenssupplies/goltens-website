@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
+import { SectionParticles } from "@/components/ui/SectionParticles";
 import { Stack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
@@ -35,6 +36,15 @@ export interface CTAProps {
   tone?: "primary" | "canvas";
   /** Full-bleed background video/image behind the dark overlay. Only rendered when `tone="primary"`. */
   media?: CTAMedia;
+  /**
+   * Opt-in richer dark treatment — deep navy (matching the Footer and "Why
+   * GOLTENS" backgrounds) instead of the shared warm `primary`/`ink` tone,
+   * plus a softened/blurred grid, restrained corner glows, a few faint
+   * particles, and a top gold hairline. Only the homepage's single closing
+   * CTA passes this; the Solutions-page CTA and `BrandCTA` don't, so they
+   * keep their original look unchanged. Ignored when `tone="canvas"`.
+   */
+  premium?: boolean;
   /** Optional content rendered below the actions, e.g. a row of contact details. */
   children?: ReactNode;
   className?: string;
@@ -49,6 +59,10 @@ export interface CTAProps {
  * With `media`, the dark ground becomes a semi-transparent (~55-60%) overlay
  * atop a full-bleed video or image instead of a flat gradient, so the same
  * treatment reads correctly whether or not a background is supplied.
+ *
+ * `premium` swaps that ground for a deep-navy treatment matching the
+ * Footer/"Why GOLTENS" visual family — see the prop doc and the `isPremium`
+ * branch below.
  */
 export function CTA({
   id,
@@ -57,11 +71,13 @@ export function CTA({
   actions,
   tone = "primary",
   media,
+  premium = false,
   children,
   className,
 }: CTAProps) {
   const isDark = tone === "primary";
   const hasMedia = isDark && !!media;
+  const isPremium = isDark && premium;
 
   return (
     <Section
@@ -115,7 +131,7 @@ export function CTA({
         </>
       )}
 
-      {isDark && (
+      {isDark && !isPremium && (
         <>
           <div
             aria-hidden="true"
@@ -132,6 +148,66 @@ export function CTA({
             aria-hidden="true"
             className="border-accent/20 pointer-events-none absolute end-[-4rem] top-1/2 size-72 -translate-y-1/2 border-[3px]"
           />
+        </>
+      )}
+
+      {/* Premium treatment (homepage closing CTA only) — deep navy matching
+          the Footer/"Why GOLTENS" family (`#0a0b0d → #171b23`, ending at the
+          Footer's own `#0d1117` so the seam between this section and the
+          Footer below it is a deliberate gold hairline, not a colour jump)
+          instead of the shared warm `primary`/`ink` gradient. Same
+          restrained-glow, blurred-grid, sparse-particle language as
+          `WhyChooseUsBackground` for visual consistency across the page's
+          dark sections. */}
+      {isPremium && (
+        <>
+          {hasMedia ? (
+            <div
+              aria-hidden="true"
+              className="from-primary/60 to-ink/65 absolute inset-0 bg-gradient-to-br"
+            />
+          ) : (
+            <div
+              aria-hidden="true"
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(135deg, #0a0b0d 0%, #10131a 45%, #0d1117 100%)",
+              }}
+            />
+          )}
+          <div
+            aria-hidden="true"
+            className="bg-gold/60 pointer-events-none absolute inset-x-0 top-0 h-px"
+          />
+          <div
+            aria-hidden="true"
+            className="bg-grid-pattern text-canvas/[0.035] pointer-events-none absolute -inset-8"
+            style={{
+              filter: "blur(1.5px)",
+              maskImage:
+                "radial-gradient(ellipse 60% 70% at 50% 50%, transparent 30%, black 90%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse 60% 70% at 50% 50%, transparent 30%, black 90%)",
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="bg-accent/10 pointer-events-none absolute top-1/2 left-[-8%] size-80 -translate-y-1/2 rounded-full blur-3xl"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute top-1/2 right-[-8%] size-80 -translate-y-1/2 rounded-full blur-3xl"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(111,143,179,0.14) 0%, transparent 70%)",
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="border-accent/10 pointer-events-none absolute end-[-4rem] top-1/2 size-72 -translate-y-1/2 border-[3px]"
+          />
+          <SectionParticles />
         </>
       )}
 

@@ -14,6 +14,10 @@ export interface ContactCardProps {
   external?: boolean;
   /** "inverse" for dark grounds (Contact CTA, Footer); "ink" for light grounds (RFQ page). Defaults to "ink". */
   tone?: "inverse" | "ink";
+  /** "md" (default) is the original size. "sm" shrinks the icon badge and
+   * value text — for narrow contexts like a row of three cards, where the
+   * default size wraps a long value (an email address) too aggressively. */
+  size?: "sm" | "md";
   className?: string;
 }
 
@@ -25,21 +29,24 @@ export function ContactCard({
   href,
   external,
   tone = "ink",
+  size = "md",
   className,
 }: ContactCardProps) {
   const isInverse = tone === "inverse";
+  const isCompact = size === "sm";
 
   const body = (
     <Stack
       direction="row"
       gap="sm"
       align="start"
-      className={cn("group", className)}
+      className={cn("group w-full min-w-0", className)}
     >
       <span
         aria-hidden="true"
         className={cn(
-          "flex size-10 shrink-0 items-center justify-center rounded-sm transition-colors duration-300",
+          "flex shrink-0 items-center justify-center rounded-sm transition-colors duration-300",
+          isCompact ? "size-8" : "size-10",
           isInverse
             ? "bg-canvas/10 text-canvas"
             : "bg-stone text-primary group-hover:bg-primary group-hover:text-canvas",
@@ -47,7 +54,7 @@ export function ContactCard({
       >
         {icon}
       </span>
-      <Stack gap="none">
+      <Stack gap="none" className="min-w-0 flex-1">
         <Text
           size="sm"
           tone={isInverse ? "inverse" : "muted"}
@@ -56,9 +63,11 @@ export function ContactCard({
           {label}
         </Text>
         <Text
+          size={isCompact ? "sm" : "md"}
           weight="semibold"
           tone={isInverse ? "inverse" : "ink"}
           className={cn(
+            "break-words",
             href && "transition-colors",
             href && !isInverse && "group-hover:text-primary",
             href && isInverse && "group-hover:text-accent",
@@ -75,7 +84,7 @@ export function ContactCard({
   return (
     <a
       href={href}
-      className="block w-fit"
+      className="block w-full min-w-0"
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
     >
