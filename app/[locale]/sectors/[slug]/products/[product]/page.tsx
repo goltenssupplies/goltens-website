@@ -398,6 +398,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {product.quoteEnabled && (
         <SectorQuoteCTA
           id={REQUEST_QUOTE_ANCHOR}
+          locale={locale as Locale}
           title={t("ctaTitle")}
           subtitle={t("ctaDescription")}
           defaultProductCategory={name}
