@@ -6,7 +6,7 @@ hold no page-specific content. Navigation items, footer columns, and CTA
 copy are always passed in as props from the page/layout that renders them,
 never hardcoded here.
 
-Import from the barrel: `import { Navbar, Footer } from "@/components/layout";`
+Import each component directly: `import { Navbar } from "@/components/layout/Navbar";`
 
 ---
 

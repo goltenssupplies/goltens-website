@@ -2,7 +2,7 @@
 
 import { Resend } from "resend";
 
-import { contactEmail } from "@/lib/site";
+import { salesEmail } from "@/lib/site";
 
 export interface ContactSubmissionResult {
   success: boolean;
@@ -75,7 +75,7 @@ export async function submitContactRequest(
     return { success: false, error: "not_configured" };
   }
 
-  const notificationEmail = process.env.RFQ_NOTIFICATION_EMAIL || contactEmail;
+  const notificationEmail = process.env.RFQ_NOTIFICATION_EMAIL || salesEmail;
 
   const attachments = await Promise.all(
     formData
@@ -96,31 +96,37 @@ export async function submitContactRequest(
   const fromAddress =
     process.env.RESEND_FROM_EMAIL ?? "GOLTENS Website <onboarding@resend.dev>";
 
-  const { error } = await resend.emails.send({
-    from: fromAddress,
-    to: notificationEmail,
-    replyTo: fields.email || undefined,
-    subject: `New contact request — ${fields.companyName || "Unknown company"}`,
-    text: [
-      `Company: ${fields.companyName}`,
-      `Full name: ${fields.contactName}`,
-      `Email: ${fields.email}`,
-      `Phone: ${fields.phone}`,
-      `Product / service required: ${fields.productCategory}`,
-      ...(fields.projectName ? [`Project name: ${fields.projectName}`] : []),
-      ...(fields.country ? [`Country: ${fields.country}`] : []),
-      ...(fields.brandRequired ? [`Brand required: ${fields.brandRequired}`] : []),
-      ...(fields.product ? [`Product: ${fields.product}`] : []),
-      ...(fields.quantity ? [`Quantity: ${fields.quantity}`] : []),
-      "",
-      `Project details: ${fields.message}`,
-    ].join("\n"),
-    attachments: attachments.length > 0 ? attachments : undefined,
-  });
+  try {
+    const { error } = await resend.emails.send({
+      from: fromAddress,
+      to: notificationEmail,
+      replyTo: fields.email || undefined,
+      subject: `New contact request — ${fields.companyName || "Unknown company"}`,
+      text: [
+        `Company: ${fields.companyName}`,
+        `Full name: ${fields.contactName}`,
+        `Email: ${fields.email}`,
+        `Phone: ${fields.phone}`,
+        `Product / service required: ${fields.productCategory}`,
+        ...(fields.projectName ? [`Project name: ${fields.projectName}`] : []),
+        ...(fields.country ? [`Country: ${fields.country}`] : []),
+        ...(fields.brandRequired
+          ? [`Brand required: ${fields.brandRequired}`]
+          : []),
+        ...(fields.product ? [`Product: ${fields.product}`] : []),
+        ...(fields.quantity ? [`Quantity: ${fields.quantity}`] : []),
+        "",
+        `Project details: ${fields.message}`,
+      ].join("\n"),
+      attachments: attachments.length > 0 ? attachments : undefined,
+    });
 
-  if (error) {
+    if (error) {
+      return { success: false, error: "send_failed" };
+    }
+
+    return { success: true };
+  } catch {
     return { success: false, error: "send_failed" };
   }
-
-  return { success: true };
 }

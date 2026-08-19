@@ -25,7 +25,6 @@ import { getCategoryById } from "@/data/product-categories";
 import { getAllProductParams, getProductBySlug } from "@/data/products";
 import { getSectorArticle, getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug } from "@/data/sectors";
-import { getSolutionsByProductSlug } from "@/data/solutions";
 import type { Locale } from "@/i18n/routing";
 import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { buildMetadata } from "@/lib/metadata";
@@ -107,7 +106,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const tSectors = await getTranslations("sectors");
   const tCommon = await getTranslations("common");
   const tKnowledge = await getTranslations("knowledge");
-  const tSolutions = await getTranslations("solutions");
   const tDownloads = await getTranslations("downloads");
 
   const pageUrl = `${siteUrl}/${locale}/sectors/${slug}/products/${productSlug}`;
@@ -227,19 +225,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
       icon: sector.icon,
     },
   ];
-
-  // Related Solutions — real Project Solutions that genuinely feature this
-  // product, via the reverse of `Solution.relatedProductSlugs`.
-  // `RelatedSectors` renders nothing when this is [].
-  const relatedSolutionItems: SectorCardItem[] = getSolutionsByProductSlug(
-    product.slug,
-  ).map((solution) => ({
-    slug: solution.slug,
-    title: isArabic ? solution.title_ar : solution.title_en,
-    description: isArabic ? solution.description_ar : solution.description_en,
-    image: solution.heroImage,
-    icon: solution.icon,
-  }));
 
   return (
     <>
@@ -410,15 +395,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
           title={t("relatedSectorTitle")}
           items={relatedSectorItems}
           exploreLabel={tSectors("exploreSector")}
-        />
-      </PremiumDarkSection>
-
-      <PremiumDarkSection>
-        <RelatedSectors
-          title={t("relatedSolutionsTitle")}
-          items={relatedSolutionItems}
-          exploreLabel={tSolutions("exploreSolution")}
-          hrefBase="/solutions"
         />
       </PremiumDarkSection>
     </>

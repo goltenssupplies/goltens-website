@@ -7,7 +7,8 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     slug: "refuse-collection-vehicles",
     name_en: "Refuse Collection Vehicles",
     name_ar: "مركبات جمع المخلفات",
-    shortDescription_en: "Refuse collection vehicles for municipal waste collection operations.",
+    shortDescription_en:
+      "Refuse collection vehicles for municipal waste collection operations.",
     shortDescription_ar: "مركبات جمع مخلفات لعمليات جمع النفايات البلدية.",
     longDescription_en:
       "Refuse collection vehicles for municipal and commercial waste collection operations, sourced to your required compaction capacity and collection route type.",
@@ -15,11 +16,24 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
       "مركبات جمع مخلفات لعمليات جمع النفايات البلدية والتجارية، يتم توريدها وفق سعة الكبس المطلوبة ونوع مسار الجمع لديكم.",
     sectorId: "commercial-vehicles",
     categoryId: "specialized-municipal-vehicles",
-    relatedProductSlugs: ["street-sweeping-vehicles", "sewer-cleaning-vehicles"],
-    catalogues: [
-      { id: "refuse-collection-vehicles-datasheet", title_en: "Refuse Collection Vehicles Datasheet", title_ar: "نشرة بيانات مركبات جمع المخلفات", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+    relatedProductSlugs: [
+      "street-sweeping-vehicles",
+      "sewer-cleaning-vehicles",
     ],
-    images: [],
+    catalogues: [
+      {
+        id: "refuse-collection-vehicles-datasheet",
+        title_en: "Refuse Collection Vehicles Datasheet",
+        title_ar: "نشرة بيانات مركبات جمع المخلفات",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
+    ],
+    images: [
+      "/images/products/commercial-vehicles/refuse-collection-vehicles.webp",
+    ],
     availability: "available",
     quoteEnabled: true,
   },
@@ -28,7 +42,8 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     slug: "ambulances",
     name_en: "Ambulances",
     name_ar: "سيارات الإسعاف",
-    shortDescription_en: "Ambulance vehicles fitted out for emergency medical transport.",
+    shortDescription_en:
+      "Ambulance vehicles fitted out for emergency medical transport.",
     shortDescription_ar: "سيارات إسعاف مجهزة للنقل الطبي الطارئ.",
     longDescription_en:
       "Ambulance vehicles fitted out for emergency medical transport, sourced to the equipment and layout requirements of the medical authority operating them.",
@@ -38,9 +53,17 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     categoryId: "specialized-municipal-vehicles",
     relatedProductSlugs: ["fuel-tankers", "water-tankers"],
     catalogues: [
-      { id: "ambulances-datasheet", title_en: "Ambulances Datasheet", title_ar: "نشرة بيانات سيارات الإسعاف", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+      {
+        id: "ambulances-datasheet",
+        title_en: "Ambulances Datasheet",
+        title_ar: "نشرة بيانات سيارات الإسعاف",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
     ],
-    images: [],
+    images: ["/images/products/commercial-vehicles/ambulances.webp"],
     availability: "available",
     quoteEnabled: true,
   },
@@ -49,8 +72,10 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     slug: "fuel-tankers",
     name_en: "Fuel Tankers",
     name_ar: "صهاريج الوقود",
-    shortDescription_en: "Fuel tanker vehicles for bulk fuel distribution and site refueling.",
-    shortDescription_ar: "مركبات صهاريج وقود لتوزيع الوقود بالجملة وتزويد المواقع.",
+    shortDescription_en:
+      "Fuel tanker vehicles for bulk fuel distribution and site refueling.",
+    shortDescription_ar:
+      "مركبات صهاريج وقود لتوزيع الوقود بالجملة وتزويد المواقع.",
     longDescription_en:
       "Fuel tanker vehicles for bulk fuel distribution and site refueling operations, sourced to your required tank capacity and compartmentalization.",
     longDescription_ar:
@@ -59,9 +84,17 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     categoryId: "specialized-municipal-vehicles",
     relatedProductSlugs: ["water-tankers", "ambulances"],
     catalogues: [
-      { id: "fuel-tankers-datasheet", title_en: "Fuel Tankers Datasheet", title_ar: "نشرة بيانات صهاريج الوقود", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+      {
+        id: "fuel-tankers-datasheet",
+        title_en: "Fuel Tankers Datasheet",
+        title_ar: "نشرة بيانات صهاريج الوقود",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
     ],
-    images: [],
+    images: ["/images/products/commercial-vehicles/fuel-tankers.webp"],
     availability: "available",
     quoteEnabled: true,
   },
@@ -70,8 +103,10 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     slug: "water-tankers",
     name_en: "Water Tankers",
     name_ar: "صهاريج المياه",
-    shortDescription_en: "Water tanker vehicles for site supply, dust control, and municipal distribution.",
-    shortDescription_ar: "مركبات صهاريج مياه لتزويد المواقع ومكافحة الغبار والتوزيع البلدي.",
+    shortDescription_en:
+      "Water tanker vehicles for site supply, dust control, and municipal distribution.",
+    shortDescription_ar:
+      "مركبات صهاريج مياه لتزويد المواقع ومكافحة الغبار والتوزيع البلدي.",
     longDescription_en:
       "Water tanker vehicles for construction site supply, dust suppression, and municipal water distribution, sourced to your required tank capacity and discharge system.",
     longDescription_ar:
@@ -80,9 +115,17 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     categoryId: "specialized-municipal-vehicles",
     relatedProductSlugs: ["fuel-tankers", "street-sweeping-vehicles"],
     catalogues: [
-      { id: "water-tankers-datasheet", title_en: "Water Tankers Datasheet", title_ar: "نشرة بيانات صهاريج المياه", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+      {
+        id: "water-tankers-datasheet",
+        title_en: "Water Tankers Datasheet",
+        title_ar: "نشرة بيانات صهاريج المياه",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
     ],
-    images: [],
+    images: ["/images/products/commercial-vehicles/water-tankers.webp"],
     availability: "available",
     quoteEnabled: true,
   },
@@ -91,7 +134,8 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     slug: "street-sweeping-vehicles",
     name_en: "Street Sweeping Vehicles",
     name_ar: "مركبات كنس الشوارع",
-    shortDescription_en: "Street sweeping vehicles for municipal road cleaning operations.",
+    shortDescription_en:
+      "Street sweeping vehicles for municipal road cleaning operations.",
     shortDescription_ar: "مركبات كنس شوارع لعمليات تنظيف الطرق البلدية.",
     longDescription_en:
       "Street sweeping vehicles for municipal road cleaning and debris collection, sourced to your required sweeping width and hopper capacity.",
@@ -99,11 +143,24 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
       "مركبات كنس شوارع لتنظيف الطرق البلدية وجمع المخلفات، يتم توريدها وفق عرض الكنس المطلوب وسعة الحاوية لديكم.",
     sectorId: "commercial-vehicles",
     categoryId: "specialized-municipal-vehicles",
-    relatedProductSlugs: ["refuse-collection-vehicles", "sewer-cleaning-vehicles"],
-    catalogues: [
-      { id: "street-sweeping-vehicles-datasheet", title_en: "Street Sweeping Vehicles Datasheet", title_ar: "نشرة بيانات مركبات كنس الشوارع", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+    relatedProductSlugs: [
+      "refuse-collection-vehicles",
+      "sewer-cleaning-vehicles",
     ],
-    images: [],
+    catalogues: [
+      {
+        id: "street-sweeping-vehicles-datasheet",
+        title_en: "Street Sweeping Vehicles Datasheet",
+        title_ar: "نشرة بيانات مركبات كنس الشوارع",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
+    ],
+    images: [
+      "/images/products/commercial-vehicles/street-sweeping-vehicles.webp",
+    ],
     availability: "available",
     quoteEnabled: true,
   },
@@ -112,8 +169,10 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     slug: "sewer-cleaning-vehicles",
     name_en: "Sewer Cleaning & Jetting Vehicles",
     name_ar: "مركبات تنظيف وشفط الصرف الصحي",
-    shortDescription_en: "Combination jetting and vacuum vehicles for sewer and drainage line maintenance.",
-    shortDescription_ar: "مركبات شفط وضخ مياه للصيانة الدورية لخطوط الصرف الصحي والتصريف.",
+    shortDescription_en:
+      "Combination jetting and vacuum vehicles for sewer and drainage line maintenance.",
+    shortDescription_ar:
+      "مركبات شفط وضخ مياه للصيانة الدورية لخطوط الصرف الصحي والتصريف.",
     longDescription_en:
       "Combination jetting and vacuum vehicles for sewer and drainage line cleaning and maintenance, sourced to your required tank capacity and jetting pressure.",
     longDescription_ar:
@@ -122,9 +181,19 @@ export const commercialSpecializedMunicipalVehicles: Product[] = [
     categoryId: "specialized-municipal-vehicles",
     relatedProductSlugs: ["refuse-collection-vehicles", "water-tankers"],
     catalogues: [
-      { id: "sewer-cleaning-vehicles-datasheet", title_en: "Sewer Cleaning & Jetting Vehicles Datasheet", title_ar: "نشرة بيانات مركبات تنظيف وشفط الصرف الصحي", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+      {
+        id: "sewer-cleaning-vehicles-datasheet",
+        title_en: "Sewer Cleaning & Jetting Vehicles Datasheet",
+        title_ar: "نشرة بيانات مركبات تنظيف وشفط الصرف الصحي",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
     ],
-    images: [],
+    images: [
+      "/images/products/commercial-vehicles/sewer-cleaning-vehicles.webp",
+    ],
     availability: "available",
     quoteEnabled: true,
   },

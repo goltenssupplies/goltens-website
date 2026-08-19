@@ -22,7 +22,10 @@ export interface ProductExplorerCategory {
   label: string;
 }
 
-export interface ProductExplorerProps extends Omit<SectorProductsProps, "items"> {
+export interface ProductExplorerProps extends Omit<
+  SectorProductsProps,
+  "items"
+> {
   items: ProductExplorerItem[];
   categories: ProductExplorerCategory[];
   searchLabel: string;
@@ -78,7 +81,14 @@ export function ProductExplorer({
   }, [items, activeCategory, query]);
 
   if (presentCategories.length <= 1) {
-    return <SectorProducts title={title} items={items} {...sectorProductsProps} />;
+    return (
+      <SectorProducts
+        title={title}
+        items={items}
+        {...sectorProductsProps}
+        variant="list"
+      />
+    );
   }
 
   return (
@@ -93,7 +103,7 @@ export function ProductExplorer({
         <div className="relative w-full lg:max-w-sm">
           <Search
             aria-hidden="true"
-            className="text-canvas/40 pointer-events-none absolute top-1/2 start-4 size-4 -translate-y-1/2"
+            className="text-canvas/40 pointer-events-none absolute start-4 top-1/2 size-4 -translate-y-1/2"
           />
           <input
             type="search"
@@ -142,7 +152,12 @@ export function ProductExplorer({
       </div>
 
       {filteredItems.length > 0 ? (
-        <SectorProducts title="" items={filteredItems} {...sectorProductsProps} />
+        <SectorProducts
+          title=""
+          items={filteredItems}
+          {...sectorProductsProps}
+          variant="list"
+        />
       ) : (
         <div className="py-12 text-center">
           <Heading level={3} size={4} tone="inverse">

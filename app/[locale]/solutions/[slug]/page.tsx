@@ -20,11 +20,7 @@ import { getKnowledgeItemsForSolution } from "@/data/knowledge";
 import { getProductBySlug } from "@/data/products";
 import { getSectorArticle, getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug } from "@/data/sectors";
-import {
-  getAllSolutionParams,
-  getAllSolutions,
-  getSolutionBySlug,
-} from "@/data/solutions";
+import { getAllSolutionParams, getSolutionBySlug } from "@/data/solutions";
 import type { Locale } from "@/i18n/routing";
 import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { buildMetadata } from "@/lib/metadata";
@@ -206,26 +202,6 @@ export default async function SolutionPage({ params }: SolutionPageProps) {
         answer: tSectors(`faqDefaultA${n}`, { sector: title }),
       }));
 
-  // Related Solutions — a solution's own curated slugs, or the next few
-  // other solutions, same fallback shape `relatedSectorSlugs` already uses
-  // at the sector level.
-  const relatedSolutionSlugs = solution.relatedSolutionSlugs?.length
-    ? solution.relatedSolutionSlugs
-    : getAllSolutions()
-        .filter((item) => item.slug !== slug)
-        .slice(0, 5)
-        .map((item) => item.slug);
-  const relatedSolutionItems: SectorCardItem[] = relatedSolutionSlugs
-    .map((relatedSlug) => getSolutionBySlug(relatedSlug))
-    .filter((item): item is NonNullable<typeof item> => item !== undefined)
-    .map((item) => ({
-      slug: item.slug,
-      title: isArabic ? item.title_ar : item.title_en,
-      description: isArabic ? item.description_ar : item.description_en,
-      image: item.heroImage,
-      icon: item.icon,
-    }));
-
   return (
     <>
       <script
@@ -359,15 +335,6 @@ export default async function SolutionPage({ params }: SolutionPageProps) {
         subtitle={t("ctaDescription")}
         defaultProductCategory={title}
       />
-
-      <PremiumDarkSection>
-        <RelatedSectors
-          title={t("relatedSolutionsTitle")}
-          items={relatedSolutionItems}
-          exploreLabel={t("exploreSolution")}
-          hrefBase="/solutions"
-        />
-      </PremiumDarkSection>
     </>
   );
 }

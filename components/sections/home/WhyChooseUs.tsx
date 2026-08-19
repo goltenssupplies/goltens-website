@@ -1,9 +1,8 @@
 import { useTranslations } from "next-intl";
 import {
-  Award,
-  BadgePercent,
-  Globe,
+  ClipboardCheck,
   Headset,
+  Settings2,
   ShieldCheck,
   Truck,
 } from "lucide-react";
@@ -17,22 +16,24 @@ import { Text } from "@/components/ui/Text";
 import { WhyChooseUsBackground } from "@/components/sections/home/WhyChooseUsBackground";
 
 // One icon per advantage, in the same order as `whyChooseUs.items` below —
-// distinct per item (not one glyph repeated six times), matching each
-// advantage's own meaning: authenticity, pricing, delivery, expertise,
-// support, and supplier reach.
-const ICONS = [ShieldCheck, BadgePercent, Truck, Award, Headset, Globe];
+// distinct per item (not one glyph repeated five times), matching each
+// advantage's own meaning: reliable sourcing, procurement process,
+// technical coordination, quotation responsiveness, and end-to-end support.
+const ICONS = [ShieldCheck, ClipboardCheck, Settings2, Headset, Truck];
 
 const STAGGER_SECONDS = 0.08;
 
 /**
- * "Why Choose GOLTENS?" — centred title/subtitle and a two-column checklist
- * of six advantages, sitting directly on a fully generated background
+ * "Why GOLTENS?" — centred heading (no subtitle, per the homepage
+ * content-cleanup pass) and a two-column checklist of five short
+ * advantages, sitting directly on a fully generated background
  * (`WhyChooseUsBackground` — CSS/SVG/Framer Motion, no photo/video/WebGL/
  * canvas). No card/box/border around any item — the icon badges are the
  * only bordered elements — so the layout stays open and airy rather than
  * boxed in. Deliberately has no CTA button of its own — the site now
- * guides the visitor through content first, with the single sitewide
- * contact page (`/contact`) reachable via the Navbar, Hero, and Footer
+ * guides the visitor through content first, with a single sitewide
+ * request-a-quote path reachable via the Navbar and Hero (both the real
+ * `/contact` page/form) and a pre-filled WhatsApp deep link in the Footer,
  * rather than repeating a CTA in every section.
  */
 export function WhyChooseUs() {
@@ -50,20 +51,10 @@ export function WhyChooseUs() {
       <Container className="relative">
         <Reveal distance={0}>
           <div className="relative mx-auto max-w-3xl text-center">
-            {/* Soft gold spotlight behind the heading — distinct from the
-                background's ambient glows, which darken/frame rather than
-                illuminate the text column itself. */}
-            <div
-              aria-hidden="true"
-              className="bg-accent/25 absolute top-1/2 left-1/2 -z-10 h-[24rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
-            />
             <Stack gap="md" align="center">
               <Heading level={2} size={1} tone="inverse">
                 {t("title")}
               </Heading>
-              <Text size="lg" tone="inverse" className="opacity-80">
-                {t("subtitle")}
-              </Text>
             </Stack>
           </div>
         </Reveal>

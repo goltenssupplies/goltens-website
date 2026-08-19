@@ -13,53 +13,307 @@ export interface ProductCategory {
   sectorId: string;
   name_en: string;
   name_ar: string;
+  /** Path under /public — a shared photo for products in this category with no photo of their own yet. Omitted until one is sourced; never a stand-in for an unrelated category. */
+  image?: string;
 }
 
 export const PRODUCT_CATEGORIES: ProductCategory[] = [
-  { id: "fire-pumps", slug: "fire-pumps", sectorId: "fire-protection", name_en: "Fire Pumps", name_ar: "مضخات الحريق" },
-  { id: "valves", slug: "valves", sectorId: "fire-protection", name_en: "Valves", name_ar: "الصمامات" },
-  { id: "sprinklers", slug: "sprinklers", sectorId: "fire-protection", name_en: "Sprinklers", name_ar: "رشاشات الإخماد" },
-  { id: "cabinets", slug: "cabinets", sectorId: "fire-protection", name_en: "Cabinets", name_ar: "الخزائن" },
-  { id: "fm200", slug: "fm200", sectorId: "fire-protection", name_en: "FM200", name_ar: "FM200" },
-  { id: "fire-alarm", slug: "fire-alarm", sectorId: "fire-protection", name_en: "Fire Alarm", name_ar: "إنذار الحريق" },
-  { id: "suppression-systems", slug: "suppression-systems", sectorId: "fire-protection", name_en: "Suppression Systems", name_ar: "أنظمة الإخماد" },
-  { id: "accessories", slug: "accessories", sectorId: "fire-protection", name_en: "Accessories", name_ar: "الملحقات" },
+  {
+    id: "fire-pumps",
+    slug: "fire-pumps",
+    sectorId: "fire-protection",
+    name_en: "Fire Pumps",
+    name_ar: "مضخات الحريق",
+  },
+  {
+    id: "valves",
+    slug: "valves",
+    sectorId: "fire-protection",
+    name_en: "Valves",
+    name_ar: "الصمامات",
+  },
+  {
+    id: "sprinklers",
+    slug: "sprinklers",
+    sectorId: "fire-protection",
+    name_en: "Sprinklers",
+    name_ar: "رشاشات الإخماد",
+  },
+  {
+    id: "cabinets",
+    slug: "cabinets",
+    sectorId: "fire-protection",
+    name_en: "Cabinets",
+    name_ar: "الخزائن",
+  },
+  {
+    id: "fm200",
+    slug: "fm200",
+    sectorId: "fire-protection",
+    name_en: "FM200",
+    name_ar: "FM200",
+  },
+  {
+    id: "fire-alarm",
+    slug: "fire-alarm",
+    sectorId: "fire-protection",
+    name_en: "Fire Alarm",
+    name_ar: "إنذار الحريق",
+  },
+  {
+    id: "suppression-systems",
+    slug: "suppression-systems",
+    sectorId: "fire-protection",
+    name_en: "Suppression Systems",
+    name_ar: "أنظمة الإخماد",
+  },
+  {
+    id: "accessories",
+    slug: "accessories",
+    sectorId: "fire-protection",
+    name_en: "Accessories",
+    name_ar: "الملحقات",
+  },
 
-  { id: "office-institutional-furniture", slug: "office-institutional-furniture", sectorId: "government-procurement", name_en: "Office & Institutional Furniture", name_ar: "أثاث مكتبي ومؤسسي" },
-  { id: "security-public-safety", slug: "security-public-safety", sectorId: "government-procurement", name_en: "Security & Public Safety", name_ar: "الأمن والسلامة العامة" },
-  { id: "public-lighting-power", slug: "public-lighting-power", sectorId: "government-procurement", name_en: "Public Lighting & Power", name_ar: "الإنارة العامة والطاقة" },
+  {
+    id: "office-institutional-furniture",
+    slug: "office-institutional-furniture",
+    sectorId: "government-procurement",
+    name_en: "Office & Institutional Furniture",
+    name_ar: "أثاث مكتبي ومؤسسي",
+  },
+  {
+    id: "security-public-safety",
+    slug: "security-public-safety",
+    sectorId: "government-procurement",
+    name_en: "Security & Public Safety",
+    name_ar: "الأمن والسلامة العامة",
+  },
+  {
+    id: "public-lighting-power",
+    slug: "public-lighting-power",
+    sectorId: "government-procurement",
+    name_en: "Public Lighting & Power",
+    name_ar: "الإنارة العامة والطاقة",
+  },
 
-  { id: "process-pumps", slug: "process-pumps", sectorId: "industrial-equipment", name_en: "Centrifugal & Process Pumps", name_ar: "مضخات الطرد المركزي والعمليات" },
-  { id: "industrial-valves-actuators", slug: "industrial-valves-actuators", sectorId: "industrial-equipment", name_en: "Valves & Actuators", name_ar: "الصمامات ومحركات التشغيل" },
-  { id: "air-compressors-systems", slug: "air-compressors-systems", sectorId: "industrial-equipment", name_en: "Air Compressors & Systems", name_ar: "ضواغط الهواء وأنظمتها" },
+  {
+    id: "process-pumps",
+    slug: "process-pumps",
+    sectorId: "industrial-equipment",
+    name_en: "Centrifugal & Process Pumps",
+    name_ar: "مضخات الطرد المركزي والعمليات",
+  },
+  {
+    id: "industrial-valves-actuators",
+    slug: "industrial-valves-actuators",
+    sectorId: "industrial-equipment",
+    name_en: "Valves & Actuators",
+    name_ar: "الصمامات ومحركات التشغيل",
+  },
+  {
+    id: "air-compressors-systems",
+    slug: "air-compressors-systems",
+    sectorId: "industrial-equipment",
+    name_en: "Air Compressors & Systems",
+    name_ar: "ضواغط الهواء وأنظمتها",
+  },
 
-  { id: "switchgear-distribution", slug: "switchgear-distribution", sectorId: "electrical-energy", name_en: "Switchgear & Distribution", name_ar: "لوحات التوزيع والمفاتيح الكهربائية" },
-  { id: "standby-power-systems", slug: "standby-power-systems", sectorId: "electrical-energy", name_en: "Generators & Standby Power", name_ar: "المولدات وأنظمة الطاقة الاحتياطية" },
-  { id: "industrial-lighting-solar", slug: "industrial-lighting-solar", sectorId: "electrical-energy", name_en: "Lighting & Solar Energy", name_ar: "الإنارة والطاقة الشمسية" },
+  {
+    id: "switchgear-distribution",
+    slug: "switchgear-distribution",
+    sectorId: "electrical-energy",
+    name_en: "Switchgear & Distribution",
+    name_ar: "لوحات التوزيع والمفاتيح الكهربائية",
+  },
+  {
+    id: "standby-power-systems",
+    slug: "standby-power-systems",
+    sectorId: "electrical-energy",
+    name_en: "Generators & Standby Power",
+    name_ar: "المولدات وأنظمة الطاقة الاحتياطية",
+  },
+  {
+    id: "industrial-lighting-solar",
+    slug: "industrial-lighting-solar",
+    sectorId: "electrical-energy",
+    name_en: "Lighting & Solar Energy",
+    name_ar: "الإنارة والطاقة الشمسية",
+  },
 
-  { id: "earthmoving-equipment", slug: "earthmoving-equipment", sectorId: "heavy-equipment", name_en: "Earthmoving Equipment", name_ar: "معدات نقل التراب" },
-  { id: "cranes-lifting-equipment", slug: "cranes-lifting-equipment", sectorId: "heavy-equipment", name_en: "Cranes & Lifting Equipment", name_ar: "الأوناش ومعدات الرفع" },
-  { id: "concrete-compaction-equipment", slug: "concrete-compaction-equipment", sectorId: "heavy-equipment", name_en: "Concrete & Compaction Equipment", name_ar: "معدات الخرسانة والدك" },
+  {
+    id: "earthmoving-equipment",
+    slug: "earthmoving-equipment",
+    sectorId: "heavy-equipment",
+    name_en: "Earthmoving Equipment",
+    name_ar: "معدات نقل التراب",
+  },
+  {
+    id: "cranes-lifting-equipment",
+    slug: "cranes-lifting-equipment",
+    sectorId: "heavy-equipment",
+    name_en: "Cranes & Lifting Equipment",
+    name_ar: "الأوناش ومعدات الرفع",
+  },
+  {
+    id: "concrete-compaction-equipment",
+    slug: "concrete-compaction-equipment",
+    sectorId: "heavy-equipment",
+    name_en: "Concrete & Compaction Equipment",
+    name_ar: "معدات الخرسانة والدك",
+  },
 
-  { id: "trucks-light-vehicles", slug: "trucks-light-vehicles", sectorId: "commercial-vehicles", name_en: "Trucks & Light Vehicles", name_ar: "الشاحنات والمركبات الخفيفة" },
-  { id: "trailers-transport-equipment", slug: "trailers-transport-equipment", sectorId: "commercial-vehicles", name_en: "Trailers", name_ar: "المقطورات" },
-  { id: "specialized-municipal-vehicles", slug: "specialized-municipal-vehicles", sectorId: "commercial-vehicles", name_en: "Specialized & Municipal Vehicles", name_ar: "المركبات المتخصصة والبلدية" },
+  {
+    id: "trucks-light-vehicles",
+    slug: "trucks-light-vehicles",
+    sectorId: "commercial-vehicles",
+    name_en: "Trucks & Light Vehicles",
+    name_ar: "الشاحنات والمركبات الخفيفة",
+  },
+  {
+    id: "trailers-transport-equipment",
+    slug: "trailers-transport-equipment",
+    sectorId: "commercial-vehicles",
+    name_en: "Trailers",
+    name_ar: "المقطورات",
+  },
+  {
+    id: "specialized-municipal-vehicles",
+    slug: "specialized-municipal-vehicles",
+    sectorId: "commercial-vehicles",
+    name_en: "Specialized & Municipal Vehicles",
+    name_ar: "المركبات المتخصصة والبلدية",
+  },
 
-  { id: "patient-monitoring-diagnostics", slug: "patient-monitoring-diagnostics", sectorId: "healthcare", name_en: "Patient Monitoring & Diagnostics", name_ar: "مراقبة المرضى والتشخيص" },
-  { id: "surgical-operating-room-equipment", slug: "surgical-operating-room-equipment", sectorId: "healthcare", name_en: "Surgical & Operating Room Equipment", name_ar: "معدات الجراحة وغرف العمليات" },
-  { id: "critical-care-hospital-furniture", slug: "critical-care-hospital-furniture", sectorId: "healthcare", name_en: "Critical Care & Hospital Furniture", name_ar: "العناية الحرجة وأثاث المستشفيات" },
+  {
+    id: "electrical-supplies-equipment",
+    slug: "electrical-supplies-equipment",
+    sectorId: "healthcare",
+    name_en: "Electrical Supplies & Equipment",
+    name_ar: "المستلزمات والمعدات الكهربائية",
+  },
+  {
+    id: "cables-breakers-distribution-panels",
+    slug: "cables-breakers-distribution-panels",
+    sectorId: "healthcare",
+    name_en: "Cables, Breakers & Distribution Panels",
+    name_ar: "الكابلات والقواطع ولوحات التوزيع",
+  },
+  {
+    id: "industrial-process-chemicals",
+    slug: "industrial-process-chemicals",
+    sectorId: "healthcare",
+    name_en: "Industrial Chemicals & Chemical Materials",
+    name_ar: "الكيماويات والمواد الكيميائية الصناعية",
+  },
+  {
+    id: "pumps-water-treatment-equipment",
+    slug: "pumps-water-treatment-equipment",
+    sectorId: "healthcare",
+    name_en: "Water Treatment Supplies & Equipment",
+    name_ar: "المستلزمات ومعدات معالجة المياه",
+  },
+  {
+    id: "catering-kitchen-supplies",
+    slug: "catering-kitchen-supplies",
+    sectorId: "healthcare",
+    name_en: "Catering & Kitchen Supplies",
+    name_ar: "المستلزمات والمواد الخاصة بخدمات التغذية والمطابخ",
+  },
+  {
+    id: "technical-facility-supplies",
+    slug: "technical-facility-supplies",
+    sectorId: "healthcare",
+    name_en: "Technical Supplies & General Facility Equipment",
+    name_ar: "المستلزمات الفنية والتجهيزات العامة للمرافق",
+  },
+  {
+    id: "maintenance-operations-equipment",
+    slug: "maintenance-operations-equipment",
+    sectorId: "healthcare",
+    name_en: "Maintenance & Operations Equipment and Materials",
+    name_ar: "معدات ومواد الصيانة والتشغيل",
+  },
+  {
+    id: "energy-solutions-supplies",
+    slug: "energy-solutions-supplies",
+    sectorId: "healthcare",
+    name_en: "Energy Solutions & Supplies",
+    name_ar: "حلول ومستلزمات الطاقة",
+  },
+  {
+    id: "general-operational-supplies",
+    slug: "general-operational-supplies",
+    sectorId: "healthcare",
+    name_en: "General Procurement & Operational Supplies",
+    name_ar: "التوريدات العامة والمستلزمات التشغيلية",
+  },
 
-  { id: "industrial-lubricants-fluids", slug: "industrial-lubricants-fluids", sectorId: "industrial-chemicals", name_en: "Lubricants & Fluids", name_ar: "الزيوت والسوائل الصناعية" },
-  { id: "water-wastewater-chemicals", slug: "water-wastewater-chemicals", sectorId: "industrial-chemicals", name_en: "Water & Wastewater Treatment Chemicals", name_ar: "كيماويات معالجة المياه والصرف الصحي" },
-  { id: "corrosion-protection-coatings", slug: "corrosion-protection-coatings", sectorId: "industrial-chemicals", name_en: "Corrosion Protection & Coatings", name_ar: "الحماية من التآكل والطلاءات" },
+  {
+    id: "industrial-lubricants-fluids",
+    slug: "industrial-lubricants-fluids",
+    sectorId: "industrial-chemicals",
+    name_en: "Lubricants & Fluids",
+    name_ar: "الزيوت والسوائل الصناعية",
+  },
+  {
+    id: "water-wastewater-chemicals",
+    slug: "water-wastewater-chemicals",
+    sectorId: "industrial-chemicals",
+    name_en: "Water & Wastewater Treatment Chemicals",
+    name_ar: "كيماويات معالجة المياه والصرف الصحي",
+  },
+  {
+    id: "corrosion-protection-coatings",
+    slug: "corrosion-protection-coatings",
+    sectorId: "industrial-chemicals",
+    name_en: "Corrosion Protection & Coatings",
+    name_ar: "الحماية من التآكل والطلاءات",
+  },
 
-  { id: "cement-concrete-materials", slug: "cement-concrete-materials", sectorId: "construction", name_en: "Cement & Concrete Materials", name_ar: "الأسمنت ومواد الخرسانة" },
-  { id: "structural-waterproofing-materials", slug: "structural-waterproofing-materials", sectorId: "construction", name_en: "Structural & Waterproofing Materials", name_ar: "المواد الإنشائية والعزل المائي" },
-  { id: "site-infrastructure-materials", slug: "site-infrastructure-materials", sectorId: "construction", name_en: "Site & Infrastructure Materials", name_ar: "مواد الموقع والبنية التحتية" },
+  {
+    id: "cement-concrete-materials",
+    slug: "cement-concrete-materials",
+    sectorId: "construction",
+    name_en: "Cement & Concrete Materials",
+    name_ar: "الأسمنت ومواد الخرسانة",
+  },
+  {
+    id: "structural-waterproofing-materials",
+    slug: "structural-waterproofing-materials",
+    sectorId: "construction",
+    name_en: "Structural & Waterproofing Materials",
+    name_ar: "المواد الإنشائية والعزل المائي",
+  },
+  {
+    id: "site-infrastructure-materials",
+    slug: "site-infrastructure-materials",
+    sectorId: "construction",
+    name_en: "Site & Infrastructure Materials",
+    name_ar: "مواد الموقع والبنية التحتية",
+  },
 
-  { id: "spare-parts-oem-sourcing", slug: "spare-parts-oem-sourcing", sectorId: "global-sourcing", name_en: "Spare Parts & OEM Sourcing", name_ar: "قطع الغيار والتوريد الأصلي (OEM)" },
-  { id: "bulk-materials-industrial-supply", slug: "bulk-materials-industrial-supply", sectorId: "global-sourcing", name_en: "Bulk Materials & Industrial Supply", name_ar: "المواد بالجملة والتوريد الصناعي" },
-  { id: "project-sourcing-logistics", slug: "project-sourcing-logistics", sectorId: "global-sourcing", name_en: "Project Sourcing & Logistics", name_ar: "توريد المشاريع واللوجستيات" },
+  {
+    id: "spare-parts-oem-sourcing",
+    slug: "spare-parts-oem-sourcing",
+    sectorId: "global-sourcing",
+    name_en: "Spare Parts & OEM Sourcing",
+    name_ar: "قطع الغيار والتوريد الأصلي (OEM)",
+  },
+  {
+    id: "bulk-materials-industrial-supply",
+    slug: "bulk-materials-industrial-supply",
+    sectorId: "global-sourcing",
+    name_en: "Bulk Materials & Industrial Supply",
+    name_ar: "المواد بالجملة والتوريد الصناعي",
+  },
+  {
+    id: "project-sourcing-logistics",
+    slug: "project-sourcing-logistics",
+    sectorId: "global-sourcing",
+    name_en: "Project Sourcing & Logistics",
+    name_ar: "توريد المشاريع واللوجستيات",
+  },
 ];
 
 export function getCategoryById(id: string): ProductCategory | undefined {
@@ -67,5 +321,7 @@ export function getCategoryById(id: string): ProductCategory | undefined {
 }
 
 export function getCategoriesBySector(sectorId: string): ProductCategory[] {
-  return PRODUCT_CATEGORIES.filter((category) => category.sectorId === sectorId);
+  return PRODUCT_CATEGORIES.filter(
+    (category) => category.sectorId === sectorId,
+  );
 }

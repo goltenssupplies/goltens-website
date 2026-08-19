@@ -5,12 +5,10 @@ import { motion, useReducedMotion } from "framer-motion";
 const LOOP_SECONDS = 2;
 
 /**
- * Minimal gold-outline scroll cue, bottom-center. Positioned at
- * `bottom-24`/`bottom-28` rather than flush against the very bottom edge
- * — the Hero already has a bottom-pinned sector-navigation row there, and
- * this sits clear above it rather than competing for the same space.
- * A classic still pill outline with one dot looping slowly down and
- * fading — nothing else moves. Skipped under `prefers-reduced-motion`.
+ * Minimal gold-outline scroll cue, bottom-center, sitting a little clear of
+ * the Hero's very bottom edge rather than flush against it. A classic still
+ * pill outline with one dot looping slowly down and fading — nothing else
+ * moves. Skipped under `prefers-reduced-motion`.
  */
 export function HeroScrollIndicator() {
   const prefersReducedMotion = useReducedMotion();

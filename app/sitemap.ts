@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 
 import { getAllKnowledgeItems } from "@/data/knowledge";
 import { getAllProductParams } from "@/data/products";
-import { getAllSectorArticleParams } from "@/data/sector-content";
 import { SECTORS } from "@/data/sectors";
 import { getAllSolutionParams } from "@/data/solutions";
 import { routing } from "@/i18n/routing";
@@ -17,6 +16,12 @@ import { siteUrl } from "@/lib/site";
  * empty/generic state to a crawler with no `localStorage`, so they carry
  * `robots: { index: false }` in their own metadata instead of a sitemap
  * entry — see `app/[locale]/rfq/page.tsx` and `app/[locale]/compare/page.tsx`.
+ * Also deliberately excludes the legacy `/sectors/[slug]/articles/[article]`
+ * URLs: that route only exists to `permanentRedirect` old links to
+ * `/knowledge/[slug]` (see that page's own file for why), and every one of
+ * its slugs already equals a real `KnowledgeItem.slug` included below via
+ * `getAllKnowledgeItems()` — listing both would put the same final URL in
+ * the sitemap twice under two different paths, one of which 308s.
  */
 const paths: string[] = [
   "",
@@ -31,9 +36,6 @@ const paths: string[] = [
   ...SECTORS.map((sector) => `/sectors/${sector.slug}`),
   ...getAllProductParams().map(
     ({ slug, product }) => `/sectors/${slug}/products/${product}`,
-  ),
-  ...getAllSectorArticleParams().map(
-    ({ slug, article }) => `/sectors/${slug}/articles/${article}`,
   ),
   "/solutions",
   ...getAllSolutionParams().map(({ slug }) => `/solutions/${slug}`),

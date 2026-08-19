@@ -21,9 +21,15 @@ import { globalSpartsPartsOemSourcing } from "@/data/products/global-sourcing/sp
 import { governmentOfficeInstitutionalFurniture } from "@/data/products/government-procurement/office-institutional-furniture";
 import { governmentPublicLightingPower } from "@/data/products/government-procurement/public-lighting-power";
 import { governmentSecurityPublicSafety } from "@/data/products/government-procurement/security-public-safety";
-import { healthcareCriticalCareHospitalFurniture } from "@/data/products/healthcare/critical-care-hospital-furniture";
-import { healthcarePatientMonitoringDiagnostics } from "@/data/products/healthcare/patient-monitoring-diagnostics";
-import { healthcareSurgicalOperatingRoomEquipment } from "@/data/products/healthcare/surgical-operating-room-equipment";
+import { healthcareCablesBreakersDistributionPanels } from "@/data/products/healthcare/cables-breakers-distribution-panels";
+import { healthcareCateringKitchenSupplies } from "@/data/products/healthcare/catering-kitchen-supplies";
+import { healthcareElectricalSuppliesEquipment } from "@/data/products/healthcare/electrical-supplies-equipment";
+import { healthcareEnergySolutionsSupplies } from "@/data/products/healthcare/energy-solutions-supplies";
+import { healthcareGeneralOperationalSupplies } from "@/data/products/healthcare/general-operational-supplies";
+import { healthcareIndustrialProcessChemicals } from "@/data/products/healthcare/industrial-process-chemicals";
+import { healthcareMaintenanceOperationsEquipment } from "@/data/products/healthcare/maintenance-operations-equipment";
+import { healthcarePumpsWaterTreatmentEquipment } from "@/data/products/healthcare/pumps-water-treatment-equipment";
+import { healthcareTechnicalFacilitySupplies } from "@/data/products/healthcare/technical-facility-supplies";
 import { heavyConcreteCompactionEquipment } from "@/data/products/heavy-equipment/concrete-compaction-equipment";
 import { heavyCranesLiftingEquipment } from "@/data/products/heavy-equipment/cranes-lifting-equipment";
 import { heavyEarthmovingEquipment } from "@/data/products/heavy-equipment/earthmoving-equipment";
@@ -67,9 +73,15 @@ const PRODUCTS: Product[] = [
   ...commercialTrucksLightVehicles,
   ...commercialTrailersTransportEquipment,
   ...commercialSpecializedMunicipalVehicles,
-  ...healthcarePatientMonitoringDiagnostics,
-  ...healthcareSurgicalOperatingRoomEquipment,
-  ...healthcareCriticalCareHospitalFurniture,
+  ...healthcareElectricalSuppliesEquipment,
+  ...healthcareCablesBreakersDistributionPanels,
+  ...healthcareIndustrialProcessChemicals,
+  ...healthcarePumpsWaterTreatmentEquipment,
+  ...healthcareCateringKitchenSupplies,
+  ...healthcareTechnicalFacilitySupplies,
+  ...healthcareMaintenanceOperationsEquipment,
+  ...healthcareEnergySolutionsSupplies,
+  ...healthcareGeneralOperationalSupplies,
   ...chemicalsIndustrialLubricantsFluids,
   ...chemicalsWaterWastewaterChemicals,
   ...chemicalsCorrosionProtectionCoatings,
@@ -100,7 +112,9 @@ export function getProductsByCategory(categoryId: string): Product[] {
 
 /** Reverse lookup of `Product.relatedBrandSlugs` — every product genuinely sourced from a given brand, for that brand's own "Related Products" section. */
 export function getProductsByBrandSlug(brandSlug: string): Product[] {
-  return PRODUCTS.filter((product) => product.relatedBrandSlugs?.includes(brandSlug));
+  return PRODUCTS.filter((product) =>
+    product.relatedBrandSlugs?.includes(brandSlug),
+  );
 }
 
 export interface CatalogueLibraryEntry extends ProductCatalogue {

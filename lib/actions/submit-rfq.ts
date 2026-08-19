@@ -2,7 +2,7 @@
 
 import { Resend } from "resend";
 
-import { contactEmail } from "@/lib/site";
+import { salesEmail } from "@/lib/site";
 
 export interface RfqSubmissionResult {
   success: boolean;
@@ -19,7 +19,12 @@ interface RfqItem {
 const MAX_ATTACHMENT_BYTES = 25 * 1024 * 1024;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const REQUIRED_FIELDS = ["companyName", "contactName", "email", "phone"] as const;
+const REQUIRED_FIELDS = [
+  "companyName",
+  "contactName",
+  "email",
+  "phone",
+] as const;
 
 function readField(formData: FormData, key: string) {
   return String(formData.get(key) ?? "").trim();
@@ -80,7 +85,7 @@ export async function submitRfqRequest(
     return { success: false, error: "not_configured" };
   }
 
-  const notificationEmail = process.env.RFQ_NOTIFICATION_EMAIL || contactEmail;
+  const notificationEmail = process.env.RFQ_NOTIFICATION_EMAIL || salesEmail;
 
   const attachments = await Promise.all(
     formData
@@ -101,28 +106,34 @@ export async function submitRfqRequest(
   const fromAddress =
     process.env.RESEND_FROM_EMAIL ?? "GOLTENS Website <onboarding@resend.dev>";
 
-  const { error } = await resend.emails.send({
-    from: fromAddress,
-    to: notificationEmail,
-    replyTo: fields.email || undefined,
-    subject: `New RFQ — ${fields.companyName || "Unknown company"} (${items.length} item${items.length === 1 ? "" : "s"})`,
-    text: [
-      `Company: ${fields.companyName}`,
-      `Full name: ${fields.contactName}`,
-      `Email: ${fields.email}`,
-      `Phone: ${fields.phone}`,
-      "",
-      "Requested items:",
-      ...items.map((item) => `  - ${item.name} (${item.slug}) — Qty: ${item.quantity}`),
-      "",
-      ...(fields.notes ? [`Notes: ${fields.notes}`] : []),
-    ].join("\n"),
-    attachments: attachments.length > 0 ? attachments : undefined,
-  });
+  try {
+    const { error } = await resend.emails.send({
+      from: fromAddress,
+      to: notificationEmail,
+      replyTo: fields.email || undefined,
+      subject: `New RFQ — ${fields.companyName || "Unknown company"} (${items.length} item${items.length === 1 ? "" : "s"})`,
+      text: [
+        `Company: ${fields.companyName}`,
+        `Full name: ${fields.contactName}`,
+        `Email: ${fields.email}`,
+        `Phone: ${fields.phone}`,
+        "",
+        "Requested items:",
+        ...items.map(
+          (item) => `  - ${item.name} (${item.slug}) — Qty: ${item.quantity}`,
+        ),
+        "",
+        ...(fields.notes ? [`Notes: ${fields.notes}`] : []),
+      ].join("\n"),
+      attachments: attachments.length > 0 ? attachments : undefined,
+    });
 
-  if (error) {
+    if (error) {
+      return { success: false, error: "send_failed" };
+    }
+
+    return { success: true };
+  } catch {
     return { success: false, error: "send_failed" };
   }
-
-  return { success: true };
 }

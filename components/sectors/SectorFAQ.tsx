@@ -26,24 +26,28 @@ export interface SectorFAQProps {
  */
 export function SectorFAQ({ title, items }: SectorFAQProps) {
   return (
-    <div>
+    <div className="mx-auto max-w-4xl">
       <Reveal>
-        <Heading level={2} tone="inverse" className="mb-10 lg:mb-12">
+        <Heading
+          level={2}
+          tone="inverse"
+          className="mb-12 text-center lg:mb-16"
+        >
           {title}
         </Heading>
       </Reveal>
-      <div className="mx-auto flex max-w-3xl flex-col gap-3">
+      <div className="divide-canvas/10 border-canvas/10 flex flex-col divide-y border-y">
         {items.map((item, index) => (
           <Reveal key={item.question} delay={index * STAGGER_SECONDS}>
-            <details className="group border-canvas/10 bg-canvas/[0.04] rounded-[16px] border p-6 open:pb-6">
-              <summary className="text-canvas flex cursor-pointer list-none items-center justify-between gap-4 font-medium marker:content-none">
+            <details className="group py-6 lg:py-7">
+              <summary className="text-canvas flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-medium marker:content-none">
                 {item.question}
                 <ArrowRight
                   aria-hidden="true"
                   className="text-gold size-4 shrink-0 rotate-90 transition-transform duration-300 group-open:-rotate-90"
                 />
               </summary>
-              <Text tone="inverse" className="mt-4 opacity-75">
+              <Text tone="inverse" className="mt-4 max-w-3xl opacity-75">
                 {item.answer}
               </Text>
             </details>

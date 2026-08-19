@@ -33,7 +33,7 @@ export const SECTORS: Sector[] = [
     description_en:
       "Supply solutions aligned with public-sector procurement standards.",
     description_ar: "حلول توريد متوافقة مع معايير المشتريات الحكومية.",
-    image: null,
+    image: "/images/categories/government-procurement.webp",
     icon: "Landmark",
     featured: true,
     order: 1,
@@ -65,7 +65,7 @@ export const SECTORS: Sector[] = [
       "We supply complete fire protection equipment, systems and certified components for government projects, industrial facilities, hospitals, universities, commercial buildings and infrastructure projects.",
     description_ar:
       "نوفر معدات وأنظمة ومكونات مكافحة حريق معتمدة وكاملة للمشروعات الحكومية، والمنشآت الصناعية، والمستشفيات، والجامعات، والمباني التجارية، ومشروعات البنية التحتية.",
-    image: "/images/hero/slide-fire-fighting.webp",
+    image: "/images/categories/fire-update.jpg",
     icon: "Flame",
     featured: true,
     order: 3,
@@ -79,7 +79,7 @@ export const SECTORS: Sector[] = [
       "Electrical equipment, components, and energy solutions sourced to specification for industrial and commercial facilities.",
     description_ar:
       "معدات ومكونات كهربائية وحلول طاقة يتم توريدها وفق المواصفات المطلوبة للمنشآت الصناعية والتجارية.",
-    image: null,
+    image: "/images/categories/electrical-energy.jpg",
     icon: "Zap",
     featured: false,
     order: 4,
@@ -93,7 +93,7 @@ export const SECTORS: Sector[] = [
       "Heavy machinery and equipment for construction, industrial, and logistics operations.",
     description_ar:
       "معدات وآليات ثقيلة لعمليات الإنشاءات والصناعة واللوجستيات.",
-    image: "/images/hero/slide-heavy-equipment.webp",
+    image: "/images/categories/heavy-equipment2.png..jpg",
     icon: "Forklift",
     featured: true,
     order: 5,
@@ -106,7 +106,7 @@ export const SECTORS: Sector[] = [
     description_en:
       "Commercial vehicles and fleet solutions to support your logistics operations.",
     description_ar: "مركبات تجارية وحلول تجهيز أساطيل لدعم عملياتكم اللوجستية.",
-    image: "/images/categories/commercial-vehicles.webp",
+    image: "/images/categories/cars.jpg",
     icon: "Truck",
     featured: false,
     order: 6,
@@ -117,10 +117,10 @@ export const SECTORS: Sector[] = [
     title_en: "Healthcare & Medical Solutions",
     title_ar: "حلول وتجهيزات المستشفيات",
     description_en:
-      "Reliable supply for hospitals and medical centers, where availability is never optional.",
+      "Operational, maintenance, and facility supply solutions for hospitals and medical centers.",
     description_ar:
-      "توريد موثوق للمستشفيات والمراكز الطبية، لا يحتمل أي تأخير في التوافر.",
-    image: null,
+      "حلول توريد تشغيلية وصيانة ومرافق للمستشفيات والمراكز الطبية.",
+    image: "/images/categories/healthcare.jpg",
     icon: "HeartPulse",
     featured: true,
     order: 7,
@@ -148,7 +148,7 @@ export const SECTORS: Sector[] = [
       "Materials and equipment supply for construction, engineering, and infrastructure projects.",
     description_ar:
       "توريد المواد والمعدات لمشاريع الإنشاءات والهندسة والبنية التحتية.",
-    image: null,
+    image: "/images/categories/construction.jpg",
     icon: "HardHat",
     featured: false,
     order: 9,
@@ -162,7 +162,7 @@ export const SECTORS: Sector[] = [
       "Genuine products from leading global manufacturers, sourced through a trusted international supplier network.",
     description_ar:
       "منتجات أصلية من كبرى الشركات المصنّعة العالمية، من خلال شبكة موردين دولية موثوقة.",
-    image: null,
+    image: "/images/categories/global-sourcing.webp",
     icon: "Globe",
     featured: false,
     order: 10,

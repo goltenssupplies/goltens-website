@@ -5,7 +5,10 @@
     "skipToContent": "Skip to main content",
     "requestQuotation": "Request a Quotation",
     "rfqTrayLabel": "{count, plural, one {View RFQ cart, # item} other {View RFQ cart, # items}}",
-    "compareTrayLabel": "{count, plural, one {View comparison, # product} other {View comparison, # products}}"
+    "compareTrayLabel": "{count, plural, one {View comparison, # product} other {View comparison, # products}}",
+    "whatsappQuoteMessage": "Hello GOLTENS, I would like to request a quote.",
+    "whatsappProcurementMessage": "Hello GOLTENS, I would like to contact the procurement team.",
+    "whatsappContactMessage": "Hello GOLTENS, I would like to get in touch."
   },
   "meta": {
     "home": {
@@ -13,15 +16,15 @@
       "description": "GOLTENS GENERAL SUPPLIES sources, verifies, and delivers general supplies for government entities, universities, industrial companies, healthcare organizations, and the private sector across Egypt."
     },
     "contact": {
-      "title": "Contact Us — GOLTENS GENERAL SUPPLIES",
+      "title": "Contact Us",
       "description": "Contact GOLTENS GENERAL SUPPLIES for professional supply solutions for government, industrial, and commercial projects across Egypt."
     },
     "about": {
-      "title": "About Us — GOLTENS GENERAL SUPPLIES",
+      "title": "About Us",
       "description": "Learn about GOLTENS GENERAL SUPPLIES, your trusted partner for general supplies and procurement serving government, industrial, healthcare, and educational organizations across Egypt."
     },
     "sectors": {
-      "title": "Procurement Sectors — GOLTENS GENERAL SUPPLIES",
+      "title": "Procurement Sectors",
       "description": "Integrated procurement solutions for government entities, projects, factories, hospitals, and companies, through a global network of approved suppliers and brands, upholding the highest standards of quality and speed of execution."
     },
     "brands": {
@@ -29,27 +32,27 @@
       "description": "We supply genuine products from leading international manufacturers through trusted procurement channels with full technical and commercial support."
     },
     "knowledge": {
-      "title": "Knowledge Center — GOLTENS GENERAL SUPPLIES",
+      "title": "Knowledge Center",
       "description": "Technical guides, buying guides, industry standards, and procurement articles from GOLTENS GENERAL SUPPLIES."
     },
     "privacy": {
-      "title": "Privacy Policy — GOLTENS GENERAL SUPPLIES",
+      "title": "Privacy Policy",
       "description": "How GOLTENS GENERAL SUPPLIES collects, uses, and protects the information you share with us."
     },
     "terms": {
-      "title": "Terms & Conditions — GOLTENS GENERAL SUPPLIES",
+      "title": "Terms & Conditions",
       "description": "The terms and conditions governing your use of the GOLTENS GENERAL SUPPLIES website."
     },
     "disclaimer": {
-      "title": "Disclaimer — GOLTENS GENERAL SUPPLIES",
+      "title": "Disclaimer",
       "description": "Important disclaimers regarding the information published on the GOLTENS GENERAL SUPPLIES website."
     },
     "cookiePolicy": {
-      "title": "Cookie Policy — GOLTENS GENERAL SUPPLIES",
+      "title": "Cookie Policy",
       "description": "How GOLTENS GENERAL SUPPLIES uses cookies on this website."
     },
     "accessibility": {
-      "title": "Accessibility Statement — GOLTENS GENERAL SUPPLIES",
+      "title": "Accessibility Statement",
       "description": "Our commitment to making the GOLTENS GENERAL SUPPLIES website accessible to everyone."
     }
   },
@@ -60,43 +63,20 @@
     "brands": "Brands",
     "about": "About Us",
     "contact": "Contact",
+    "requestQuote": "Request a Quote",
     "primaryNav": "Primary",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
   "hero": {
     "label": "Enterprise Procurement Solutions",
-    "headline": "Egypt's Trusted Link to the World's Leading Manufacturers",
-    "paragraph": "Procurement for government, industrial, and institutional projects — sourcing certified equipment from a trusted global manufacturer network, backed by technical support at every stage.",
+    "brandLine": "GOLTENS",
+    "headline": "General Supplies",
+    "subheadline": "Integrated Solutions for Government & Industrial Supply",
+    "paragraph": "We provide companies and government entities with reliable sourcing and supply solutions, with a strong commitment to quality and efficiency.",
     "primaryCta": "Request a Quote",
-    "secondaryCta": "Explore Solutions",
-    "trustBar": [
-      {
-        "slug": "government",
-        "title": "Government Entities",
-        "subtitle": "Supply solutions aligned with government requirements."
-      },
-      {
-        "slug": "industrial",
-        "title": "Industrial Companies",
-        "subtitle": "Equipment and operating materials for factories and production lines."
-      },
-      {
-        "slug": "contractors",
-        "title": "Contractors & Construction",
-        "subtitle": "Materials and equipment supply for construction and engineering projects."
-      },
-      {
-        "slug": "healthcare",
-        "title": "Hospitals",
-        "subtitle": "Supplies for hospitals and medical centers."
-      },
-      {
-        "slug": "universities",
-        "title": "Universities",
-        "subtitle": "Integrated solutions for universities and educational institutions."
-      }
-    ]
+    "secondaryCta": "Browse Our Solutions",
+    "quickNavLabel": "Quick sector navigation"
   },
   "capabilities": {
     "title": "How We Work",
@@ -122,6 +102,7 @@
   "sectors": {
     "eyebrow": "What We Supply",
     "title": "Procurement Sectors",
+    "viewAllSectors": "View All Sectors",
     "description": "We provide integrated procurement solutions for government entities, projects, factories, hospitals, and companies, through a global network of approved suppliers and brands, upholding the highest standards of quality and speed of execution.",
     "exploreSector": "Explore Sector",
     "comingSoon": "Coming Soon",
@@ -198,10 +179,46 @@
     "addToCompareAddedLabel": "Added to Compare"
   },
   "solutions": {
-    "eyebrow": "Project Solutions",
+    "eyebrow": "Supply Solutions",
     "breadcrumbLabel": "Solutions",
-    "listingTitle": "Project Solutions",
-    "listingDescription": "Start from your project, not a product — GOLTENS connects the sectors, products, brands, catalogues, and articles that genuinely apply to what you're building.",
+    "listingTitle": "Integrated Supply Solutions... From Requirement to Delivery",
+    "listingDescription": "We help you source the right products from reliable sources and follow the supply process through delivery.",
+    "processTitle": "How We Provide the Solution",
+    "processSteps": [
+      {
+        "title": "Understand the Requirement",
+        "description": "Define specifications, quantities, and supply requirements."
+      },
+      {
+        "title": "Select the Right Product",
+        "description": "Source the appropriate product from reliable suppliers."
+      },
+      {
+        "title": "Supply & Delivery",
+        "description": "Follow the order through to final delivery."
+      },
+      {
+        "title": "Quality & Reliability",
+        "description": "Reliable products with warranty according to supplier or manufacturer terms."
+      }
+    ],
+    "differentiatorsTitle": "Why GOLTENS?",
+    "differentiators": [
+      {
+        "title": "Reliable Products with Warranty",
+        "description": "Reliable products sourced from trusted suppliers."
+      },
+      {
+        "title": "Quality & Credibility",
+        "description": "Quality and credibility guide our product selection and customer relationships."
+      },
+      {
+        "title": "Commitment to Supply",
+        "description": "We follow the supply process through to successful delivery."
+      }
+    ],
+    "finalCtaTitle": "Do You Have a Supply Requirement?",
+    "finalCtaDescription": "Share your requirements and we will work to find the right solution.",
     "exploreSolution": "Explore Solution",
     "overviewTitle": "Overview",
     "procurementScopeTitle": "Procurement Scope",
@@ -428,21 +445,18 @@
     }
   },
   "finalCta": {
-    "title": "Ready to Start Your Next Procurement Project?",
-    "description": "Share your project requirements and our procurement team will respond with a tailored solution.",
-    "requestQuote": "Request a Quote",
-    "emailProcurementTeam": "Email Procurement Team"
+    "title": "Ready for Your Next Procurement Project?",
+    "description": "Share your project requirements and our procurement team will respond with the right solution.",
+    "requestQuote": "Request a Quote"
   },
   "whyChooseUs": {
-    "title": "Why Choose GOLTENS?",
-    "subtitle": "Your trusted procurement partner for industrial, governmental and commercial projects.",
+    "title": "Why GOLTENS?",
     "items": [
-      "Genuine products from global brands.",
-      "Competitive pricing for every project.",
-      "Fast delivery across Egypt.",
-      "Expertise in industrial procurement.",
-      "Technical support before and after sales.",
-      "A network of local and global suppliers."
+      "Trusted suppliers",
+      "Solutions matched to specification",
+      "Competitive pricing and supply",
+      "Fast response to quotation requests",
+      "End-to-end support, from request to delivery"
     ]
   },
   "about": {
@@ -541,33 +555,12 @@
     "emailLabel": "General Enquiries",
     "salesEmailLabel": "Sales & Quotes",
     "legalLinksHeading": "Legal Links",
-    "ctaButton": "Contact Us",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms & Conditions",
     "disclaimer": "Disclaimer",
     "cookiePolicy": "Cookie Policy",
-    "accessibility": "Accessibility Statement",
-    "copyright": "© {year} GOLTENS General Supplies. All Rights Reserved.",
-    "columns": {
-      "company": {
-        "heading": "Company",
-        "about": "About",
-        "sectors": "Sectors",
-        "brands": "Brands",
-        "contact": "Contact"
-      },
-      "sectors": {
-        "heading": "Sectors",
-        "industrialEquipment": "Industrial Equipment & Pumps",
-        "fireProtection": "Fire Protection Systems",
-        "heavyEquipment": "Heavy Equipment & Machinery",
-        "commercialVehicles": "Commercial Vehicles & Fleet Solutions",
-        "industrialChemicals": "Industrial Chemicals & Lubricants"
-      },
-      "contact": {
-        "heading": "Contact"
-      }
-    }
+    "accessibility": "Accessibility",
+    "copyright": "© {year} GOLTENS — All Rights Reserved."
   },
   "privacy": {
     "eyebrow": "Privacy Policy",
@@ -831,5 +824,12 @@
       "description": "Something went wrong on our end. Please try again, or reach us directly.",
       "action": "Try Again"
     }
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or may have moved. Check the address, or head back to explore our procurement sectors and solutions.",
+    "backHome": "Back to Home",
+    "contactUs": "Contact Us"
   }
 }

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { PackageSearch } from "lucide-react";
+import { Package, PackageSearch } from "lucide-react";
 
 import { AddToCompareButton } from "@/components/products/AddToCompareButton";
 import { AddToRfqButton } from "@/components/rfq/AddToRfqButton";
@@ -10,8 +10,10 @@ import { Heading } from "@/components/ui/Heading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Stack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
+import { getCategoryById } from "@/data/product-categories";
+import { getSectorById } from "@/data/sectors";
 import { Link } from "@/i18n/navigation";
-import { getSectorImage } from "@/lib/sectors";
+import { SECTOR_ICONS } from "@/lib/sectors";
 import { cn } from "@/lib/utils";
 
 const STAGGER_SECONDS = 0.05;
@@ -33,6 +35,8 @@ export interface SectorProductsProps {
   /** Omit (or pass an empty string) to skip rendering the heading — used when a caller like `ProductExplorer` already renders its own heading above this component. */
   title?: string;
   items: SectorProductItem[];
+  /** "grid" (default) — the existing image/title/description/CTA card grid, unchanged for every current caller. "list" — a plain bulleted text list of product names only (no images, icons, or card buttons), in the given `items` order. Used on the sector detail page's "Scope of Supply" section. */
+  variant?: "grid" | "list";
   requestQuoteLabel: string;
   /** Anchor id (without "#") of an on-page `SectorQuoteCTA` — every product's CTA scrolls there. Pass an absolute path (starting with "/", e.g. "/contact") instead for a page with no on-page quote form, like the brand detail page. */
   requestQuoteHref: string;
@@ -53,12 +57,80 @@ export interface SectorProductsProps {
  * there. Renders `children` bare (no anchor) when `href` is omitted, which
  * is every card until a sector has real product detail pages.
  */
-function CardLinkArea({ href, children }: { href?: string; children: ReactNode }) {
+function CardLinkArea({
+  href,
+  children,
+}: {
+  href?: string;
+  children: ReactNode;
+}) {
   if (!href) return <>{children}</>;
   return (
     <Link href={href} className="contents">
       {children}
     </Link>
+  );
+}
+
+/**
+ * Resolution order: (1) the product's own verified photo — the vast
+ * majority now sourced and mapped in `data/products/*.ts`; (2) its
+ * category's shared photo, once one exists (`ProductCategory.image` —
+ * unpopulated today, so this tier is currently inert, never a fabricated
+ * stand-in); (3) a neutral placeholder — the sector's own approved icon
+ * (`SECTOR_ICONS`) over the site's dot-texture treatment, never a photo
+ * that doesn't depict this product. Deliberately does NOT fall back to the
+ * sector's own hero photo: reusing one photo across every product missing
+ * its own is the "all cards share one image" bug this pipeline exists to
+ * fix, not a substitute for it. Logs to the console in development so a
+ * missing product photo is obvious to fix, not silently papered over.
+ */
+function ProductCardImage({
+  image,
+  sectorId,
+  categoryId,
+  slug,
+}: {
+  image: string | null;
+  sectorId?: string;
+  categoryId?: string;
+  slug: string;
+}) {
+  const categoryImage = categoryId
+    ? (getCategoryById(categoryId)?.image ?? null)
+    : null;
+  const resolved = image ?? categoryImage;
+
+  if (resolved) {
+    return (
+      <Image
+        src={resolved}
+        alt=""
+        fill
+        loading="lazy"
+        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        className="object-cover contrast-110 saturate-105 sepia-[0.08]"
+      />
+    );
+  }
+
+  if (process.env.NODE_ENV !== "production") {
+    console.warn(
+      `[ProductCardImage] no product or category photo for "${slug}" (sector: ${sectorId ?? "unknown"}) — rendering placeholder.`,
+    );
+  }
+
+  const sectorIconName = sectorId ? getSectorById(sectorId)?.icon : undefined;
+  const PlaceholderIcon =
+    (sectorIconName && SECTOR_ICONS[sectorIconName]) || Package;
+
+  return (
+    <div
+      aria-hidden="true"
+      className="bg-obsidian text-gold/[0.07] bg-dot-pattern absolute inset-0 flex items-center justify-center"
+    >
+      <PlaceholderIcon aria-hidden="true" className="text-gold/25 size-9" />
+    </div>
   );
 }
 
@@ -71,6 +143,7 @@ function CardLinkArea({ href, children }: { href?: string; children: ReactNode }
 export function SectorProducts({
   title,
   items,
+  variant = "grid",
   requestQuoteLabel,
   requestQuoteHref,
   emptyTitle,
@@ -94,24 +167,43 @@ export function SectorProducts({
         </Reveal>
       )}
 
-      {items.length > 0 ? (
+      {items.length > 0 && variant === "list" ? (
+        <ul className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((item) => (
+            <li key={item.slug} className="flex items-start gap-3">
+              <span
+                aria-hidden="true"
+                className="bg-gold mt-2.5 size-1.5 shrink-0 rounded-full"
+              />
+              <Text tone="inverse" className="opacity-80">
+                {item.title}
+              </Text>
+            </li>
+          ))}
+        </ul>
+      ) : items.length > 0 ? (
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
-            <Reveal key={item.slug} delay={index * STAGGER_SECONDS} className="h-full">
+            <Reveal
+              key={item.slug}
+              delay={index * STAGGER_SECONDS}
+              className="h-full"
+            >
               <Card
                 variant="glass"
                 padding="none"
-                className={cn("flex h-full flex-col overflow-hidden", cardGlassHover)}
+                className={cn(
+                  "flex h-full flex-col overflow-hidden",
+                  cardGlassHover,
+                )}
               >
                 <CardLinkArea href={item.href}>
                   <div className="relative aspect-video shrink-0 overflow-hidden">
-                    <Image
-                      src={getSectorImage(item.image)}
-                      alt=""
-                      fill
-                      loading="lazy"
-                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover contrast-110 saturate-105 sepia-[0.08]"
+                    <ProductCardImage
+                      image={item.image}
+                      sectorId={item.sectorId}
+                      categoryId={item.categoryId}
+                      slug={item.slug}
                     />
                     <div
                       aria-hidden="true"

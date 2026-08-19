@@ -7,8 +7,10 @@ export const commercialTrucksLightVehicles: Product[] = [
     slug: "light-commercial-vehicles",
     name_en: "Light Commercial Vehicles",
     name_ar: "المركبات التجارية الخفيفة",
-    shortDescription_en: "Light commercial vehicles for last-mile delivery and light-duty fleet work.",
-    shortDescription_ar: "مركبات تجارية خفيفة للتوصيل والأعمال الخفيفة للأسطول.",
+    shortDescription_en:
+      "Light commercial vehicles for last-mile delivery and light-duty fleet work.",
+    shortDescription_ar:
+      "مركبات تجارية خفيفة للتوصيل والأعمال الخفيفة للأسطول.",
     longDescription_en:
       "Light commercial vehicles for last-mile delivery, service calls, and light-duty fleet operations. We source vehicles matched to your payload requirement and body configuration.",
     longDescription_ar:
@@ -17,9 +19,19 @@ export const commercialTrucksLightVehicles: Product[] = [
     categoryId: "trucks-light-vehicles",
     relatedProductSlugs: ["pickup-trucks", "delivery-cargo-vans"],
     catalogues: [
-      { id: "light-commercial-vehicles-datasheet", title_en: "Light Commercial Vehicles Datasheet", title_ar: "نشرة بيانات المركبات التجارية الخفيفة", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+      {
+        id: "light-commercial-vehicles-datasheet",
+        title_en: "Light Commercial Vehicles Datasheet",
+        title_ar: "نشرة بيانات المركبات التجارية الخفيفة",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
     ],
-    images: [],
+    images: [
+      "/images/products/commercial-vehicles/light-commercial-vehicles.webp",
+    ],
     availability: "available",
     quoteEnabled: true,
   },
@@ -28,8 +40,10 @@ export const commercialTrucksLightVehicles: Product[] = [
     slug: "medium-heavy-trucks",
     name_en: "Medium & Heavy Trucks",
     name_ar: "الشاحنات المتوسطة والثقيلة",
-    shortDescription_en: "Medium and heavy trucks for bulk transport and heavy-duty fleet operations.",
-    shortDescription_ar: "شاحنات متوسطة وثقيلة لنقل البضائع الثقيلة وعمليات الأسطول الشاقة.",
+    shortDescription_en:
+      "Medium and heavy trucks for bulk transport and heavy-duty fleet operations.",
+    shortDescription_ar:
+      "شاحنات متوسطة وثقيلة لنقل البضائع الثقيلة وعمليات الأسطول الشاقة.",
     longDescription_en:
       "Medium and heavy trucks for bulk transport, construction logistics, and heavy-duty fleet operations. We source vehicles matched to your gross vehicle weight and body or chassis requirement.",
     longDescription_ar:
@@ -38,9 +52,17 @@ export const commercialTrucksLightVehicles: Product[] = [
     categoryId: "trucks-light-vehicles",
     relatedProductSlugs: ["light-commercial-vehicles", "utility-trucks"],
     catalogues: [
-      { id: "medium-heavy-trucks-datasheet", title_en: "Medium & Heavy Trucks Datasheet", title_ar: "نشرة بيانات الشاحنات المتوسطة والثقيلة", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+      {
+        id: "medium-heavy-trucks-datasheet",
+        title_en: "Medium & Heavy Trucks Datasheet",
+        title_ar: "نشرة بيانات الشاحنات المتوسطة والثقيلة",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
     ],
-    images: [],
+    images: ["/images/products/commercial-vehicles/medium-heavy-trucks.webp"],
     availability: "available",
     quoteEnabled: true,
   },
@@ -49,8 +71,10 @@ export const commercialTrucksLightVehicles: Product[] = [
     slug: "pickup-trucks",
     name_en: "Pickup Trucks",
     name_ar: "شاحنات البيك أب",
-    shortDescription_en: "Pickup trucks for field operations, site work, and light-load transport.",
-    shortDescription_ar: "شاحنات بيك أب لعمليات الميدان وأعمال المواقع ونقل الأحمال الخفيفة.",
+    shortDescription_en:
+      "Pickup trucks for field operations, site work, and light-load transport.",
+    shortDescription_ar:
+      "شاحنات بيك أب لعمليات الميدان وأعمال المواقع ونقل الأحمال الخفيفة.",
     longDescription_en:
       "Pickup trucks for field operations, site supervision, and light-load transport across industrial and government fleets. We source vehicles matched to your payload and drivetrain requirement.",
     longDescription_ar:
@@ -59,9 +83,17 @@ export const commercialTrucksLightVehicles: Product[] = [
     categoryId: "trucks-light-vehicles",
     relatedProductSlugs: ["light-commercial-vehicles", "utility-trucks"],
     catalogues: [
-      { id: "pickup-trucks-datasheet", title_en: "Pickup Trucks Datasheet", title_ar: "نشرة بيانات شاحنات البيك أب", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+      {
+        id: "pickup-trucks-datasheet",
+        title_en: "Pickup Trucks Datasheet",
+        title_ar: "نشرة بيانات شاحنات البيك أب",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
     ],
-    images: [],
+    images: ["/images/products/commercial-vehicles/pickup-trucks.webp"],
     availability: "available",
     quoteEnabled: true,
   },
@@ -70,8 +102,10 @@ export const commercialTrucksLightVehicles: Product[] = [
     slug: "delivery-cargo-vans",
     name_en: "Delivery & Cargo Vans",
     name_ar: "شاحنات وسيارات التوصيل",
-    shortDescription_en: "Cargo vans for enclosed goods delivery and mobile service operations.",
-    shortDescription_ar: "شاحنات نقل بضائع مغلقة للتوصيل وعمليات الخدمة المتنقلة.",
+    shortDescription_en:
+      "Cargo vans for enclosed goods delivery and mobile service operations.",
+    shortDescription_ar:
+      "شاحنات نقل بضائع مغلقة للتوصيل وعمليات الخدمة المتنقلة.",
     longDescription_en:
       "Cargo vans for enclosed goods delivery, courier operations, and mobile service work. We source vehicles matched to your required cargo volume and fitout requirement.",
     longDescription_ar:
@@ -80,9 +114,17 @@ export const commercialTrucksLightVehicles: Product[] = [
     categoryId: "trucks-light-vehicles",
     relatedProductSlugs: ["light-commercial-vehicles", "pickup-trucks"],
     catalogues: [
-      { id: "delivery-cargo-vans-datasheet", title_en: "Delivery & Cargo Vans Datasheet", title_ar: "نشرة بيانات شاحنات وسيارات التوصيل", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+      {
+        id: "delivery-cargo-vans-datasheet",
+        title_en: "Delivery & Cargo Vans Datasheet",
+        title_ar: "نشرة بيانات شاحنات وسيارات التوصيل",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
     ],
-    images: [],
+    images: ["/images/products/commercial-vehicles/delivery-cargo-vans.webp"],
     availability: "available",
     quoteEnabled: true,
   },
@@ -91,8 +133,10 @@ export const commercialTrucksLightVehicles: Product[] = [
     slug: "utility-trucks",
     name_en: "Utility Trucks",
     name_ar: "الشاحنات متعددة الاستخدامات",
-    shortDescription_en: "Utility trucks fitted for maintenance, service, and multi-purpose fleet work.",
-    shortDescription_ar: "شاحنات متعددة الاستخدامات مجهزة لأعمال الصيانة والخدمة والاستخدامات المتنوعة للأسطول.",
+    shortDescription_en:
+      "Utility trucks fitted for maintenance, service, and multi-purpose fleet work.",
+    shortDescription_ar:
+      "شاحنات متعددة الاستخدامات مجهزة لأعمال الصيانة والخدمة والاستخدامات المتنوعة للأسطول.",
     longDescription_en:
       "Utility trucks fitted with service bodies for maintenance crews, field service, and multi-purpose fleet operations. We source vehicles matched to your fitout and equipment-carrying requirement.",
     longDescription_ar:
@@ -101,9 +145,17 @@ export const commercialTrucksLightVehicles: Product[] = [
     categoryId: "trucks-light-vehicles",
     relatedProductSlugs: ["medium-heavy-trucks", "pickup-trucks"],
     catalogues: [
-      { id: "utility-trucks-datasheet", title_en: "Utility Trucks Datasheet", title_ar: "نشرة بيانات الشاحنات متعددة الاستخدامات", kind: "datasheet", fileType: "pdf", language: "en", fileUrl: null },
+      {
+        id: "utility-trucks-datasheet",
+        title_en: "Utility Trucks Datasheet",
+        title_ar: "نشرة بيانات الشاحنات متعددة الاستخدامات",
+        kind: "datasheet",
+        fileType: "pdf",
+        language: "en",
+        fileUrl: null,
+      },
     ],
-    images: [],
+    images: ["/images/products/commercial-vehicles/utility-trucks.webp"],
     availability: "available",
     quoteEnabled: true,
   },

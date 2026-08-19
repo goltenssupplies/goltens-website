@@ -153,6 +153,34 @@
   }
 }
 
+/* Hero sectors quick-nav strip (`HeroSectorsBar.tsx`) — an infinite
+   horizontal marquee. The track renders the sector list 10x back to back
+   (`TRACK_REPEAT_COUNT` in the component); animating exactly -50% (the
+   width of half the track, i.e. 5 whole copies, since every copy is equal
+   width) is what makes the loop seamless — the instant the animation
+   restarts at 0%, the content is pixel-identical to where it just was.
+   `linear` (no easing) plus explicit longhand properties (rather than the
+   `animation` shorthand) is what reads as a calm, continuous drift with
+   no possible ambiguity in how each property is applied. Direction is
+   flipped per-locale in the component via `ltr:[animation-direction:
+   reverse]`, not a second keyframe. */
+@keyframes sectors-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-sectors-marquee {
+  animation-name: sectors-marquee;
+  animation-duration: 40s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+}
+
 /* "Why GOLTENS" generated background (`WhyChooseUsBackground.tsx`) — a
    rising, fading drift for the floating gold particles. Each particle sets
    its own `animation-duration`/`animation-delay` inline (same technique as
@@ -216,6 +244,7 @@
   .animate-button-ripple,
   .animate-grid-drift,
   .animate-glow-pulse,
+  .animate-sectors-marquee,
   .why-choose-particle,
   .why-choose-connection-line,
   .hero-particle,

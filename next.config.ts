@@ -6,6 +6,10 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+    // Next 16 only serves qualities explicitly listed here (defaults to
+    // just [75] otherwise, silently clamping anything else) — 90 is the
+    // Hero background's `quality={90}` for a sharper full-bleed photo.
+    qualities: [75, 90],
     // Contact page hero photo is loaded directly from its Pexels source
     // URL (royalty-free, not self-hosted) and optimized through Next's
     // image pipeline like every other image on the site.

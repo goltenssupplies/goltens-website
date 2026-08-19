@@ -14,39 +14,62 @@ import {
 // hydration-mismatch bug, not just a style nit). "Random-looking" comes
 // from two modulus multipliers with no shared factor with 100 or each
 // other, not true randomness.
-const PARTICLE_COUNT = 18;
+//
+// `biasOutward` pushes a raw 0–100 position away from the 50% midpoint so
+// particles concentrate toward the section's edges rather than scattering
+// evenly across the calm centre band.
+function biasOutward(value: number) {
+  const offset = value - 50;
+  const magnitude = Math.pow(Math.abs(offset) / 50, 0.55);
+  return 50 + Math.sign(offset) * magnitude * 50;
+}
+
+const PARTICLE_COUNT = 7;
 const PARTICLES = Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
-  left: `${(i * 53) % 100}%`,
-  top: `${(i * 31 + 7) % 100}%`,
-  size: 2 + (i % 4),
-  duration: 16 + (i % 7) * 2,
-  delay: (i % 6) * 0.9,
-  peakOpacity: 0.25 + (i % 4) * 0.06,
+  left: `${biasOutward((i * 53) % 100)}%`,
+  top: `${biasOutward((i * 31 + 7) % 100)}%`,
+  size: 2 + (i % 2),
+  duration: 20 + (i % 5) * 2,
+  delay: (i % 4) * 1.3,
+  peakOpacity: 0.12 + (i % 3) * 0.03,
 }));
 
-// A small, entirely abstract node-and-line motif — hand-authored
-// coordinates, not a map or any traced illustration.
-const NODES = [
-  { x: 90, y: 90 },
-  { x: 260, y: 190 },
-  { x: 150, y: 330 },
-  { x: 420, y: 260 },
-  { x: 340, y: 430 },
-  { x: 560, y: 150 },
-];
-const CONNECTIONS: Array<[number, number]> = [
-  [0, 1],
-  [1, 2],
-  [1, 3],
-  [3, 5],
-  [3, 4],
-];
+// Two soft ring clusters — the only remaining "technical form" — evoke a
+// precision instrument/gauge in the most abstract way possible (plain
+// concentric circles plus a handful of cardinal ticks, no teeth, no
+// needles, no labels). Rounded to 2 decimals: `Math.cos`/`Math.sin` are
+// only spec-guaranteed to be *approximately* correct, not bit-identical
+// across engines — Node's V8 (SSR) and the browser's V8 (hydration) can
+// disagree in the last digit, which becomes a real hydration mismatch once
+// serialized into an SVG attribute.
+function polar(r: number, angleRad: number): [number, number] {
+  const x = Math.round(r * Math.cos(angleRad) * 100) / 100;
+  const y = Math.round(r * Math.sin(angleRad) * 100) / 100;
+  return [x, y];
+}
 
-// How far each depth layer travels at full mouse tilt (px) — the network
-// barely moves (background), particles move the most (foreground), giving
-// the parallax an actual sense of depth rather than everything sliding as
-// one flat plane.
-const PARALLAX_RANGE = { glow: 12, network: 8, particles: 18 };
+function buildCardinalTicks(r: number, count: number, tickLen: number) {
+  const step = (Math.PI * 2) / count;
+  return Array.from({ length: count }, (_, i) => {
+    const angle = i * step;
+    const [x1, y1] = polar(r - tickLen, angle);
+    const [x2, y2] = polar(r, angle);
+    return { x1, y1, x2, y2 };
+  });
+}
+
+// Both clusters sit in the viewBox's outer thirds (x < 200 or x > 600),
+// mostly cropped off-canvas, so the centre band behind the heading and the
+// six advantages (roughly x:260-540, y:150-330) stays completely clear.
+const RING_LEFT = { cx: -30, cy: 250, radii: [150, 118] };
+const RING_RIGHT = { cx: 830, cy: 210, radii: [175, 140, 108] };
+const RING_RIGHT_TICKS = buildCardinalTicks(RING_RIGHT.radii[0], 4, 14);
+
+const STEEL_LINE = "rgba(148,163,184,0.07)";
+
+// How far each depth layer travels at full mouse tilt (px) — kept small so
+// the whole effect reads as ambient drift, not parallax you can feel.
+const PARALLAX_RANGE = { glow: 10, rings: 5, particles: 12 };
 
 const SPRING = { stiffness: 60, damping: 20, mass: 0.5 };
 
@@ -54,22 +77,30 @@ const GRAIN_FILTER_ID = "why-choose-grain";
 
 /**
  * Fully generated "Why GOLTENS" background — CSS, SVG, and Framer Motion
- * only. No photo, video, WebGL, Three.js, or Canvas anywhere in this file.
- * Layers, back to front: a deep graphite-to-charcoal diagonal gradient; a
- * cinematic radial glow and a thin rotated "volumetric" light beam (gold);
- * a soft, very subtle blue-gray glow on the opposite corner; a radial
- * vignette; a faint abstract node-and-line network; a field of floating
- * gold particles; and a fine film-grain texture on top, generated at
- * runtime by an SVG `feTurbulence` filter (not a downloaded noise image).
- * Every effect is intentionally kept low-opacity — this is ambience behind
- * the section's text, not a focal point competing with it. Mouse position
- * (tracked via `useMotionValue`/`useSpring`, smoothed rather than following
- * the cursor directly) offsets the glow/network/particle layers by
- * different amounts for parallax depth. Every loop is skipped under
- * `prefers-reduced-motion` — the mousemove handler bails out immediately,
- * so the springs simply never move away from center, and the CSS loops are
- * disabled by the same global reduced-motion rule every other animation on
- * this site uses.
+ * only. No photo, video, WebGL, Three.js, or Canvas anywhere in this file,
+ * and nothing marine/port/ship-related — this is a general-supplies /
+ * industrial-procurement company, not a marine one.
+ *
+ * Deliberately minimal: a deep navy/charcoal base, the site's existing
+ * blueprint-grid texture (`.bg-grid-pattern`) at very low opacity and
+ * softened with a CSS blur so it reads as embedded texture rather than
+ * drawn linework, two soft/blurred concentric-ring clusters in the outer
+ * thirds (the only remaining "technical form" — no gears, no pipes, no
+ * dense linework), a single slow-breathing diagonal gold accent line, and a
+ * handful of edge-biased particles. Earlier iterations of this background
+ * used visible gear/bearing/pipe SVG line-art; that read as "engineering
+ * blueprint pasted behind text" rather than "premium corporate site", so
+ * this version trades shape count for restraint — every remaining stroke
+ * is low-opacity and blurred so it blends into the gradient instead of
+ * sitting on top of it. The CENTRE — where the heading and the six
+ * advantages sit — stays calm and dark via an inverse vignette (darkens
+ * the middle, clears toward the edges) with no bright glow behind it.
+ *
+ * The ring clusters are hidden below the `sm` breakpoint (`hidden
+ * sm:block`) — mobile keeps the gradient, blueprint grid, corner glows,
+ * centre darkening, and sparse particles, simplified further still. Every
+ * animated layer is slow and low-amplitude and is skipped entirely under
+ * `prefers-reduced-motion`, matching every other animation on this site.
  */
 export function WhyChooseUsBackground() {
   const prefersReducedMotion = useReducedMotion();
@@ -79,8 +110,8 @@ export function WhyChooseUsBackground() {
   const springX = useSpring(rawX, SPRING);
   const springY = useSpring(rawY, SPRING);
 
-  const networkX = useTransform(springX, (v) => v * PARALLAX_RANGE.network);
-  const networkY = useTransform(springY, (v) => v * PARALLAX_RANGE.network);
+  const ringsX = useTransform(springX, (v) => v * PARALLAX_RANGE.rings);
+  const ringsY = useTransform(springY, (v) => v * PARALLAX_RANGE.rings);
   const glowX = useTransform(springX, (v) => v * PARALLAX_RANGE.glow);
   const glowY = useTransform(springY, (v) => v * PARALLAX_RANGE.glow);
   const particlesX = useTransform(springX, (v) => v * PARALLAX_RANGE.particles);
@@ -105,63 +136,76 @@ export function WhyChooseUsBackground() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Deep graphite-black → charcoal, soft diagonal transition. */}
+      {/* Deep graphite-black → charcoal-navy, soft diagonal transition. */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(135deg, #0a0b0d 0%, #12141a 55%, #1a1d24 100%)",
+            "linear-gradient(135deg, #0a0b0d 0%, #10131a 55%, #171b23 100%)",
         }}
       />
 
-      {/* Cinematic radial light, centred behind the text column. */}
+      {/* Blueprint-grid texture — the same `.bg-grid-pattern` used on the
+          Hero/Contact/Footer/etc, so this reads as one visual system rather
+          than a one-off. Kept extremely faint, blurred so the lines soften
+          into the gradient instead of reading as drawn strokes, and masked
+          so it's only present toward the edges. */}
       <div
-        className="absolute inset-0"
+        className="bg-grid-pattern animate-grid-drift text-canvas/[0.025] pointer-events-none absolute -inset-8"
         style={{
-          background:
-            "radial-gradient(ellipse 60% 55% at 32% 45%, rgba(166,128,61,0.10) 0%, transparent 70%)",
+          filter: "blur(1.5px)",
+          maskImage:
+            "radial-gradient(ellipse 60% 55% at 50% 46%, transparent 35%, black 90%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 60% 55% at 50% 46%, transparent 35%, black 90%)",
         }}
       />
 
-      {/* Thin rotated "volumetric" gold light beam, slowly breathing. */}
+      {/* A single slow, soft diagonal light — gold, low-opacity, blurred —
+          the section's one deliberate "technical" accent line rather than a
+          field of them. */}
       <motion.div
-        className="absolute -inset-y-24 left-[-15%] w-[65%] origin-center"
+        className="absolute -inset-y-24 left-[10%] w-[45%] origin-center"
         style={{
           background:
-            "linear-gradient(100deg, transparent 0%, rgba(166,128,61,0.07) 45%, rgba(166,128,61,0.11) 55%, transparent 100%)",
-          rotate: -12,
+            "linear-gradient(100deg, transparent 0%, rgba(166,128,61,0.05) 50%, transparent 100%)",
+          rotate: -8,
+          filter: "blur(2px)",
           x: glowX,
           y: glowY,
         }}
-        animate={prefersReducedMotion ? undefined : { opacity: [0.5, 1, 0.5] }}
+        animate={
+          prefersReducedMotion ? undefined : { opacity: [0.4, 0.85, 0.4] }
+        }
         transition={
           prefersReducedMotion
             ? undefined
-            : { duration: 18, ease: "easeInOut", repeat: Infinity }
+            : { duration: 26, ease: "easeInOut", repeat: Infinity }
         }
       />
 
-      {/* Gold accent glow. */}
+      {/* Gold accent glow, anchored on the left edge (vertically centred
+          rather than a pure corner) so it lights that side without
+          reaching the centre. */}
       <motion.div
-        className="bg-accent/15 absolute top-[10%] left-[8%] size-[24rem] rounded-full blur-3xl"
+        className="bg-accent/10 absolute top-[32%] left-[-12%] size-[22rem] rounded-full blur-3xl"
         style={{ x: glowX, y: glowY }}
         animate={
           prefersReducedMotion
             ? undefined
-            : { opacity: [0.25, 0.45, 0.25], scale: [1, 1.06, 1] }
+            : { opacity: [0.2, 0.38, 0.2], scale: [1, 1.05, 1] }
         }
         transition={
           prefersReducedMotion
             ? undefined
-            : { duration: 20, ease: "easeInOut", repeat: Infinity }
+            : { duration: 22, ease: "easeInOut", repeat: Infinity }
         }
       />
 
-      {/* Very subtle blue-gray glow, opposite corner — a cool counterpoint
-          to the gold, kept much lower-opacity so it reads as atmosphere
-          rather than a second accent colour. */}
+      {/* Steel-blue glow, right edge — a cooler, more present counterpoint
+          to the gold, kept soft rather than a second bright accent. */}
       <motion.div
-        className="absolute right-[10%] bottom-[10%] size-[26rem] rounded-full blur-3xl"
+        className="absolute top-[52%] right-[-12%] size-[24rem] rounded-full blur-3xl"
         style={{
           x: glowX,
           y: glowY,
@@ -171,56 +215,75 @@ export function WhyChooseUsBackground() {
         animate={
           prefersReducedMotion
             ? undefined
-            : { opacity: [0.3, 0.55, 0.3], scale: [1, 1.05, 1] }
+            : { opacity: [0.25, 0.42, 0.25], scale: [1, 1.04, 1] }
         }
         transition={
           prefersReducedMotion
             ? undefined
-            : { duration: 24, ease: "easeInOut", repeat: Infinity }
+            : { duration: 26, ease: "easeInOut", repeat: Infinity }
         }
       />
 
-      {/* Soft vignette — darkens the corners slightly so the centre (where
-          the text sits) reads as the brightest, most in-focus area. */}
+      {/* Centre-darkening radial — the inverse of a normal vignette. It
+          deepens the middle (where the heading and the six advantages sit)
+          and fades to transparent toward the edges, instead of darkening
+          the edges and brightening the centre. */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 80% at 50% 45%, transparent 55%, rgba(0,0,0,0.38) 100%)",
+            "radial-gradient(ellipse 70% 65% at 50% 46%, rgba(0,0,0,0.42) 0%, transparent 68%)",
         }}
       />
 
-      {/* Faint abstract node-and-line network. */}
-      <motion.svg
-        aria-hidden="true"
-        viewBox="0 0 800 480"
-        preserveAspectRatio="xMidYMid slice"
-        className="absolute inset-0 size-full"
-        style={{ x: networkX, y: networkY }}
-      >
-        <g className="text-accent/15" stroke="currentColor">
-          {CONNECTIONS.map(([a, b], i) => (
-            <line
-              key={i}
-              x1={NODES[a].x}
-              y1={NODES[a].y}
-              x2={NODES[b].x}
-              y2={NODES[b].y}
-              strokeWidth="1"
-              strokeDasharray="6 10"
-              className="why-choose-connection-line"
-              style={{ animationDelay: `${i * 0.6}s` }}
-            />
-          ))}
-        </g>
-        <g className="text-accent animate-glow-pulse" fill="currentColor">
-          {NODES.map((n, i) => (
-            <circle key={i} cx={n.x} cy={n.y} r="2.5" opacity="0.35" />
-          ))}
-        </g>
-      </motion.svg>
+      {/* Two soft, blurred ring clusters — the section's only remaining
+          "technical form". Hidden below `sm`: at phone scale they'd either
+          be invisible or read as clutter, and the gradient/grid/glows above
+          already carry the premium feel there. */}
+      <div className="absolute inset-0 hidden sm:block">
+        <motion.svg
+          aria-hidden="true"
+          viewBox="0 0 800 480"
+          preserveAspectRatio="xMidYMid slice"
+          className="absolute inset-0 size-full"
+          style={{ x: ringsX, y: ringsY, filter: "blur(0.75px)" }}
+        >
+          <g
+            transform={`translate(${RING_LEFT.cx} ${RING_LEFT.cy})`}
+            fill="none"
+            stroke={STEEL_LINE}
+          >
+            {RING_LEFT.radii.map((r) => (
+              <circle key={r} r={r} strokeWidth="1" />
+            ))}
+          </g>
 
-      {/* Floating gold particles. */}
+          <g
+            transform={`translate(${RING_RIGHT.cx} ${RING_RIGHT.cy})`}
+            fill="none"
+            stroke={STEEL_LINE}
+          >
+            {RING_RIGHT.radii.map((r) => (
+              <circle key={r} r={r} strokeWidth="1" />
+            ))}
+            <g className="text-accent/10" stroke="currentColor">
+              {RING_RIGHT_TICKS.map((t, i) => (
+                <line
+                  key={i}
+                  x1={t.x1}
+                  y1={t.y1}
+                  x2={t.x2}
+                  y2={t.y2}
+                  strokeWidth="1"
+                />
+              ))}
+            </g>
+          </g>
+        </motion.svg>
+      </div>
+
+      {/* A handful of edge-biased particles — micro highlights, not a
+          field of dust. */}
       <motion.div
         className="absolute inset-0"
         style={{ x: particlesX, y: particlesY }}

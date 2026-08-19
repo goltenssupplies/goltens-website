@@ -6,7 +6,7 @@ component displays is passed in by the caller (usually from a next-intl
 `useTranslations()` call in the page). This keeps every component usable
 unchanged in both `ar`/RTL and `en`/LTR.
 
-Import from the barrel: `import { Button, Card, Heading } from "@/components/ui";`
+Import each component directly: `import { Button } from "@/components/ui/Button";`
 
 RTL/LTR: components use logical Tailwind utilities (`ms-*`, `me-*`, `ps-*`,
 `pe-*`, `start-*`, `end-*`) instead of physical ones, so nothing needs an

@@ -27,7 +27,6 @@ export function RfqCartView() {
   if (items.length === 0) {
     return (
       <EmptyState
-        tone="inverse"
         icon={<ClipboardList aria-hidden="true" className="size-10" />}
         title={t("emptyTitle")}
         description={t("emptyBody")}
@@ -42,11 +41,7 @@ export function RfqCartView() {
 
   return (
     <Stack gap="xl">
-      <Card
-        variant="glass"
-        padding="md"
-        className="border-gold/15 divide-y divide-canvas/10"
-      >
+      <Card variant="premium" padding="md" className="divide-border divide-y">
         {items.map((item) => (
           <div
             key={item.slug}
@@ -69,7 +64,7 @@ export function RfqCartView() {
               href={item.href}
               className="hover:text-gold min-w-0 flex-1 transition-colors"
             >
-              <Text weight="semibold" tone="inverse" className="truncate">
+              <Text weight="semibold" className="truncate">
                 {item.name}
               </Text>
             </Link>
@@ -80,15 +75,11 @@ export function RfqCartView() {
                 aria-label={t("decreaseQuantity")}
                 variant="secondary"
                 size="sm"
-                className="border-canvas/20 text-canvas size-8"
+                className="size-8"
                 onClick={() => setQuantity(item.slug, item.quantity - 1)}
                 disabled={item.quantity <= 1}
               />
-              <Text
-                tone="inverse"
-                weight="medium"
-                className="w-8 text-center tabular-nums"
-              >
+              <Text weight="medium" className="w-8 text-center tabular-nums">
                 {item.quantity}
               </Text>
               <IconButton
@@ -96,7 +87,7 @@ export function RfqCartView() {
                 aria-label={t("increaseQuantity")}
                 variant="secondary"
                 size="sm"
-                className="border-canvas/20 text-canvas size-8"
+                className="size-8"
                 onClick={() => setQuantity(item.slug, item.quantity + 1)}
               />
             </div>
@@ -106,7 +97,6 @@ export function RfqCartView() {
               aria-label={t("removeLabel", { name: item.name })}
               variant="ghost"
               size="sm"
-              className="text-canvas/60 hover:text-canvas"
               onClick={() => removeItem(item.slug)}
             />
           </div>

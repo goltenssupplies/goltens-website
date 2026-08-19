@@ -58,7 +58,10 @@ export function RfqForm() {
   const [submitted, setSubmitted] = useState(false);
   const honeypotRef = useRef<HTMLInputElement>(null);
 
-  function updateField<K extends keyof FormValues>(key: K, value: FormValues[K]) {
+  function updateField<K extends keyof FormValues>(
+    key: K,
+    value: FormValues[K],
+  ) {
     setValues((current) => ({ ...current, [key]: value }));
     setErrors((current) => ({ ...current, [key]: undefined }));
   }
@@ -107,7 +110,7 @@ export function RfqForm() {
 
   if (submitted) {
     return (
-      <Card variant="glass" padding="lg" className="border-gold/15 rounded-2xl">
+      <Card variant="premium" padding="lg" className="rounded-2xl">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -117,20 +120,22 @@ export function RfqForm() {
           <motion.span
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.15, duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+            transition={{
+              delay: 0.15,
+              duration: 0.4,
+              ease: [0.34, 1.56, 0.64, 1],
+            }}
             className="border-gold/30 bg-gold/10 flex size-16 items-center justify-center rounded-full border"
           >
             <CircleCheck className="text-gold size-8" />
           </motion.span>
           <Stack gap="sm" align="center" className="max-w-md">
-            <Heading level={2} size={3} tone="inverse">
+            <Heading level={2} size={3} tone="ink">
               {t("success.title")}
             </Heading>
-            <Text tone="inverse" className="opacity-70">
-              {t("success.description")}
-            </Text>
+            <Text tone="muted">{t("success.description")}</Text>
           </Stack>
-          <Button href="/" variant="secondary" className="border-canvas/30 text-canvas hover:bg-canvas/10">
+          <Button href="/" variant="secondary">
             {t("success.action")}
           </Button>
         </motion.div>
@@ -139,10 +144,13 @@ export function RfqForm() {
   }
 
   return (
-    <Card variant="glass" padding="lg" className="border-gold/15 rounded-2xl">
+    <Card variant="premium" padding="lg" className="rounded-2xl">
       <form onSubmit={handleSubmit} noValidate>
         {/* Honeypot — same convention as ContactForm's. */}
-        <div aria-hidden="true" className="absolute -start-[9999px] size-px overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute -start-[9999px] size-px overflow-hidden"
+        >
           <label htmlFor="rfq-website">Website</label>
           <input
             ref={honeypotRef}
@@ -157,25 +165,26 @@ export function RfqForm() {
         <Stack gap="lg">
           <Grid columns={2} gap="lg">
             <Input
-              tone="dark"
               label={t("form.companyName.label")}
               placeholder={t("form.companyName.placeholder")}
               value={values.companyName}
-              onChange={(event) => updateField("companyName", event.target.value)}
+              onChange={(event) =>
+                updateField("companyName", event.target.value)
+              }
               error={errors.companyName}
               required
             />
             <Input
-              tone="dark"
               label={t("form.contactName.label")}
               placeholder={t("form.contactName.placeholder")}
               value={values.contactName}
-              onChange={(event) => updateField("contactName", event.target.value)}
+              onChange={(event) =>
+                updateField("contactName", event.target.value)
+              }
               error={errors.contactName}
               required
             />
             <Input
-              tone="dark"
               type="email"
               label={t("form.email.label")}
               placeholder={t("form.email.placeholder")}
@@ -185,7 +194,6 @@ export function RfqForm() {
               required
             />
             <Input
-              tone="dark"
               type="tel"
               dir="ltr"
               label={t("form.phone.label")}
@@ -198,7 +206,6 @@ export function RfqForm() {
           </Grid>
 
           <Textarea
-            tone="dark"
             label={t("form.notes.label")}
             placeholder={t("form.notes.placeholder")}
             rows={5}
@@ -207,7 +214,6 @@ export function RfqForm() {
           />
 
           <FileUpload
-            tone="dark"
             label={t("upload.label")}
             files={files}
             onFilesChange={setFiles}
@@ -227,12 +233,13 @@ export function RfqForm() {
               role="alert"
               className="bg-error/10 border-error/30 rounded-sm border p-4"
             >
-              <CircleAlert aria-hidden="true" className="text-error mt-0.5 size-5 shrink-0" />
+              <CircleAlert
+                aria-hidden="true"
+                className="text-error mt-0.5 size-5 shrink-0"
+              />
               <Stack gap="none">
-                <Text weight="semibold" tone="inverse">
-                  {t("error.title")}
-                </Text>
-                <Text size="sm" tone="inverse" className="opacity-70">
+                <Text weight="semibold">{t("error.title")}</Text>
+                <Text size="sm" tone="muted">
                   {t("error.description")}
                 </Text>
               </Stack>
@@ -240,10 +247,14 @@ export function RfqForm() {
           )}
 
           <Stack gap="sm">
-            <button type="submit" disabled={status === "submitting"} className={SUBMIT_BUTTON_CLASS}>
+            <button
+              type="submit"
+              disabled={status === "submitting"}
+              className={SUBMIT_BUTTON_CLASS}
+            >
               {status === "submitting" ? t("submitting") : t("submit")}
             </button>
-            <Text size="sm" tone="inverse" className="text-center opacity-60">
+            <Text size="sm" tone="muted" className="text-center">
               {t("formNote")}
             </Text>
           </Stack>

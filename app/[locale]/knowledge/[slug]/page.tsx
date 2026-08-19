@@ -51,7 +51,6 @@ import { getProductById } from "@/data/products";
 import type { Product } from "@/data/products/types";
 import { getSectorContent } from "@/data/sector-content";
 import { getSectorById } from "@/data/sectors";
-import { getSolutionById } from "@/data/solutions";
 import type { Locale } from "@/i18n/routing";
 import {
   formatKnowledgeDate,
@@ -188,7 +187,6 @@ export default async function KnowledgeDetailPage({
   const tNav = await getTranslations("nav");
   const tProducts = await getTranslations("products");
   const tSectors = await getTranslations("sectors");
-  const tSolutions = await getTranslations("solutions");
 
   const pageUrl = `${siteUrl}/${locale}/knowledge/${slug}`;
   const typeLabel = t(`types.${item.type}`);
@@ -323,20 +321,6 @@ export default async function KnowledgeDetailPage({
       description: isArabic ? sector.description_ar : sector.description_en,
       image: sector.image,
       icon: sector.icon,
-    }));
-
-  const relatedSolutionItems: SectorCardItem[] = (item.relatedSolutionIds ?? [])
-    .map((id) => getSolutionById(id))
-    .filter(
-      (solution): solution is NonNullable<typeof solution> =>
-        solution !== undefined,
-    )
-    .map((solution) => ({
-      slug: solution.slug,
-      title: isArabic ? solution.title_ar : solution.title_en,
-      description: isArabic ? solution.description_ar : solution.description_en,
-      image: solution.heroImage,
-      icon: solution.icon,
     }));
 
   const relatedProductItems: SectorProductItem[] = (
@@ -553,17 +537,6 @@ export default async function KnowledgeDetailPage({
             title={t("relatedSectorsTitle")}
             items={relatedSectorItems}
             exploreLabel={tSectors("exploreSector")}
-          />
-        </PremiumDarkSection>
-      )}
-
-      {relatedSolutionItems.length > 0 && (
-        <PremiumDarkSection spacing="md">
-          <RelatedSectors
-            title={t("relatedSolutionsTitle")}
-            items={relatedSolutionItems}
-            exploreLabel={tSolutions("exploreSolution")}
-            hrefBase="/solutions"
           />
         </PremiumDarkSection>
       )}

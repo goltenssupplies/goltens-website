@@ -1,4 +1,7 @@
-import { SectorCard, type SectorCardItem } from "@/components/sectors/SectorCard";
+import {
+  SectorCard,
+  type SectorCardItem,
+} from "@/components/sectors/SectorCard";
 import { cn } from "@/lib/utils";
 
 const STAGGER_SECONDS = 0.08;
@@ -14,8 +17,9 @@ export interface SectorGridProps {
 }
 
 /**
- * Responsive Procurement Sectors grid — 1 column on mobile, 2 on tablet, 5
- * on desktop, per spec. Shared between the homepage teaser, the `/sectors`
+ * Responsive Procurement Sectors grid — 1 column on mobile, 2 on tablet
+ * (sm), 5 on desktop (lg), forming the exact 5×2 layout for the 10
+ * Procurement Sectors. Shared between the homepage teaser, the `/sectors`
  * listing page, each detail page's "Related Sectors" block, and (via
  * `hrefBase="/solutions"`) the Project Solutions listing/related sections.
  */
@@ -29,7 +33,7 @@ export function SectorGrid({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6",
+        "grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5",
         className,
       )}
     >
