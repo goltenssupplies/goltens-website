@@ -183,6 +183,7 @@
     "breadcrumbLabel": "Solutions",
     "listingTitle": "Integrated Supply Solutions... From Requirement to Delivery",
     "listingDescription": "We help you source the right products from reliable sources and follow the supply process through delivery.",
+    "solutionsGridTitle": "Explore Our Project Solutions",
     "processTitle": "How We Provide the Solution",
     "processSteps": [
       {
@@ -364,7 +365,15 @@
     },
     "error": {
       "title": "Something went wrong",
-      "description": "We couldn't submit your request. Please try again, or contact us directly."
+      "description": "We couldn't submit your request. Please try again, or contact us directly.",
+      "validation": {
+        "title": "Please check your information",
+        "description": "Some required fields are missing or invalid. Please review the form and try again."
+      },
+      "emptyCart": {
+        "title": "Your RFQ cart is empty",
+        "description": "Add at least one product to your cart before submitting a request."
+      }
     },
     "submitting": "Submitting...",
     "submit": "Submit RFQ",
@@ -822,7 +831,11 @@
     "error": {
       "title": "We couldn't submit your request.",
       "description": "Something went wrong on our end. Please try again, or reach us directly.",
-      "action": "Try Again"
+      "action": "Try Again",
+      "validation": {
+        "title": "Please check your information",
+        "description": "Some required fields are missing or invalid. Please review the form and try again."
+      }
     }
   },
   "notFound": {

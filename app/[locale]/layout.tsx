@@ -9,6 +9,7 @@ import {
   IBM_Plex_Sans_Arabic,
   IBM_Plex_Sans_Condensed,
 } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { HeaderLogo } from "@/components/layout/HeaderLogo";
@@ -101,6 +102,14 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: "nav" });
   const tFooter = await getTranslations({ locale, namespace: "footer" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
+  const tKnowledge = await getTranslations({
+    locale,
+    namespace: "knowledge",
+  });
+  const tDownloads = await getTranslations({
+    locale,
+    namespace: "downloads.center",
+  });
 
   // Every nav item is a real, dedicated page — not a same-page anchor — so
   // each one works correctly from any page, not just the homepage. "Sectors"
@@ -126,12 +135,17 @@ export default async function LocaleLayout({
   // Footer "Quick Links" column — the site's real top-level nav
   // destinations. No separate sectors/services column (removed by explicit
   // client direction), so Sectors stays listed here rather than dropped.
+  // Knowledge Center and Download Center are appended here rather than the
+  // primary Navbar (unchanged per spec) — they carry no main-nav item, so
+  // this footer entry is otherwise their only site-wide, crawlable path.
   const footerQuickLinks = [
     { label: t("home"), href: "/" },
     { label: t("about"), href: "/about" },
     { label: t("sectors"), href: "/sectors" },
     { label: t("solutions"), href: "/solutions" },
     { label: t("contact"), href: "/contact" },
+    { label: tKnowledge("breadcrumbLabel"), href: "/knowledge" },
+    { label: tDownloads("title"), href: "/downloads" },
   ];
 
   return (
@@ -193,6 +207,7 @@ export default async function LocaleLayout({
           </SplashProvider>
         </NextIntlClientProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
     </html>
   );
 }

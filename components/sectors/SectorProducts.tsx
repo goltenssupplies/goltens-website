@@ -175,9 +175,14 @@ export function SectorProducts({
                 aria-hidden="true"
                 className="bg-gold mt-2.5 size-1.5 shrink-0 rounded-full"
               />
-              <Text tone="inverse" className="opacity-80">
-                {item.title}
-              </Text>
+              <CardLinkArea href={item.href}>
+                <Text
+                  tone="inverse"
+                  className="hover:text-gold focus-visible:text-gold opacity-80 transition-colors"
+                >
+                  {item.title}
+                </Text>
+              </CardLinkArea>
             </li>
           ))}
         </ul>
