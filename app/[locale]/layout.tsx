@@ -9,7 +9,6 @@ import {
   IBM_Plex_Sans_Arabic,
   IBM_Plex_Sans_Condensed,
 } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { HeaderLogo } from "@/components/layout/HeaderLogo";
@@ -207,7 +206,6 @@ export default async function LocaleLayout({
           </SplashProvider>
         </NextIntlClientProvider>
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
     </html>
   );
 }
