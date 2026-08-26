@@ -83,9 +83,7 @@ export const fireProtectionArticles: KnowledgeItem[] = [
             {
               label_en: "Vertical Turbine",
               label_ar: "المضخات التوربينية الرأسية",
-              values_en: [
-                "Water source below the pump (a tank or well)",
-              ],
+              values_en: ["Water source below the pump (a tank or well)"],
               values_ar: [
                 "عندما يكون مصدر المياه أسفل مستوى المضخة (خزان أو بئر)",
               ],
@@ -313,7 +311,7 @@ export const fireProtectionArticles: KnowledgeItem[] = [
         },
       },
     ],
-    coverImage: "/images/categories/industrial-pumps.webp",
+    coverImage: "/images/hero/دليل اختيار مضخات الحريق.jpg",
     publishedAt: "2026-06-23",
     updatedAt: "2026-08-07",
     author: "GOLTENS Procurement Team",
