@@ -41,6 +41,35 @@ export const healthcareContent: SectorContent = {
     ],
   },
 
+  applications: [
+    { title_en: "Hospitals", title_ar: "المستشفيات", icon: "HeartPulse" },
+    {
+      title_en: "Medical Centers & Clinics",
+      title_ar: "المراكز الطبية والعيادات",
+      icon: "Building2",
+    },
+    {
+      title_en: "Diagnostic Laboratories",
+      title_ar: "المختبرات التشخيصية",
+      icon: "Container",
+    },
+    {
+      title_en: "Government & Public Health Facilities",
+      title_ar: "المرافق الصحية الحكومية والعامة",
+      icon: "Landmark",
+    },
+    {
+      title_en: "Elderly Care & Rehabilitation Facilities",
+      title_ar: "مرافق رعاية المسنين والتأهيل",
+      icon: "ShieldCheck",
+    },
+    {
+      title_en: "Pharmaceutical & Medical Warehousing",
+      title_ar: "مستودعات الأدوية والمستلزمات الطبية",
+      icon: "Warehouse",
+    },
+  ],
+
   advantages: [
     {
       title_en:

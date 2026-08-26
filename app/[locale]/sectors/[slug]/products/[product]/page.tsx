@@ -319,6 +319,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           items={catalogueItems}
           downloadLabel={tSectors("catalogueDownload")}
           comingSoonLabel={tSectors("comingSoon")}
+          datasheetUnavailableLabel={tSectors("datasheetUnavailable")}
         />
         <div className="mt-8">
           <Button

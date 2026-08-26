@@ -35,6 +35,8 @@ export interface SectorCataloguesProps {
   items: SectorCatalogueItem[];
   downloadLabel: string;
   comingSoonLabel: string;
+  /** Shown instead of `comingSoonLabel` for `kind: "datasheet"` items with no `fileUrl` — GOLTENS is a multi-brand sourcing company, so a missing datasheet is a permanent "no single official manufacturer document for this generic category" state, not a "coming soon". Falls back to `comingSoonLabel` when omitted (sector-level catalogues, and every other document kind). */
+  datasheetUnavailableLabel?: string;
   /** Both required together to render an empty state instead of nothing when `items` is `[]` — every existing caller always passes a non-empty (or generic-default) list, so this only activates for callers that opt in, like the Download Center's filtered libraries. */
   emptyTitle?: string;
   emptyBody?: string;
@@ -52,6 +54,7 @@ export function SectorCatalogues({
   items,
   downloadLabel,
   comingSoonLabel,
+  datasheetUnavailableLabel,
   emptyTitle,
   emptyBody,
 }: SectorCataloguesProps) {
@@ -79,7 +82,7 @@ export function SectorCatalogues({
               <Card
                 variant="glass"
                 padding="md"
-                className="flex h-full flex-col gap-4 border-gold/15"
+                className="border-gold/15 flex h-full flex-col gap-4"
               >
                 <span
                   aria-hidden="true"
@@ -117,7 +120,11 @@ export function SectorCatalogues({
                       {item.language}
                     </Text>
                     {(item.kind || item.fileType) && (
-                      <Text size="sm" tone="inverse" className="opacity-60 uppercase">
+                      <Text
+                        size="sm"
+                        tone="inverse"
+                        className="uppercase opacity-60"
+                      >
                         {[item.kind, item.fileType].filter(Boolean).join(" · ")}
                       </Text>
                     )}
@@ -135,7 +142,9 @@ export function SectorCatalogues({
                   </a>
                 ) : (
                   <Badge tone="accent" className="w-fit">
-                    {comingSoonLabel}
+                    {item.kind === "datasheet" && datasheetUnavailableLabel
+                      ? datasheetUnavailableLabel
+                      : comingSoonLabel}
                   </Badge>
                 )}
               </Card>

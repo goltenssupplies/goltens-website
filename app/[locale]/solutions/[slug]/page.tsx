@@ -293,6 +293,7 @@ export default async function SolutionPage({ params }: SolutionPageProps) {
             items={catalogueItems}
             downloadLabel={tSectors("catalogueDownload")}
             comingSoonLabel={tSectors("comingSoon")}
+            datasheetUnavailableLabel={tSectors("datasheetUnavailable")}
           />
         </PremiumDarkSection>
       )}

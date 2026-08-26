@@ -106,6 +106,7 @@
     "description": "We provide integrated procurement solutions for government entities, projects, factories, hospitals, and companies, through a global network of approved suppliers and brands, upholding the highest standards of quality and speed of execution.",
     "exploreSector": "Explore Sector",
     "comingSoon": "Coming Soon",
+    "datasheetUnavailable": "Official Datasheet Not Available — Request via Quotation",
     "relatedTitle": "Related Sectors",
     "relatedSolutionsTitle": "Related Solutions",
     "heroRequestQuote": "Request a Quote",
@@ -422,6 +423,7 @@
     "filterAllLabel": "All",
     "downloadLabel": "Download",
     "comingSoonLabel": "Coming Soon",
+    "datasheetUnavailableLabel": "Official Datasheet Not Available — Request via Quotation",
     "noResultsTitle": "No documents match your search.",
     "noResultsDescription": "Try a different name, category, or document type, or share your requirements — our team can provide documentation directly.",
     "kind": {

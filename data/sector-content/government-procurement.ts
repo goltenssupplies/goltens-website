@@ -37,6 +37,49 @@ export const governmentProcurementContent: SectorContent = {
       "يتم توريد المنتجات بما يتوافق مع مواصفات المشتريات الحكومية ومتطلبات وثائق المناقصات — ونؤكد المعايير والاعتمادات المطلوبة تحديدًا في مناقصتكم كجزء من عملية إعداد عرض السعر.",
   },
 
+  applications: [
+    {
+      title_en: "Government Ministries & Administrative Buildings",
+      title_ar: "الوزارات والمباني الإدارية الحكومية",
+      icon: "Landmark",
+    },
+    {
+      title_en: "Municipalities & Local Councils",
+      title_ar: "البلديات والمجالس المحلية",
+      icon: "Building2",
+    },
+    {
+      title_en: "Public Safety & Law Enforcement Agencies",
+      title_ar: "جهات السلامة العامة وإنفاذ القانون",
+      icon: "Siren",
+    },
+    {
+      title_en: "Courts & Judicial Facilities",
+      title_ar: "المحاكم والمنشآت القضائية",
+      icon: "ShieldCheck",
+    },
+    {
+      title_en: "Public Schools & Educational Institutions",
+      title_ar: "المدارس والمؤسسات التعليمية الحكومية",
+      icon: "GraduationCap",
+    },
+    {
+      title_en: "Public Hospitals & Healthcare Facilities",
+      title_ar: "المستشفيات والمنشآت الصحية الحكومية",
+      icon: "HeartPulse",
+    },
+    {
+      title_en: "Ports & Customs Authorities",
+      title_ar: "الموانئ وهيئات الجمارك",
+      icon: "Container",
+    },
+    {
+      title_en: "Public Utilities & Infrastructure Authorities",
+      title_ar: "هيئات المرافق العامة والبنية التحتية",
+      icon: "Zap",
+    },
+  ],
+
   advantages: [
     {
       title_en: "Experienced in public-sector tender requirements.",
@@ -74,10 +117,10 @@ export const governmentProcurementContent: SectorContent = {
     {
       question_en: "How do I request a quotation?",
       answer_en:
-        "Share your requirement using the request quotation form on this page, including a BOQ, tender document, or technical specification if available, and our team will respond with a tailored quotation.",
+        "Share your requirement using the request quotation form on this page, including the technical specification or tender document, the quantities needed, and your project or delivery-site details, and our team will respond with a tailored quotation.",
       question_ar: "كيف يمكنني طلب عرض سعر؟",
       answer_ar:
-        "شاركونا متطلباتكم من خلال نموذج طلب عرض السعر في هذه الصفحة، مع إرفاق جدول الكميات (BOQ) أو وثيقة المناقصة أو المواصفات الفنية إن وجدت، وسيتواصل معكم فريقنا بعرض سعر مخصص.",
+        "شاركونا متطلباتكم من خلال نموذج طلب عرض السعر في هذه الصفحة، مع إرفاق المواصفات الفنية أو وثيقة المناقصة، والكميات المطلوبة، وتفاصيل مشروعكم أو موقع التسليم، وسيتواصل معكم فريقنا بعرض سعر مخصص.",
     },
     {
       question_en: "Can GOLTENS supply against a government tender?",

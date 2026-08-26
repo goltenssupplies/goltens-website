@@ -526,6 +526,7 @@ export default async function KnowledgeDetailPage({
             items={catalogueItems}
             downloadLabel={tSectors("catalogueDownload")}
             comingSoonLabel={tSectors("comingSoon")}
+            datasheetUnavailableLabel={tSectors("datasheetUnavailable")}
           />
         </PremiumDarkSection>
       )}

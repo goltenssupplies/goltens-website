@@ -146,6 +146,7 @@ export default async function DownloadsPage({ params }: DownloadsPageProps) {
           filterAllLabel={tShared("filterAllLabel")}
           downloadLabel={tShared("downloadLabel")}
           comingSoonLabel={tShared("comingSoonLabel")}
+          datasheetUnavailableLabel={tShared("datasheetUnavailableLabel")}
           noResultsTitle={tShared("noResultsTitle")}
           noResultsDescription={tShared("noResultsDescription")}
         />

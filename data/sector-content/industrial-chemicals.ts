@@ -35,6 +35,41 @@ export const industrialChemicalsContent: SectorContent = {
       "يتم توريد المنتجات مع نشرات بيانات السلامة ووثائق التداول المطابقة لمتطلبات مشروعكم — ونؤكد الدرجة والمواصفات الدقيقة المطلوبة كجزء من عملية إعداد عرض السعر.",
   },
 
+  applications: [
+    {
+      title_en: "Manufacturing & Process Plants",
+      title_ar: "مصانع التصنيع والمعالجة",
+      icon: "Factory",
+    },
+    {
+      title_en: "Water & Wastewater Utilities",
+      title_ar: "مرافق المياه والصرف الصحي",
+      icon: "Droplets",
+    },
+    { title_en: "Oil & Gas", title_ar: "النفط والغاز", icon: "Fuel" },
+    {
+      title_en: "Marine & Shipping",
+      title_ar: "النقل البحري والشحن",
+      icon: "Waves",
+    },
+    { title_en: "Power Generation", title_ar: "توليد الطاقة", icon: "Zap" },
+    {
+      title_en: "Construction & Infrastructure",
+      title_ar: "البناء والبنية التحتية",
+      icon: "HardHat",
+    },
+    {
+      title_en: "Warehousing & Logistics",
+      title_ar: "التخزين والخدمات اللوجستية",
+      icon: "Warehouse",
+    },
+    {
+      title_en: "Commercial Buildings & Facilities",
+      title_ar: "المباني والمرافق التجارية",
+      icon: "Building2",
+    },
+  ],
+
   advantages: [
     {
       title_en: "Products matched to your process specification.",

@@ -16,6 +16,60 @@ export const healthcareMaintenanceOperationsEquipment: Product[] = [
       "مستلزمات استهلاكية لأعمال الصيانة الدورية المجدولة — فلاتر وسيور وقطع استبدال ذات صلة — يتم توريدها وفق قائمة معداتكم وجدول الصيانة لديكم.",
     sectorId: "healthcare",
     categoryId: "maintenance-operations-equipment",
+    features_en: [
+      "Filters, belts, and general replacement consumables in one line",
+      "Matched to your equipment inventory and OEM specification",
+      "Scheduled or bulk replenishment for maintenance contracts",
+    ],
+    features_ar: [
+      "فلاتر وسيور ومستلزمات استبدال عامة في خط توريد واحد",
+      "مطابقة لقائمة معداتكم ومواصفات الشركة المصنّعة الأصلية",
+      "تجديد مجدول أو بالجملة لعقود الصيانة لديكم",
+    ],
+    specifications: [
+      {
+        label_en: "Item categories",
+        label_ar: "فئات الأصناف",
+        value: "Air/water filters, drive belts, seals, and gaskets",
+        group_en: "Configuration",
+        group_ar: "التكوين",
+      },
+      {
+        label_en: "Compatibility",
+        label_ar: "التوافق",
+        value: "Matched to your existing equipment's OEM specification",
+        group_en: "Configuration",
+        group_ar: "التكوين",
+      },
+      {
+        label_en: "Replacement interval",
+        label_ar: "فترة الاستبدال",
+        value: "Typically 1 – 12 months, equipment- and usage-dependent",
+        group_en: "Maintenance",
+        group_ar: "الصيانة",
+      },
+      {
+        label_en: "Supply format",
+        label_ar: "طريقة التوريد",
+        value: "Individual units or scheduled bulk replenishment",
+        group_en: "Supply",
+        group_ar: "التوريد",
+      },
+    ],
+    applications_en: [
+      "HVAC filter replacement programs",
+      "Mechanical drive belt replacement",
+      "Scheduled equipment servicing kits",
+      "Plant room preventive maintenance rounds",
+      "Spare consumables stock for maintenance service contracts",
+    ],
+    applications_ar: [
+      "برامج استبدال فلاتر التكييف",
+      "استبدال سيور الحركة الميكانيكية",
+      "أطقم صيانة دورية مجدولة للمعدات",
+      "جولات الصيانة الوقائية لغرف المعدات",
+      "مخزون مستلزمات احتياطية لعقود الصيانة",
+    ],
     relatedProductSlugs: [
       "industrial-hand-power-tools",
       "material-handling-trolleys-hoists",
@@ -50,10 +104,65 @@ export const healthcareMaintenanceOperationsEquipment: Product[] = [
       "أدوات يدوية وكهربائية لعمليات وأعمال إصلاح المرافق، يتم توريدها وفق تخصص فريق الصيانة لديكم وحجم العمل اليومي.",
     sectorId: "healthcare",
     categoryId: "maintenance-operations-equipment",
+    features_en: [
+      "Corded and cordless (battery) power tool options",
+      "Professional/industrial duty-rated tools",
+      "Individual tools or complete trade tool-kit sets",
+    ],
+    features_ar: [
+      "خيارات أدوات كهربائية سلكية أو تعمل بالبطارية",
+      "أدوات مصنّفة للاستخدام المهني والصناعي",
+      "أدوات فردية أو أطقم أدوات متكاملة حسب التخصص",
+    ],
+    specifications: [
+      {
+        label_en: "Tool categories",
+        label_ar: "فئات الأدوات",
+        value: "Drills, angle grinders, saws, and general hand tool sets",
+        group_en: "Configuration",
+        group_ar: "التكوين",
+      },
+      {
+        label_en: "Power source",
+        label_ar: "مصدر الطاقة",
+        value: "Corded electric or cordless battery options",
+        group_en: "Configuration",
+        group_ar: "التكوين",
+      },
+      {
+        label_en: "Battery capacity range",
+        label_ar: "نطاق سعة البطارية",
+        value: "12V – 18V, cordless models",
+        group_en: "Electrical",
+        group_ar: "الكهرباء",
+      },
+      {
+        label_en: "Duty rating",
+        label_ar: "تصنيف الاستخدام",
+        value: "Professional/industrial grade",
+        group_en: "Configuration",
+        group_ar: "التكوين",
+      },
+    ],
+    applications_en: [
+      "Facility electrical and mechanical repair work",
+      "Plumbing and pipefitting maintenance tasks",
+      "Carpentry and general fit-out repairs",
+      "Emergency breakdown maintenance response",
+      "Workshop and engineering department daily use",
+    ],
+    applications_ar: [
+      "أعمال إصلاح المرافق الكهربائية والميكانيكية",
+      "مهام صيانة السباكة وتمديد الأنابيب",
+      "أعمال النجارة وإصلاحات التجهيز العامة",
+      "الاستجابة لأعمال الصيانة الطارئة",
+      "الاستخدام اليومي في الورش وقسم الهندسة",
+    ],
     relatedProductSlugs: [
       "preventive-maintenance-supplies",
       "material-handling-trolleys-hoists",
     ],
+    relatedBrandSlugs: ["bosch", "makita", "dewalt"],
     catalogues: [
       {
         id: "industrial-hand-power-tools-datasheet",
@@ -84,10 +193,71 @@ export const healthcareMaintenanceOperationsEquipment: Product[] = [
       "عربات ورافعات لمناولة المواد وأعمال الصيانة واللوجستيات، يتم توريدها وفق سعة الحمل ومتطلبات الوصول للموقع لديكم.",
     sectorId: "healthcare",
     categoryId: "maintenance-operations-equipment",
+    features_en: [
+      "Platform, shelf, and cage trolley configurations",
+      "Manual and electric chain hoist options",
+      "Sized to your load capacity and site-access constraints",
+    ],
+    features_ar: [
+      "تكوينات عربات مسطحة أو برفوف أو أقفاص",
+      "خيارات رافعات سلسلة يدوية أو كهربائية",
+      "مقاسة وفق سعة الحمل وقيود الوصول للموقع لديكم",
+    ],
+    specifications: [
+      {
+        label_en: "Trolley load capacity range",
+        label_ar: "نطاق سعة حمل العربات",
+        value: "150 kg – 1,000 kg, model-dependent",
+        group_en: "Performance",
+        group_ar: "الأداء",
+      },
+      {
+        label_en: "Hoist lifting capacity range",
+        label_ar: "نطاق سعة رفع الرافعات",
+        value: "500 kg – 5,000 kg, model-dependent",
+        group_en: "Performance",
+        group_ar: "الأداء",
+      },
+      {
+        label_en: "Hoist type",
+        label_ar: "نوع الرافعة",
+        value: "Manual chain block or electric chain hoist",
+        group_en: "Configuration",
+        group_ar: "التكوين",
+      },
+      {
+        label_en: "Trolley type",
+        label_ar: "نوع العربة",
+        value: "Platform, shelf, or cage configurations",
+        group_en: "Configuration",
+        group_ar: "التكوين",
+      },
+      {
+        label_en: "Standards",
+        label_ar: "المعايير",
+        value:
+          "Electric chain hoists typically manufactured/tested to EN 14492-2",
+      },
+    ],
+    applications_en: [
+      "Linen and laundry logistics between departments",
+      "General stores and warehouse material movement",
+      "Maintenance workshop lifting tasks",
+      "Equipment relocation during facility upgrades",
+      "Goods receiving and internal distribution logistics",
+    ],
+    applications_ar: [
+      "لوجستيات نقل الكتان والمغسولات بين الأقسام",
+      "حركة المواد في المستودعات ومناطق التخزين العامة",
+      "مهام الرفع في ورش الصيانة",
+      "نقل المعدات أثناء أعمال تطوير المرافق",
+      "استلام البضائع وتوزيعها داخليًا",
+    ],
     relatedProductSlugs: [
       "preventive-maintenance-supplies",
       "industrial-hand-power-tools",
     ],
+    relatedBrandSlugs: ["yale", "demag"],
     catalogues: [
       {
         id: "material-handling-trolleys-hoists-datasheet",

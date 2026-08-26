@@ -37,6 +37,43 @@ export const electricalEnergyContent: SectorContent = {
       "يتم توريد المنتجات بما يتوافق مع الأكواد والمعايير الكهربائية التي يتطلبها مشروعكم — ونقوم بمطابقة كل عنصر مع فئة الجهد والتصنيف والاعتمادات المطلوبة كجزء من عملية إعداد عرض السعر.",
   },
 
+  applications: [
+    {
+      title_en: "Industrial Facilities",
+      title_ar: "المنشآت الصناعية",
+      icon: "Factory",
+    },
+    {
+      title_en: "Commercial Buildings",
+      title_ar: "المباني التجارية",
+      icon: "Building2",
+    },
+    {
+      title_en: "Data Centers",
+      title_ar: "مراكز البيانات",
+      icon: "SlidersHorizontal",
+    },
+    { title_en: "Hospitals", title_ar: "المستشفيات", icon: "HeartPulse" },
+    {
+      title_en: "Construction Sites",
+      title_ar: "مواقع الإنشاءات",
+      icon: "HardHat",
+    },
+    { title_en: "Telecom Sites", title_ar: "مواقع الاتصالات", icon: "Zap" },
+    {
+      title_en: "Utilities & Power Plants",
+      title_ar: "المرافق العامة ومحطات الطاقة",
+      icon: "Landmark",
+    },
+    {
+      title_en: "Warehouses & Logistics",
+      title_ar: "المستودعات واللوجستيات",
+      icon: "Warehouse",
+    },
+    { title_en: "Hotels", title_ar: "الفنادق", icon: "Hotel" },
+    { title_en: "Oil & Gas", title_ar: "النفط والغاز", icon: "Fuel" },
+  ],
+
   advantages: [
     {
       title_en: "Single source for full electrical scope of supply.",
@@ -96,7 +133,8 @@ export const electricalEnergyContent: SectorContent = {
         "نعم، نقوم بتوريد معدات كهربائية من شركات مصنّعة عالمية موثوقة من خلال شبكة موردينا الدولية، وفقًا لتوافرها، ونؤكد خيارات العلامة التجارية والطراز كجزء من كل عرض سعر.",
     },
     {
-      question_en: "Can you supply a complete electrical package for a project?",
+      question_en:
+        "Can you supply a complete electrical package for a project?",
       answer_en:
         "Yes. We supply complete electrical scopes — switchgear, transformers, standby power, cabling, and lighting — sourced and coordinated as one project rather than as unrelated individual items.",
       question_ar: "هل يمكنكم توريد حزمة كهربائية متكاملة لمشروع؟",

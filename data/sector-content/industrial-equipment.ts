@@ -37,6 +37,41 @@ export const industrialEquipmentContent: SectorContent = {
       "يتم توريد المنتجات بما يتوافق مع المعايير الفنية والصناعية التي يتطلبها مشروعكم — ونقوم بمطابقة كل عنصر مع ظروف التشغيل والخامات والاعتمادات المطلوبة كجزء من عملية إعداد عرض السعر.",
   },
 
+  applications: [
+    {
+      title_en: "Water & Wastewater Utilities",
+      title_ar: "مرافق المياه والصرف الصحي",
+      icon: "Droplets",
+    },
+    { title_en: "Oil & Gas", title_ar: "النفط والغاز", icon: "Fuel" },
+    {
+      title_en: "Manufacturing & Process Plants",
+      title_ar: "مصانع التصنيع والعمليات",
+      icon: "Factory",
+    },
+    { title_en: "Power Generation", title_ar: "توليد الطاقة", icon: "Zap" },
+    {
+      title_en: "Desalination & Water Treatment",
+      title_ar: "تحلية ومعالجة المياه",
+      icon: "Waves",
+    },
+    {
+      title_en: "Commercial Buildings & HVAC",
+      title_ar: "المباني التجارية وأنظمة التكييف",
+      icon: "Building2",
+    },
+    {
+      title_en: "Construction & Dewatering",
+      title_ar: "الإنشاءات وتصريف المياه",
+      icon: "HardHat",
+    },
+    {
+      title_en: "Healthcare Facilities",
+      title_ar: "المنشآت الصحية",
+      icon: "HeartPulse",
+    },
+  ],
+
   advantages: [
     {
       title_en: "Wide range of pump and equipment types in one place.",
@@ -80,7 +115,8 @@ export const industrialEquipmentContent: SectorContent = {
         "شاركونا مواصفاتكم الفنية من خلال نموذج طلب عرض السعر في هذه الصفحة — معدل التدفق والرفع والخامات أو ورقة البيانات إن وجدت — وسيتواصل معكم فريقنا بعرض سعر مخصص.",
     },
     {
-      question_en: "Can you match a replacement pump to my existing installation?",
+      question_en:
+        "Can you match a replacement pump to my existing installation?",
       answer_en:
         "Yes. Share the nameplate details, existing model, or duty conditions of the equipment you're replacing, and our team will source a matching or equivalent product.",
       question_ar: "هل يمكنكم مطابقة مضخة بديلة مع التركيب الحالي لدي؟",

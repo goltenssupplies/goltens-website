@@ -22,7 +22,10 @@ export async function generateMetadata({
   params,
 }: DatasheetsPageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "downloads.datasheets" });
+  const t = await getTranslations({
+    locale,
+    namespace: "downloads.datasheets",
+  });
 
   return buildMetadata({
     locale: locale as Locale,
@@ -96,6 +99,7 @@ export default async function DatasheetsPage({ params }: DatasheetsPageProps) {
             filterAllLabel={tShared("filterAllLabel")}
             downloadLabel={tShared("downloadLabel")}
             comingSoonLabel={tShared("comingSoonLabel")}
+            datasheetUnavailableLabel={tShared("datasheetUnavailableLabel")}
             noResultsTitle={tShared("noResultsTitle")}
             noResultsDescription={tShared("noResultsDescription")}
           />

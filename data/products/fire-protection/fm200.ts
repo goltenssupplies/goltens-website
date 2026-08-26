@@ -17,8 +17,68 @@ export const fireProtectionFm200: Product[] = [
       "يُعد FM200 نظام إخماد بالغاز النظيف الذي يخمد الحريق دون ترك بقايا أو إتلاف المعدات، مما يجعله مناسبًا لمراكز البيانات وغرف السيرفرات وغرف التحكم حيث لا يناسبها الإخماد بالمياه. نقوم بتحديد حجم أسطوانات الغاز وفق الحجم المحمي لغرفتكم.",
     sectorId: "fire-protection",
     categoryId: "fm200",
+    features_en: [
+      "Extinguishes fire in seconds without leaving residue",
+      "Safe for use in normally occupied spaces at design concentration",
+      "Cylinder banks sized to your room's protected volume",
+    ],
+    features_ar: [
+      "يخمد الحريق خلال ثوانٍ دون ترك بقايا",
+      "آمن للاستخدام في المساحات المأهولة عادةً عند تركيز التصميم",
+      "أسطوانات غاز مقاسة وفق الحجم المحمي لغرفتكم",
+    ],
+    applications_en: [
+      "Data centers and server rooms",
+      "Electrical switchgear and control rooms",
+      "Telecommunications equipment rooms",
+      "Archive, museum, and heritage document storage",
+    ],
+    applications_ar: [
+      "مراكز البيانات وغرف السيرفرات",
+      "غرف اللوحات الكهربائية والتحكم",
+      "غرف معدات الاتصالات",
+      "مخازن الأرشيف والمتاحف والوثائق التراثية",
+    ],
+    specifications: [
+      {
+        group_en: "Performance",
+        group_ar: "الأداء",
+        label_en: "Discharge time",
+        label_ar: "زمن التصريف",
+        value: "Typically ≤10 seconds to design concentration",
+      },
+      {
+        group_en: "Performance",
+        group_ar: "الأداء",
+        label_en: "Design concentration",
+        label_ar: "تركيز التصميم",
+        value:
+          "Typically 6.25 – 9% by volume, hazard-dependent, per NFPA 2001 calculation",
+      },
+      {
+        group_en: "Physical",
+        group_ar: "الخصائص الفيزيائية",
+        label_en: "Cylinder sizes",
+        label_ar: "أحجام الأسطوانات",
+        value: "Range of cylinder capacities banked to match room volume",
+      },
+      {
+        group_en: "Configuration",
+        group_ar: "التكوين",
+        label_en: "Detection & release",
+        label_ar: "الكشف والتحرير",
+        value: "Cross-zoned detection with automatic and manual release",
+      },
+      {
+        group_en: "Standards",
+        group_ar: "المعايير",
+        label_en: "Standards",
+        label_ar: "المعايير",
+        value: "Typically designed to NFPA 2001 / ISO 14520-5",
+      },
+    ],
     relatedProductSlugs: ["novec-1230", "gas-suppression", "co2-systems"],
-    relatedBrandSlugs: ["minimax", "johnson-controls"],
+    relatedBrandSlugs: ["minimax", "johnson-controls", "kidde"],
     relatedArticleSlugs: ["fm200-vs-novec-1230"],
     catalogues: [
       {

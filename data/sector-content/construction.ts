@@ -37,6 +37,54 @@ export const constructionContent: SectorContent = {
       "يتم توريد المواد بما يتوافق مع المواصفات والمعايير الواردة في الوثائق الهندسية لمشروعكم — ونؤكد الدرجة والتصنيف ومتطلبات الفحص كجزء من عملية إعداد عرض السعر.",
   },
 
+  applications: [
+    {
+      title_en: "Residential Construction",
+      title_ar: "الإنشاءات السكنية",
+      icon: "HardHat",
+    },
+    {
+      title_en: "Commercial Buildings",
+      title_ar: "المباني التجارية",
+      icon: "Building2",
+    },
+    {
+      title_en: "Infrastructure & Roadworks",
+      title_ar: "البنية التحتية وأعمال الطرق",
+      icon: "Truck",
+    },
+    {
+      title_en: "Government Projects",
+      title_ar: "المشروعات الحكومية",
+      icon: "Landmark",
+    },
+    {
+      title_en: "Industrial Facility Construction",
+      title_ar: "إنشاء المنشآت الصناعية",
+      icon: "Factory",
+    },
+    {
+      title_en: "Educational Institutions",
+      title_ar: "المؤسسات التعليمية",
+      icon: "GraduationCap",
+    },
+    {
+      title_en: "Healthcare Facilities",
+      title_ar: "المنشآت الصحية",
+      icon: "HeartPulse",
+    },
+    {
+      title_en: "Hospitality Projects",
+      title_ar: "المشروعات الفندقية",
+      icon: "Hotel",
+    },
+    {
+      title_en: "Warehousing & Logistics",
+      title_ar: "المستودعات والخدمات اللوجستية",
+      icon: "Warehouse",
+    },
+  ],
+
   advantages: [
     {
       title_en: "Full-scope materials sourcing from a single supplier.",

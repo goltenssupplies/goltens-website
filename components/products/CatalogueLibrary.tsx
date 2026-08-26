@@ -21,6 +21,8 @@ export interface CatalogueLibraryProps {
   filterAllLabel: string;
   downloadLabel: string;
   comingSoonLabel: string;
+  /** See `SectorCatalogues`'s prop of the same name — shown instead of `comingSoonLabel` for datasheet-kind items. */
+  datasheetUnavailableLabel?: string;
   noResultsTitle: string;
   noResultsDescription: string;
 }
@@ -43,6 +45,7 @@ export function CatalogueLibrary({
   filterAllLabel,
   downloadLabel,
   comingSoonLabel,
+  datasheetUnavailableLabel,
   noResultsTitle,
   noResultsDescription,
 }: CatalogueLibraryProps) {
@@ -68,7 +71,7 @@ export function CatalogueLibrary({
         <div className="relative w-full lg:max-w-sm">
           <Search
             aria-hidden="true"
-            className="text-canvas/40 pointer-events-none absolute top-1/2 start-4 size-4 -translate-y-1/2"
+            className="text-canvas/40 pointer-events-none absolute start-4 top-1/2 size-4 -translate-y-1/2"
           />
           <input
             type="search"
@@ -159,6 +162,7 @@ export function CatalogueLibrary({
           items={filtered}
           downloadLabel={downloadLabel}
           comingSoonLabel={comingSoonLabel}
+          datasheetUnavailableLabel={datasheetUnavailableLabel}
           emptyTitle={noResultsTitle}
           emptyBody={noResultsDescription}
         />

@@ -37,6 +37,37 @@ export const heavyEquipmentContent: SectorContent = {
       "يتم توريد المعدات وفق مواصفات مشروعكم ومعايير السلامة والتشغيل المعمول بها — ونؤكد متطلبات السعة ومدى الوصول والتصنيف كجزء من عملية إعداد عرض السعر.",
   },
 
+  applications: [
+    { title_en: "Construction", title_ar: "الإنشاءات", icon: "HardHat" },
+    {
+      title_en: "Roadworks & Infrastructure",
+      title_ar: "أعمال الطرق والبنية التحتية",
+      icon: "Truck",
+    },
+    {
+      title_en: "Mining & Quarrying",
+      title_ar: "التعدين والمحاجر",
+      icon: "Factory",
+    },
+    {
+      title_en: "Ports & Logistics",
+      title_ar: "الموانئ واللوجستيات",
+      icon: "Container",
+    },
+    { title_en: "Oil & Gas", title_ar: "النفط والغاز", icon: "Fuel" },
+    {
+      title_en: "Government & Public Works",
+      title_ar: "الأعمال الحكومية والعامة",
+      icon: "Landmark",
+    },
+    { title_en: "Power & Utilities", title_ar: "الطاقة والمرافق", icon: "Zap" },
+    {
+      title_en: "Warehousing & Industrial Facilities",
+      title_ar: "المستودعات والمنشآت الصناعية",
+      icon: "Warehouse",
+    },
+  ],
+
   advantages: [
     {
       title_en: "Wide range of heavy machinery in one place.",

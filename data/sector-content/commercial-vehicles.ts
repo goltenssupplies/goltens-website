@@ -8,30 +8,72 @@ import type { SectorContent } from "@/data/sector-content/types";
 export const commercialVehiclesContent: SectorContent = {
   about: {
     intro_en:
-      "GOLTENS supplies commercial vehicles and fleet solutions sourced from trusted global manufacturers, covering trucks and light vehicles, trailers, buses and passenger transport, specialized and municipal vehicles, and fleet parts and workshop equipment. Our procurement team matches your fleet requirements and technical specification against genuine, quality-assured vehicles and parts before every quotation.",
+      "GOLTENS supplies commercial vehicles and fleet solutions sourced from trusted global manufacturers, covering trucks and light vehicles, trailers and transport equipment, and specialized and municipal vehicles. Our procurement team matches your fleet requirements and technical specification — payload, drivetrain, tank or body configuration — against genuine, quality-assured vehicles before every quotation.",
     intro_ar:
-      "توفر GOLTENS مركبات تجارية وحلول تجهيز أساطيل يتم توريدها من شركات مصنّعة عالمية موثوقة، وتغطي الشاحنات والمركبات الخفيفة، والمقطورات، والحافلات ووسائل نقل الركاب، والمركبات المتخصصة والبلدية، وقطع غيار الأسطول ومعدات الورش. يقوم فريق التوريد لدينا بمطابقة متطلبات أسطولكم والمواصفات الفنية مع مركبات وقطع غيار أصلية ومضمونة الجودة قبل كل عرض سعر.",
+      "توفر GOLTENS مركبات تجارية وحلول تجهيز أساطيل يتم توريدها من شركات مصنّعة عالمية موثوقة، وتغطي الشاحنات والمركبات الخفيفة، والمقطورات ومعدات النقل، والمركبات المتخصصة والبلدية. يقوم فريق التوريد لدينا بمطابقة متطلبات أسطولكم والمواصفات الفنية — الحمولة ونظام الدفع وتكوين الخزان أو الهيكل — مع مركبات أصلية ومضمونة الجودة قبل كل عرض سعر.",
     categories_en: [
       "Trucks & Light Vehicles",
-      "Trailers",
-      "Buses & Passenger Transport",
+      "Trailers & Transport Equipment",
       "Specialized & Municipal Vehicles",
-      "Fleet Parts & Consumables",
-      "Fleet Management & Workshop Equipment",
     ],
     categories_ar: [
       "الشاحنات والمركبات الخفيفة",
-      "المقطورات",
-      "الحافلات ووسائل نقل الركاب",
+      "المقطورات ومعدات النقل",
       "المركبات المتخصصة والبلدية",
-      "قطع غيار ومستهلكات الأسطول",
-      "إدارة الأسطول ومعدات الورش",
     ],
     complianceNote_en:
       "Vehicles and parts are sourced to meet the specifications and road-safety requirements your fleet operation requires — we confirm the exact configuration as part of the quotation process.",
     complianceNote_ar:
       "يتم توريد المركبات وقطع الغيار بما يتوافق مع المواصفات ومتطلبات السلامة المرورية التي تتطلبها عمليات أسطولكم — ونؤكد التهيئة الدقيقة كجزء من عملية إعداد عرض السعر.",
   },
+
+  applications: [
+    {
+      title_en: "Logistics & Distribution",
+      title_ar: "اللوجستيات والتوزيع",
+      icon: "Truck",
+    },
+    {
+      title_en: "Construction & Contracting",
+      title_ar: "الإنشاءات والمقاولات",
+      icon: "HardHat",
+    },
+    {
+      title_en: "Municipalities & Public Works",
+      title_ar: "البلديات والأشغال العامة",
+      icon: "Landmark",
+    },
+    {
+      title_en: "Waste Management",
+      title_ar: "إدارة النفايات",
+      icon: "Container",
+    },
+    {
+      title_en: "Government Fleets",
+      title_ar: "الأساطيل الحكومية",
+      icon: "Building2",
+    },
+    {
+      title_en: "Oil & Gas / Fuel Distribution",
+      title_ar: "النفط والغاز وتوزيع الوقود",
+      icon: "Fuel",
+    },
+    {
+      title_en: "Water Utilities & Site Supply",
+      title_ar: "مرافق المياه وتزويد المواقع",
+      icon: "Droplets",
+    },
+    {
+      title_en: "Industrial & Manufacturing",
+      title_ar: "الصناعة والتصنيع",
+      icon: "Factory",
+    },
+    {
+      title_en: "Warehousing & Distribution Centers",
+      title_ar: "المستودعات ومراكز التوزيع",
+      icon: "Warehouse",
+    },
+  ],
 
   advantages: [
     {
@@ -92,7 +134,8 @@ export const commercialVehiclesContent: SectorContent = {
         "نعم، نقوم بتوريد مركبات تجارية ومعدات أسطول من شركات مصنّعة عالمية موثوقة من خلال شبكة موردينا الدولية، وفقًا لتوافرها، ونؤكد خيارات العلامة التجارية والطراز كجزء من كل عرض سعر.",
     },
     {
-      question_en: "Do you supply spare parts and consumables for existing fleets?",
+      question_en:
+        "Do you supply spare parts and consumables for existing fleets?",
       answer_en:
         "Yes. We source spare parts, tires, batteries, and consumables for the vehicle categories we supply, in addition to complete new and specialized vehicles.",
       question_ar: "هل تورّدون قطع غيار ومستهلكات للأساطيل الحالية؟",

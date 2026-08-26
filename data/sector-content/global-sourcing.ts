@@ -37,6 +37,35 @@ export const globalSourcingContent: SectorContent = {
       "يتم التوريد بما يتوافق مع متطلبات الاعتماد والمطابقة والوثائق التي يحددها مشروعكم — ونؤكد إمكانية التنفيذ والمتطلبات الدقيقة قبل كل عرض سعر.",
   },
 
+  applications: [
+    { title_en: "Oil & Gas", title_ar: "النفط والغاز", icon: "Fuel" },
+    { title_en: "Manufacturing", title_ar: "التصنيع", icon: "Factory" },
+    { title_en: "Marine", title_ar: "القطاع البحري", icon: "Waves" },
+    { title_en: "Construction", title_ar: "الإنشاءات", icon: "HardHat" },
+    {
+      title_en: "Government Projects",
+      title_ar: "المشاريع الحكومية",
+      icon: "Landmark",
+    },
+    { title_en: "Power Generation", title_ar: "توليد الطاقة", icon: "Zap" },
+    {
+      title_en: "Warehousing & Logistics",
+      title_ar: "التخزين واللوجستيات",
+      icon: "Warehouse",
+    },
+    {
+      title_en: "Commercial Buildings",
+      title_ar: "المباني التجارية",
+      icon: "Building2",
+    },
+    {
+      title_en: "Healthcare Facilities",
+      title_ar: "المنشآت الصحية",
+      icon: "HeartPulse",
+    },
+    { title_en: "Hospitality", title_ar: "الضيافة", icon: "Hotel" },
+  ],
+
   advantages: [
     {
       title_en: "Access to a trusted international supplier network.",
@@ -80,7 +109,8 @@ export const globalSourcingContent: SectorContent = {
         "شاركونا متطلباتكم من خلال نموذج طلب عرض السعر في هذه الصفحة، مع إرفاق أي مواصفات أو رقم قطعة أو عينة مرجعية لديكم، وسيؤكد فريقنا إمكانية التوريد بعرض سعر مخصص.",
     },
     {
-      question_en: "Can you source an item that isn't listed on any other sector page?",
+      question_en:
+        "Can you source an item that isn't listed on any other sector page?",
       answer_en:
         "Yes. This sector exists specifically for that case — share the product or part you need, and our sourcing team will confirm whether and how we can supply it through our supplier network.",
       question_ar: "هل يمكنكم توريد صنف غير مدرج في أي صفحة قطاع أخرى؟",
@@ -99,7 +129,8 @@ export const globalSourcingContent: SectorContent = {
       question_en: "Can GOLTENS handle urgent or emergency sourcing requests?",
       answer_en:
         "Yes. We handle urgent procurement requests and will confirm the fastest realistic sourcing route for your specific item as part of the response.",
-      question_ar: "هل يمكن لـGOLTENS التعامل مع طلبات التوريد العاجلة أو الطارئة؟",
+      question_ar:
+        "هل يمكن لـGOLTENS التعامل مع طلبات التوريد العاجلة أو الطارئة؟",
       answer_ar:
         "نعم، نتعامل مع طلبات التوريد العاجلة، وسنؤكد أسرع مسار توريد واقعي للصنف المطلوب كجزء من ردنا.",
     },
@@ -110,6 +141,16 @@ export const globalSourcingContent: SectorContent = {
       question_ar: "هل تدعمون لوجستيات التصدير والاستيراد؟",
       answer_ar:
         "نعم، نقدم دعمًا لوجستيًا للمنتجات التي نورّدها، بالتنسيق مع متطلبات التسليم والوثائق الخاصة بمشروعكم.",
+    },
+    {
+      question_en:
+        "Is GOLTENS an authorized agent or distributor for the brands it sources?",
+      answer_en:
+        "No. GOLTENS is a general procurement and sourcing company — we are not an authorized agent or distributor for any single manufacturer. We source genuine products through our international supplier network, sourced from the OEM or OEM-authorized distribution channel and verified per order, and we're transparent about brand and sourcing route as part of every quotation.",
+      question_ar:
+        "هل GOLTENS وكيل أو موزع معتمد للعلامات التجارية التي تورّدها؟",
+      answer_ar:
+        "لا. GOLTENS شركة توريد ومشتريات عامة — ولسنا وكيلاً أو موزعًا معتمدًا لأي جهة مصنّعة بعينها. نقوم بتوريد منتجات أصلية من خلال شبكة موردينا الدولية، حيث يتم التوريد من الجهة المصنّعة أو قناة التوزيع المعتمدة منها، ويتم التحقق من ذلك مع كل طلب، ونوضح العلامة التجارية ومسار التوريد بشفافية كجزء من كل عرض سعر.",
     },
   ],
 
