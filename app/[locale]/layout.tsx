@@ -18,6 +18,7 @@ import { UtilityTrayLoader } from "@/components/layout/UtilityTrayLoader";
 import { ComparisonProvider } from "@/components/products/ComparisonContext";
 import { RfqCartProvider } from "@/components/rfq/RfqCartContext";
 import { routing, type Locale } from "@/i18n/routing";
+import { DOWNLOADS_CENTER_ENABLED } from "@/lib/feature-flags";
 import {
   contactEmail,
   contactPhoneDisplay,
@@ -137,6 +138,9 @@ export default async function LocaleLayout({
   // Knowledge Center and Download Center are appended here rather than the
   // primary Navbar (unchanged per spec) — they carry no main-nav item, so
   // this footer entry is otherwise their only site-wide, crawlable path.
+  // Download Center is on a temporary hold (see `lib/feature-flags.ts`) —
+  // its entry is omitted entirely while `DOWNLOADS_CENTER_ENABLED` is
+  // `false`, rather than deleted, so restoring it later is a one-line flip.
   const footerQuickLinks = [
     { label: t("home"), href: "/" },
     { label: t("about"), href: "/about" },
@@ -144,7 +148,9 @@ export default async function LocaleLayout({
     { label: t("solutions"), href: "/solutions" },
     { label: t("contact"), href: "/contact" },
     { label: tKnowledge("breadcrumbLabel"), href: "/knowledge" },
-    { label: tDownloads("title"), href: "/downloads" },
+    ...(DOWNLOADS_CENTER_ENABLED
+      ? [{ label: tDownloads("title"), href: "/downloads" }]
+      : []),
   ];
 
   return (

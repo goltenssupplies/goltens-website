@@ -26,6 +26,7 @@ import { getAllProductParams, getProductBySlug } from "@/data/products";
 import { getSectorArticle, getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug } from "@/data/sectors";
 import type { Locale } from "@/i18n/routing";
+import { DOWNLOADS_CENTER_ENABLED } from "@/lib/feature-flags";
 import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { buildMetadata } from "@/lib/metadata";
 import {
@@ -321,16 +322,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
           comingSoonLabel={tSectors("comingSoon")}
           datasheetUnavailableLabel={tSectors("datasheetUnavailable")}
         />
-        <div className="mt-8">
-          <Button
-            href="/downloads"
-            variant="secondary"
-            size="sm"
-            className="border-canvas/30 text-canvas hover:bg-canvas/10 w-fit"
-          >
-            {tDownloads("viewDownloadCenter")}
-          </Button>
-        </div>
+        {DOWNLOADS_CENTER_ENABLED && (
+          <div className="mt-8">
+            <Button
+              href="/downloads"
+              variant="secondary"
+              size="sm"
+              className="border-canvas/30 text-canvas hover:bg-canvas/10 w-fit"
+            >
+              {tDownloads("viewDownloadCenter")}
+            </Button>
+          </div>
+        )}
       </PremiumDarkSection>
 
       <PremiumDarkSection>

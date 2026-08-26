@@ -5,11 +5,13 @@ import { FileText } from "lucide-react";
 import { CatalogueLibrary } from "@/components/products/CatalogueLibrary";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
+import { redirect } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import {
   buildCatalogueLibraryItems,
   getCatalogueLibrarySectors,
 } from "@/lib/catalogue-library";
+import { DOWNLOADS_CENTER_ENABLED } from "@/lib/feature-flags";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site";
@@ -32,6 +34,7 @@ export async function generateMetadata({
     path: "/downloads/datasheets",
     title: t("title"),
     description: t("description"),
+    noIndex: !DOWNLOADS_CENTER_ENABLED,
   });
 }
 
@@ -40,10 +43,17 @@ export async function generateMetadata({
  * pre-filtered to `kind: "datasheet"`. Same `CatalogueLibrary` component as
  * the Download Center, with the kind filter hidden (there's only one kind
  * here by construction).
+ *
+ * Temporary hold (`lib/feature-flags.ts`): redirects to `/sectors` while
+ * `DOWNLOADS_CENTER_ENABLED` is `false` — see `app/[locale]/downloads/page.tsx`.
  */
 export default async function DatasheetsPage({ params }: DatasheetsPageProps) {
   const { locale } = await params;
   const localeTyped = locale as Locale;
+
+  if (!DOWNLOADS_CENTER_ENABLED) {
+    redirect({ href: "/sectors", locale: localeTyped });
+  }
 
   const t = await getTranslations("downloads.datasheets");
   const tShared = await getTranslations("downloads");

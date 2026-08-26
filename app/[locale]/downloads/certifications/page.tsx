@@ -5,11 +5,13 @@ import { ShieldCheck } from "lucide-react";
 import { CatalogueLibrary } from "@/components/products/CatalogueLibrary";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
+import { redirect } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import {
   buildCatalogueLibraryItems,
   getCatalogueLibrarySectors,
 } from "@/lib/catalogue-library";
+import { DOWNLOADS_CENTER_ENABLED } from "@/lib/feature-flags";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site";
@@ -32,6 +34,7 @@ export async function generateMetadata({
     path: "/downloads/certifications",
     title: t("title"),
     description: t("description"),
+    noIndex: !DOWNLOADS_CENTER_ENABLED,
   });
 }
 
@@ -44,12 +47,19 @@ export async function generateMetadata({
  * certificates — the same "no fabrication" rule as every other library
  * on this site. It starts serving real cards the moment a product adds
  * one, with no component change.
+ *
+ * Temporary hold (`lib/feature-flags.ts`): redirects to `/sectors` while
+ * `DOWNLOADS_CENTER_ENABLED` is `false` — see `app/[locale]/downloads/page.tsx`.
  */
 export default async function CertificationsPage({
   params,
 }: CertificationsPageProps) {
   const { locale } = await params;
   const localeTyped = locale as Locale;
+
+  if (!DOWNLOADS_CENTER_ENABLED) {
+    redirect({ href: "/sectors", locale: localeTyped });
+  }
 
   const t = await getTranslations("downloads.certifications");
   const tShared = await getTranslations("downloads");

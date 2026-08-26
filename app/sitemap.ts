@@ -5,6 +5,7 @@ import { getAllProductParams } from "@/data/products";
 import { SECTORS } from "@/data/sectors";
 import { getAllSolutionParams } from "@/data/solutions";
 import { routing } from "@/i18n/routing";
+import { DOWNLOADS_CENTER_ENABLED } from "@/lib/feature-flags";
 import { siteUrl } from "@/lib/site";
 
 /**
@@ -22,6 +23,9 @@ import { siteUrl } from "@/lib/site";
  * its slugs already equals a real `KnowledgeItem.slug` included below via
  * `getAllKnowledgeItems()` — listing both would put the same final URL in
  * the sitemap twice under two different paths, one of which 308s.
+ * The three `/downloads*` paths are appended conditionally below, only
+ * while `DOWNLOADS_CENTER_ENABLED` (`lib/feature-flags.ts`) is `true` — see
+ * that file for the temporary-hold rationale.
  */
 const paths: string[] = [
   "",
@@ -39,9 +43,9 @@ const paths: string[] = [
   ),
   "/solutions",
   ...getAllSolutionParams().map(({ slug }) => `/solutions/${slug}`),
-  "/downloads",
-  "/downloads/datasheets",
-  "/downloads/certifications",
+  ...(DOWNLOADS_CENTER_ENABLED
+    ? ["/downloads", "/downloads/datasheets", "/downloads/certifications"]
+    : []),
   "/knowledge",
   ...getAllKnowledgeItems().map((item) => `/knowledge/${item.slug}`),
 ];

@@ -9,13 +9,14 @@ import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { Stack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
-import { Link } from "@/i18n/navigation";
+import { Link, redirect } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import {
   buildCatalogueLibraryItems,
   getCatalogueLibraryKinds,
   getCatalogueLibrarySectors,
 } from "@/lib/catalogue-library";
+import { DOWNLOADS_CENTER_ENABLED } from "@/lib/feature-flags";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site";
@@ -35,6 +36,7 @@ export async function generateMetadata({
     path: "/downloads",
     title: t("title"),
     description: t("description"),
+    noIndex: !DOWNLOADS_CENTER_ENABLED,
   });
 }
 
@@ -44,10 +46,19 @@ export async function generateMetadata({
  * `kind`, in one searchable/filterable library. `/downloads/datasheets`
  * and `/downloads/certifications` are the same data pre-filtered to one
  * kind — see the shortcut cards below.
+ *
+ * Temporary hold (`lib/feature-flags.ts`): while `DOWNLOADS_CENTER_ENABLED`
+ * is `false`, this redirects to `/sectors` instead of rendering — the page,
+ * its data, and every component below stay fully intact for when it's
+ * switched back on.
  */
 export default async function DownloadsPage({ params }: DownloadsPageProps) {
   const { locale } = await params;
   const localeTyped = locale as Locale;
+
+  if (!DOWNLOADS_CENTER_ENABLED) {
+    redirect({ href: "/sectors", locale: localeTyped });
+  }
 
   const t = await getTranslations("downloads.center");
   const tShared = await getTranslations("downloads");
