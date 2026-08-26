@@ -26,7 +26,12 @@ import { getAllProductParams, getProductBySlug } from "@/data/products";
 import { getSectorArticle, getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug } from "@/data/sectors";
 import type { Locale } from "@/i18n/routing";
-import { DOWNLOADS_CENTER_ENABLED } from "@/lib/feature-flags";
+import {
+  AVAILABLE_CATALOGUES_ENABLED,
+  DOWNLOADS_CENTER_ENABLED,
+  RELATED_ARTICLES_ENABLED,
+  RELATED_PRODUCTS_ENABLED,
+} from "@/lib/feature-flags";
 import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { buildMetadata } from "@/lib/metadata";
 import {
@@ -314,38 +319,42 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </PremiumDarkSection>
       )}
 
-      <PremiumDarkSection>
-        <SectorCatalogues
-          title={t("cataloguesTitle")}
-          items={catalogueItems}
-          downloadLabel={tSectors("catalogueDownload")}
-          comingSoonLabel={tSectors("comingSoon")}
-          datasheetUnavailableLabel={tSectors("datasheetUnavailable")}
-        />
-        {DOWNLOADS_CENTER_ENABLED && (
-          <div className="mt-8">
-            <Button
-              href="/downloads"
-              variant="secondary"
-              size="sm"
-              className="border-canvas/30 text-canvas hover:bg-canvas/10 w-fit"
-            >
-              {tDownloads("viewDownloadCenter")}
-            </Button>
-          </div>
-        )}
-      </PremiumDarkSection>
+      {AVAILABLE_CATALOGUES_ENABLED && (
+        <PremiumDarkSection>
+          <SectorCatalogues
+            title={t("cataloguesTitle")}
+            items={catalogueItems}
+            downloadLabel={tSectors("catalogueDownload")}
+            comingSoonLabel={tSectors("comingSoon")}
+            datasheetUnavailableLabel={tSectors("datasheetUnavailable")}
+          />
+          {DOWNLOADS_CENTER_ENABLED && (
+            <div className="mt-8">
+              <Button
+                href="/downloads"
+                variant="secondary"
+                size="sm"
+                className="border-canvas/30 text-canvas hover:bg-canvas/10 w-fit"
+              >
+                {tDownloads("viewDownloadCenter")}
+              </Button>
+            </div>
+          )}
+        </PremiumDarkSection>
+      )}
 
-      <PremiumDarkSection>
-        <SectorArticles
-          title={t("articlesTitle")}
-          items={articleItems}
-          sectorSlug={slug}
-          readMoreLabel={tSectors("articlesReadMore")}
-          emptyTitle={tSectors("articlesEmptyTitle")}
-          emptyBody={tSectors("articlesEmptyBody")}
-        />
-      </PremiumDarkSection>
+      {RELATED_ARTICLES_ENABLED && (
+        <PremiumDarkSection>
+          <SectorArticles
+            title={t("articlesTitle")}
+            items={articleItems}
+            sectorSlug={slug}
+            readMoreLabel={tSectors("articlesReadMore")}
+            emptyTitle={tSectors("articlesEmptyTitle")}
+            emptyBody={tSectors("articlesEmptyBody")}
+          />
+        </PremiumDarkSection>
+      )}
 
       {relatedKnowledgeItems.length > 0 && (
         <PremiumDarkSection>
@@ -363,20 +372,22 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </PremiumDarkSection>
       )}
 
-      <PremiumDarkSection>
-        <SectorProducts
-          title={t("relatedProductsTitle")}
-          items={relatedProductItems}
-          requestQuoteLabel={tCommon("requestQuotation")}
-          requestQuoteHref={REQUEST_QUOTE_ANCHOR}
-          emptyTitle={t("relatedProductsEmptyTitle")}
-          emptyBody={t("relatedProductsEmptyBody")}
-          addToRfqLabel={t("addToRfqLabel")}
-          addToRfqAddedLabel={t("addToRfqAddedLabel")}
-          addToCompareLabel={t("addToCompareLabel")}
-          addToCompareAddedLabel={t("addToCompareAddedLabel")}
-        />
-      </PremiumDarkSection>
+      {RELATED_PRODUCTS_ENABLED && (
+        <PremiumDarkSection>
+          <SectorProducts
+            title={t("relatedProductsTitle")}
+            items={relatedProductItems}
+            requestQuoteLabel={tCommon("requestQuotation")}
+            requestQuoteHref={REQUEST_QUOTE_ANCHOR}
+            emptyTitle={t("relatedProductsEmptyTitle")}
+            emptyBody={t("relatedProductsEmptyBody")}
+            addToRfqLabel={t("addToRfqLabel")}
+            addToRfqAddedLabel={t("addToRfqAddedLabel")}
+            addToCompareLabel={t("addToCompareLabel")}
+            addToCompareAddedLabel={t("addToCompareAddedLabel")}
+          />
+        </PremiumDarkSection>
+      )}
 
       {faqItems.length > 0 && (
         <PremiumDarkSection>
