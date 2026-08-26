@@ -21,7 +21,9 @@ import { getProductBySlug } from "@/data/products";
 import { getSectorArticle, getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug } from "@/data/sectors";
 import { getAllSolutionParams, getSolutionBySlug } from "@/data/solutions";
+import { redirect } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { SOLUTIONS_ENABLED } from "@/lib/feature-flags";
 import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { buildMetadata } from "@/lib/metadata";
 import {
@@ -62,6 +64,7 @@ export async function generateMetadata({
     title,
     description,
     keywords: solution.seo?.keywords,
+    noIndex: !SOLUTIONS_ENABLED,
   });
 }
 
@@ -71,11 +74,20 @@ export async function generateMetadata({
  * file. Only the data changes: adding solution #12 means creating one
  * `data/solutions/<slug>.ts` file; this file and every reused
  * `components/sectors/Sector*` component stay untouched.
+ *
+ * Temporary hold (`lib/feature-flags.ts`): redirects to `/sectors` while
+ * `SOLUTIONS_ENABLED` is `false` — an unknown `slug` still 404s as before;
+ * only a real solution redirects instead of rendering. All 11 solution
+ * records and this template stay fully intact for when it's switched back on.
  */
 export default async function SolutionPage({ params }: SolutionPageProps) {
   const { locale, slug } = await params;
   const solution = getSolutionBySlug(slug);
   if (!solution) notFound();
+
+  if (!SOLUTIONS_ENABLED) {
+    redirect({ href: "/sectors", locale: locale as Locale });
+  }
 
   const isArabic = (locale as Locale) === "ar";
   const title = isArabic ? solution.title_ar : solution.title_en;

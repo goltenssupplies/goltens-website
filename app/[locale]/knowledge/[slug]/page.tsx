@@ -58,6 +58,7 @@ import {
   getKnowledgeReadingContent,
   getReadingTimeMinutes,
 } from "@/lib/knowledge";
+import { SOLUTIONS_ENABLED } from "@/lib/feature-flags";
 import { buildMetadata } from "@/lib/metadata";
 import { buildComparisonRows } from "@/lib/product-comparison";
 import {
@@ -558,7 +559,7 @@ export default async function KnowledgeDetailPage({
         </PremiumDarkSection>
       )}
 
-      {relatedSolutionItems.length > 0 && (
+      {SOLUTIONS_ENABLED && relatedSolutionItems.length > 0 && (
         <PremiumDarkSection spacing="md">
           <RelatedSectors
             title={tSolutions("relatedSolutionsTitle")}

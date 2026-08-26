@@ -18,7 +18,10 @@ import { UtilityTrayLoader } from "@/components/layout/UtilityTrayLoader";
 import { ComparisonProvider } from "@/components/products/ComparisonContext";
 import { RfqCartProvider } from "@/components/rfq/RfqCartContext";
 import { routing, type Locale } from "@/i18n/routing";
-import { DOWNLOADS_CENTER_ENABLED } from "@/lib/feature-flags";
+import {
+  DOWNLOADS_CENTER_ENABLED,
+  SOLUTIONS_ENABLED,
+} from "@/lib/feature-flags";
 import {
   contactEmail,
   contactPhoneDisplay,
@@ -115,11 +118,16 @@ export default async function LocaleLayout({
   // each one works correctly from any page, not just the homepage. "Sectors"
   // and "Solutions" each have their own `/sectors` / `/solutions` listing
   // page; the homepage's own `Sectors` section stays as a teaser and is
-  // unaffected by this.
+  // unaffected by this. Solutions is on a temporary hold (see
+  // `lib/feature-flags.ts`) — its entry is omitted entirely while
+  // `SOLUTIONS_ENABLED` is `false`, rather than deleted, so restoring it
+  // later is a one-line flip.
   const navItems = [
     { label: t("home"), href: "/" },
     { label: t("sectors"), href: "/sectors" },
-    { label: t("solutions"), href: "/solutions" },
+    ...(SOLUTIONS_ENABLED
+      ? [{ label: t("solutions"), href: "/solutions" }]
+      : []),
     { label: t("about"), href: "/about" },
     { label: t("contact"), href: "/contact" },
   ];
@@ -138,14 +146,17 @@ export default async function LocaleLayout({
   // Knowledge Center and Download Center are appended here rather than the
   // primary Navbar (unchanged per spec) — they carry no main-nav item, so
   // this footer entry is otherwise their only site-wide, crawlable path.
-  // Download Center is on a temporary hold (see `lib/feature-flags.ts`) —
-  // its entry is omitted entirely while `DOWNLOADS_CENTER_ENABLED` is
-  // `false`, rather than deleted, so restoring it later is a one-line flip.
+  // Download Center and Solutions are each on a temporary hold (see
+  // `lib/feature-flags.ts`) — their entries are omitted entirely while
+  // `DOWNLOADS_CENTER_ENABLED`/`SOLUTIONS_ENABLED` are `false`, rather than
+  // deleted, so restoring either later is a one-line flip.
   const footerQuickLinks = [
     { label: t("home"), href: "/" },
     { label: t("about"), href: "/about" },
     { label: t("sectors"), href: "/sectors" },
-    { label: t("solutions"), href: "/solutions" },
+    ...(SOLUTIONS_ENABLED
+      ? [{ label: t("solutions"), href: "/solutions" }]
+      : []),
     { label: t("contact"), href: "/contact" },
     { label: tKnowledge("breadcrumbLabel"), href: "/knowledge" },
     ...(DOWNLOADS_CENTER_ENABLED

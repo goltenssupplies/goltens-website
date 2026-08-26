@@ -20,7 +20,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { Text } from "@/components/ui/Text";
 import { getAllSolutions } from "@/data/solutions";
+import { redirect } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { SOLUTIONS_ENABLED } from "@/lib/feature-flags";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site";
@@ -56,6 +58,7 @@ export async function generateMetadata({
     path: "/solutions",
     title: t("listingTitle"),
     description: t("listingDescription"),
+    noIndex: !SOLUTIONS_ENABLED,
   });
 }
 
@@ -71,9 +74,19 @@ export async function generateMetadata({
  * point, not repeated elsewhere). The card grid reuses `SectorCard`/
  * `SectorGrid` via `hrefBase="/solutions"`, exactly as both components'
  * own doc comments already anticipated — no new card system.
+ *
+ * Temporary hold (`lib/feature-flags.ts`): redirects to `/sectors` while
+ * `SOLUTIONS_ENABLED` is `false` — see `app/[locale]/downloads/page.tsx`
+ * for the same pattern. All 11 solution records and this page's own markup
+ * stay fully intact for when it's switched back on.
  */
 export default async function SolutionsPage({ params }: SolutionsPageProps) {
   const { locale } = await params;
+
+  if (!SOLUTIONS_ENABLED) {
+    redirect({ href: "/sectors", locale: locale as Locale });
+  }
+
   const isArabic = (locale as Locale) === "ar";
   const t = await getTranslations("solutions");
   const tNav = await getTranslations("nav");

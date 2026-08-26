@@ -16,6 +16,7 @@ import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { HeroScrollIndicator } from "@/components/sections/home/HeroScrollIndicator";
+import { SOLUTIONS_ENABLED } from "@/lib/feature-flags";
 
 // Cairo skyline at sunset — the Nile, the pyramids on the horizon, and the
 // modern downtown skyline (1774x887, a 2:1 panorama). Plain photo, no
@@ -331,40 +332,47 @@ export function HeroSlideshow() {
               </Text>
             </motion.div>
 
-            <motion.div
-              initial={
-                prefersReducedMotion
-                  ? false
-                  : { opacity: 0, y: 10, scale: 0.94 }
-              }
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.5, delay: CTA_DELAY, ease: EASE }}
-            >
-              {/* Single secondary CTA — "browse solutions", not a
-                  request-a-quote button (the Hero's job right now is
-                  introducing GOLTENS, not asking for a quote — that CTA
-                  lands elsewhere once the rest of the page is built).
-                  Design unchanged: `variant="secondary"`'s default styling
-                  (light border, dark text) is tuned for the site's
-                  light-background sections — overridden here for a
-                  transparent button with a thin light border that reads
-                  correctly against this dark photo. Hover state only (the
-                  resting look is unchanged): a gold-gradient fill, a soft
-                  gold glow, and a 3px lift over 300ms. Only addition: the
-                  label itself gets the same light text-shadow as the rest
-                  of the block, wrapped in its own `span` so nothing else
-                  about the button's markup/props changes. */}
-              <Button
-                href="/solutions"
-                variant="secondary"
-                size="md"
-                className="border-canvas/40 text-canvas hover:from-gold hover:to-accent hover:text-ink mt-5 duration-300 hover:-translate-y-[3px] hover:border-transparent hover:bg-gradient-to-r hover:shadow-[0_10px_28px_rgba(212,160,23,0.35)]"
+            {SOLUTIONS_ENABLED && (
+              <motion.div
+                initial={
+                  prefersReducedMotion
+                    ? false
+                    : { opacity: 0, y: 10, scale: 0.94 }
+                }
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.5, delay: CTA_DELAY, ease: EASE }}
               >
-                <span style={{ textShadow: "0 1px 6px rgba(0,0,0,0.4)" }}>
-                  {t("secondaryCta")}
-                </span>
-              </Button>
-            </motion.div>
+                {/* Single secondary CTA — "browse solutions", not a
+                    request-a-quote button (the Hero's job right now is
+                    introducing GOLTENS, not asking for a quote — that CTA
+                    lands elsewhere once the rest of the page is built).
+                    Design unchanged: `variant="secondary"`'s default styling
+                    (light border, dark text) is tuned for the site's
+                    light-background sections — overridden here for a
+                    transparent button with a thin light border that reads
+                    correctly against this dark photo. Hover state only (the
+                    resting look is unchanged): a gold-gradient fill, a soft
+                    gold glow, and a 3px lift over 300ms. Only addition: the
+                    label itself gets the same light text-shadow as the rest
+                    of the block, wrapped in its own `span` so nothing else
+                    about the button's markup/props changes.
+
+                    On a temporary hold (`lib/feature-flags.ts`) — this whole
+                    block is omitted while `SOLUTIONS_ENABLED` is `false`,
+                    rather than deleted, so restoring it later is a one-line
+                    flip. */}
+                <Button
+                  href="/solutions"
+                  variant="secondary"
+                  size="md"
+                  className="border-canvas/40 text-canvas hover:from-gold hover:to-accent hover:text-ink mt-5 duration-300 hover:-translate-y-[3px] hover:border-transparent hover:bg-gradient-to-r hover:shadow-[0_10px_28px_rgba(212,160,23,0.35)]"
+                >
+                  <span style={{ textShadow: "0 1px 6px rgba(0,0,0,0.4)" }}>
+                    {t("secondaryCta")}
+                  </span>
+                </Button>
+              </motion.div>
+            )}
           </div>
         </Container>
       </div>

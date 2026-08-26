@@ -51,3 +51,16 @@ export const RELATED_ARTICLES_ENABLED = false;
  * the product being viewed itself — only this one appendix section.
  */
 export const RELATED_PRODUCTS_ENABLED = false;
+
+/**
+ * `false` = temporary hold on `/solutions` and all 11 `/solutions/[slug]`
+ * detail pages: hidden from the primary header nav, the footer Quick Links,
+ * the homepage Hero's "Browse Solutions" CTA, and the Knowledge Center's
+ * "Related Solutions" widget; excluded from `app/sitemap.ts`; `noIndex`'d;
+ * and both route files redirect visitors to `/sectors` instead of
+ * rendering. All 11 solution data records (`data/solutions/*.ts`), both
+ * route files, and every shared component they use (`SectorGrid`,
+ * `SolutionHero`, `RelatedSectors`) stay fully intact and untouched — see
+ * `app/[locale]/solutions/page.tsx` and `app/[locale]/solutions/[slug]/page.tsx`.
+ */
+export const SOLUTIONS_ENABLED = false;
