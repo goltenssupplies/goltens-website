@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { SetWhatsAppMessage } from "@/components/layout/SetWhatsAppMessage";
 import {
   ProductExplorer,
   type ProductExplorerCategory,
@@ -102,6 +103,12 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
   const pageUrl = `${siteUrl}/${locale}/sectors/${slug}`;
 
+  // Floating WhatsApp button override for this sector — built from the
+  // `title` already resolved above, no second sector lookup.
+  const whatsappMessage = tCommon("whatsappSectorMessage", {
+    sectorName: title,
+  });
+
   // About — only rendered when a sector has curated its own; never
   // fabricated filler for a sector with no real intro yet.
   const about = content.about
@@ -177,6 +184,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
   return (
     <>
+      <SetWhatsAppMessage text={whatsappMessage} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

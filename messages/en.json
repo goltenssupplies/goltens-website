@@ -8,7 +8,10 @@
     "compareTrayLabel": "{count, plural, one {View comparison, # product} other {View comparison, # products}}",
     "whatsappQuoteMessage": "Hello GOLTENS, I would like to request a quote.",
     "whatsappProcurementMessage": "Hello GOLTENS, I would like to contact the procurement team.",
-    "whatsappContactMessage": "Hello GOLTENS, I would like to get in touch."
+    "whatsappContactMessage": "Hello GOLTENS, I would like to get in touch.",
+    "whatsappFloatingMessage": "Hello GOLTENS, I would like to inquire about your products and services.",
+    "whatsappProductMessage": "Hello GOLTENS, I'm interested in {productName} and would like to request a quotation.",
+    "whatsappSectorMessage": "Hello GOLTENS, I'm interested in GOLTENS solutions and products for {sectorName}."
   },
   "meta": {
     "home": {

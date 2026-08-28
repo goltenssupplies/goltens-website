@@ -8,7 +8,10 @@
     "compareTrayLabel": "{count, plural, one {عرض المقارنة، منتج واحد} two {عرض المقارنة، منتجان} few {عرض المقارنة، # منتجات} many {عرض المقارنة، # منتجًا} other {عرض المقارنة، # منتج}}",
     "whatsappQuoteMessage": "مرحباً GOLTENS، أريد طلب عرض سعر.",
     "whatsappProcurementMessage": "مرحباً GOLTENS، أريد التواصل مع فريق المشتريات.",
-    "whatsappContactMessage": "مرحباً GOLTENS، أريد التواصل معكم."
+    "whatsappContactMessage": "مرحباً GOLTENS، أريد التواصل معكم.",
+    "whatsappFloatingMessage": "مرحباً GOLTENS، أود الاستفسار عن منتجات وخدمات الشركة.",
+    "whatsappProductMessage": "مرحباً GOLTENS، أود الاستفسار عن منتج {productName} وطلب عرض سعر.",
+    "whatsappSectorMessage": "مرحباً GOLTENS، أود الاستفسار عن حلول ومنتجات قطاع {sectorName}."
   },
   "meta": {
     "home": {

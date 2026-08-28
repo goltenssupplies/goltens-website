@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import type { KnowledgeCardItem } from "@/components/knowledge/KnowledgeCard";
 import { KnowledgeGrid } from "@/components/knowledge/KnowledgeGrid";
+import { SetWhatsAppMessage } from "@/components/layout/SetWhatsAppMessage";
 import { SectorAbout } from "@/components/sectors/SectorAbout";
 import { SectorArticles } from "@/components/sectors/SectorArticles";
 import { SectorCatalogues } from "@/components/sectors/SectorCatalogues";
@@ -115,6 +116,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const tDownloads = await getTranslations("downloads");
 
   const pageUrl = `${siteUrl}/${locale}/sectors/${slug}/products/${productSlug}`;
+
+  // Floating WhatsApp button override for this product — built from the
+  // `name` already resolved above, no second product lookup.
+  const whatsappMessage = tCommon("whatsappProductMessage", {
+    productName: name,
+  });
 
   const featureItems = isArabic ? product.features_ar : product.features_en;
   const applicationItems = isArabic
@@ -234,6 +241,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <>
+      <SetWhatsAppMessage text={whatsappMessage} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
