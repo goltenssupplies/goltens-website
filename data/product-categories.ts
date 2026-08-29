@@ -248,6 +248,48 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     name_en: "General Procurement & Operational Supplies",
     name_ar: "التوريدات العامة والمستلزمات التشغيلية",
   },
+  {
+    id: "patient-monitoring-diagnostic-equipment",
+    slug: "patient-monitoring-diagnostic-equipment",
+    sectorId: "healthcare",
+    name_en: "Patient Monitoring & Diagnostic Equipment",
+    name_ar: "أجهزة المراقبة والتشخيص",
+  },
+  {
+    id: "respiratory-emergency-equipment",
+    slug: "respiratory-emergency-equipment",
+    sectorId: "healthcare",
+    name_en: "Respiratory & Emergency Equipment",
+    name_ar: "أجهزة التنفس والطوارئ",
+  },
+  {
+    id: "sterilization-operating-room-equipment",
+    slug: "sterilization-operating-room-equipment",
+    sectorId: "healthcare",
+    name_en: "Sterilization & Operating Room Equipment",
+    name_ar: "معدات التعقيم وغرف العمليات",
+  },
+  {
+    id: "hospital-beds-patient-handling",
+    slug: "hospital-beds-patient-handling",
+    sectorId: "healthcare",
+    name_en: "Hospital Beds & Patient Handling",
+    name_ar: "أسرّة المستشفيات ونقل المرضى",
+  },
+  {
+    id: "medical-furniture-trolleys-carts",
+    slug: "medical-furniture-trolleys-carts",
+    sectorId: "healthcare",
+    name_en: "Medical Furniture, Trolleys & Carts",
+    name_ar: "الأثاث الطبي والعربات",
+  },
+  {
+    id: "surgical-supplies",
+    slug: "surgical-supplies",
+    sectorId: "healthcare",
+    name_en: "Surgical Supplies",
+    name_ar: "المستلزمات الجراحية",
+  },
 
   {
     id: "industrial-lubricants-fluids",

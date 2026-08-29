@@ -4,10 +4,10 @@ import type { Solution } from "@/data/solutions/types";
  * Hospitals — the Project Solutions Platform's reference implementation.
  * Every cross-link below is real: it points at products/catalogues/articles
  * that already exist and are genuinely relevant to a hospital project.
- * GOLTENS supplies hospitals' operational, maintenance, and facility
- * requirements — electrical, mechanical, chemical, and fire/life-safety
- * systems — and does not supply specialized medical devices, so no medical
- * equipment or medical-device brand is referenced here.
+ * GOLTENS supplies hospitals' hospital equipment, medical beds, hospital
+ * furniture, and surgical supplies, alongside operational, maintenance, and
+ * facility requirements — electrical, mechanical, chemical, and
+ * fire/life-safety systems.
  */
 export const hospitalsSolution: Solution = {
   id: "hospitals",
@@ -15,9 +15,9 @@ export const hospitalsSolution: Solution = {
   title_en: "Hospitals",
   title_ar: "المستشفيات",
   description_en:
-    "GOLTENS supports hospital and healthcare facility projects with a single procurement partner for operational, maintenance, and facility requirements — electrical and mechanical infrastructure, industrial chemicals, and fire and life-safety systems a continuous-occupancy facility depends on — sourced and coordinated as one project rather than separate, disconnected purchases. We do not supply specialized medical devices.",
+    "GOLTENS supports hospital and healthcare facility projects with a single procurement partner for hospital equipment, medical beds, hospital furniture, and surgical supplies, together with the operational, maintenance, and facility requirements — electrical and mechanical infrastructure, industrial chemicals, and fire and life-safety systems — a continuous-occupancy facility depends on, sourced and coordinated as one project rather than separate, disconnected purchases.",
   description_ar:
-    "تدعم GOLTENS مشروعات المستشفيات والمنشآت الصحية بشريك توريد واحد لاحتياجات التشغيل والصيانة والمرافق — البنية التحتية الكهربائية والميكانيكية، والكيماويات الصناعية، وأنظمة الحريق والسلامة التي تعتمد عليها منشأة ذات إشغال مستمر — يتم توريدها وتنسيقها كمشروع واحد بدلاً من مشتريات منفصلة غير مترابطة. ولا نقوم بتوريد الأجهزة الطبية المتخصصة.",
+    "تدعم GOLTENS مشروعات المستشفيات والمنشآت الصحية بشريك توريد واحد لتجهيزات المستشفيات والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية، إلى جانب احتياجات التشغيل والصيانة والمرافق — البنية التحتية الكهربائية والميكانيكية، والكيماويات الصناعية، وأنظمة الحريق والسلامة التي تعتمد عليها منشأة ذات إشغال مستمر — يتم توريدها وتنسيقها كمشروع واحد بدلاً من مشتريات منفصلة غير مترابطة.",
   heroImage: null,
   icon: "HeartPulse",
   targetIndustries_en: [
@@ -33,12 +33,16 @@ export const hospitalsSolution: Solution = {
     "العيادات",
   ],
   procurementScope_en: [
+    "Hospital Equipment & Medical Beds",
+    "Surgical Supplies",
     "Electrical & Mechanical Systems",
     "Fire Protection Systems",
     "Detection & Alarm Systems",
     "Emergency Lighting",
   ],
   procurementScope_ar: [
+    "تجهيزات المستشفيات والأسرّة الطبية",
+    "المستلزمات الجراحية",
     "الأنظمة الكهربائية والميكانيكية",
     "أنظمة مكافحة الحريق",
     "أنظمة الكشف والإنذار",
@@ -46,6 +50,9 @@ export const hospitalsSolution: Solution = {
   ],
   relatedSectorSlugs: ["healthcare", "fire-protection"],
   relatedProductSlugs: [
+    "electric-hospital-beds",
+    "icu-beds",
+    "surgical-gowns",
     "sprinklers",
     "fire-alarm-systems",
     "smoke-detectors",
@@ -68,13 +75,13 @@ export const hospitalsSolution: Solution = {
   faqs: [
     {
       question_en:
-        "Can GOLTENS source both facility/operational supplies and fire safety systems for one hospital project?",
+        "Can GOLTENS source hospital equipment, medical beds, facility/operational supplies, and fire safety systems for one hospital project?",
       answer_en:
-        "Yes. We coordinate procurement across a hospital project's electrical, mechanical, and facility supply requirement together with the fire/life-safety systems it requires, as one procurement engagement rather than separate suppliers.",
+        "Yes. We coordinate procurement across a hospital project's equipment, medical beds and furniture, surgical supplies, electrical and mechanical facility requirement, and the fire/life-safety systems it requires, as one procurement engagement rather than separate suppliers.",
       question_ar:
-        "هل يمكن لـGOLTENS توريد المستلزمات التشغيلية والمرافق وأنظمة السلامة من الحريق لمشروع مستشفى واحد؟",
+        "هل يمكن لـGOLTENS توريد تجهيزات المستشفيات والأسرّة الطبية والمستلزمات التشغيلية وأنظمة السلامة من الحريق لمشروع مستشفى واحد؟",
       answer_ar:
-        "نعم، ننسق عملية التوريد بين احتياجات مشروع المستشفى الكهربائية والميكانيكية ومستلزمات المرافق، وأنظمة الحريق والسلامة التي يحتاجها، كعملية توريد واحدة بدلاً من موردين منفصلين.",
+        "نعم، ننسق عملية التوريد بين تجهيزات المستشفى والأسرّة والأثاث الطبي والمستلزمات الجراحية، إلى جانب احتياجات المرافق الكهربائية والميكانيكية، وأنظمة الحريق والسلامة التي يحتاجها المشروع، كعملية توريد واحدة بدلاً من موردين منفصلين.",
     },
     {
       question_en: "Do you supply hospital fire protection systems to code?",

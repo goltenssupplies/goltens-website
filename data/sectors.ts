@@ -114,12 +114,16 @@ export const SECTORS: Sector[] = [
   {
     id: "healthcare",
     slug: "healthcare",
-    title_en: "Healthcare & Medical Solutions",
-    title_ar: "حلول وتجهيزات المستشفيات",
+    title_en: "Hospital Equipment & Medical Supplies",
+    title_ar: "تجهيزات المستشفيات والمستلزمات الطبية",
+    subtitle_en:
+      "GOLTENS supplies hospital equipment, medical beds, hospital furniture, surgical supplies, and operational/facility requirements — supporting your facility's procurement as one coordinated partner.",
+    subtitle_ar:
+      "توفر GOLTENS تجهيزات المستشفيات والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية واحتياجات التشغيل والمرافق — كشريك توريد واحد متكامل لمنشأتكم.",
     description_en:
-      "Operational, maintenance, and facility supply solutions for hospitals and medical centers.",
+      "Hospital equipment, medical beds, hospital furniture, surgical supplies, and medical consumables, alongside operational, maintenance, and facility supply solutions for hospitals and medical centers.",
     description_ar:
-      "حلول توريد تشغيلية وصيانة ومرافق للمستشفيات والمراكز الطبية.",
+      "تجهيزات المستشفيات والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية والمستلزمات الطبية الاستهلاكية، إلى جانب حلول التوريد التشغيلية والصيانة والمرافق للمستشفيات والمراكز الطبية.",
     image: "/images/categories/healthcare.jpg",
     icon: "HeartPulse",
     featured: true,

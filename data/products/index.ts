@@ -26,9 +26,15 @@ import { healthcareCateringKitchenSupplies } from "@/data/products/healthcare/ca
 import { healthcareElectricalSuppliesEquipment } from "@/data/products/healthcare/electrical-supplies-equipment";
 import { healthcareEnergySolutionsSupplies } from "@/data/products/healthcare/energy-solutions-supplies";
 import { healthcareGeneralOperationalSupplies } from "@/data/products/healthcare/general-operational-supplies";
+import { healthcareHospitalBedsPatientHandling } from "@/data/products/healthcare/hospital-beds-patient-handling";
 import { healthcareIndustrialProcessChemicals } from "@/data/products/healthcare/industrial-process-chemicals";
 import { healthcareMaintenanceOperationsEquipment } from "@/data/products/healthcare/maintenance-operations-equipment";
+import { healthcareMedicalFurnitureTrolleysCarts } from "@/data/products/healthcare/medical-furniture-trolleys-carts";
+import { healthcarePatientMonitoringDiagnosticEquipment } from "@/data/products/healthcare/patient-monitoring-diagnostic-equipment";
 import { healthcarePumpsWaterTreatmentEquipment } from "@/data/products/healthcare/pumps-water-treatment-equipment";
+import { healthcareRespiratoryEmergencyEquipment } from "@/data/products/healthcare/respiratory-emergency-equipment";
+import { healthcareSterilizationOperatingRoomEquipment } from "@/data/products/healthcare/sterilization-operating-room-equipment";
+import { healthcareSurgicalSupplies } from "@/data/products/healthcare/surgical-supplies";
 import { healthcareTechnicalFacilitySupplies } from "@/data/products/healthcare/technical-facility-supplies";
 import { heavyConcreteCompactionEquipment } from "@/data/products/heavy-equipment/concrete-compaction-equipment";
 import { heavyCranesLiftingEquipment } from "@/data/products/heavy-equipment/cranes-lifting-equipment";
@@ -82,6 +88,12 @@ const PRODUCTS: Product[] = [
   ...healthcareMaintenanceOperationsEquipment,
   ...healthcareEnergySolutionsSupplies,
   ...healthcareGeneralOperationalSupplies,
+  ...healthcarePatientMonitoringDiagnosticEquipment,
+  ...healthcareRespiratoryEmergencyEquipment,
+  ...healthcareSterilizationOperatingRoomEquipment,
+  ...healthcareHospitalBedsPatientHandling,
+  ...healthcareMedicalFurnitureTrolleysCarts,
+  ...healthcareSurgicalSupplies,
   ...chemicalsIndustrialLubricantsFluids,
   ...chemicalsWaterWastewaterChemicals,
   ...chemicalsCorrosionProtectionCoatings,

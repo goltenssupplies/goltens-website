@@ -1,23 +1,25 @@
 import type { SectorContent } from "@/data/sector-content/types";
 
 /**
- * Healthcare & Medical Solutions' real content — GOLTENS supplies hospitals
- * and medical centers with operational, maintenance, and facility items
- * only (electrical, chemical, mechanical, energy, and general procurement
- * supply lines already genuine to GOLTENS' business). It does not supply
- * specialized medical devices, plumbing, or cleaning/janitorial materials.
- * The copy stays positive and simply doesn't raise that topic — no
- * exclusion disclaimer anywhere on the page — written to the same standard
- * as `fire-protection.ts`: no invented certifications, no named customer
- * projects, no fabricated technical specifications or lead times.
+ * Hospital Equipment & Medical Supplies' real content — GOLTENS supplies
+ * hospitals and medical centers with hospital equipment, medical beds,
+ * hospital furniture, and surgical supplies, alongside the operational,
+ * maintenance, and facility supply lines already genuine to GOLTENS'
+ * business (electrical, chemical, mechanical, energy, and general
+ * procurement). Written to the same standard as `fire-protection.ts`: no
+ * invented certifications, no named customer projects, no fabricated
+ * technical specifications or lead times.
  */
 export const healthcareContent: SectorContent = {
   about: {
     intro_en:
-      "GOLTENS provides hospitals and medical centers with integrated supply solutions for operation, maintenance, facility, and general procurement needs — supporting your facility's day-to-day continuity.",
+      "GOLTENS supports hospital and medical facility procurement with hospital equipment, medical beds, hospital furniture, and surgical supplies, alongside integrated solutions for operation, maintenance, facility, and general procurement needs — supporting your facility's day-to-day continuity as a single procurement partner.",
     intro_ar:
-      "توفر GOLTENS للمستشفيات والمراكز الطبية حلول توريد متكاملة لاحتياجات التشغيل والصيانة والمرافق والتوريدات العامة، بما يضمن استمرارية العمل اليومي لمنشأتكم.",
+      "تدعم GOLTENS مشتريات المستشفيات والمنشآت الطبية بتوريد تجهيزات المستشفيات والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية، إلى جانب حلول متكاملة لاحتياجات التشغيل والصيانة والمرافق والتوريدات العامة، كشريك توريد واحد يضمن استمرارية العمل اليومي لمنشأتكم.",
     categories_en: [
+      "Hospital Equipment & Diagnostics",
+      "Hospital Beds & Patient Furniture",
+      "Surgical Supplies",
       "Electrical Supplies & Equipment",
       "Cables, Breakers & Distribution Panels",
       "Industrial Chemicals & Chemical Materials",
@@ -29,6 +31,9 @@ export const healthcareContent: SectorContent = {
       "General Procurement & Operational Supplies",
     ],
     categories_ar: [
+      "تجهيزات المستشفيات وأجهزة التشخيص",
+      "أسرّة المستشفيات وأثاث المرضى",
+      "المستلزمات الجراحية",
       "المستلزمات والمعدات الكهربائية",
       "الكابلات والقواطع ولوحات التوزيع",
       "الكيماويات والمواد الكيميائية الصناعية",
@@ -162,4 +167,31 @@ export const healthcareContent: SectorContent = {
     "electrical-energy",
     "global-sourcing",
   ],
+
+  seo: {
+    title_en: "Hospital Equipment & Medical Supplies Supplier Egypt | GOLTENS",
+    title_ar: "توريد تجهيزات المستشفيات والمستلزمات الطبية في مصر | GOLTENS",
+    description_en:
+      "GOLTENS supplies hospital equipment, medical beds, hospital furniture, and surgical supplies to hospitals, medical centers, and clinics in Egypt, alongside facility and operational procurement solutions.",
+    description_ar:
+      "توفر GOLTENS تجهيزات المستشفيات والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية للمستشفيات والمراكز الطبية والعيادات في مصر، إلى جانب حلول توريد المرافق والتشغيل.",
+    keywords: [
+      "Hospital Equipment",
+      "Hospital Medical Supplies",
+      "Medical Equipment Supplier",
+      "Hospital Beds",
+      "Medical Beds",
+      "Surgical Supplies",
+      "Hospital Equipment Supplier Egypt",
+      "Medical Supplies Supplier Egypt",
+      "تجهيزات المستشفيات",
+      "المستلزمات الطبية",
+      "الأجهزة الطبية",
+      "أسرة المستشفيات",
+      "الأسرة الطبية",
+      "المستلزمات الجراحية",
+      "توريد تجهيزات المستشفيات",
+      "توريد المستلزمات الطبية",
+    ],
+  },
 };
