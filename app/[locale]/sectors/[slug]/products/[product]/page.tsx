@@ -26,6 +26,7 @@ import { getCategoryById } from "@/data/product-categories";
 import { getAllProductParams, getProductBySlug } from "@/data/products";
 import { getSectorArticle, getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug } from "@/data/sectors";
+import { redirect } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import {
   AVAILABLE_CATALOGUES_ENABLED,
@@ -34,6 +35,7 @@ import {
   RELATED_PRODUCTS_ENABLED,
 } from "@/lib/feature-flags";
 import { getReadingTimeMinutes } from "@/lib/knowledge";
+import { LEGACY_HEALTHCARE_PRODUCT_SLUGS } from "@/lib/legacy-healthcare-product-redirects";
 import { buildMetadata } from "@/lib/metadata";
 import {
   breadcrumbJsonLd,
@@ -85,6 +87,20 @@ export async function generateMetadata({
  */
 export default async function ProductPage({ params }: ProductPageProps) {
   const { locale, slug, product: productSlug } = await params;
+
+  // Legacy Healthcare product URL — the sector was repositioned to a
+  // focused Hospital Equipment & Medical Supplies catalog and these 27
+  // slugs were removed from the active registry (see
+  // `lib/legacy-healthcare-product-redirects.ts`). 307, not 301: the
+  // products are on hold, not permanently gone, so this isn't declared
+  // final to search engines.
+  if (
+    slug === "healthcare" &&
+    LEGACY_HEALTHCARE_PRODUCT_SLUGS.has(productSlug)
+  ) {
+    redirect({ href: "/sectors/healthcare", locale: locale as Locale });
+  }
+
   const product = getProductBySlug(productSlug);
   if (!product || product.sectorId !== slug) notFound();
 
