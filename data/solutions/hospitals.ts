@@ -58,8 +58,6 @@ export const hospitalsSolution: Solution = {
     "smoke-detectors",
     "fire-extinguishers",
     "emergency-lighting",
-    "standby-power-generators",
-    "industrial-water-treatment-chemicals",
   ],
   relatedArticles: [
     { sectorSlug: "fire-protection", articleSlug: "nfpa-standards-explained" },

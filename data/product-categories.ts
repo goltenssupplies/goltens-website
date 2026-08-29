@@ -185,69 +185,13 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     name_ar: "المركبات المتخصصة والبلدية",
   },
 
-  {
-    id: "electrical-supplies-equipment",
-    slug: "electrical-supplies-equipment",
-    sectorId: "healthcare",
-    name_en: "Electrical Supplies & Equipment",
-    name_ar: "المستلزمات والمعدات الكهربائية",
-  },
-  {
-    id: "cables-breakers-distribution-panels",
-    slug: "cables-breakers-distribution-panels",
-    sectorId: "healthcare",
-    name_en: "Cables, Breakers & Distribution Panels",
-    name_ar: "الكابلات والقواطع ولوحات التوزيع",
-  },
-  {
-    id: "industrial-process-chemicals",
-    slug: "industrial-process-chemicals",
-    sectorId: "healthcare",
-    name_en: "Industrial Chemicals & Chemical Materials",
-    name_ar: "الكيماويات والمواد الكيميائية الصناعية",
-  },
-  {
-    id: "pumps-water-treatment-equipment",
-    slug: "pumps-water-treatment-equipment",
-    sectorId: "healthcare",
-    name_en: "Water Treatment Supplies & Equipment",
-    name_ar: "المستلزمات ومعدات معالجة المياه",
-  },
-  {
-    id: "catering-kitchen-supplies",
-    slug: "catering-kitchen-supplies",
-    sectorId: "healthcare",
-    name_en: "Catering & Kitchen Supplies",
-    name_ar: "المستلزمات والمواد الخاصة بخدمات التغذية والمطابخ",
-  },
-  {
-    id: "technical-facility-supplies",
-    slug: "technical-facility-supplies",
-    sectorId: "healthcare",
-    name_en: "Technical Supplies & General Facility Equipment",
-    name_ar: "المستلزمات الفنية والتجهيزات العامة للمرافق",
-  },
-  {
-    id: "maintenance-operations-equipment",
-    slug: "maintenance-operations-equipment",
-    sectorId: "healthcare",
-    name_en: "Maintenance & Operations Equipment and Materials",
-    name_ar: "معدات ومواد الصيانة والتشغيل",
-  },
-  {
-    id: "energy-solutions-supplies",
-    slug: "energy-solutions-supplies",
-    sectorId: "healthcare",
-    name_en: "Energy Solutions & Supplies",
-    name_ar: "حلول ومستلزمات الطاقة",
-  },
-  {
-    id: "general-operational-supplies",
-    slug: "general-operational-supplies",
-    sectorId: "healthcare",
-    name_en: "General Procurement & Operational Supplies",
-    name_ar: "التوريدات العامة والمستلزمات التشغيلية",
-  },
+  // Healthcare's 9 legacy operational-supply categories (electrical,
+  // chemicals, water treatment, catering, facility/technical, maintenance,
+  // energy, general procurement) are deliberately removed from this active
+  // taxonomy — the sector is now presented as a focused Hospital Equipment
+  // & Medical Supplies offering. Their product files are preserved,
+  // unregistered, under `data/products/healthcare/` for possible future
+  // reinstatement; see the matching note in `data/products/index.ts`.
   {
     id: "patient-monitoring-diagnostic-equipment",
     slug: "patient-monitoring-diagnostic-equipment",

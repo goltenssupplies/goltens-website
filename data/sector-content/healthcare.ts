@@ -2,47 +2,37 @@ import type { SectorContent } from "@/data/sector-content/types";
 
 /**
  * Hospital Equipment & Medical Supplies' real content — GOLTENS supplies
- * hospitals and medical centers with hospital equipment, medical beds,
- * hospital furniture, and surgical supplies, alongside the operational,
- * maintenance, and facility supply lines already genuine to GOLTENS'
- * business (electrical, chemical, mechanical, energy, and general
- * procurement). Written to the same standard as `fire-protection.ts`: no
- * invented certifications, no named customer projects, no fabricated
- * technical specifications or lead times.
+ * hospitals, medical centers, and clinics with hospital equipment, medical
+ * beds, hospital furniture, and surgical supplies. The sector's prior 9
+ * operational-supply categories (electrical, chemical, mechanical, energy,
+ * general procurement) have been deliberately removed from this page's
+ * content to keep the sector focused; their product files remain in the
+ * repository, unregistered — see `data/products/index.ts`. Written to the
+ * same standard as `fire-protection.ts`: no invented certifications, no
+ * named customer projects, no fabricated technical specifications or lead
+ * times.
  */
 export const healthcareContent: SectorContent = {
   about: {
     intro_en:
-      "GOLTENS supports hospital and medical facility procurement with hospital equipment, medical beds, hospital furniture, and surgical supplies, alongside integrated solutions for operation, maintenance, facility, and general procurement needs — supporting your facility's day-to-day continuity as a single procurement partner.",
+      "GOLTENS supports hospital and medical facility procurement with hospital and medical equipment, medical beds, hospital furniture, surgical supplies, and medical consumables — sourced to your facility's specification as a single procurement partner.",
     intro_ar:
-      "تدعم GOLTENS مشتريات المستشفيات والمنشآت الطبية بتوريد تجهيزات المستشفيات والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية، إلى جانب حلول متكاملة لاحتياجات التشغيل والصيانة والمرافق والتوريدات العامة، كشريك توريد واحد يضمن استمرارية العمل اليومي لمنشأتكم.",
+      "تدعم GOLTENS مشتريات المستشفيات والمنشآت الطبية بتوريد تجهيزات المستشفيات والأجهزة الطبية والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية والمستلزمات الطبية الاستهلاكية، وفق مواصفات منشأتكم، كشريك توريد واحد.",
     categories_en: [
-      "Hospital Equipment & Diagnostics",
-      "Hospital Beds & Patient Furniture",
+      "Patient Monitoring & Diagnostic Equipment",
+      "Respiratory & Emergency Equipment",
+      "Sterilization & Operating Room Equipment",
+      "Hospital Beds & Patient Handling",
+      "Medical Furniture, Trolleys & Carts",
       "Surgical Supplies",
-      "Electrical Supplies & Equipment",
-      "Cables, Breakers & Distribution Panels",
-      "Industrial Chemicals & Chemical Materials",
-      "Water Treatment Supplies & Equipment",
-      "Catering & Kitchen Supplies",
-      "Technical Supplies & General Facility Equipment",
-      "Maintenance & Operations Equipment and Materials",
-      "Energy Solutions & Supplies",
-      "General Procurement & Operational Supplies",
     ],
     categories_ar: [
-      "تجهيزات المستشفيات وأجهزة التشخيص",
-      "أسرّة المستشفيات وأثاث المرضى",
+      "أجهزة المراقبة والتشخيص",
+      "أجهزة التنفس والطوارئ",
+      "معدات التعقيم وغرف العمليات",
+      "أسرّة المستشفيات ونقل المرضى",
+      "الأثاث الطبي والعربات",
       "المستلزمات الجراحية",
-      "المستلزمات والمعدات الكهربائية",
-      "الكابلات والقواطع ولوحات التوزيع",
-      "الكيماويات والمواد الكيميائية الصناعية",
-      "المستلزمات ومعدات معالجة المياه",
-      "المستلزمات والمواد الخاصة بخدمات التغذية والمطابخ",
-      "المستلزمات الفنية والتجهيزات العامة للمرافق",
-      "معدات ومواد الصيانة والتشغيل",
-      "حلول ومستلزمات الطاقة",
-      "التوريدات العامة والمستلزمات التشغيلية",
     ],
   },
 
@@ -106,9 +96,9 @@ export const healthcareContent: SectorContent = {
     },
     {
       title_en:
-        "One procurement partner across electrical, mechanical, and chemical supply lines.",
+        "One procurement partner across hospital equipment, medical beds and furniture, and surgical supplies.",
       title_ar:
-        "شريك توريد واحد عبر خطوط التوريد الكهربائية والميكانيكية والكيميائية.",
+        "شريك توريد واحد لتجهيزات المستشفيات والأسرّة والأثاث الطبي والمستلزمات الجراحية.",
       icon: "Globe",
     },
   ],
@@ -124,23 +114,21 @@ export const healthcareContent: SectorContent = {
     },
     {
       question_en:
-        "Do you support recurring or framework supply agreements for facility and maintenance needs?",
+        "Do you support recurring or framework supply agreements for hospital equipment and supplies?",
       answer_en:
-        "Yes. We can set up recurring or framework supply arrangements for your facility and maintenance teams' ongoing requirements, coordinated through a single point of contact.",
+        "Yes. We can set up recurring or framework supply arrangements for your hospital's ongoing equipment and supply requirements, coordinated through a single point of contact.",
       question_ar:
-        "هل تدعمون اتفاقيات التوريد الدورية أو الإطارية لاحتياجات المرافق والصيانة؟",
+        "هل تدعمون اتفاقيات التوريد الدورية أو الإطارية لتجهيزات ومستلزمات المستشفى؟",
       answer_ar:
-        "نعم، يمكننا إعداد ترتيبات توريد دورية أو إطارية لتغطية الاحتياجات المستمرة لفرق المرافق والصيانة لديكم، من خلال جهة تواصل واحدة.",
+        "نعم، يمكننا إعداد ترتيبات توريد دورية أو إطارية لتغطية الاحتياجات المستمرة من التجهيزات والمستلزمات بمستشفاكم، من خلال جهة تواصل واحدة.",
     },
     {
-      question_en:
-        "Can you support urgent procurement or facility maintenance requests?",
+      question_en: "Can you support urgent procurement requests?",
       answer_en:
-        "Yes. We handle urgent procurement and maintenance-supply requests for hospitals and medical centers and will confirm the fastest realistic availability for your specific item as part of the response.",
-      question_ar:
-        "هل يمكنكم دعم طلبات التوريد العاجلة أو متطلبات صيانة المرافق؟",
+        "Yes. We handle urgent procurement requests for hospitals and medical centers and will confirm the fastest realistic availability for your specific item as part of the response.",
+      question_ar: "هل يمكنكم دعم طلبات التوريد العاجلة؟",
       answer_ar:
-        "نعم، نتعامل مع طلبات التوريد العاجلة ومستلزمات الصيانة للمستشفيات والمراكز الطبية، وسنؤكد أسرع موعد توافر واقعي للصنف المطلوب كجزء من ردنا.",
+        "نعم، نتعامل مع طلبات التوريد العاجلة للمستشفيات والمراكز الطبية، وسنؤكد أسرع موعد توافر واقعي للصنف المطلوب كجزء من ردنا.",
     },
     {
       question_en: "What is the lead time?",
@@ -172,9 +160,9 @@ export const healthcareContent: SectorContent = {
     title_en: "Hospital Equipment & Medical Supplies Supplier Egypt | GOLTENS",
     title_ar: "توريد تجهيزات المستشفيات والمستلزمات الطبية في مصر | GOLTENS",
     description_en:
-      "GOLTENS supplies hospital equipment, medical beds, hospital furniture, and surgical supplies to hospitals, medical centers, and clinics in Egypt, alongside facility and operational procurement solutions.",
+      "GOLTENS supplies hospital equipment, medical beds, hospital furniture, and surgical supplies to hospitals, medical centers, and clinics in Egypt.",
     description_ar:
-      "توفر GOLTENS تجهيزات المستشفيات والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية للمستشفيات والمراكز الطبية والعيادات في مصر، إلى جانب حلول توريد المرافق والتشغيل.",
+      "توفر GOLTENS تجهيزات المستشفيات والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية للمستشفيات والمراكز الطبية والعيادات في مصر.",
     keywords: [
       "Hospital Equipment",
       "Hospital Medical Supplies",
