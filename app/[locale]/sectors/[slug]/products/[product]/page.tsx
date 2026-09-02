@@ -22,7 +22,6 @@ import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { getKnowledgeItemsForProduct } from "@/data/knowledge";
-import { getCategoryById } from "@/data/product-categories";
 import { getAllProductParams, getProductBySlug } from "@/data/products";
 import { getSectorArticle, getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug } from "@/data/sectors";
@@ -37,11 +36,7 @@ import {
 import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { LEGACY_HEALTHCARE_PRODUCT_SLUGS } from "@/lib/legacy-healthcare-product-redirects";
 import { buildMetadata } from "@/lib/metadata";
-import {
-  breadcrumbJsonLd,
-  faqJsonLd,
-  productJsonLd,
-} from "@/lib/structured-data";
+import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site";
 
 const REQUEST_QUOTE_ANCHOR = "request-quote";
@@ -107,8 +102,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const sector = getSectorBySlug(slug);
   if (!sector) notFound();
 
-  const category = getCategoryById(product.categoryId);
-
   const isArabic = (locale as Locale) === "ar";
   const name = isArabic ? product.name_ar : product.name_en;
   const shortDescription = isArabic
@@ -118,11 +111,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
     ? product.longDescription_ar
     : product.longDescription_en;
   const sectorTitle = isArabic ? sector.title_ar : sector.title_en;
-  const categoryName = category
-    ? isArabic
-      ? category.name_ar
-      : category.name_en
-    : undefined;
 
   const t = await getTranslations("products");
   const tNav = await getTranslations("nav");
@@ -271,20 +259,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
               },
               { name, url: pageUrl },
             ]),
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            productJsonLd({
-              name,
-              description: shortDescription,
-              image: `${siteUrl}${product.images?.[0] ?? sector.image ?? "/images/hero/hero-premium.webp"}`,
-              category: categoryName ?? sectorTitle,
-              url: pageUrl,
-            }),
           ),
         }}
       />
