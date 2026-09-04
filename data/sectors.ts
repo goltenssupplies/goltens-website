@@ -33,7 +33,7 @@ export const SECTORS: Sector[] = [
     description_en:
       "Supply solutions aligned with public-sector procurement standards.",
     description_ar: "حلول توريد متوافقة مع معايير المشتريات الحكومية.",
-    image: "/images/categories/government-procurement.webp",
+    image: "/images/categories/government-solutions-new.jpg",
     icon: "Landmark",
     featured: true,
     order: 1,
