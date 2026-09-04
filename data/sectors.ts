@@ -138,7 +138,7 @@ export const SECTORS: Sector[] = [
       "Industrial chemicals, laboratory reagents, and high-quality lubricants supplied to specification.",
     description_ar:
       "كيماويات صناعية ومواد مختبرية وزيوت صناعية عالية الجودة وفق المواصفات المطلوبة.",
-    image: "/images/categories/industrial-chemicals.webp",
+    image: "/images/categories/industrial-chemicals.jpg",
     icon: "FlaskConical",
     featured: false,
     order: 8,
