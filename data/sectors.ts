@@ -47,7 +47,7 @@ export const SECTORS: Sector[] = [
       "Reliable industrial pumps and mechanical equipment, matched to your technical specifications.",
     description_ar:
       "مضخات صناعية ومعدات ميكانيكية موثوقة، مطابقة لمواصفاتكم الفنية.",
-    image: "/images/categories/industrial-pumps.webp",
+    image: "/images/categories/industrial-pumps-new.jpg",
     icon: "Wrench",
     featured: true,
     order: 2,
