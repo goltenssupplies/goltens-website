@@ -106,7 +106,7 @@ export const SECTORS: Sector[] = [
     description_en:
       "Commercial vehicles and fleet solutions to support your logistics operations.",
     description_ar: "مركبات تجارية وحلول تجهيز أساطيل لدعم عملياتكم اللوجستية.",
-    image: "/images/categories/cars.jpg",
+    image: "/images/categories/commercial-vehicles-new.jpg",
     icon: "Truck",
     featured: false,
     order: 6,
