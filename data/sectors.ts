@@ -106,7 +106,7 @@ export const SECTORS: Sector[] = [
     description_en:
       "Commercial vehicles and fleet solutions to support your logistics operations.",
     description_ar: "مركبات تجارية وحلول تجهيز أساطيل لدعم عملياتكم اللوجستية.",
-    image: "/images/categories/marine-logistics.jpg",
+    image: "/images/categories/commercial-vehicles-new.jpg",
     icon: "Truck",
     featured: false,
     order: 6,
@@ -166,7 +166,7 @@ export const SECTORS: Sector[] = [
       "Genuine products from leading global manufacturers, sourced through a trusted international supplier network.",
     description_ar:
       "منتجات أصلية من كبرى الشركات المصنّعة العالمية، من خلال شبكة موردين دولية موثوقة.",
-    image: "/images/categories/global-sourcing.webp",
+    image: "/images/categories/marine-logistics.jpg",
     icon: "Globe",
     featured: false,
     order: 10,
