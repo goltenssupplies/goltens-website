@@ -124,7 +124,7 @@ export const SECTORS: Sector[] = [
       "Hospital equipment, medical beds, hospital furniture, surgical supplies, and medical consumables for hospitals, medical centers, and clinics.",
     description_ar:
       "تجهيزات المستشفيات والأسرّة الطبية والأثاث الطبي والمستلزمات الجراحية والمستلزمات الطبية الاستهلاكية للمستشفيات والمراكز الطبية والعيادات.",
-    image: "/images/categories/healthcare.jpg",
+    image: "/images/categories/health-mri.jpg",
     icon: "HeartPulse",
     featured: true,
     order: 7,
