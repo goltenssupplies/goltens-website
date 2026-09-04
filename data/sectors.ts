@@ -93,7 +93,7 @@ export const SECTORS: Sector[] = [
       "Heavy machinery and equipment for construction, industrial, and logistics operations.",
     description_ar:
       "معدات وآليات ثقيلة لعمليات الإنشاءات والصناعة واللوجستيات.",
-    image: "/images/categories/heavy-equipment2.png..jpg",
+    image: "/images/categories/heavy-equipment-new.jpg",
     icon: "Forklift",
     featured: true,
     order: 5,
