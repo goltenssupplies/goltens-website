@@ -79,7 +79,7 @@ export const SECTORS: Sector[] = [
       "Electrical equipment, components, and energy solutions sourced to specification for industrial and commercial facilities.",
     description_ar:
       "معدات ومكونات كهربائية وحلول طاقة يتم توريدها وفق المواصفات المطلوبة للمنشآت الصناعية والتجارية.",
-    image: "/images/categories/electrical-energy.jpg",
+    image: "/images/categories/electrical-energy-new.jpg",
     icon: "Zap",
     featured: false,
     order: 4,
