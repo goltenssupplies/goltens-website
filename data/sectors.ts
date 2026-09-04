@@ -65,7 +65,7 @@ export const SECTORS: Sector[] = [
       "We supply complete fire protection equipment, systems and certified components for government projects, industrial facilities, hospitals, universities, commercial buildings and infrastructure projects.",
     description_ar:
       "نوفر معدات وأنظمة ومكونات مكافحة حريق معتمدة وكاملة للمشروعات الحكومية، والمنشآت الصناعية، والمستشفيات، والجامعات، والمباني التجارية، ومشروعات البنية التحتية.",
-    image: "/images/categories/fire-update.jpg",
+    image: "/images/categories/fire-protection-new.jpg",
     icon: "Flame",
     featured: true,
     order: 3,
