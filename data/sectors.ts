@@ -152,7 +152,7 @@ export const SECTORS: Sector[] = [
       "Materials and equipment supply for construction, engineering, and infrastructure projects.",
     description_ar:
       "توريد المواد والمعدات لمشاريع الإنشاءات والهندسة والبنية التحتية.",
-    image: "/images/categories/construction.jpg",
+    image: "/images/categories/construction-infrastructure-new.jpg",
     icon: "HardHat",
     featured: false,
     order: 9,
