@@ -20,6 +20,11 @@ interface FloatingWhatsAppButtonProps {
  * native link, so it server-renders directly into the initial HTML instead
  * of needing `UtilityTrayLoader`'s deferred-mount treatment (that exists
  * specifically for `UtilityTray`'s client-only cart-count state).
+ *
+ * `animate-whatsapp-pulse` (`app/globals.css`) gives it a slow, subtle
+ * "still alive" breathing pulse — pure CSS, pauses on hover, and is
+ * disabled entirely under `prefers-reduced-motion`, same convention as
+ * every other animation on the site.
  */
 export function FloatingWhatsAppButton({
   href,
@@ -31,7 +36,7 @@ export function FloatingWhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
-      className="focus-visible:outline-accent fixed start-6 bottom-6 z-40 flex size-13 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_32px_rgba(0,0,0,0.25)] transition-all duration-200 ease-out hover:scale-105 hover:bg-[#20BD5A] focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-95"
+      className="animate-whatsapp-pulse focus-visible:outline-accent fixed start-6 bottom-6 z-40 flex size-13 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_32px_rgba(0,0,0,0.25)] transition-all duration-200 ease-out hover:scale-105 hover:bg-[#20BD5A] focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-95"
     >
       <svg
         aria-hidden="true"

@@ -147,6 +147,35 @@
   animation: glow-pulse 7s ease-in-out infinite;
 }
 
+/* Floating WhatsApp launcher (`FloatingWhatsAppButton.tsx`) — a calm "still
+   alive" pulse: a very slight scale breathing plus an expanding, fading
+   ring in the button's own WhatsApp green, layered alongside (not
+   replacing) its existing static drop-shadow. Paused on hover so it never
+   fights the button's own `hover:scale-105` transition. */
+@keyframes whatsapp-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.25),
+      0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  50% {
+    transform: scale(1.045);
+    box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.25),
+      0 0 0 10px rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-whatsapp-pulse {
+  animation: whatsapp-pulse 2.5s ease-in-out infinite;
+}
+
+.animate-whatsapp-pulse:hover {
+  animation-play-state: paused;
+}
+
 /* Hero slide-progress fill — driven by inline `animation-duration` (matches
    the slide interval) and `animation-play-state` (pause-on-hover), keyed by
    slide index in the component so each new slide gets a fresh instance. */
@@ -250,6 +279,7 @@
   .animate-button-ripple,
   .animate-grid-drift,
   .animate-glow-pulse,
+  .animate-whatsapp-pulse,
   .animate-sectors-marquee,
   .why-choose-particle,
   .why-choose-connection-line,
