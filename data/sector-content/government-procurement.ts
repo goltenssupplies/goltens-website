@@ -8,9 +8,9 @@ import type { SectorContent } from "@/data/sector-content/types";
 export const governmentProcurementContent: SectorContent = {
   about: {
     intro_en:
-      "GOLTENS supplies public-sector entities and government projects across a broad procurement scope: office and institutional furniture, IT and communications equipment, security and surveillance systems, public lighting and power, waste and sanitation equipment, municipal fleet vehicles, and specialized institutional equipment. Our team matches every request against your tender specification and required documentation before quotation.",
+      "GOLTENS supplies government entities, authorities, and public institutions across a broad procurement scope: office and institutional furniture, IT and communications equipment, security and surveillance systems, public lighting and power, waste and sanitation equipment, municipal fleet vehicles, and specialized institutional equipment. Every request is matched against the tender specification and required documentation, with technical alternatives proposed where useful, before a quotation is prepared.",
     intro_ar:
-      "توفر GOLTENS للجهات الحكومية والمشروعات الحكومية نطاق توريد واسع يشمل: الأثاث المكتبي والمؤسسي، ومعدات تقنية المعلومات والاتصالات، وأنظمة الأمن والمراقبة، وإنارة الطرق العامة وأنظمة الطاقة، ومعدات النفايات والصرف الصحي، ومركبات الأسطول البلدي، والمعدات المؤسسية المتخصصة. يقوم فريقنا بمطابقة كل طلب مع مواصفات المناقصة والوثائق المطلوبة قبل تقديم عرض السعر.",
+      "توفر GOLTENS للجهات والهيئات والمؤسسات الحكومية نطاق توريد واسع يشمل: الأثاث المكتبي والمؤسسي، ومعدات تقنية المعلومات والاتصالات، وأنظمة الأمن والمراقبة، وإنارة الطرق العامة وأنظمة الطاقة، ومعدات النفايات والصرف الصحي، ومركبات الأسطول البلدي، والمعدات المؤسسية المتخصصة. يتم مطابقة كل طلب مع مواصفات المناقصة والوثائق المطلوبة، مع اقتراح بدائل فنية عند الحاجة، قبل تجهيز عرض السعر.",
     categories_en: [
       "Office & Institutional Furniture",
       "IT & Communications",
@@ -82,18 +82,21 @@ export const governmentProcurementContent: SectorContent = {
 
   advantages: [
     {
-      title_en: "Experienced in public-sector tender requirements.",
-      title_ar: "خبرة في متطلبات المناقصات الحكومية.",
+      title_en:
+        "Experienced in public-sector procurement and tender requirements.",
+      title_ar: "خبرة في متطلبات المشتريات والمناقصات الحكومية.",
       icon: "Landmark",
     },
     {
-      title_en: "Documentation support for tender submission.",
-      title_ar: "دعم في إعداد الوثائق اللازمة لتقديم المناقصات.",
+      title_en:
+        "Documentation support for required specifications and tender submissions.",
+      title_ar: "دعم في إعداد المستندات والمواصفات اللازمة لتقديم العروض.",
       icon: "ShieldCheck",
     },
     {
-      title_en: "Genuine products from trusted global suppliers.",
-      title_ar: "منتجات أصلية من موردين عالميين موثوقين.",
+      title_en:
+        "Genuine products from trusted global suppliers and manufacturers.",
+      title_ar: "منتجات أصلية من موردين ومصنّعين عالميين موثوقين.",
       icon: "BadgePercent",
     },
     {
@@ -102,13 +105,15 @@ export const governmentProcurementContent: SectorContent = {
       icon: "Truck",
     },
     {
-      title_en: "Broad category coverage from a single supplier.",
-      title_ar: "تغطية واسعة للفئات من مورد واحد.",
+      title_en:
+        "Broad product range and supply solutions from a single source.",
+      title_ar: "نطاق واسع من المنتجات وحلول التوريد من مصدر واحد.",
       icon: "Globe",
     },
     {
-      title_en: "Dedicated account support before and after every order.",
-      title_ar: "دعم مخصص لحسابكم قبل وبعد كل طلب.",
+      title_en:
+        "Dedicated follow-through and support until delivery is complete.",
+      title_ar: "متابعة ودعم مخصص لطلبكم حتى إتمام التوريد.",
       icon: "Headset",
     },
   ],
@@ -163,4 +168,27 @@ export const governmentProcurementContent: SectorContent = {
     "commercial-vehicles",
     "global-sourcing",
   ],
+
+  seo: {
+    title_en: "Government Procurement & General Supplies Egypt",
+    title_ar: "الحلول الحكومية والتوريدات العامة في مصر",
+    description_en:
+      "GOLTENS supplies government entities, ministries, and public institutions in Egypt with office furniture, security systems, public lighting, and specialized equipment, matched to tender specifications.",
+    description_ar:
+      "توفر GOLTENS للجهات والهيئات والمؤسسات الحكومية في مصر حلول توريد تشمل الأثاث المكتبي وأنظمة الأمن والإنارة العامة والمعدات المتخصصة، وفق مواصفات المناقصات ومتطلبات التوريد.",
+    keywords: [
+      "Government Procurement",
+      "Government Supplies",
+      "Government Procurement Egypt",
+      "General Supplies Egypt",
+      "Public Sector Supplier Egypt",
+      "Government Tenders Egypt",
+      "التوريدات الحكومية",
+      "التوريدات العامة",
+      "حلول التوريد للجهات الحكومية",
+      "مورد حكومي في مصر",
+      "مناقصات حكومية مصر",
+      "توريد للجهات الحكومية",
+    ],
+  },
 };

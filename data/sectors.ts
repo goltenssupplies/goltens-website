@@ -30,6 +30,10 @@ export const SECTORS: Sector[] = [
     slug: "government-procurement",
     title_en: "Government Procurement",
     title_ar: "الحلول الحكومية والتوريدات العامة",
+    subtitle_en:
+      "GOLTENS supplies government entities, authorities, and institutions with the products and equipment they need — matched to technical specifications, with supply offers prepared around each entity's requirement.",
+    subtitle_ar:
+      "توفر GOLTENS حلول توريد للجهات والهيئات والمؤسسات الحكومية، تغطي المنتجات والمعدات المطلوبة مع الالتزام بالمواصفات الفنية، وتجهيز عروض التوريد وفقًا لاحتياج كل جهة.",
     description_en:
       "Supply solutions aligned with public-sector procurement standards.",
     description_ar: "حلول توريد متوافقة مع معايير المشتريات الحكومية.",

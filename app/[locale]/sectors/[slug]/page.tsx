@@ -16,6 +16,8 @@ import {
 import { SectorFAQ } from "@/components/sectors/SectorFAQ";
 import { SectorHero } from "@/components/sectors/SectorHero";
 import { SectorQuoteCTA } from "@/components/sectors/SectorQuoteCTA";
+import { RelatedSectors } from "@/components/sectors/RelatedSectors";
+import type { SectorCardItem } from "@/components/sectors/SectorCard";
 import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
@@ -23,7 +25,7 @@ import { Text } from "@/components/ui/Text";
 import { getCategoriesBySector } from "@/data/product-categories";
 import { getProductsBySector } from "@/data/products";
 import { getSectorContent } from "@/data/sector-content";
-import { getSectorBySlug, SECTORS } from "@/data/sectors";
+import { getSectorBySlug, getSortedSectors, SECTORS } from "@/data/sectors";
 import type { Locale } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/metadata";
 import {
@@ -170,6 +172,27 @@ export default async function SectorPage({ params }: SectorPageProps) {
         icon: DEFAULT_ADVANTAGE_ICONS[index % DEFAULT_ADVANTAGE_ICONS.length],
       }));
 
+  // Related Sectors — a sector's own curated `relatedSectorSlugs`, or the
+  // next few other real sectors by `order` when a sector hasn't curated its
+  // own list yet. Every item resolves to a real `data/sectors.ts` row and a
+  // real `/sectors/<slug>` page — never an invented destination.
+  const relatedSectorSlugs = content.relatedSectorSlugs?.length
+    ? content.relatedSectorSlugs
+    : getSortedSectors()
+        .filter((other) => other.slug !== slug)
+        .slice(0, 5)
+        .map((other) => other.slug);
+  const relatedSectorItems: SectorCardItem[] = relatedSectorSlugs
+    .map((relatedSlug) => getSectorBySlug(relatedSlug))
+    .filter((item): item is NonNullable<typeof item> => item !== undefined)
+    .map((item) => ({
+      slug: item.slug,
+      title: isArabic ? item.title_ar : item.title_en,
+      description: isArabic ? item.description_ar : item.description_en,
+      image: item.image,
+      icon: item.icon,
+    }));
+
   // FAQs — a sector's own, or a shared generic default set, so the page's
   // FAQPage schema is always genuinely populated.
   const faqItems = content.faqs?.length
@@ -296,6 +319,14 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
       <PremiumDarkSection>
         <SectorFAQ title={t("faqTitle")} items={faqItems} />
+      </PremiumDarkSection>
+
+      <PremiumDarkSection>
+        <RelatedSectors
+          title={t("relatedTitle")}
+          items={relatedSectorItems}
+          exploreLabel={t("exploreSector")}
+        />
       </PremiumDarkSection>
     </>
   );
