@@ -52,7 +52,7 @@ export function WhyChooseUs() {
         <Reveal distance={0}>
           <div className="relative mx-auto max-w-3xl text-center">
             <Stack gap="md" align="center">
-              <Heading level={2} size={1} tone="inverse">
+              <Heading level={2} size={1} className="text-canvas">
                 {t("title")}
               </Heading>
             </Stack>
@@ -70,7 +70,7 @@ export function WhyChooseUs() {
                       <Icon aria-hidden="true" className="text-accent size-7" />
                     </span>
                   )}
-                  <Text size="lg" tone="inverse" className="mt-3 opacity-90">
+                  <Text size="lg" className="text-canvas mt-3 opacity-90">
                     {item}
                   </Text>
                 </Stack>

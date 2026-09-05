@@ -25,7 +25,7 @@ const chipClass = (active: boolean) =>
     "rounded-sm border px-4 py-2 text-sm font-medium transition-colors",
     active
       ? "bg-gold border-gold text-ink"
-      : "border-canvas/15 text-canvas/70 hover:border-gold/40 hover:text-gold",
+      : "border-border text-ink-muted hover:border-gold/40 hover:text-gold",
   );
 
 /**

@@ -102,12 +102,11 @@ export async function GlobalBrands({ showCta = true }: GlobalBrandsProps = {}) {
               <Eyebrow>{t("eyebrow")}</Eyebrow>
               <Heading
                 level={2}
-                tone="inverse"
-                className="tracking-wide uppercase"
+                className="text-canvas tracking-wide uppercase"
               >
                 {t("title")}
               </Heading>
-              <Text size="lg" tone="inverse" className="opacity-80">
+              <Text size="lg" className="text-canvas opacity-80">
                 {t("description")}
               </Text>
             </Stack>
@@ -126,8 +125,7 @@ export async function GlobalBrands({ showCta = true }: GlobalBrandsProps = {}) {
                   <Text
                     size="sm"
                     weight="medium"
-                    tone="inverse"
-                    className="opacity-80"
+                    className="text-canvas opacity-80"
                   >
                     {t(labelKey)}
                   </Text>

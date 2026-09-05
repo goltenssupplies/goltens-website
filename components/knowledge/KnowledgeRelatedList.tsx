@@ -26,7 +26,7 @@ export function KnowledgeRelatedList({ items }: KnowledgeRelatedListProps) {
   if (items.length === 0) return null;
 
   return (
-    <div className="divide-canvas/10 border-canvas/10 mx-auto max-w-3xl divide-y border-t">
+    <div className="divide-border border-border mx-auto max-w-3xl divide-y border-t">
       {items.map((item, index) => (
         <Reveal key={item.slug} delay={index * STAGGER_SECONDS}>
           <Link
@@ -48,7 +48,7 @@ export function KnowledgeRelatedList({ items }: KnowledgeRelatedListProps) {
                 size="xs"
                 weight="semibold"
                 tone="inverse"
-                className="text-gold opacity-80 tracking-wide uppercase"
+                className="text-gold tracking-wide uppercase opacity-80"
               >
                 {item.typeLabel}
               </Text>

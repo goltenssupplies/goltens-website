@@ -64,7 +64,7 @@ export function MobileNavigation({
             animate={{ height: "auto", opacity: 1 }}
             exit={prefersReducedMotion ? undefined : { height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute inset-x-0 top-full overflow-hidden border-b border-white/10 bg-[#1B1F26]"
+            className="border-border absolute inset-x-0 top-full overflow-hidden border-b bg-white shadow-[0_4px_20px_rgba(30,29,27,0.06)]"
           >
             <nav className="flex flex-col gap-1 px-4 py-4">
               {navItems.map((item) => {
@@ -78,8 +78,8 @@ export function MobileNavigation({
                     className={cn(
                       "rounded-sm px-3 py-2.5 text-base font-medium transition-colors",
                       isActive
-                        ? "bg-white/5 text-[#C89B3C]"
-                        : "text-white hover:bg-white/5",
+                        ? "bg-stone text-[#C89B3C]"
+                        : "text-ink hover:bg-stone",
                     )}
                   >
                     {item.label}
@@ -87,7 +87,7 @@ export function MobileNavigation({
                 );
               })}
               {actions && (
-                <div className="mt-2 flex flex-col gap-3 border-t border-white/10 pt-4">
+                <div className="border-border mt-2 flex flex-col gap-3 border-t pt-4">
                   {actions}
                 </div>
               )}

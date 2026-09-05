@@ -25,11 +25,14 @@ export interface PremiumDarkSectionProps {
 }
 
 /**
- * The premium dark `obsidian` page chrome shared by every content-listing
- * page on the site — grid + dot texture, two static radial gold glows, and
- * the gold-particle ambience used by every dark section — factored out so
- * Sectors, Brands, and any future section share one implementation instead
- * of each re-declaring the same decorative background.
+ * The premium white `obsidian` panel chrome shared by every content-listing
+ * page on the site — a faint gold dot texture, two soft radial gold glows,
+ * and the gold-particle ambience used by every panel section — factored
+ * out so Sectors, Brands, and any future section share one implementation
+ * instead of each re-declaring the same decorative background. Light theme
+ * (2026 refresh): no dark vignette overlay (that only made sense against
+ * the surface's former near-black colour); the gold accents stay, tuned to
+ * read as a subtle premium texture rather than ambient light.
  */
 export function PremiumDarkSection({
   header,
@@ -41,26 +44,19 @@ export function PremiumDarkSection({
     <Section
       spacing={spacing}
       background="obsidian"
-      className={cn(
-        "relative overflow-hidden",
-        topPadding && "pt-36 lg:pt-44",
-      )}
+      className={cn("relative overflow-hidden", topPadding && "pt-36 lg:pt-44")}
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/20"
+        className="bg-gold/[0.05] pointer-events-none absolute -top-32 -left-32 size-[28rem] rounded-full blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="bg-gold/[0.07] pointer-events-none absolute -top-32 -left-32 size-[28rem] rounded-full blur-3xl"
+        className="bg-gold/[0.04] pointer-events-none absolute -right-24 -bottom-24 size-[26rem] rounded-full blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="bg-gold/[0.05] pointer-events-none absolute -right-24 -bottom-24 size-[26rem] rounded-full blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="bg-dot-pattern text-gold/[0.06] pointer-events-none absolute inset-0"
+        className="bg-dot-pattern text-accent/[0.05] pointer-events-none absolute inset-0"
       />
       <SectionParticles />
 

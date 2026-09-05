@@ -47,11 +47,10 @@ export interface NavbarProps {
  * logo-left arrangement under English/LTR — consistent with how every
  * other section on this site mirrors per locale.
  *
- * Premium industrial dark bar (`#1B1F26`, constant — no light/scrolled
- * state) with a soft drop shadow and a three-line gold/graphite/deep-teal
- * accent stripe along its bottom edge, evoking the dark, understated
- * header treatment of Siemens/ABB/Schneider/Caterpillar rather than a
- * generic light SaaS template.
+ * Premium light corporate bar (white, constant — no scrolled state) with a
+ * subtle bottom hairline/shadow and a three-line gold/graphite/deep-teal
+ * accent stripe along its bottom edge — a clean, high-end header treatment
+ * rather than a generic light SaaS template.
  *
  * Also auto-hides: scrolling down slides it up out of view (via
  * `transform`, so it never reserves layout space), scrolling up or resting
@@ -84,7 +83,10 @@ export function Navbar({
 
       if (currentY <= SCROLL_THRESHOLD_PX) {
         setIsHidden(false);
-      } else if (delta > DIRECTION_DELTA_PX && !isPointerOverHeaderRef.current) {
+      } else if (
+        delta > DIRECTION_DELTA_PX &&
+        !isPointerOverHeaderRef.current
+      ) {
         setIsHidden(true);
       } else if (delta < -DIRECTION_DELTA_PX) {
         setIsHidden(false);
@@ -138,7 +140,7 @@ export function Navbar({
         isPointerOverHeaderRef.current = false;
       }}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 bg-[#1B1F26] shadow-[0_8px_24px_rgba(0,0,0,0.22)] transition-transform duration-300",
+        "border-border fixed inset-x-0 top-0 z-50 border-b bg-white shadow-[0_4px_20px_rgba(30,29,27,0.06)] transition-transform duration-300",
         isHidden ? "-translate-y-full" : "translate-y-0",
         isSplashActive && "pointer-events-none opacity-0",
         className,
@@ -159,7 +161,7 @@ export function Navbar({
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "relative text-sm font-medium tracking-[0.04em] text-white transition-colors duration-300 hover:text-[#C89B3C]",
+                  "text-ink relative text-sm font-medium tracking-[0.04em] transition-colors duration-300 hover:text-[#C89B3C]",
                   "after:absolute after:inset-x-0 after:-bottom-1.5 after:h-px after:origin-center after:scale-x-0 after:bg-[#C89B3C] after:transition-transform after:duration-300 hover:after:scale-x-100",
                   isActive && "text-[#C89B3C] after:scale-x-100",
                 )}
@@ -180,7 +182,7 @@ export function Navbar({
             navItems={navItems}
             openLabel={menuOpenLabel}
             closeLabel={menuCloseLabel}
-            triggerClassName="text-white hover:bg-white/5 hover:text-[#C89B3C]"
+            triggerClassName="text-ink hover:bg-stone hover:text-[#C89B3C]"
             actions={
               <>
                 <LanguageSwitcher />

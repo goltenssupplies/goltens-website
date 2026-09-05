@@ -25,7 +25,7 @@ export function KnowledgeArticleCTA({
 }: KnowledgeArticleCTAProps) {
   return (
     <Reveal>
-      <div className="bg-obsidian from-gold/[0.1] via-gold/[0.03] border-canvas/10 border-y bg-gradient-to-b to-transparent py-10">
+      <div className="bg-obsidian from-gold/[0.1] via-gold/[0.03] border-gold/20 border-y bg-gradient-to-b to-transparent py-10">
         <Container>
           <div className="mx-auto flex max-w-xl flex-col items-center gap-5 text-center">
             <Heading level={2} size={4} tone="inverse">

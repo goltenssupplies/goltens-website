@@ -103,7 +103,7 @@ export function ProductExplorer({
         <div className="relative w-full lg:max-w-sm">
           <Search
             aria-hidden="true"
-            className="text-canvas/40 pointer-events-none absolute start-4 top-1/2 size-4 -translate-y-1/2"
+            className="text-ink-muted pointer-events-none absolute start-4 top-1/2 size-4 -translate-y-1/2"
           />
           <input
             type="search"
@@ -112,7 +112,7 @@ export function ProductExplorer({
             aria-label={searchLabel}
             placeholder={searchPlaceholder}
             className={cn(
-              "border-canvas/15 bg-canvas/[0.04] text-canvas placeholder:text-canvas/40 w-full rounded-sm border py-3 ps-11 pe-4 text-sm backdrop-blur-sm transition-colors",
+              "border-border bg-canvas text-ink placeholder:text-ink-muted w-full rounded-sm border py-3 ps-11 pe-4 text-sm transition-colors",
               "focus-visible:border-gold/50 focus-visible:outline-none",
             )}
           />
@@ -127,7 +127,7 @@ export function ProductExplorer({
               "rounded-sm border px-4 py-2 text-sm font-medium transition-colors",
               activeCategory === "all"
                 ? "bg-gold border-gold text-ink"
-                : "border-canvas/15 text-canvas/70 hover:border-gold/40 hover:text-gold",
+                : "border-border text-ink-muted hover:border-gold/40 hover:text-gold",
             )}
           >
             {filterAllLabel}
@@ -142,7 +142,7 @@ export function ProductExplorer({
                 "rounded-sm border px-4 py-2 text-sm font-medium transition-colors",
                 activeCategory === category.id
                   ? "bg-gold border-gold text-ink"
-                  : "border-canvas/15 text-canvas/70 hover:border-gold/40 hover:text-gold",
+                  : "border-border text-ink-muted hover:border-gold/40 hover:text-gold",
               )}
             >
               {category.label}

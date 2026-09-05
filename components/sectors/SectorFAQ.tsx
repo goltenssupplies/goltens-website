@@ -36,11 +36,11 @@ export function SectorFAQ({ title, items }: SectorFAQProps) {
           {title}
         </Heading>
       </Reveal>
-      <div className="divide-canvas/10 border-canvas/10 flex flex-col divide-y border-y">
+      <div className="divide-border border-border flex flex-col divide-y border-y">
         {items.map((item, index) => (
           <Reveal key={item.question} delay={index * STAGGER_SECONDS}>
             <details className="group py-6 lg:py-7">
-              <summary className="text-canvas flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-medium marker:content-none">
+              <summary className="text-ink flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-medium marker:content-none">
                 {item.question}
                 <ArrowRight
                   aria-hidden="true"

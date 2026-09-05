@@ -22,7 +22,11 @@ const toneClass: Record<HeadingTone, string> = {
   ink: "text-ink",
   primary: "text-primary",
   secondary: "text-secondary",
-  inverse: "text-canvas",
+  // "Inverse" now means "on the light `obsidian` panel surface" — see the
+  // token comment in globals.css. Still a distinct tone from plain `ink`
+  // so panel headings can be restyled independently of body headings if
+  // needed later.
+  inverse: "text-ink",
 };
 
 export interface HeadingProps extends ComponentPropsWithoutRef<"h1"> {

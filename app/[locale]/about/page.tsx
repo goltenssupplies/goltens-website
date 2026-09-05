@@ -104,15 +104,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/20"
+          className="bg-gold/[0.06] pointer-events-none absolute -top-32 -right-32 size-[28rem] rounded-full blur-3xl"
         />
         <div
           aria-hidden="true"
-          className="bg-gold/[0.07] pointer-events-none absolute -top-32 -right-32 size-[28rem] rounded-full blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="bg-grid-pattern text-canvas/[0.04] pointer-events-none absolute inset-0"
+          className="bg-grid-pattern text-accent/[0.05] pointer-events-none absolute inset-0"
         />
         <SectionParticles />
 
@@ -138,11 +134,12 @@ export default async function AboutPage({ params }: AboutPageProps) {
       {/* COMPANY OVERVIEW */}
       <Section
         spacing="lg"
-        className="bg-primary text-canvas relative overflow-hidden"
+        background="stone"
+        className="relative overflow-hidden"
       >
         <div
           aria-hidden="true"
-          className="bg-grid-pattern text-canvas/[0.03] pointer-events-none absolute inset-0"
+          className="bg-dot-pattern text-accent/[0.05] pointer-events-none absolute inset-0"
         />
         <Container className="relative">
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6">
@@ -184,7 +181,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
             <Reveal>
               <Stack
                 gap="md"
-                className="border-canvas/10 bg-canvas/[0.04] h-full rounded-[20px] border p-8 backdrop-blur-sm"
+                className="border-border bg-canvas h-full rounded-[20px] border p-8 shadow-[0_2px_8px_rgba(30,29,27,0.04),0_20px_48px_rgba(30,29,27,0.08)]"
               >
                 <IconBadge icon={Target} />
                 <Heading level={2} size={3} tone="inverse">
@@ -198,7 +195,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
             <Reveal delay={0.1}>
               <Stack
                 gap="md"
-                className="border-canvas/10 bg-canvas/[0.04] h-full rounded-[20px] border p-8 backdrop-blur-sm"
+                className="border-border bg-canvas h-full rounded-[20px] border p-8 shadow-[0_2px_8px_rgba(30,29,27,0.04),0_20px_48px_rgba(30,29,27,0.08)]"
               >
                 <IconBadge icon={Eye} />
                 <Heading level={2} size={3} tone="inverse">
@@ -216,11 +213,12 @@ export default async function AboutPage({ params }: AboutPageProps) {
       {/* CORE VALUES */}
       <Section
         spacing="lg"
-        className="bg-primary text-canvas relative overflow-hidden"
+        background="canvas"
+        className="relative overflow-hidden"
       >
         <div
           aria-hidden="true"
-          className="bg-grid-pattern text-canvas/[0.03] pointer-events-none absolute inset-0"
+          className="bg-dot-pattern text-accent/[0.05] pointer-events-none absolute inset-0"
         />
         <Container className="relative">
           <Reveal>
@@ -237,7 +235,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
               <Reveal key={value.title} delay={index * 0.08}>
                 <Stack
                   gap="sm"
-                  className="border-canvas/10 bg-canvas/[0.04] h-full rounded-[20px] border p-6"
+                  className="border-border bg-canvas h-full rounded-[20px] border p-6 shadow-[0_2px_8px_rgba(30,29,27,0.04),0_20px_48px_rgba(30,29,27,0.08)]"
                 >
                   <IconBadge icon={VALUE_ICONS[index]} />
                   <Text weight="semibold" tone="inverse" className="text-lg">
@@ -261,11 +259,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/20"
-        />
-        <div
-          aria-hidden="true"
-          className="bg-gold/[0.06] pointer-events-none absolute -bottom-32 -left-32 size-[28rem] rounded-full blur-3xl"
+          className="bg-gold/[0.05] pointer-events-none absolute -bottom-32 -left-32 size-[28rem] rounded-full blur-3xl"
         />
         <Container className="relative">
           <Reveal>
@@ -287,7 +281,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
               <Reveal key={point.title} delay={index * 0.08}>
                 <Stack
                   gap="sm"
-                  className="border-canvas/10 bg-canvas/[0.04] h-full rounded-[20px] border p-6"
+                  className="border-border bg-canvas h-full rounded-[20px] border p-6 shadow-[0_2px_8px_rgba(30,29,27,0.04),0_20px_48px_rgba(30,29,27,0.08)]"
                 >
                   <IconBadge icon={WHY_ICONS[index]} />
                   <Text weight="semibold" tone="inverse" className="text-lg">
@@ -338,7 +332,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
                 <Stack
                   align="center"
                   gap="sm"
-                  className="border-canvas/10 bg-canvas/[0.04] h-full rounded-[20px] border p-6 text-center"
+                  className="border-border bg-canvas h-full rounded-[20px] border p-6 text-center shadow-[0_2px_8px_rgba(30,29,27,0.04),0_20px_48px_rgba(30,29,27,0.08)]"
                 >
                   <IconBadge icon={QUALITY_ICONS[index]} />
                   <Text weight="semibold" tone="inverse" className="text-lg">
@@ -358,10 +352,10 @@ export default async function AboutPage({ params }: AboutPageProps) {
       <Sectors />
 
       {/* CLOSING CTA */}
-      <Section className="bg-primary text-canvas relative overflow-hidden py-20">
+      <Section background="stone" className="relative overflow-hidden py-20">
         <div
           aria-hidden="true"
-          className="bg-grid-pattern text-canvas/[0.03] pointer-events-none absolute inset-0"
+          className="bg-dot-pattern text-accent/[0.05] pointer-events-none absolute inset-0"
         />
         <Container className="relative">
           <Reveal>

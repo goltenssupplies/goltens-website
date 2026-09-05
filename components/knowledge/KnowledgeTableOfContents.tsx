@@ -54,11 +54,11 @@ export function KnowledgeTableOfContents({
         size="xs"
         weight="semibold"
         tone="inverse"
-        className="mb-4 opacity-50 tracking-wide uppercase"
+        className="mb-4 tracking-wide uppercase opacity-50"
       >
         {title}
       </Text>
-      <ul className="border-canvas/10 space-y-1 border-s">
+      <ul className="border-border space-y-1 border-s">
         {items.map((item) => {
           const isActive = item.id === activeId;
           return (
@@ -69,7 +69,7 @@ export function KnowledgeTableOfContents({
                   "-ms-px block border-s-2 py-1.5 ps-4 text-sm transition-colors",
                   isActive
                     ? "border-gold text-gold font-medium"
-                    : "text-canvas/55 hover:text-canvas/90 border-transparent",
+                    : "text-ink-muted hover:text-ink border-transparent",
                 )}
               >
                 {item.label}

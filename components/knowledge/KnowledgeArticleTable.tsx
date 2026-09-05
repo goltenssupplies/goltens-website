@@ -33,15 +33,15 @@ export function KnowledgeArticleTable({
           size="xs"
           weight="semibold"
           tone="inverse"
-          className="mb-3 opacity-50 tracking-wide uppercase"
+          className="mb-3 tracking-wide uppercase opacity-50"
         >
           {caption}
         </Text>
       )}
-      <div className="border-canvas/10 overflow-x-auto rounded-lg border">
+      <div className="border-border overflow-x-auto rounded-lg border">
         <table className="w-full min-w-[480px] border-collapse">
           <thead>
-            <tr className="border-canvas/10 bg-canvas/[0.03] border-b">
+            <tr className="border-border bg-stone border-b">
               <th className="p-3 text-start">
                 <span className="sr-only">Criteria</span>
               </th>
@@ -58,7 +58,7 @@ export function KnowledgeArticleTable({
             {rows.map((row) => (
               <tr
                 key={row.label}
-                className="border-canvas/10 border-b last:border-0"
+                className="border-border border-b last:border-0"
               >
                 <td className="p-3">
                   <Text size="sm" tone="inverse" className="opacity-60">

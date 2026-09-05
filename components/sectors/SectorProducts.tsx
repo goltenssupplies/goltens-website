@@ -232,7 +232,7 @@ export function SectorProducts({
                       href={requestQuoteTarget}
                       variant="secondary"
                       size="sm"
-                      className="border-canvas/30 text-canvas hover:bg-canvas/10 w-fit"
+                      className="border-ink/25 text-ink hover:bg-stone w-fit"
                     >
                       {requestQuoteLabel}
                     </Button>
@@ -250,7 +250,7 @@ export function SectorProducts({
                           }}
                           label={addToRfqLabel}
                           addedLabel={addToRfqAddedLabel}
-                          className="border-canvas/30 text-canvas hover:bg-canvas/10 border"
+                          className="border-ink/25 text-ink hover:bg-stone border"
                         />
                       )}
                     {item.sectorId &&
@@ -268,7 +268,7 @@ export function SectorProducts({
                           }}
                           label={addToCompareLabel}
                           addedLabel={addToCompareAddedLabel}
-                          className="border-canvas/30 text-canvas hover:bg-canvas/10 border"
+                          className="border-ink/25 text-ink hover:bg-stone border"
                         />
                       )}
                   </div>

@@ -16,8 +16,9 @@ export interface LanguageSwitcherProps {
  * "English" under ar, "العربية" under en). This is the one component in the
  * design system allowed to read translations directly: the label is fixed,
  * structural i18n chrome, not page content, so there is no prop-driven
- * variant of it elsewhere. Only ever rendered inside the (permanently dark)
- * Navbar, so its colors are dark-theme constants rather than a `tone` prop.
+ * variant of it elsewhere. Only ever rendered inside the (permanently
+ * light) Navbar, so its colors are light-theme constants rather than a
+ * `tone` prop.
  */
 export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
   const t = useTranslations("common");
@@ -32,7 +33,7 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
       href={pathname}
       locale={otherLocale}
       className={cn(
-        "text-sm font-medium text-white transition-colors hover:text-[#C89B3C]",
+        "text-ink text-sm font-medium transition-colors hover:text-[#C89B3C]",
         className,
       )}
     >

@@ -17,7 +17,9 @@ const sizeClass: Record<TextSize, string> = {
 const toneClass: Record<TextTone, string> = {
   ink: "text-ink",
   muted: "text-ink-muted",
-  inverse: "text-canvas",
+  // "Inverse" now means "on the light `obsidian` panel surface" — see the
+  // token comment in globals.css.
+  inverse: "text-ink",
   success: "text-success",
   warning: "text-warning",
   error: "text-error",

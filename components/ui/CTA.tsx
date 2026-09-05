@@ -214,14 +214,14 @@ export function CTA({
       <Container width="narrow" className="relative">
         <Reveal>
           <Stack align="center" gap="lg" className="text-center">
-            <Heading level={2} tone={isDark ? "inverse" : "ink"}>
+            <Heading level={2} className={isDark ? "text-canvas" : undefined}>
               {title}
             </Heading>
             {description && (
               <Text
                 size="lg"
-                tone={isDark ? "inverse" : "muted"}
-                className={cn("max-w-xl", isDark && "opacity-75")}
+                tone={isDark ? undefined : "muted"}
+                className={cn("max-w-xl", isDark && "text-canvas opacity-75")}
               >
                 {description}
               </Text>

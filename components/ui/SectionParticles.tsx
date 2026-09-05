@@ -20,9 +20,9 @@ const PARTICLES = Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
 const PEAK_OPACITY = 0.05;
 
 /**
- * A handful of very faint, slowly drifting gold particles for the
- * homepage's dark content sections (`obsidian` background) — ambience
- * only, fixed at 5% peak opacity. Skipped under `prefers-reduced-motion`.
+ * A handful of very faint, slowly drifting gold particles for the site's
+ * premium white content panels (`obsidian` background) — ambience only,
+ * fixed at 5% peak opacity. Skipped under `prefers-reduced-motion`.
  */
 export function SectionParticles() {
   const prefersReducedMotion = useReducedMotion();

@@ -16,14 +16,20 @@
      ground. Deliberately a separate token rather than changing `accent`
      itself, which stays the brand's primary gold everywhere else. */
   --color-gold: #d4a017;
-  /* Premium near-black surface for the homepage's dark-themed content
-     sections (What We Do, Industries) — cooler and deeper than `primary`,
-     which stays as-is for the Hero/CTA/Footer's existing warmer graphite
-     dark. A deliberately separate token, not a replacement. */
-  --color-obsidian: #0b0f14;
-  --color-canvas: #f3f2ef;
-  --color-stone: #e3e1dc;
-  --color-border: #d4d1cb;
+  /* Light corporate theme (2026 refresh): `obsidian` now names a WHITE
+     premium content-panel surface, not a dark one — kept as the same key
+     so every existing `background="obsidian"`/`bg-obsidian` call site
+     across the site (sector/product/knowledge/solutions pages, the
+     homepage Sectors teaser, About) repaints light without being touched
+     individually. Its pairing with `tone="inverse"` text (now dark ink,
+     see `Heading`/`Text`) is what makes that repaint automatic and safe.
+     The Hero, homepage closing CTA, and Footer intentionally keep their
+     own separate `primary`/`#0d1117` dark treatment as deliberate anchor
+     moments — unaffected by this token. */
+  --color-obsidian: #ffffff;
+  --color-canvas: #f5f6f8;
+  --color-stone: #eceef1;
+  --color-border: #dde1e6;
   --color-ink: #1e1d1b;
   --color-ink-muted: #5a5852;
   --color-success: #3f6b4f;

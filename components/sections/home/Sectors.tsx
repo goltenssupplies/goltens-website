@@ -59,17 +59,12 @@ export async function Sectors() {
       // both edges) — with no in-flow content of its own, Hero renders at
       // exactly 100vh, so this section's own top padding was the entire
       // gap between the Hero photo and this section's heading. On the
-      // obsidian (near-black) background with nothing else in that space,
-      // the full "lg" top padding read as a large empty black band.
+      // obsidian (white panel) background with nothing else in that space,
+      // the full "lg" top padding read as a large empty band.
       // Bottom padding is untouched (still the "lg" py-24 sm:py-32) so
       // rhythm with the section below (WhyChooseUs) is unchanged.
       className="relative overflow-hidden pt-12 sm:pt-16 lg:pt-20"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/15"
-      />
-
       <Container className="relative">
         <Reveal>
           <div className="relative mx-auto max-w-2xl text-center">

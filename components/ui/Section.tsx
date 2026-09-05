@@ -15,10 +15,10 @@ const backgroundClass: Record<SectionBackground, string> = {
   canvas: "bg-canvas",
   stone: "bg-stone",
   transparent: "bg-transparent",
-  // Premium near-black surface for the homepage's dark content sections.
-  // Text within it needs an explicit inverse tone — this only sets the
-  // background, same as every other option here.
-  obsidian: "bg-obsidian text-canvas",
+  // Premium white content-panel surface (see the token comment in
+  // globals.css) — pairs with `tone="inverse"` text (now dark ink), same
+  // contract as every other option here: this only sets the background.
+  obsidian: "bg-obsidian text-ink",
 };
 
 export interface SectionProps extends ComponentPropsWithoutRef<"section"> {

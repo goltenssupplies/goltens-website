@@ -25,7 +25,7 @@ export function KnowledgeMobileToc({ title, items }: KnowledgeMobileTocProps) {
   if (items.length < 2) return null;
 
   return (
-    <div className="border-canvas/10 rounded-lg border lg:hidden">
+    <div className="border-border rounded-lg border lg:hidden">
       <button
         type="button"
         onClick={() => setOpen((current) => !current)}
@@ -44,13 +44,13 @@ export function KnowledgeMobileToc({ title, items }: KnowledgeMobileTocProps) {
         />
       </button>
       {open && (
-        <ul className="border-canvas/10 space-y-2 border-t px-4 py-3">
+        <ul className="border-border space-y-2 border-t px-4 py-3">
           {items.map((item) => (
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
                 onClick={() => setOpen(false)}
-                className="text-canvas/70 hover:text-gold block text-sm transition-colors"
+                className="text-ink-muted hover:text-gold block text-sm transition-colors"
               >
                 {item.label}
               </a>

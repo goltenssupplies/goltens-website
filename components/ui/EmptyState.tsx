@@ -36,7 +36,7 @@ export function EmptyState({
       {icon && (
         <span
           aria-hidden="true"
-          className={isInverse ? "text-canvas/40" : "text-ink-muted"}
+          className={isInverse ? "text-ink/40" : "text-ink-muted"}
         >
           {icon}
         </span>

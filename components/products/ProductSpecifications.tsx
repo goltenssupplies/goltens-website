@@ -17,9 +17,16 @@ export interface ProductSpecificationsProps {
 
 function SpecificationRows({ items }: { items: ProductSpecificationItem[] }) {
   return (
-    <Card variant="glass" padding="md" className="border-gold/15 divide-y divide-canvas/10">
+    <Card
+      variant="glass"
+      padding="md"
+      className="border-gold/15 divide-border divide-y"
+    >
       {items.map((item) => (
-        <div key={item.label} className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0">
+        <div
+          key={item.label}
+          className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0"
+        >
           <Text size="sm" tone="inverse" className="opacity-60">
             {item.label}
           </Text>
@@ -43,20 +50,26 @@ function SpecificationRows({ items }: { items: ProductSpecificationItem[] }) {
  * `group_ar` to its `specifications`; every product that doesn't keeps
  * today's single flat list.
  */
-export function ProductSpecifications({ title, items }: ProductSpecificationsProps) {
+export function ProductSpecifications({
+  title,
+  items,
+}: ProductSpecificationsProps) {
   const hasGroups = items.some((item) => item.group);
 
   const groups = hasGroups
-    ? items.reduce<{ group: string; items: ProductSpecificationItem[] }[]>((acc, item) => {
-        const groupLabel = item.group ?? "";
-        const existing = acc.find((entry) => entry.group === groupLabel);
-        if (existing) {
-          existing.items.push(item);
-        } else {
-          acc.push({ group: groupLabel, items: [item] });
-        }
-        return acc;
-      }, [])
+    ? items.reduce<{ group: string; items: ProductSpecificationItem[] }[]>(
+        (acc, item) => {
+          const groupLabel = item.group ?? "";
+          const existing = acc.find((entry) => entry.group === groupLabel);
+          if (existing) {
+            existing.items.push(item);
+          } else {
+            acc.push({ group: groupLabel, items: [item] });
+          }
+          return acc;
+        },
+        [],
+      )
     : null;
 
   return (
@@ -67,22 +80,27 @@ export function ProductSpecifications({ title, items }: ProductSpecificationsPro
         </Heading>
       </Reveal>
       <div className="max-w-2xl space-y-8">
-        {groups
-          ? groups.map((group, index) => (
-              <Reveal key={group.group || index} delay={0.05 + index * 0.03}>
-                {group.group && (
-                  <Text size="sm" tone="inverse" weight="semibold" className="mb-3 opacity-80">
-                    {group.group}
-                  </Text>
-                )}
-                <SpecificationRows items={group.items} />
-              </Reveal>
-            ))
-          : (
-              <Reveal delay={0.05}>
-                <SpecificationRows items={items} />
-              </Reveal>
-            )}
+        {groups ? (
+          groups.map((group, index) => (
+            <Reveal key={group.group || index} delay={0.05 + index * 0.03}>
+              {group.group && (
+                <Text
+                  size="sm"
+                  tone="inverse"
+                  weight="semibold"
+                  className="mb-3 opacity-80"
+                >
+                  {group.group}
+                </Text>
+              )}
+              <SpecificationRows items={group.items} />
+            </Reveal>
+          ))
+        ) : (
+          <Reveal delay={0.05}>
+            <SpecificationRows items={items} />
+          </Reveal>
+        )}
       </div>
     </div>
   );

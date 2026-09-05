@@ -237,7 +237,7 @@ export function Footer({
 
         <Divider className="border-canvas/10 my-3" />
 
-        <Text size="xs" tone="inverse" className="opacity-45">
+        <Text size="xs" className="text-canvas opacity-45">
           {bottomText}
         </Text>
       </Container>

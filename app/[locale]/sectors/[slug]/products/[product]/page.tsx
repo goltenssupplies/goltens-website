@@ -332,7 +332,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 href="/downloads"
                 variant="secondary"
                 size="sm"
-                className="border-canvas/30 text-canvas hover:bg-canvas/10 w-fit"
+                className="border-ink/25 text-ink hover:bg-stone w-fit"
               >
                 {tDownloads("viewDownloadCenter")}
               </Button>

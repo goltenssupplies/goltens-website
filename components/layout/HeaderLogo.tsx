@@ -7,13 +7,13 @@ export interface HeaderLogoProps {
 }
 
 /**
- * The Navbar's logo — uses `LogoImage`'s "dark" variant (transparent
- * background, white ink) rather than the standard opaque lockup behind a
- * light plate, so it sits directly on the header's own `#1B1F26` bar with
- * no rectangle behind it. 66px tall on mobile, 72px from `lg` up (~18%
- * larger again than the previous 56px/61px) — the header's own height is
- * a fixed 88px (`h-[88px]` on the `<Container>` in `Navbar.tsx`), so the
- * mark still sits with a few px of margin top and bottom, vertically
+ * The Navbar's logo — uses `LogoImage`'s "standard" (default) variant, the
+ * official opaque lockup as supplied, since the header (light theme, 2026
+ * refresh) is now a white bar the same colour as that lockup's own baked-in
+ * background — no plate or seam needed. 66px tall on mobile, 72px from `lg`
+ * up (~18% larger again than the previous 56px/61px) — the header's own
+ * height is a fixed 88px (`h-[88px]` on the `<Container>` in `Navbar.tsx`),
+ * so the mark still sits with a few px of margin top and bottom, vertically
  * centered via the grid's `items-center`. Plain hover-opacity only: the
  * previous gold-sweep animation was a mask cut from the old logo's own
  * ribbon pixels, which no longer exists as an asset or as a matching
@@ -28,7 +28,7 @@ export function HeaderLogo({ className }: HeaderLogoProps) {
         className,
       )}
     >
-      <LogoImage variant="dark" className="h-[66px] lg:h-[72px]" />
+      <LogoImage className="h-[66px] lg:h-[72px]" />
     </Link>
   );
 }

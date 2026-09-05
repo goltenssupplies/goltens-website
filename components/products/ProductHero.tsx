@@ -69,7 +69,7 @@ export function ProductHero({
       />
       <div
         aria-hidden="true"
-        className="from-obsidian via-obsidian/50 pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent"
+        className="from-ink via-ink/50 pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent"
       />
       <div
         aria-hidden="true"
@@ -87,11 +87,13 @@ export function ProductHero({
           navLabel={navLabel}
           className="mb-4"
         />
+        {/* Photo + dark scrim hero (see the gradient above), not the site's
+            light `obsidian` panel surface — text stays explicitly light. */}
         <Stack gap="md" className="max-w-3xl">
-          <Heading level={1} size={1} tone="inverse">
+          <Heading level={1} size={1} className="text-canvas">
             {name}
           </Heading>
-          <Text size="lg" tone="inverse" className="max-w-2xl opacity-80">
+          <Text size="lg" className="text-canvas max-w-2xl opacity-80">
             {description}
           </Text>
         </Stack>

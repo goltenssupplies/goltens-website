@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
  * (typo'd URL, stale bookmark, removed page). Rendered inside
  * `app/[locale]/layout.tsx`, so the Navbar and Footer are already present;
  * this only needs to supply the page body. Reuses `PremiumDarkSection`
- * as-is (same dark `obsidian` ground, gold glows, dot texture, and
+ * as-is (same white `obsidian` panel ground, gold glows, dot texture, and
  * particles as every other listing page's header) rather than introducing
  * a new visual treatment for a single page.
  */
@@ -54,7 +54,7 @@ export default async function NotFound() {
           href="/contact"
           variant="secondary"
           size="lg"
-          className="border-canvas/40 text-canvas hover:bg-canvas/10"
+          className="border-ink/25 text-ink hover:bg-stone"
         >
           {t("contactUs")}
         </Button>

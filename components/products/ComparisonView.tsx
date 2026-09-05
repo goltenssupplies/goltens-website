@@ -36,7 +36,10 @@ export function ComparisonView() {
     () =>
       items
         .map((item) => getProductBySlug(item.slug))
-        .filter((product): product is NonNullable<typeof product> => product !== undefined),
+        .filter(
+          (product): product is NonNullable<typeof product> =>
+            product !== undefined,
+        ),
     [items],
   );
 
@@ -83,7 +86,7 @@ export function ComparisonView() {
           {items.map((item) => (
             <span
               key={item.slug}
-              className="border-canvas/15 bg-canvas/[0.04] flex items-center gap-2 rounded-sm border py-1.5 ps-3 pe-1.5"
+              className="border-border bg-canvas flex items-center gap-2 rounded-sm border py-1.5 ps-3 pe-1.5"
             >
               <Text size="sm" tone="inverse">
                 {item.name}
@@ -93,7 +96,7 @@ export function ComparisonView() {
                 aria-label={t("removeLabel", { name: item.name })}
                 variant="ghost"
                 size="sm"
-                className="text-canvas/60 hover:text-canvas size-7"
+                className="text-ink/60 hover:text-ink size-7"
                 onClick={() => removeItem(item.slug)}
               />
             </span>
@@ -102,7 +105,7 @@ export function ComparisonView() {
             <Button
               variant="secondary"
               size="sm"
-              className="border-canvas/30 text-canvas hover:bg-canvas/10"
+              className="border-ink/25 text-ink hover:bg-stone"
               onClick={() => {
                 items.forEach((item) =>
                   addToRfq({
@@ -120,7 +123,7 @@ export function ComparisonView() {
             <Button
               variant="ghost"
               size="sm"
-              className="text-canvas/70 hover:text-canvas"
+              className="text-ink/70 hover:text-ink"
               onClick={clear}
             >
               {t("clearAll")}

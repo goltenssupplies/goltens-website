@@ -274,8 +274,7 @@ export function HeroSlideshow() {
               <Heading
                 level={1}
                 size={1}
-                tone="inverse"
-                className="mt-1 line-clamp-2 text-[26px] leading-[1.3] tracking-[-0.02em] sm:text-[34px] lg:text-[42px] rtl:leading-[1.35] rtl:tracking-[-0.01em]"
+                className="text-canvas mt-1 line-clamp-2 text-[26px] leading-[1.3] tracking-[-0.02em] sm:text-[34px] lg:text-[42px] rtl:leading-[1.35] rtl:tracking-[-0.01em]"
                 style={{
                   fontWeight: 800,
                   textShadow: "0 2px 14px rgba(0,0,0,0.55)",
@@ -324,8 +323,7 @@ export function HeroSlideshow() {
                   no longer faint. */}
               <Text
                 size="sm"
-                tone="inverse"
-                className="mt-3 text-[15px] leading-[1.6] tracking-normal opacity-92 sm:text-[16px] lg:text-[18px]"
+                className="text-canvas mt-3 text-[15px] leading-[1.6] tracking-normal opacity-92 sm:text-[16px] lg:text-[18px]"
                 style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}
               >
                 {t("paragraph")}

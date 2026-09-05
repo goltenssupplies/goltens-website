@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
  * target — apply it manually via `className` where it is.
  */
 export const cardGlassHover =
-  "hover:-translate-y-2.5 hover:border-gold/50 hover:shadow-[0_24px_64px_rgba(212,160,23,0.18),0_10px_28px_rgba(0,0,0,0.45)]";
+  "hover:-translate-y-2.5 hover:border-gold/50 hover:shadow-[0_24px_64px_rgba(212,160,23,0.18),0_10px_28px_rgba(30,29,27,0.12)]";
 
 const cardVariants = cva("rounded-md transition-all duration-300 ease-out", {
   variants: {
@@ -23,14 +23,16 @@ const cardVariants = cva("rounded-md transition-all duration-300 ease-out", {
       // premium-card treatment used across the homepage's elevated pass.
       premium:
         "border border-border/60 bg-canvas shadow-[0_2px_8px_rgba(30,29,27,0.04),0_20px_48px_rgba(30,29,27,0.08)]",
-      // Dark-glass surface for the homepage's dark content sections
-      // (Procurement Sectors) — a translucent light fill over the section's
-      // `obsidian` background rather than a flat opaque colour, plus the
-      // 20px radius those sections use (larger than the rest of the
-      // site's `radius-sm`/`radius-md` system — an explicitly-requested
-      // exception).
+      // Premium card surface for content sitting on the site's white
+      // `obsidian` panels (Procurement Sectors, product/knowledge grids,
+      // etc.) — a plain white surface with the same soft shadow language
+      // as `premium`, keeping the 20px radius those sections use (larger
+      // than the rest of the site's `radius-sm`/`radius-md` system — an
+      // explicitly-requested exception). Named "glass" from its original
+      // dark-translucent treatment; kept as the same variant key so every
+      // call site repaints for the light theme without being touched.
       glass:
-        "rounded-[20px] border border-canvas/10 bg-canvas/[0.04] backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.35)]",
+        "rounded-[20px] border border-border bg-canvas shadow-[0_2px_8px_rgba(30,29,27,0.04),0_20px_48px_rgba(30,29,27,0.08)]",
     },
     padding: {
       none: "p-0",

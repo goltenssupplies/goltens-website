@@ -61,7 +61,7 @@ export function SectorHero({
       />
       <div
         aria-hidden="true"
-        className="from-obsidian via-obsidian/50 pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent"
+        className="from-ink via-ink/50 pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent"
       />
       <div
         aria-hidden="true"
@@ -77,16 +77,24 @@ export function SectorHero({
           navLabel={navLabel}
           className="mb-4"
         />
+        {/* This hero sits on a photo + dark scrim (see the gradient above),
+            not the site's light `obsidian` panel surface — so its text
+            stays explicitly light (`text-canvas`) regardless of what
+            `tone="inverse"` resolves to elsewhere on the light-theme site. */}
         <Stack gap="md" className="max-w-3xl">
-          <Heading level={1} size={1} tone="inverse">
+          <Heading level={1} size={1} className="text-canvas">
             {title}
           </Heading>
           {subtitle && (
-            <Text size="lg" tone="inverse" weight="medium" className="max-w-2xl opacity-90">
+            <Text
+              size="lg"
+              weight="medium"
+              className="text-canvas max-w-2xl opacity-90"
+            >
               {subtitle}
             </Text>
           )}
-          <Text size="lg" tone="inverse" className="max-w-2xl opacity-80">
+          <Text size="lg" className="text-canvas max-w-2xl opacity-80">
             {description}
           </Text>
         </Stack>

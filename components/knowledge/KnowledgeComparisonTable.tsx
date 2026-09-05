@@ -59,7 +59,7 @@ export function KnowledgeComparisonTable({
         >
           <table className="w-full min-w-[480px] border-collapse">
             <thead>
-              <tr className="border-canvas/10 border-b">
+              <tr className="border-border border-b">
                 <th className="p-4 text-start">
                   <span className="sr-only">{title}</span>
                 </th>
@@ -94,7 +94,7 @@ export function KnowledgeComparisonTable({
               {rows.map((row) => (
                 <tr
                   key={row.label}
-                  className="border-canvas/10 border-b last:border-0"
+                  className="border-border border-b last:border-0"
                 >
                   <td className="p-4">
                     <Text size="sm" tone="inverse" className="opacity-60">
