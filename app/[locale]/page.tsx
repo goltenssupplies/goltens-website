@@ -68,8 +68,8 @@ export default async function HomePage() {
       <CTA
         title={t("title")}
         description={t("description")}
-        premium
-        media={{ posterSrc: "/images/categories/global-sourcing.webp" }}
+        tone="canvas"
+        className="bg-obsidian"
         actions={
           <Button
             href="/contact"
