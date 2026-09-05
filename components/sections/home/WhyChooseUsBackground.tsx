@@ -8,6 +8,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import Image from "next/image";
 
 // Deterministic scatter — not `Math.random()` — so server and client markup
 // always match exactly (a `Math.random()` seed here would be a genuine
@@ -76,14 +77,20 @@ const SPRING = { stiffness: 60, damping: 20, mass: 0.5 };
 const GRAIN_FILTER_ID = "why-choose-grain";
 
 /**
- * Fully generated "Why GOLTENS" background — CSS, SVG, and Framer Motion
- * only. No photo, video, WebGL, Three.js, or Canvas anywhere in this file,
- * and nothing marine/port/ship-related — this is a general-supplies /
- * industrial-procurement company, not a marine one.
+ * "Why GOLTENS" background — a full-bleed photo (a professional
+ * procurement/partnership shot) under the same deep navy/charcoal scrim
+ * this section always used as its flat base, plus every other layer below
+ * (grid texture, glows, rings, particles, grain) unchanged on top of it,
+ * CSS/SVG/Framer Motion as before.
  *
- * Deliberately minimal: a deep navy/charcoal base, the site's existing
- * blueprint-grid texture (`.bg-grid-pattern`) at very low opacity and
- * softened with a CSS blur so it reads as embedded texture rather than
+ * The base layer used to be a flat gradient with no photo at all; only that
+ * one layer changed (an `<Image>` plus the same gradient made
+ * semi-transparent) — everything from the blueprint-grid texture down is
+ * untouched, so the section's motion/depth language stays exactly as
+ * designed, just with a photo now visible underneath it.
+ *
+ * The site's existing blueprint-grid texture (`.bg-grid-pattern`) sits at
+ * very low opacity, softened with a CSS blur so it reads as embedded texture rather than
  * drawn linework, two soft/blurred concentric-ring clusters in the outer
  * thirds (the only remaining "technical form" — no gears, no pipes, no
  * dense linework), a single slow-breathing diagonal gold accent line, and a
@@ -136,12 +143,23 @@ export function WhyChooseUsBackground() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Deep graphite-black → charcoal-navy, soft diagonal transition. */}
+      {/* Full-bleed photo — a professional handshake/partnership shot,
+          fitting this section's "trust and reliability" theme. Sits under
+          the same deep graphite-black → charcoal-navy diagonal this
+          section always used as its flat base, now semi-transparent so the
+          photo reads clearly through it rather than being hidden by it. */}
+      <Image
+        src="/images/categories/government-procurement.webp"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+      />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(135deg, #0a0b0d 0%, #10131a 55%, #171b23 100%)",
+            "linear-gradient(135deg, rgba(10,11,13,0.62) 0%, rgba(16,19,26,0.58) 55%, rgba(23,27,35,0.62) 100%)",
         }}
       />
 

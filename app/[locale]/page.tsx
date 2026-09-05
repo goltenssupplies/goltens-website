@@ -69,6 +69,7 @@ export default async function HomePage() {
         title={t("title")}
         description={t("description")}
         premium
+        media={{ posterSrc: "/images/categories/global-sourcing.webp" }}
         actions={
           <Button
             href="/contact"
