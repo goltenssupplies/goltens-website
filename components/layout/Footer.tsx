@@ -6,6 +6,7 @@ import { Divider } from "@/components/ui/Divider";
 import { Reveal } from "@/components/ui/Reveal";
 import { Stack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
+import { FooterBackgroundImage } from "@/components/layout/FooterBackgroundImage";
 import { LogoImage } from "@/components/layout/Logo";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -57,7 +58,11 @@ function ColumnHeading({ children }: { children: ReactNode }) {
 }
 
 /**
- * Site-wide footer: a dark-navy surface organised into exactly three
+ * Site-wide footer: a dark-navy surface (now carrying the current page's
+ * own Hero photo, muted under the same dark scrim every Hero uses — see
+ * `FooterBackgroundImage`/`FooterBackgroundContext` — so the Footer reads
+ * as a continuation of that page's Hero rather than a flat color change)
+ * organised into exactly three
  * logical areas, side by side from `sm` up on a deliberately asymmetric
  * `1.4fr 1fr 1fr` grid (not equal thirds) — Identity gets the extra share
  * so the enlarged logo reads as the area's clear primary visual element,
@@ -104,6 +109,7 @@ export function Footer({
         className,
       )}
     >
+      <FooterBackgroundImage />
       <div
         aria-hidden="true"
         className="bg-gold absolute inset-x-0 top-0 h-px"

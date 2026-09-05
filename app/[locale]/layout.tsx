@@ -11,6 +11,7 @@ import {
 } from "next/font/google";
 
 import { Footer } from "@/components/layout/Footer";
+import { FooterBackgroundProvider } from "@/components/layout/FooterBackgroundContext";
 import { HeaderLogo } from "@/components/layout/HeaderLogo";
 import { Navbar } from "@/components/layout/Navbar";
 import { SplashProvider } from "@/components/layout/SplashContext";
@@ -180,48 +181,50 @@ export default async function LocaleLayout({
             <RfqCartProvider>
               <ComparisonProvider>
                 <WhatsAppMessageProvider>
-                  <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                      __html: JSON.stringify(organizationJsonLd(locale)),
-                    }}
-                  />
-                  <a
-                    href="#main-content"
-                    className="focus:bg-primary focus:text-canvas sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:px-4 focus:py-2 focus:text-sm focus:font-medium"
-                  >
-                    {tCommon("skipToContent")}
-                  </a>
-                  <Navbar
-                    logo={<HeaderLogo />}
-                    navItems={navItems}
-                    primaryNavLabel={t("primaryNav")}
-                    menuOpenLabel={t("openMenu")}
-                    menuCloseLabel={t("closeMenu")}
-                  />
-                  <main id="main-content">{children}</main>
-                  <Footer
-                    quickLinksHeading={tFooter("quickLinksHeading")}
-                    quickLinks={footerQuickLinks}
-                    contactHeading={tFooter("contactHeading")}
-                    phone={
-                      <span dir="ltr" className="ltr">
-                        {contactPhoneDisplay}
-                      </span>
-                    }
-                    phoneHref={contactPhoneHref}
-                    email={contactEmail}
-                    emailLabel={tFooter("emailLabel")}
-                    salesEmail={salesEmail}
-                    salesEmailLabel={tFooter("salesEmailLabel")}
-                    legalLinksHeading={tFooter("legalLinksHeading")}
-                    legalLinks={legalLinks}
-                    bottomText={tFooter("copyright", {
-                      year: new Date().getFullYear(),
-                    })}
-                  />
-                  <UtilityTrayLoader />
-                  <WhatsAppButtonLoader />
+                  <FooterBackgroundProvider>
+                    <script
+                      type="application/ld+json"
+                      dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(organizationJsonLd(locale)),
+                      }}
+                    />
+                    <a
+                      href="#main-content"
+                      className="focus:bg-primary focus:text-canvas sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:px-4 focus:py-2 focus:text-sm focus:font-medium"
+                    >
+                      {tCommon("skipToContent")}
+                    </a>
+                    <Navbar
+                      logo={<HeaderLogo />}
+                      navItems={navItems}
+                      primaryNavLabel={t("primaryNav")}
+                      menuOpenLabel={t("openMenu")}
+                      menuCloseLabel={t("closeMenu")}
+                    />
+                    <main id="main-content">{children}</main>
+                    <Footer
+                      quickLinksHeading={tFooter("quickLinksHeading")}
+                      quickLinks={footerQuickLinks}
+                      contactHeading={tFooter("contactHeading")}
+                      phone={
+                        <span dir="ltr" className="ltr">
+                          {contactPhoneDisplay}
+                        </span>
+                      }
+                      phoneHref={contactPhoneHref}
+                      email={contactEmail}
+                      emailLabel={tFooter("emailLabel")}
+                      salesEmail={salesEmail}
+                      salesEmailLabel={tFooter("salesEmailLabel")}
+                      legalLinksHeading={tFooter("legalLinksHeading")}
+                      legalLinks={legalLinks}
+                      bottomText={tFooter("copyright", {
+                        year: new Date().getFullYear(),
+                      })}
+                    />
+                    <UtilityTrayLoader />
+                    <WhatsAppButtonLoader />
+                  </FooterBackgroundProvider>
                 </WhatsAppMessageProvider>
               </ComparisonProvider>
             </RfqCartProvider>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { SetFooterBackgroundImage } from "@/components/layout/SetFooterBackgroundImage";
 import { SetWhatsAppMessage } from "@/components/layout/SetWhatsAppMessage";
 import {
   ProductExplorer,
@@ -32,6 +33,7 @@ import {
   DEFAULT_ADVANTAGE_ICONS,
   SECTOR_CONTENT_ICONS,
 } from "@/lib/sector-content-icons";
+import { getSectorImage } from "@/lib/sectors";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
@@ -208,6 +210,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
   return (
     <>
       <SetWhatsAppMessage text={whatsappMessage} />
+      <SetFooterBackgroundImage image={getSectorImage(sector.image)} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
