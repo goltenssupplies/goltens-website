@@ -163,44 +163,56 @@ export const governmentProcurementContent: SectorContent = {
 
   faqs: [
     {
-      question_en: "How do I request a quotation?",
+      question_en:
+        "What types of supplies does GOLTENS provide to government entities?",
       answer_en:
-        "Share your requirement using the request quotation form on this page, including the technical specification or tender document, the quantities needed, and your project or delivery-site details, and our team will respond with a tailored quotation.",
-      question_ar: "كيف يمكنني طلب عرض سعر؟",
+        "We supply a range of equipment, supplies, and solutions based on the nature of the request, required specifications, and quantities. This includes areas such as equipment, general supplies, security and safety systems, public lighting, furniture, and other procurement requirements.",
+      question_ar: "ما أنواع التوريدات التي توفرها GOLTENS للجهات الحكومية؟",
       answer_ar:
-        "شاركونا متطلباتكم من خلال نموذج طلب عرض السعر في هذه الصفحة، مع إرفاق المواصفات الفنية أو وثيقة المناقصة، والكميات المطلوبة، وتفاصيل مشروعكم أو موقع التسليم، وسيتواصل معكم فريقنا بعرض سعر مخصص.",
+        "نوفر مجموعة من المستلزمات والمعدات والحلول التي تحتاجها الجهات والمؤسسات الحكومية، وفق طبيعة الطلب والمواصفات والكميات المطلوبة، وتشمل مجالات مثل المعدات، المستلزمات، أنظمة الأمن والسلامة، الإنارة، الأثاث والتجهيزات وغيرها من احتياجات التوريد العامة.",
     },
     {
-      question_en: "Can GOLTENS supply against a government tender?",
+      question_en: "Can GOLTENS supply according to tender specifications?",
       answer_en:
-        "Yes. We regularly supply government entities and public-sector projects, and can provide the documentation typically required for tender submission on request.",
-      question_ar: "هل يمكن لـGOLTENS التوريد لمناقصة حكومية؟",
+        "Yes. We review the technical specifications, quantities, and supply requirements stated in the request or tender documents, then source products and solutions that match the specified requirements.",
+      question_ar: "هل يمكن لـ GOLTENS التوريد وفق مواصفات المناقصات؟",
       answer_ar:
-        "نعم، نقوم بانتظام بالتوريد للجهات الحكومية ومشروعات القطاع العام، ويمكننا توفير الوثائق المطلوبة عادةً لتقديم المناقصات عند الطلب.",
+        "نعم، نراجع المواصفات الفنية والكميات ومتطلبات التوريد الواردة في الطلب أو مستندات المناقصة، ثم نبحث عن المنتجات والحلول التي تتوافق مع المتطلبات المحددة.",
     },
     {
-      question_en: "What is the lead time?",
+      question_en:
+        "What if the requested product is not listed on the GOLTENS website?",
       answer_en:
-        "Lead time depends on the specific product and origin, and is confirmed with every quotation — it's not the same across all items, so we always state it explicitly rather than quote a single blanket figure.",
-      question_ar: "ما هي مدة التوريد؟",
+        "You can send us the product specifications or supply requirements directly. We review the request, search for suitable products and suppliers, and assess the sourcing options based on the required specifications.",
+      question_ar:
+        "كيف تتعامل GOLTENS مع طلب توريد لمنتج غير موجود في قائمة المنتجات؟",
       answer_ar:
-        "تعتمد مدة التوريد على المنتج وبلد المنشأ، ويتم تأكيدها مع كل عرض سعر — فهي تختلف باختلاف المنتجات، لذلك نوضحها دائمًا بشكل صريح بدلاً من تحديد رقم عام موحد.",
+        "يمكنكم إرسال مواصفات المنتج أو متطلبات التوريد مباشرة. نقوم بدراسة الطلب والبحث عن المنتجات والموردين المناسبين، ثم نحدد إمكانية التوريد وفق المواصفات المطلوبة.",
     },
     {
-      question_en: "Can GOLTENS source international brands?",
+      question_en: "Can GOLTENS provide alternatives to the requested product?",
       answer_en:
-        "Yes. We source products from trusted global manufacturers through our international supplier network, subject to availability, and confirm brand and model options as part of every quotation.",
-      question_ar: "هل يمكن لـGOLTENS توريد علامات تجارية عالمية؟",
+        "Where suitable alternatives are available, we can review and compare them against the technical specifications and requirements before preparing the quotation, clearly identifying the proposed alternative when applicable.",
+      question_ar: "هل توفر GOLTENS بدائل للمنتج المطلوب؟",
       answer_ar:
-        "نعم، نقوم بتوريد منتجات من شركات مصنّعة عالمية موثوقة من خلال شبكة موردينا الدولية، وفقًا لتوافرها، ونؤكد خيارات العلامة التجارية والطراز كجزء من كل عرض سعر.",
+        "عند وجود بدائل مناسبة، يمكننا مراجعتها ومقارنتها بالمواصفات والمتطلبات الفنية للطلب قبل تقديم العرض، مع توضيح البديل المقترح عند الحاجة.",
     },
     {
-      question_en: "Do you provide technical support?",
+      question_en: "What information is required to request a quotation?",
       answer_en:
-        "Yes, our team provides technical support before and after every order — from matching products to your specification through to after-sales support.",
-      question_ar: "هل تقدمون دعمًا فنيًا؟",
+        "It is helpful to provide the product or equipment description, technical specifications, required quantities, and any relevant supply documents or conditions. More complete information helps us match the request with suitable products and suppliers.",
+      question_ar: "ما المعلومات المطلوبة لطلب عرض سعر؟",
       answer_ar:
-        "نعم، يقدم فريقنا الدعم الفني قبل وبعد كل طلب — من مطابقة المنتجات لمواصفاتكم وحتى الدعم بعد البيع.",
+        "يفضل إرسال وصف المنتج أو المعدة، المواصفات الفنية، الكميات المطلوبة، وأي مستندات أو شروط توريد مرتبطة بالطلب. كلما كانت المعلومات أكثر دقة، كان من الأسهل مطابقة الطلب مع المنتجات والموردين المناسبين.",
+    },
+    {
+      question_en:
+        "How can a government entity submit a supply request to GOLTENS?",
+      answer_en:
+        "A supply request can be submitted through the RFQ form on the website, together with the relevant specifications and documents. After reviewing the request, we will follow up to clarify any additional details required.",
+      question_ar: "كيف يمكن للجهة الحكومية إرسال طلب توريد إلى GOLTENS؟",
+      answer_ar:
+        "يمكن إرسال طلب التوريد من خلال نموذج طلب عرض السعر (RFQ) على الموقع، مع إرفاق المواصفات والمستندات ذات الصلة. بعد مراجعة الطلب، يتم التواصل لاستكمال التفاصيل اللازمة.",
     },
   ],
 
