@@ -16,6 +16,7 @@ import {
 } from "@/components/sectors/SectorAdvantages";
 import { SectorFAQ } from "@/components/sectors/SectorFAQ";
 import { SectorHero } from "@/components/sectors/SectorHero";
+import { SectorHowWeWork } from "@/components/sectors/SectorHowWeWork";
 import { SectorQuoteCTA } from "@/components/sectors/SectorQuoteCTA";
 import { RelatedSectors } from "@/components/sectors/RelatedSectors";
 import type { SectorCardItem } from "@/components/sectors/SectorCard";
@@ -174,6 +175,24 @@ export default async function SectorPage({ params }: SectorPageProps) {
         icon: DEFAULT_ADVANTAGE_ICONS[index % DEFAULT_ADVANTAGE_ICONS.length],
       }));
 
+  // How We Work — only rendered when a sector has curated its own; no
+  // generic fallback (unlike Advantages/FAQ), same "never invented" rule
+  // as About/Applications.
+  const howWeWork = content.howWeWork
+    ? {
+        title: isArabic
+          ? content.howWeWork.title_ar
+          : content.howWeWork.title_en,
+        description: isArabic
+          ? content.howWeWork.description_ar
+          : content.howWeWork.description_en,
+        steps: content.howWeWork.steps.map((step) => ({
+          title: isArabic ? step.title_ar : step.title_en,
+          description: isArabic ? step.description_ar : step.description_en,
+        })),
+      }
+    : null;
+
   // Related Sectors — a sector's own curated `relatedSectorSlugs`, or the
   // next few other real sectors by `order` when a sector hasn't curated its
   // own list yet. Every item resolves to a real `data/sectors.ts` row and a
@@ -311,6 +330,14 @@ export default async function SectorPage({ params }: SectorPageProps) {
       <PremiumDarkSection>
         <SectorAdvantages title={t("advantagesTitle")} items={advantageItems} />
       </PremiumDarkSection>
+
+      {howWeWork && (
+        <SectorHowWeWork
+          title={howWeWork.title}
+          description={howWeWork.description}
+          steps={howWeWork.steps}
+        />
+      )}
 
       <SectorQuoteCTA
         id={REQUEST_QUOTE_ANCHOR}

@@ -118,6 +118,49 @@ export const governmentProcurementContent: SectorContent = {
     },
   ],
 
+  howWeWork: {
+    title_en: "How We Work",
+    title_ar: "كيف نعمل؟",
+    description_en:
+      "From the first request to delivery, we manage the supply process through clear, structured steps.",
+    description_ar:
+      "من الطلب الأول حتى التسليم، ندير عملية التوريد بخطوات واضحة ومنظمة.",
+    steps: [
+      {
+        title_en: "Receiving the Request",
+        title_ar: "استلام الطلب",
+        description_en:
+          "We review your request and confirm the quantities, technical specifications, and supply requirements.",
+        description_ar:
+          "نراجع طلبكم ونحدد الكميات والمواصفات الفنية ومتطلبات التوريد.",
+      },
+      {
+        title_en: "Sourcing & Qualification",
+        title_ar: "البحث والتأهيل",
+        description_en:
+          "We identify suitable products and suppliers and assess how well they meet the requirements.",
+        description_ar:
+          "نبحث عن المنتجات والموردين المناسبين، ونراجع مدى توافقهم مع المتطلبات.",
+      },
+      {
+        title_en: "Specification Matching & Quotation",
+        title_ar: "مطابقة المواصفات والعرض",
+        description_en:
+          "We match the technical specifications, review the available alternatives, and prepare a suitable quotation for the request.",
+        description_ar:
+          "نطابق المواصفات الفنية ونراجع البدائل المتاحة، ثم نقدم عرضًا مناسبًا للطلب.",
+      },
+      {
+        title_en: "Supply & Delivery",
+        title_ar: "التوريد والتسليم",
+        description_en:
+          "We coordinate the supply process and follow through until the agreed quantities are delivered.",
+        description_ar:
+          "ننسق عملية التوريد ونتابع التنفيذ حتى تسليم الكميات المتفق عليها.",
+      },
+    ],
+  },
+
   faqs: [
     {
       question_en: "How do I request a quotation?",

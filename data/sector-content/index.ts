@@ -105,6 +105,8 @@ export type {
   SectorCatalogue,
   SectorContent,
   SectorFaq,
+  SectorHowWeWork,
+  SectorProcessStep,
   SectorProject,
   SectorSeo,
 } from "@/data/sector-content/types";

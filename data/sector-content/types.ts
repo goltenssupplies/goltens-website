@@ -83,6 +83,22 @@ export interface SectorArticle {
   relatedSectorSlugs?: string[];
 }
 
+export interface SectorProcessStep {
+  title_en: string;
+  title_ar: string;
+  description_en: string;
+  description_ar: string;
+}
+
+/** "How We Work" — a sector's own 4-step process explainer, same design as the homepage's `Capabilities` ("How We Work") section. Always exactly 4 steps: rendered against the same fixed icon set (receive/search/match/supply), same order. */
+export interface SectorHowWeWork {
+  title_en: string;
+  title_ar: string;
+  description_en: string;
+  description_ar: string;
+  steps: SectorProcessStep[];
+}
+
 export interface SectorFaq {
   question_en: string;
   answer_en: string;
@@ -117,6 +133,8 @@ export interface SectorContent {
   advantages?: SectorAdvantage[];
   catalogues?: SectorCatalogue[];
   articles?: SectorArticle[];
+  /** Only rendered when present — no generic fallback, unlike `advantages`/`faqs`. */
+  howWeWork?: SectorHowWeWork;
   faqs?: SectorFaq[];
   /** "Projects We Serve" — only rendered when present and non-empty; no generic fallback list. */
   projects?: SectorProject[];
