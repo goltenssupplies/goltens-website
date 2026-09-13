@@ -157,8 +157,8 @@ export const healthcareContent: SectorContent = {
   ],
 
   seo: {
-    title_en: "Hospital Equipment & Medical Supplies Supplier Egypt | GOLTENS",
-    title_ar: "توريد تجهيزات المستشفيات والمستلزمات الطبية في مصر | GOLTENS",
+    title_en: "Hospital Equipment & Medical Supplies Supplier Egypt",
+    title_ar: "توريد تجهيزات المستشفيات والمستلزمات الطبية في مصر",
     description_en:
       "GOLTENS supplies hospital equipment, medical beds, hospital furniture, and surgical supplies to hospitals, medical centers, and clinics in Egypt.",
     description_ar:
