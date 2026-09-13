@@ -287,6 +287,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
         addToRfqAddedLabel={t("addToRfqAddedLabel")}
         addToCompareLabel={t("addToCompareLabel")}
         addToCompareAddedLabel={t("addToCompareAddedLabel")}
+        sendRequirementHref={`/send-requirement?product=${encodeURIComponent(name)}`}
+        sendRequirementLabel={t("sendRequirementLinkLabel")}
       />
 
       <PremiumDarkSection>

@@ -1,3 +1,4 @@
+import { SendRequirementCTA } from "@/components/rfq/SendRequirementCTA";
 import { ContactForm } from "@/components/sections/contact/ContactForm";
 import { ContactQuoteSection } from "@/components/sections/contact/ContactQuoteSection";
 import { Container } from "@/components/ui/Container";
@@ -13,6 +14,9 @@ export interface SectorQuoteCTAProps {
   title: string;
   subtitle: string;
   defaultProductCategory: string;
+  /** "Looking for something not listed? Send your requirement" — omit both this and the href below to hide the secondary entry point entirely. */
+  sendRequirementHref?: string;
+  sendRequirementLabel?: string;
 }
 
 /**
@@ -30,6 +34,8 @@ export function SectorQuoteCTA({
   title,
   subtitle,
   defaultProductCategory,
+  sendRequirementHref,
+  sendRequirementLabel,
 }: SectorQuoteCTAProps) {
   return (
     <Section
@@ -50,6 +56,14 @@ export function SectorQuoteCTA({
             <Text size="lg" tone="muted" className="mx-auto mt-4 max-w-xl">
               {subtitle}
             </Text>
+            {sendRequirementHref && sendRequirementLabel && (
+              <div className="mt-3">
+                <SendRequirementCTA
+                  href={sendRequirementHref}
+                  label={sendRequirementLabel}
+                />
+              </div>
+            )}
           </Reveal>
         </div>
 

@@ -151,7 +151,11 @@
     "faqDefaultQ3": "How can I request a quotation?",
     "faqDefaultA3": "Share your requirements using the request quotation form on this page, and our team will respond with a tailored quotation.",
     "ctaTitle": "Ready to source for this sector?",
-    "ctaDescription": "Share your requirements and our team will get back to you with a tailored quotation."
+    "ctaDescription": "Share your requirements and our team will get back to you with a tailored quotation.",
+    "sendRequirementLinkLabel": "Looking for something not listed? Send your requirement",
+    "sendRequirementBannerTitle": "Can't find what you need?",
+    "sendRequirementBannerDescription": "Send us your specification, part number, drawing, BOQ, or product photo. We'll source it for you.",
+    "sendRequirementBannerButton": "Send Your Requirement"
   },
   "products": {
     "overviewTitle": "Overview",
@@ -180,7 +184,8 @@
     "addToRfqLabel": "Add to RFQ",
     "addToRfqAddedLabel": "Added to RFQ",
     "addToCompareLabel": "Add to Compare",
-    "addToCompareAddedLabel": "Added to Compare"
+    "addToCompareAddedLabel": "Added to Compare",
+    "sendRequirementLinkLabel": "Can't find this exact spec? Send your requirement"
   },
   "solutions": {
     "eyebrow": "Supply Solutions",
@@ -388,6 +393,66 @@
       "action": "Back to Home"
     }
   },
+  "sendRequirement": {
+    "eyebrow": "Send Your Requirement",
+    "title": "Can't find what you need?",
+    "description": "Send us your specification, part number, drawing, BOQ, or product photo. We'll source it for you.",
+    "form": {
+      "name": { "label": "Full Name", "placeholder": "Your full name" },
+      "company": {
+        "label": "Company Name",
+        "placeholder": "Your company name"
+      },
+      "email": { "label": "Email Address", "placeholder": "you@company.com" },
+      "phone": {
+        "label": "Phone / WhatsApp",
+        "placeholder": "+20 1XX XXX XXXX"
+      },
+      "productPartNumber": {
+        "label": "Product / Part Number",
+        "placeholder": "Model number or description"
+      },
+      "quantity": { "label": "Quantity", "placeholder": "e.g. 50 units" },
+      "technicalSpecifications": {
+        "label": "Technical Specifications",
+        "placeholder": "Describe the specification, standard, or dimensions — or attach a drawing/BOQ below"
+      },
+      "requiredDeliveryDate": {
+        "label": "Required Delivery Date (optional)"
+      },
+      "deliveryLocation": {
+        "label": "Delivery Location",
+        "placeholder": "City, site, or project location"
+      }
+    },
+    "upload": {
+      "label": "Attachments (optional)",
+      "dropzoneLabel": "Drag files here or click to upload",
+      "hint": "PDF, Excel, Word, ZIP, or image files up to 25MB each.",
+      "removeLabel": "Remove {name}",
+      "tooLarge": "{name} is larger than 25MB and was not added."
+    },
+    "validation": {
+      "required": "This field is required.",
+      "invalidEmail": "Please enter a valid email address."
+    },
+    "error": {
+      "title": "Something went wrong",
+      "description": "We couldn't submit your requirement. Please try again, or contact us directly.",
+      "validation": {
+        "title": "Please check your information",
+        "description": "Some required fields are missing or invalid. Please review the form and try again."
+      }
+    },
+    "submitting": "Submitting...",
+    "submit": "Send Requirement",
+    "formNote": "By submitting, you agree to be contacted by our sourcing team regarding this request.",
+    "success": {
+      "title": "Thank you. Your requirement has been received.",
+      "description": "Our sourcing team will review it and contact you.",
+      "action": "Back to Home"
+    }
+  },
   "compare": {
     "eyebrow": "Product Comparison",
     "title": "Compare Products",
@@ -461,7 +526,8 @@
   "finalCta": {
     "title": "Ready for Your Next Procurement Project?",
     "description": "Share your project requirements and our procurement team will respond with the right solution.",
-    "requestQuote": "Request a Quote"
+    "requestQuote": "Request a Quote",
+    "sendRequirementLabel": "Can't find what you need? Send your requirement"
   },
   "whyChooseUs": {
     "title": "Why GOLTENS?",

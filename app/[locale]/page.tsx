@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import { SetFooterBackgroundImage } from "@/components/layout/SetFooterBackgroundImage";
+import { SendRequirementCTA } from "@/components/rfq/SendRequirementCTA";
 import { Capabilities } from "@/components/sections/home/Capabilities";
 import { Hero } from "@/components/sections/home/Hero";
 import { Sectors } from "@/components/sections/home/Sectors";
@@ -71,14 +72,21 @@ export default async function HomePage() {
         tone="canvas"
         className="bg-obsidian"
         actions={
-          <Button
-            href="/contact"
-            variant="accent"
-            size="lg"
-            className="hover:shadow-[0_0_28px_rgba(166,128,61,0.45)]"
-          >
-            {t("requestQuote")}
-          </Button>
+          <>
+            <Button
+              href="/contact"
+              variant="accent"
+              size="lg"
+              className="hover:shadow-[0_0_28px_rgba(166,128,61,0.45)]"
+            >
+              {t("requestQuote")}
+            </Button>
+            <SendRequirementCTA
+              href="/send-requirement"
+              label={t("sendRequirementLabel")}
+              onDark
+            />
+          </>
         }
       />
     </>

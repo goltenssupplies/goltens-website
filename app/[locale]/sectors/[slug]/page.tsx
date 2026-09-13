@@ -20,6 +20,7 @@ import { SectorHowWeWork } from "@/components/sectors/SectorHowWeWork";
 import { SectorQuoteCTA } from "@/components/sectors/SectorQuoteCTA";
 import { RelatedSectors } from "@/components/sectors/RelatedSectors";
 import type { SectorCardItem } from "@/components/sectors/SectorCard";
+import { SendRequirementCTA } from "@/components/rfq/SendRequirementCTA";
 import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
@@ -339,12 +340,37 @@ export default async function SectorPage({ params }: SectorPageProps) {
         />
       )}
 
+      {/* Global Sourcing is the one exception: sourcing an item that isn't
+          in the catalog *is* this sector's whole premise, so "Send Your
+          Requirement" becomes the primary call to action here — shown
+          above the generic quotation CTA rather than as a secondary link
+          beside it (see the `sendRequirementHref` prop passed to
+          `SectorQuoteCTA` below for every other sector). */}
+      {slug === "global-sourcing" && (
+        <PremiumDarkSection>
+          <SendRequirementCTA
+            variant="banner"
+            href="/send-requirement"
+            label={t("sendRequirementBannerButton")}
+            title={t("sendRequirementBannerTitle")}
+            description={t("sendRequirementBannerDescription")}
+            className="mx-auto max-w-2xl"
+          />
+        </PremiumDarkSection>
+      )}
+
       <SectorQuoteCTA
         id={REQUEST_QUOTE_ANCHOR}
         locale={locale as Locale}
         title={t("ctaTitle")}
         subtitle={t("ctaDescription")}
         defaultProductCategory={title}
+        sendRequirementHref={
+          slug === "global-sourcing" ? undefined : "/send-requirement"
+        }
+        sendRequirementLabel={
+          slug === "global-sourcing" ? undefined : t("sendRequirementLinkLabel")
+        }
       />
 
       <PremiumDarkSection>

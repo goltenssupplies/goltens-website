@@ -151,7 +151,11 @@
     "faqDefaultQ3": "كيف يمكنني طلب عرض سعر؟",
     "faqDefaultA3": "شاركونا متطلباتكم من خلال نموذج طلب عرض السعر في هذه الصفحة، وسيتواصل معكم فريقنا بعرض سعر مخصص.",
     "ctaTitle": "هل أنتم مستعدون للتوريد لهذا القطاع؟",
-    "ctaDescription": "شاركونا متطلباتكم وسيتواصل معكم فريقنا بعرض سعر مخصص."
+    "ctaDescription": "شاركونا متطلباتكم وسيتواصل معكم فريقنا بعرض سعر مخصص.",
+    "sendRequirementLinkLabel": "تبحثون عن شيء غير مدرج؟ أرسلوا طلبكم",
+    "sendRequirementBannerTitle": "لم تجد ما تبحث عنه؟",
+    "sendRequirementBannerDescription": "أرسل لنا المواصفات أو رقم الجزء أو الرسم الهندسي أو الـBOQ أو صورة المنتج. وسنتولى البحث والتوريد.",
+    "sendRequirementBannerButton": "أرسل طلبك"
   },
   "products": {
     "overviewTitle": "نظرة عامة",
@@ -180,7 +184,8 @@
     "addToRfqLabel": "أضف إلى طلب عرض السعر",
     "addToRfqAddedLabel": "تمت الإضافة إلى طلب عرض السعر",
     "addToCompareLabel": "أضف إلى المقارنة",
-    "addToCompareAddedLabel": "تمت الإضافة إلى المقارنة"
+    "addToCompareAddedLabel": "تمت الإضافة إلى المقارنة",
+    "sendRequirementLinkLabel": "لم تجد هذه المواصفة تحديدًا؟ أرسل طلبك"
   },
   "solutions": {
     "eyebrow": "حلول التوريد",
@@ -385,6 +390,66 @@
       "action": "العودة إلى الصفحة الرئيسية"
     }
   },
+  "sendRequirement": {
+    "eyebrow": "أرسل طلبك",
+    "title": "لم تجد ما تبحث عنه؟",
+    "description": "أرسل لنا المواصفات أو رقم الجزء أو الرسم الهندسي أو الـBOQ أو صورة المنتج. وسنتولى البحث والتوريد.",
+    "form": {
+      "name": { "label": "الاسم الكامل", "placeholder": "اسمك الكامل" },
+      "company": { "label": "اسم الشركة", "placeholder": "اسم شركتكم" },
+      "email": {
+        "label": "البريد الإلكتروني",
+        "placeholder": "you@company.com"
+      },
+      "phone": {
+        "label": "الهاتف / واتساب",
+        "placeholder": "+20 1XX XXX XXXX"
+      },
+      "productPartNumber": {
+        "label": "المنتج / رقم القطعة",
+        "placeholder": "رقم الموديل أو الوصف أو المرجع"
+      },
+      "quantity": { "label": "الكمية", "placeholder": "مثال: 50 وحدة" },
+      "technicalSpecifications": {
+        "label": "المواصفات الفنية",
+        "placeholder": "صف المواصفة أو المعيار أو الأبعاد — أو أرفق رسمًا هندسيًا أو BOQ أدناه"
+      },
+      "requiredDeliveryDate": {
+        "label": "تاريخ التسليم المطلوب (اختياري)"
+      },
+      "deliveryLocation": {
+        "label": "موقع التسليم",
+        "placeholder": "المدينة أو الموقع أو موقع المشروع"
+      }
+    },
+    "upload": {
+      "label": "المرفقات (اختياري)",
+      "dropzoneLabel": "اسحبوا الملفات هنا أو انقروا للتحميل",
+      "hint": "ملفات PDF أو Excel أو Word أو ZIP أو صور بحد أقصى 25 ميجابايت لكل ملف.",
+      "removeLabel": "إزالة {name}",
+      "tooLarge": "حجم {name} أكبر من 25 ميجابايت ولم تتم إضافته."
+    },
+    "validation": {
+      "required": "هذا الحقل مطلوب.",
+      "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح."
+    },
+    "error": {
+      "title": "حدث خطأ ما",
+      "description": "تعذّر إرسال طلبكم. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة.",
+      "validation": {
+        "title": "يرجى مراجعة البيانات المُدخَلة",
+        "description": "بعض الحقول المطلوبة ناقصة أو غير صحيحة. يرجى مراجعة النموذج والمحاولة مرة أخرى."
+      }
+    },
+    "submitting": "جارٍ الإرسال...",
+    "submit": "إرسال الطلب",
+    "formNote": "بالإرسال، فإنكم توافقون على أن يتواصل معكم فريق التوريد بخصوص هذا الطلب.",
+    "success": {
+      "title": "شكرًا لكم. تم استلام طلبكم.",
+      "description": "سيقوم فريق التوريد بمراجعته والتواصل معكم.",
+      "action": "العودة إلى الصفحة الرئيسية"
+    }
+  },
   "compare": {
     "eyebrow": "مقارنة المنتجات",
     "title": "قارن المنتجات",
@@ -458,7 +523,8 @@
   "finalCta": {
     "title": "هل أنتم مستعدون لمشروع التوريد القادم؟",
     "description": "شاركنا متطلبات مشروعك وسيتواصل معك فريق المشتريات بحل مناسب.",
-    "requestQuote": "اطلب عرض سعر"
+    "requestQuote": "اطلب عرض سعر",
+    "sendRequirementLabel": "لم تجد ما تبحث عنه؟ أرسل طلبك"
   },
   "whyChooseUs": {
     "title": "لماذا GOLTENS؟",

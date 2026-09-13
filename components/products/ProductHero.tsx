@@ -4,6 +4,7 @@ import { AddToCompareButton } from "@/components/products/AddToCompareButton";
 import type { ComparisonItem } from "@/components/products/ComparisonContext";
 import { ProductBreadcrumb } from "@/components/products/ProductBreadcrumb";
 import { AddToRfqButton } from "@/components/rfq/AddToRfqButton";
+import { SendRequirementCTA } from "@/components/rfq/SendRequirementCTA";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
@@ -30,6 +31,9 @@ export interface ProductHeroProps {
   addToRfqAddedLabel?: string;
   addToCompareLabel?: string;
   addToCompareAddedLabel?: string;
+  /** "Can't find this exact spec? Send your requirement" — omit both this and the label below to hide the secondary entry point entirely. */
+  sendRequirementHref?: string;
+  sendRequirementLabel?: string;
 }
 
 /**
@@ -56,6 +60,8 @@ export function ProductHero({
   addToRfqAddedLabel,
   addToCompareLabel,
   addToCompareAddedLabel,
+  sendRequirementHref,
+  sendRequirementLabel,
 }: ProductHeroProps) {
   return (
     <div className="relative flex min-h-[480px] flex-col justify-end pt-24 pb-12 sm:min-h-[560px] lg:pt-28 lg:pb-16">
@@ -118,6 +124,15 @@ export function ProductHero({
             />
           )}
         </div>
+        {sendRequirementHref && sendRequirementLabel && (
+          <div className="mt-3">
+            <SendRequirementCTA
+              href={sendRequirementHref}
+              label={sendRequirementLabel}
+              onDark
+            />
+          </div>
+        )}
       </Container>
     </div>
   );
