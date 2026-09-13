@@ -53,9 +53,11 @@ export async function ContactHeroImage({ locale }: ContactHeroImageProps) {
           3-across layout respond to the row's own rendered width (which
           tracks the photo's width, not the viewport) — so the cards only
           go one-per-line when there truly isn't room for three, and the
-          longest value never has to wrap. DOM order is reversed from the
-          intended physical left-to-right reading, since this column always
-          has `dir="rtl"` forced on it (see `ContactQuoteSection`'s `dir`
+          longest value never has to wrap. When rendered through
+          `ContactQuoteSection` (this component's only caller), this
+          column's `dir` follows the real locale — `rtl` for Arabic, `ltr`
+          for English — so DOM order only gets visually reversed for
+          Arabic, not unconditionally (see `ContactQuoteSection`'s `dir`
           comment). */}
       <div className="@container">
         <div className="grid grid-cols-1 gap-3 @[760px]:grid-cols-3">

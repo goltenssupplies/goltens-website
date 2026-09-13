@@ -40,10 +40,12 @@ const RATIO_CLASS: Record<
  *
  * The outer row is forced `dir="ltr"` purely so column 1 (the photo)
  * always resolves to the physical left and column 2 (the slot) to the
- * physical right, while each column restores `dir="rtl"` for its own
- * Arabic content. On mobile this collapses to a single stacked column in
- * DOM order (photo + its contact cards, then the slot), unaffected by the
- * forced direction since block stacking never depends on it.
+ * physical right, regardless of locale — while each column's own `dir`
+ * follows the real `locale` (`rtl` for Arabic, `ltr` for English), so the
+ * content *inside* each column still reads in its own correct direction.
+ * On mobile this collapses to a single stacked column in DOM order (photo
+ * + its contact cards, then the slot), unaffected by either `dir` since
+ * block stacking never depends on it.
  */
 export function ContactQuoteSection({
   locale,
@@ -51,18 +53,20 @@ export function ContactQuoteSection({
   children,
   className,
 }: ContactQuoteSectionProps) {
+  const dir = locale === "ar" ? "rtl" : "ltr";
+
   return (
     <div
       dir="ltr"
       className={cn("grid grid-cols-1 gap-16", RATIO_CLASS[ratio], className)}
     >
-      <div dir="rtl">
+      <div dir={dir}>
         <Reveal>
           <ContactHeroImage locale={locale} />
         </Reveal>
       </div>
 
-      <div dir="rtl">
+      <div dir={dir}>
         <Reveal delay={0.15}>{children}</Reveal>
       </div>
     </div>
