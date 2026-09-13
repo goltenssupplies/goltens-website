@@ -86,6 +86,13 @@ export function SendRequirementCTA({
       size="sm"
       iconStart={<Send className="size-4" aria-hidden="true" />}
       className={cn(
+        // The "link" variant's label is a full sentence (unlike every other
+        // Button call site's short 2-3 word label), so the base
+        // `whitespace-nowrap`/fixed `h-9` from `buttonVariants` — correct
+        // for short labels — must be relaxed here specifically, or the
+        // label overflows its container on narrow mobile viewports instead
+        // of wrapping to a second line.
+        "h-auto min-h-9 py-2 whitespace-normal",
         onDark ? "text-canvas hover:bg-canvas/10" : undefined,
         className,
       )}
