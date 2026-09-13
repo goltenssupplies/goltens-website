@@ -89,7 +89,7 @@ export const healthcareHospitalBedsPatientHandling: Product[] = [
         fileUrl: null,
       },
     ],
-    images: [],
+    images: ["/images/products/healthcare/electric-hospital-beds-v2.webp"],
     availability: "on-request",
     quoteEnabled: true,
   },

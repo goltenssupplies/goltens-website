@@ -255,7 +255,7 @@ export const heavyCranesLiftingEquipment: Product[] = [
         fileUrl: null,
       },
     ],
-    images: ["/images/products/heavy-equipment/forklifts.webp"],
+    images: ["/images/products/heavy-equipment/forklifts-v3.webp"],
     availability: "available",
     quoteEnabled: true,
   },

@@ -506,7 +506,9 @@ export const industrialProcessPumps: Product[] = [
         fileUrl: null,
       },
     ],
-    images: ["/images/products/industrial-equipment/self-priming-pumps.webp"],
+    images: [
+      "/images/products/industrial-equipment/self-priming-pumps-v3.webp",
+    ],
     availability: "available",
     quoteEnabled: true,
   },
