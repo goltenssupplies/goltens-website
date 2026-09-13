@@ -156,4 +156,13 @@ export const industrialEquipmentContent: SectorContent = {
     "heavy-equipment",
     "global-sourcing",
   ],
+
+  seo: {
+    title_en: "Industrial Pumps & Equipment Supplier Egypt",
+    title_ar: "مورد المضخات والمعدات الصناعية في مصر",
+    description_en:
+      "GOLTENS supplies centrifugal pumps, air compressors, valves, and industrial equipment in Egypt, sourced from trusted manufacturers and matched to your technical specification.",
+    description_ar:
+      "توفر GOLTENS مضخات الطرد المركزي وضواغط الهواء والصمامات والمعدات الصناعية في مصر، من مصنّعين موثوقين ووفق مواصفاتكم الفنية.",
+  },
 };

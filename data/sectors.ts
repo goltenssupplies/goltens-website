@@ -47,6 +47,10 @@ export const SECTORS: Sector[] = [
     slug: "industrial-equipment",
     title_en: "Industrial Equipment & Pumps",
     title_ar: "المضخات والمعدات الصناعية",
+    subtitle_en:
+      "GOLTENS supplies industrial pumps, compressors, valves, and mechanical equipment — matched to your flow, pressure, and duty-condition requirements.",
+    subtitle_ar:
+      "توفر GOLTENS مضخات صناعية وضواغط هواء وصمامات ومعدات ميكانيكية — مطابقة لمتطلبات التدفق والضغط وظروف التشغيل لديكم.",
     description_en:
       "Reliable industrial pumps and mechanical equipment, matched to your technical specifications.",
     description_ar:
@@ -79,6 +83,10 @@ export const SECTORS: Sector[] = [
     slug: "electrical-energy",
     title_en: "Electrical & Energy Solutions",
     title_ar: "حلول الكهرباء والطاقة",
+    subtitle_en:
+      "GOLTENS supplies switchgear, generators, transformers, and lighting for industrial and commercial facilities — matched to your load and voltage requirements.",
+    subtitle_ar:
+      "توفر GOLTENS لوحات توزيع ومولدات ومحولات وإنارة للمنشآت الصناعية والتجارية — مطابقة لمتطلبات الأحمال والجهد لديكم.",
     description_en:
       "Electrical equipment, components, and energy solutions sourced to specification for industrial and commercial facilities.",
     description_ar:
@@ -93,6 +101,10 @@ export const SECTORS: Sector[] = [
     slug: "heavy-equipment",
     title_en: "Heavy Equipment & Machinery",
     title_ar: "المعدات الثقيلة",
+    subtitle_en:
+      "GOLTENS supplies earthmoving equipment, cranes, and construction machinery — matched to your jobsite and technical requirements.",
+    subtitle_ar:
+      "توفر GOLTENS معدات نقل التراب والأوناش وآليات الإنشاءات — مطابقة لمتطلبات موقع العمل والمواصفات الفنية لديكم.",
     description_en:
       "Heavy machinery and equipment for construction, industrial, and logistics operations.",
     description_ar:
@@ -107,9 +119,14 @@ export const SECTORS: Sector[] = [
     slug: "commercial-vehicles",
     title_en: "Commercial Vehicles & Fleet Solutions",
     title_ar: "المركبات التجارية وحلول الأساطيل",
+    subtitle_en:
+      "GOLTENS supplies trucks, trailers, and specialized vehicles — matched to your fleet's payload, configuration, and operational requirements.",
+    subtitle_ar:
+      "توفر GOLTENS شاحنات ومقطورات ومركبات متخصصة — مطابقة للحمولة وتكوين الأسطول ومتطلبات التشغيل لديكم.",
     description_en:
-      "Commercial vehicles and fleet solutions to support your logistics operations.",
-    description_ar: "مركبات تجارية وحلول تجهيز أساطيل لدعم عملياتكم اللوجستية.",
+      "Trucks, trailers, and specialized vehicles sourced to match your fleet's operational and replacement requirements.",
+    description_ar:
+      "شاحنات ومقطورات ومركبات متخصصة، يتم توريدها وفق احتياجات أسطولكم التشغيلية ومتطلبات الاستبدال.",
     image: "/images/categories/commercial-vehicles-new.jpg",
     icon: "Truck",
     featured: false,
@@ -138,6 +155,10 @@ export const SECTORS: Sector[] = [
     slug: "industrial-chemicals",
     title_en: "Industrial Chemicals & Lubricants",
     title_ar: "الكيماويات والزيوت الصناعية",
+    subtitle_en:
+      "GOLTENS supplies industrial chemicals, lubricants, and water-treatment products — matched to your process specification, with safety data sheets provided.",
+    subtitle_ar:
+      "توفر GOLTENS كيماويات صناعية وزيوتًا صناعية ومواد معالجة مياه — مطابقة لمواصفات عملياتكم، مع توفير نشرات بيانات السلامة.",
     description_en:
       "Industrial chemicals, laboratory reagents, and high-quality lubricants supplied to specification.",
     description_ar:
@@ -152,6 +173,10 @@ export const SECTORS: Sector[] = [
     slug: "construction",
     title_en: "Construction & Infrastructure",
     title_ar: "مواد البناء والبنية التحتية",
+    subtitle_en:
+      "GOLTENS supplies cement, steel, waterproofing, and construction materials — matched to your BOQ and engineering specification.",
+    subtitle_ar:
+      "توفر GOLTENS الأسمنت والحديد ومواد العزل ومواد البناء — مطابقة لجدول الكميات (BOQ) والمواصفات الهندسية لديكم.",
     description_en:
       "Materials and equipment supply for construction, engineering, and infrastructure projects.",
     description_ar:
@@ -166,10 +191,14 @@ export const SECTORS: Sector[] = [
     slug: "global-sourcing",
     title_en: "Global Sourcing & OEM Brands",
     title_ar: "الاستيراد العالمي والعلامات التجارية",
+    subtitle_en:
+      "GOLTENS sources spare parts, OEM components, and hard-to-find items through international procurement — matched to your specification.",
+    subtitle_ar:
+      "توفر GOLTENS قطع غيار ومكونات OEM وأصنافًا نادرة التوفر من خلال التوريد الدولي — مطابقة لمواصفاتكم.",
     description_en:
-      "Genuine products from leading global manufacturers, sourced through a trusted international supplier network.",
+      "We identify and source genuine products for hard-to-find or non-standard requirements, matched to your specification through direct international procurement.",
     description_ar:
-      "منتجات أصلية من كبرى الشركات المصنّعة العالمية، من خلال شبكة موردين دولية موثوقة.",
+      "نحدد ونورّد منتجات أصلية للمتطلبات غير القياسية أو صعبة التوفير، مع مطابقة مواصفاتكم من خلال التوريد الدولي المباشر.",
     image: "/images/categories/marine-logistics.jpg",
     icon: "Globe",
     featured: false,

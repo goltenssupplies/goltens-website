@@ -151,4 +151,13 @@ export const heavyEquipmentContent: SectorContent = {
     "electrical-energy",
     "global-sourcing",
   ],
+
+  seo: {
+    title_en: "Heavy Equipment & Machinery Supplier Egypt",
+    title_ar: "مورد المعدات الثقيلة والآليات في مصر",
+    description_en:
+      "GOLTENS supplies earthmoving equipment, cranes, and construction machinery in Egypt, sourced from trusted manufacturers and matched to your jobsite requirements.",
+    description_ar:
+      "توفر GOLTENS معدات نقل التراب والأوناش وآليات الإنشاءات في مصر، من مصنّعين موثوقين ووفق متطلبات موقع العمل لديكم.",
+  },
 };

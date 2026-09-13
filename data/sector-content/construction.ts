@@ -168,4 +168,13 @@ export const constructionContent: SectorContent = {
     "industrial-chemicals",
     "global-sourcing",
   ],
+
+  seo: {
+    title_en: "Construction Materials Supplier Egypt",
+    title_ar: "مورد مواد البناء والبنية التحتية في مصر",
+    description_en:
+      "GOLTENS supplies cement, steel, waterproofing, and construction materials in Egypt for engineering and infrastructure projects, matched to your BOQ and specification.",
+    description_ar:
+      "توفر GOLTENS الأسمنت والحديد ومواد العزل ومواد البناء في مصر لمشروعات الهندسة والبنية التحتية، وفق جدول الكميات ومواصفاتكم.",
+  },
 };

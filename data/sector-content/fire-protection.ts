@@ -50,9 +50,17 @@ export const fireProtectionContent: SectorContent = {
     { title_en: "Factories", title_ar: "المصانع", icon: "Factory" },
     { title_en: "Oil & Gas", title_ar: "النفط والغاز", icon: "Fuel" },
     { title_en: "Warehouses", title_ar: "المستودعات", icon: "Warehouse" },
-    { title_en: "Commercial Buildings", title_ar: "المباني التجارية", icon: "Building2" },
+    {
+      title_en: "Commercial Buildings",
+      title_ar: "المباني التجارية",
+      icon: "Building2",
+    },
     { title_en: "Power Plants", title_ar: "محطات الطاقة", icon: "Zap" },
-    { title_en: "Government Buildings", title_ar: "المباني الحكومية", icon: "Landmark" },
+    {
+      title_en: "Government Buildings",
+      title_ar: "المباني الحكومية",
+      icon: "Landmark",
+    },
   ],
 
   catalogues: [
@@ -63,8 +71,10 @@ export const fireProtectionContent: SectorContent = {
       language: "en",
       fileUrl: null,
       thumbnail: null,
-      description_en: "Fire pumps, controllers, engines, motors, and jockey pumps we can source.",
-      description_ar: "مضخات الحريق ولوحات التحكم والمحركات والمضخات التعويضية التي يمكننا توريدها.",
+      description_en:
+        "Fire pumps, controllers, engines, motors, and jockey pumps we can source.",
+      description_ar:
+        "مضخات الحريق ولوحات التحكم والمحركات والمضخات التعويضية التي يمكننا توريدها.",
     },
     {
       id: "valve-catalogue",
@@ -73,8 +83,10 @@ export const fireProtectionContent: SectorContent = {
       language: "en",
       fileUrl: null,
       thumbnail: null,
-      description_en: "Butterfly, gate, check, alarm, and OS&Y valves for fire protection systems.",
-      description_ar: "الصمامات الفراشية وصمامات البوابة وعدم الرجوع والإنذار وOS&Y لأنظمة مكافحة الحريق.",
+      description_en:
+        "Butterfly, gate, check, alarm, and OS&Y valves for fire protection systems.",
+      description_ar:
+        "الصمامات الفراشية وصمامات البوابة وعدم الرجوع والإنذار وOS&Y لأنظمة مكافحة الحريق.",
     },
     {
       id: "fire-alarm-catalogue",
@@ -83,7 +95,8 @@ export const fireProtectionContent: SectorContent = {
       language: "en",
       fileUrl: null,
       thumbnail: null,
-      description_en: "Detection, alarm panels, and accessories for fire alarm systems.",
+      description_en:
+        "Detection, alarm panels, and accessories for fire alarm systems.",
       description_ar: "أجهزة الكشف ولوحات الإنذار وملحقات أنظمة إنذار الحريق.",
     },
     {
@@ -93,8 +106,10 @@ export const fireProtectionContent: SectorContent = {
       language: "en",
       fileUrl: null,
       thumbnail: null,
-      description_en: "Sprinklers, gas suppression (FM200, NOVEC 1230, CO2), and foam systems.",
-      description_ar: "رشاشات الإخماد وأنظمة الإخماد بالغاز (FM200 وNOVEC 1230 وCO2) وأنظمة الرغوة.",
+      description_en:
+        "Sprinklers, gas suppression (FM200, NOVEC 1230, CO2), and foam systems.",
+      description_ar:
+        "رشاشات الإخماد وأنظمة الإخماد بالغاز (FM200 وNOVEC 1230 وCO2) وأنظمة الرغوة.",
     },
     {
       id: "accessories-catalogue",
@@ -103,8 +118,10 @@ export const fireProtectionContent: SectorContent = {
       language: "en/ar",
       fileUrl: null,
       thumbnail: null,
-      description_en: "Hydrants, cabinets, hose reels, hoses, extinguishers, and emergency lighting.",
-      description_ar: "حنفيات الحريق والخزائن وبكرات الخراطيم والخراطيم والطفايات وإضاءة الطوارئ.",
+      description_en:
+        "Hydrants, cabinets, hose reels, hoses, extinguishers, and emergency lighting.",
+      description_ar:
+        "حنفيات الحريق والخزائن وبكرات الخراطيم والخراطيم والطفايات وإضاءة الطوارئ.",
     },
   ],
 
@@ -112,48 +129,60 @@ export const fireProtectionContent: SectorContent = {
     {
       title_en: "Hospital Fire Protection",
       title_ar: "مكافحة الحريق في المستشفيات",
-      description_en: "Fire detection and suppression sourced for continuous-occupancy healthcare facilities, matched to your fire strategy and code requirements.",
-      description_ar: "توريد أنظمة كشف وإخماد الحريق للمنشآت الصحية ذات الإشغال المستمر، وفق استراتيجية الحريق ومتطلبات الكود لديكم.",
+      description_en:
+        "Fire detection and suppression sourced for continuous-occupancy healthcare facilities, matched to your fire strategy and code requirements.",
+      description_ar:
+        "توريد أنظمة كشف وإخماد الحريق للمنشآت الصحية ذات الإشغال المستمر، وفق استراتيجية الحريق ومتطلبات الكود لديكم.",
       image: null,
       recommendedBrandSlugs: ["tyco", "johnson-controls", "honeywell"],
     },
     {
       title_en: "University Campus",
       title_ar: "الحرم الجامعي",
-      description_en: "Fire alarm and detection systems sourced for multi-building campuses, sized to each facility's occupancy.",
-      description_ar: "توريد أنظمة إنذار وكشف الحريق للحرم الجامعي متعدد المباني، بما يتناسب مع إشغال كل منشأة.",
+      description_en:
+        "Fire alarm and detection systems sourced for multi-building campuses, sized to each facility's occupancy.",
+      description_ar:
+        "توريد أنظمة إنذار وكشف الحريق للحرم الجامعي متعدد المباني، بما يتناسب مع إشغال كل منشأة.",
       image: null,
       recommendedBrandSlugs: ["notifier", "simplex", "morley"],
     },
     {
       title_en: "Industrial Factory",
       title_ar: "المصنع الصناعي",
-      description_en: "Fire pumps, sprinkler systems, and detection sourced for process areas, warehouses, and production floors.",
-      description_ar: "توريد مضخات حريق وأنظمة رش تلقائي وأنظمة كشف لمناطق العمليات والمستودعات وخطوط الإنتاج.",
+      description_en:
+        "Fire pumps, sprinkler systems, and detection sourced for process areas, warehouses, and production floors.",
+      description_ar:
+        "توريد مضخات حريق وأنظمة رش تلقائي وأنظمة كشف لمناطق العمليات والمستودعات وخطوط الإنتاج.",
       image: null,
       recommendedBrandSlugs: ["tyco", "victaulic", "naffco"],
     },
     {
       title_en: "Government Complex",
       title_ar: "المجمع الحكومي",
-      description_en: "Complete fire protection procurement aligned with public-sector specification and certification requirements.",
-      description_ar: "توريد متكامل لمعدات مكافحة الحريق متوافق مع مواصفات ومتطلبات الاعتماد في القطاع الحكومي.",
+      description_en:
+        "Complete fire protection procurement aligned with public-sector specification and certification requirements.",
+      description_ar:
+        "توريد متكامل لمعدات مكافحة الحريق متوافق مع مواصفات ومتطلبات الاعتماد في القطاع الحكومي.",
       image: null,
       recommendedBrandSlugs: ["johnson-controls", "kidde", "minimax"],
     },
     {
       title_en: "Warehouse",
       title_ar: "المستودعات",
-      description_en: "Sprinkler and hydrant systems sourced and sized for large-footprint, high-storage warehouse risk.",
-      description_ar: "توريد أنظمة رش تلقائي وحنفيات حريق مقاسة وفق مخاطر المستودعات ذات المساحات الكبيرة والتخزين العالي.",
+      description_en:
+        "Sprinkler and hydrant systems sourced and sized for large-footprint, high-storage warehouse risk.",
+      description_ar:
+        "توريد أنظمة رش تلقائي وحنفيات حريق مقاسة وفق مخاطر المستودعات ذات المساحات الكبيرة والتخزين العالي.",
       image: null,
       recommendedBrandSlugs: ["viking", "reliable", "rapidrop"],
     },
     {
       title_en: "Commercial Tower",
       title_ar: "البرج التجاري",
-      description_en: "Fire protection systems sourced and matched to high-rise commercial building specifications, from riser valves to full sprinkler networks.",
-      description_ar: "توريد أنظمة مكافحة حريق وفق مواصفات المباني التجارية الشاهقة، من صمامات الأعمدة الصاعدة إلى شبكات الرش التلقائي الكاملة.",
+      description_en:
+        "Fire protection systems sourced and matched to high-rise commercial building specifications, from riser valves to full sprinkler networks.",
+      description_ar:
+        "توريد أنظمة مكافحة حريق وفق مواصفات المباني التجارية الشاهقة، من صمامات الأعمدة الصاعدة إلى شبكات الرش التلقائي الكاملة.",
       image: null,
       recommendedBrandSlugs: ["victaulic", "naffco"],
     },
@@ -162,39 +191,51 @@ export const fireProtectionContent: SectorContent = {
   faqs: [
     {
       question_en: "How do I request a quotation?",
-      answer_en: "Share your project requirements using the request quotation form on this page, including a BOQ or technical specification if available, and our team will respond with a tailored quotation.",
+      answer_en:
+        "Share your project requirements using the request quotation form on this page, including a BOQ or technical specification if available, and our team will respond with a tailored quotation.",
       question_ar: "كيف يمكنني طلب عرض سعر؟",
-      answer_ar: "شاركونا متطلبات مشروعكم من خلال نموذج طلب عرض السعر في هذه الصفحة، مع إرفاق جدول الكميات (BOQ) أو المواصفات الفنية إن وجدت، وسيتواصل معكم فريقنا بعرض سعر مخصص.",
+      answer_ar:
+        "شاركونا متطلبات مشروعكم من خلال نموذج طلب عرض السعر في هذه الصفحة، مع إرفاق جدول الكميات (BOQ) أو المواصفات الفنية إن وجدت، وسيتواصل معكم فريقنا بعرض سعر مخصص.",
     },
     {
       question_en: "What is the lead time?",
-      answer_en: "Lead time depends on the specific product, brand, and origin, and is confirmed with every quotation — it's not the same across all items, so we always state it explicitly rather than quote a single blanket figure.",
+      answer_en:
+        "Lead time depends on the specific product, brand, and origin, and is confirmed with every quotation — it's not the same across all items, so we always state it explicitly rather than quote a single blanket figure.",
       question_ar: "ما هي مدة التوريد؟",
-      answer_ar: "تعتمد مدة التوريد على المنتج والعلامة التجارية وبلد المنشأ، ويتم تأكيدها مع كل عرض سعر — فهي تختلف باختلاف المنتجات، لذلك نوضحها دائمًا بشكل صريح بدلاً من تحديد رقم عام موحد.",
+      answer_ar:
+        "تعتمد مدة التوريد على المنتج والعلامة التجارية وبلد المنشأ، ويتم تأكيدها مع كل عرض سعر — فهي تختلف باختلاف المنتجات، لذلك نوضحها دائمًا بشكل صريح بدلاً من تحديد رقم عام موحد.",
     },
     {
       question_en: "Can GOLTENS source international brands?",
-      answer_en: "Yes. We source fire protection products from trusted global manufacturers through our international supplier network, subject to availability, and confirm brand and model options as part of every quotation.",
+      answer_en:
+        "Yes. We source fire protection products from trusted global manufacturers through our international supplier network, subject to availability, and confirm brand and model options as part of every quotation.",
       question_ar: "هل يمكن لـGOLTENS توريد علامات تجارية عالمية؟",
-      answer_ar: "نعم، نقوم بتوريد منتجات مكافحة الحريق من شركات مصنّعة عالمية موثوقة من خلال شبكة موردينا الدولية، وفقًا لتوافرها، ونؤكد خيارات العلامة التجارية والطراز كجزء من كل عرض سعر.",
+      answer_ar:
+        "نعم، نقوم بتوريد منتجات مكافحة الحريق من شركات مصنّعة عالمية موثوقة من خلال شبكة موردينا الدولية، وفقًا لتوافرها، ونؤكد خيارات العلامة التجارية والطراز كجزء من كل عرض سعر.",
     },
     {
       question_en: "Do you supply government tenders?",
-      answer_en: "Yes. We supply fire protection procurement for government entities and public-sector projects, and can provide the documentation typically required for tender submission on request.",
+      answer_en:
+        "Yes. We supply fire protection procurement for government entities and public-sector projects, and can provide the documentation typically required for tender submission on request.",
       question_ar: "هل تورّدون للمناقصات الحكومية؟",
-      answer_ar: "نعم، نقوم بتوريد معدات مكافحة الحريق للجهات الحكومية ومشروعات القطاع العام، ويمكننا توفير الوثائق المطلوبة عادةً لتقديم المناقصات عند الطلب.",
+      answer_ar:
+        "نعم، نقوم بتوريد معدات مكافحة الحريق للجهات الحكومية ومشروعات القطاع العام، ويمكننا توفير الوثائق المطلوبة عادةً لتقديم المناقصات عند الطلب.",
     },
     {
       question_en: "Do you provide technical support?",
-      answer_en: "Yes, our team provides technical support before and after every order — from matching products to your specification through to after-sales support.",
+      answer_en:
+        "Yes, our team provides technical support before and after every order — from matching products to your specification through to after-sales support.",
       question_ar: "هل تقدمون دعمًا فنيًا؟",
-      answer_ar: "نعم، يقدم فريقنا الدعم الفني قبل وبعد كل طلب — من مطابقة المنتجات لمواصفاتكم وحتى الدعم بعد البيع.",
+      answer_ar:
+        "نعم، يقدم فريقنا الدعم الفني قبل وبعد كل طلب — من مطابقة المنتجات لمواصفاتكم وحتى الدعم بعد البيع.",
     },
     {
       question_en: "Can you supply complete fire protection systems?",
-      answer_en: "Yes. We supply complete fire protection systems — pumps, valves, sprinklers, detection and alarm, and suppression — sourced and coordinated as one project rather than as unrelated individual items.",
+      answer_en:
+        "Yes. We supply complete fire protection systems — pumps, valves, sprinklers, detection and alarm, and suppression — sourced and coordinated as one project rather than as unrelated individual items.",
       question_ar: "هل يمكنكم توريد أنظمة مكافحة حريق متكاملة؟",
-      answer_ar: "نعم، نقوم بتوريد أنظمة مكافحة حريق متكاملة — مضخات وصمامات ورشاشات وأنظمة كشف وإنذار وإخماد — يتم توريدها وتنسيقها كمشروع واحد وليس كعناصر منفردة غير مترابطة.",
+      answer_ar:
+        "نعم، نقوم بتوريد أنظمة مكافحة حريق متكاملة — مضخات وصمامات ورشاشات وأنظمة كشف وإنذار وإخماد — يتم توريدها وتنسيقها كمشروع واحد وليس كعناصر منفردة غير مترابطة.",
     },
   ],
 
@@ -206,4 +247,13 @@ export const fireProtectionContent: SectorContent = {
     "healthcare",
     "commercial-vehicles",
   ],
+
+  seo: {
+    title_en: "Fire Protection Equipment Supplier Egypt",
+    title_ar: "مورد معدات مكافحة الحريق في مصر",
+    description_en:
+      "GOLTENS supplies fire pumps, sprinklers, valves, suppression systems, and fire alarm equipment in Egypt for hospitals, industrial facilities, and government projects.",
+    description_ar:
+      "توفر GOLTENS مضخات الحريق ورشاشات الإخماد والصمامات وأنظمة الإخماد وإنذار الحريق في مصر للمستشفيات والمنشآت الصناعية والمشروعات الحكومية.",
+  },
 };

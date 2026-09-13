@@ -161,4 +161,13 @@ export const globalSourcingContent: SectorContent = {
     "industrial-chemicals",
     "heavy-equipment",
   ],
+
+  seo: {
+    title_en: "Global Sourcing & Hard-to-Find Parts Egypt",
+    title_ar: "التوريد العالمي وقطع الغيار النادرة في مصر",
+    description_en:
+      "GOLTENS sources spare parts, OEM components, and non-standard or hard-to-find items in Egypt through international procurement, matched to your specification.",
+    description_ar:
+      "توفر GOLTENS قطع الغيار ومكونات OEM والأصناف غير القياسية أو نادرة التوفر في مصر من خلال التوريد الدولي، وفق مواصفاتكم.",
+  },
 };

@@ -159,4 +159,13 @@ export const commercialVehiclesContent: SectorContent = {
     "electrical-energy",
     "global-sourcing",
   ],
+
+  seo: {
+    title_en: "Commercial Vehicles & Fleet Supplier Egypt",
+    title_ar: "مورد المركبات التجارية والأساطيل في مصر",
+    description_en:
+      "GOLTENS supplies trucks, trailers, and specialized municipal vehicles in Egypt, sourced from trusted manufacturers and matched to your fleet's operational requirements.",
+    description_ar:
+      "توفر GOLTENS الشاحنات والمقطورات والمركبات البلدية المتخصصة في مصر، من مصنّعين موثوقين ووفق متطلبات تشغيل أسطولكم.",
+  },
 };

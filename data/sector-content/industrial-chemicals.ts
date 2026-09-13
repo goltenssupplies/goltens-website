@@ -153,4 +153,13 @@ export const industrialChemicalsContent: SectorContent = {
     "construction",
     "global-sourcing",
   ],
+
+  seo: {
+    title_en: "Industrial Chemicals & Lubricants Supplier Egypt",
+    title_ar: "مورد الكيماويات والزيوت الصناعية في مصر",
+    description_en:
+      "GOLTENS supplies industrial chemicals, water treatment chemicals, and lubricants in Egypt, sourced from trusted manufacturers and matched to your process specification.",
+    description_ar:
+      "توفر GOLTENS الكيماويات الصناعية وكيماويات معالجة المياه والزيوت الصناعية في مصر، من مصنّعين موثوقين ووفق مواصفات عملياتكم.",
+  },
 };
