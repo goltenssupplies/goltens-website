@@ -160,8 +160,8 @@ export const electricalEnergyContent: SectorContent = {
   ],
 
   seo: {
-    title_en: "Electrical Equipment & Energy Solutions Egypt",
-    title_ar: "معدات كهربائية وحلول طاقة في مصر",
+    title_en: "Electrical Equipment & Generators Supplier Egypt",
+    title_ar: "معدات كهربائية ومولدات كهرباء في مصر",
     description_en:
       "GOLTENS supplies switchgear, generators, transformers, cabling, and lighting in Egypt, sourced from trusted manufacturers and matched to your load and voltage requirements.",
     description_ar:

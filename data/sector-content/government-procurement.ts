@@ -225,8 +225,8 @@ export const governmentProcurementContent: SectorContent = {
   ],
 
   seo: {
-    title_en: "Government Procurement & General Supplies Egypt",
-    title_ar: "الحلول الحكومية والتوريدات العامة في مصر",
+    title_en: "Government Procurement Supplier Egypt",
+    title_ar: "مورد المشتريات والتوريدات الحكومية في مصر",
     description_en:
       "GOLTENS supplies government entities, ministries, and public institutions in Egypt with office furniture, security systems, public lighting, and specialized equipment, matched to tender specifications.",
     description_ar:

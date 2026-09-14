@@ -163,8 +163,8 @@ export const globalSourcingContent: SectorContent = {
   ],
 
   seo: {
-    title_en: "Global Sourcing & Hard-to-Find Parts Egypt",
-    title_ar: "التوريد العالمي وقطع الغيار النادرة في مصر",
+    title_en: "Global Sourcing & OEM Parts Supplier Egypt",
+    title_ar: "التوريد العالمي وقطع الغيار الأصلية (OEM) في مصر",
     description_en:
       "GOLTENS sources spare parts, OEM components, and non-standard or hard-to-find items in Egypt through international procurement, matched to your specification.",
     description_ar:
