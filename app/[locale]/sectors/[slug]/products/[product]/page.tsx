@@ -30,6 +30,7 @@ import type { Locale } from "@/i18n/routing";
 import {
   AVAILABLE_CATALOGUES_ENABLED,
   DOWNLOADS_CENTER_ENABLED,
+  KNOWLEDGE_CENTER_ENABLED,
   RELATED_ARTICLES_ENABLED,
   RELATED_PRODUCTS_ENABLED,
 } from "@/lib/feature-flags";
@@ -356,7 +357,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </PremiumDarkSection>
       )}
 
-      {relatedKnowledgeItems.length > 0 && (
+      {KNOWLEDGE_CENTER_ENABLED && relatedKnowledgeItems.length > 0 && (
         <PremiumDarkSection>
           <Reveal>
             <Heading level={2} tone="inverse" className="mb-10 lg:mb-12">

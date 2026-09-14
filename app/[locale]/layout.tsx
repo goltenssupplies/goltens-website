@@ -23,6 +23,7 @@ import { RfqCartProvider } from "@/components/rfq/RfqCartContext";
 import { routing, type Locale } from "@/i18n/routing";
 import {
   DOWNLOADS_CENTER_ENABLED,
+  KNOWLEDGE_CENTER_ENABLED,
   SOLUTIONS_ENABLED,
 } from "@/lib/feature-flags";
 import {
@@ -161,7 +162,9 @@ export default async function LocaleLayout({
       ? [{ label: t("solutions"), href: "/solutions" }]
       : []),
     { label: t("contact"), href: "/contact" },
-    { label: tKnowledge("breadcrumbLabel"), href: "/knowledge" },
+    ...(KNOWLEDGE_CENTER_ENABLED
+      ? [{ label: tKnowledge("breadcrumbLabel"), href: "/knowledge" }]
+      : []),
     ...(DOWNLOADS_CENTER_ENABLED
       ? [{ label: tDownloads("title"), href: "/downloads" }]
       : []),

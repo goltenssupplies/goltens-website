@@ -7,6 +7,7 @@ import { getAllSolutionParams } from "@/data/solutions";
 import { routing } from "@/i18n/routing";
 import {
   DOWNLOADS_CENTER_ENABLED,
+  KNOWLEDGE_CENTER_ENABLED,
   SOLUTIONS_ENABLED,
 } from "@/lib/feature-flags";
 import { siteUrl } from "@/lib/site";
@@ -30,7 +31,9 @@ import { siteUrl } from "@/lib/site";
  * page plus all 11 detail pages, each ×2 locales) are appended
  * conditionally below, only while `DOWNLOADS_CENTER_ENABLED`/
  * `SOLUTIONS_ENABLED` (`lib/feature-flags.ts`) are `true` — see that file
- * for the temporary-hold rationale.
+ * for the temporary-hold rationale. `/knowledge` and every `/knowledge/[slug]`
+ * article are likewise only appended while `KNOWLEDGE_CENTER_ENABLED` is
+ * `true` — same rationale, same file.
  */
 const paths: string[] = [
   "",
@@ -55,8 +58,12 @@ const paths: string[] = [
   ...(DOWNLOADS_CENTER_ENABLED
     ? ["/downloads", "/downloads/datasheets", "/downloads/certifications"]
     : []),
-  "/knowledge",
-  ...getAllKnowledgeItems().map((item) => `/knowledge/${item.slug}`),
+  ...(KNOWLEDGE_CENTER_ENABLED
+    ? [
+        "/knowledge",
+        ...getAllKnowledgeItems().map((item) => `/knowledge/${item.slug}`),
+      ]
+    : []),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

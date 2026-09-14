@@ -10,6 +10,7 @@ import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { getAllKnowledgeItems } from "@/data/knowledge";
 import type { KnowledgeType } from "@/data/knowledge/types";
 import type { Locale } from "@/i18n/routing";
+import { KNOWLEDGE_CENTER_ENABLED } from "@/lib/feature-flags";
 import {
   getKnowledgeReadingContent,
   getReadingTimeMinutes,
@@ -40,12 +41,19 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.knowledge" });
 
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale: locale as Locale,
     path: "/knowledge",
     title: t("title"),
     description: t("description"),
   });
+
+  // Temporary discovery hold (see `KNOWLEDGE_CENTER_ENABLED`'s own doc
+  // comment) — the page itself keeps rendering normally for anyone with a
+  // direct link; only its indexability changes.
+  return KNOWLEDGE_CENTER_ENABLED
+    ? metadata
+    : { ...metadata, robots: { index: false, follow: false } };
 }
 
 /**

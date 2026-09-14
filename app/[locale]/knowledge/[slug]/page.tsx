@@ -58,7 +58,10 @@ import {
   getKnowledgeReadingContent,
   getReadingTimeMinutes,
 } from "@/lib/knowledge";
-import { SOLUTIONS_ENABLED } from "@/lib/feature-flags";
+import {
+  KNOWLEDGE_CENTER_ENABLED,
+  SOLUTIONS_ENABLED,
+} from "@/lib/feature-flags";
 import { buildMetadata } from "@/lib/metadata";
 import { buildComparisonRows } from "@/lib/product-comparison";
 import {
@@ -96,13 +99,20 @@ export async function generateMetadata({
     (isArabic ? item.seo?.description_ar : item.seo?.description_en) ??
     (isArabic ? item.summary_ar : item.summary_en);
 
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale: locale as Locale,
     path: `/knowledge/${slug}`,
     title,
     description,
     keywords: item.seo?.keywords ?? item.keywords,
   });
+
+  // Temporary discovery hold (see `KNOWLEDGE_CENTER_ENABLED`'s own doc
+  // comment) — the page itself keeps rendering normally for anyone with a
+  // direct link; only its indexability changes.
+  return KNOWLEDGE_CENTER_ENABLED
+    ? metadata
+    : { ...metadata, robots: { index: false, follow: false } };
 }
 
 /** Resolves a `KnowledgeCatalogueRef` against the real Sector/Product catalogue it references, joined via immutable id — never a duplicated file entry. */
