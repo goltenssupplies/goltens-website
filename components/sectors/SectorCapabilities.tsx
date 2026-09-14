@@ -35,7 +35,7 @@ export interface SectorCapabilitiesProps {
  */
 export function SectorCapabilities({ title, items }: SectorCapabilitiesProps) {
   return (
-    <Section spacing="lg" background="canvas" className="relative">
+    <Section spacing="md" background="canvas" className="relative">
       <Container className="relative">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
@@ -45,7 +45,7 @@ export function SectorCapabilities({ title, items }: SectorCapabilitiesProps) {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
           {items.map((item, index) => {
             const Icon = ICONS[index];
             return (
@@ -55,9 +55,9 @@ export function SectorCapabilities({ title, items }: SectorCapabilitiesProps) {
                   padding="lg"
                   className="flex h-full flex-col items-start gap-4"
                 >
-                  <span className="border-accent/30 bg-accent/10 flex size-12 shrink-0 items-center justify-center rounded-full border">
+                  <span className="border-gold/30 bg-gold/10 flex size-12 shrink-0 items-center justify-center rounded-full border">
                     {Icon && (
-                      <Icon aria-hidden="true" className="text-accent size-5" />
+                      <Icon aria-hidden="true" className="text-gold size-5" />
                     )}
                   </span>
                   <div>

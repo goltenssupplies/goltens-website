@@ -27,6 +27,8 @@ export interface SendRequirementCTAProps {
   description?: string;
   /** "link" only — set when the surrounding background is dark (e.g. `ProductHero`'s photo hero, the homepage's dark closing CTA) so the link stays legible. Default assumes a light surrounding background. */
   onDark?: boolean;
+  /** "link" only — renders as a solid gold `accent` button instead of the default subtle ghost link, for the rare case this link *is* the primary action (e.g. a closing CTA banner) rather than a secondary one beside another button. Every other call site omits this and keeps the original subtle treatment. */
+  prominent?: boolean;
   className?: string;
 }
 
@@ -43,6 +45,7 @@ export function SendRequirementCTA({
   title,
   description,
   onDark = false,
+  prominent = false,
   className,
 }: SendRequirementCTAProps) {
   if (variant === "banner") {
@@ -82,8 +85,8 @@ export function SendRequirementCTA({
   return (
     <Button
       href={href}
-      variant="ghost"
-      size="sm"
+      variant={prominent ? "accent" : "ghost"}
+      size={prominent ? "lg" : "sm"}
       iconStart={<Send className="size-4" aria-hidden="true" />}
       className={cn(
         // The "link" variant's label is a full sentence (unlike every other
@@ -93,7 +96,7 @@ export function SendRequirementCTA({
         // label overflows its container on narrow mobile viewports instead
         // of wrapping to a second line.
         "h-auto min-h-9 py-2 whitespace-normal",
-        onDark ? "text-canvas hover:bg-canvas/10" : undefined,
+        !prominent && onDark ? "text-canvas hover:bg-canvas/10" : undefined,
         className,
       )}
     >

@@ -162,6 +162,11 @@
       "exploreCta": "Explore Our Sectors",
       "requirementCta": "Send Your Requirement"
     },
+    "sectorsSection": {
+      "eyebrow": "OUR SECTORS",
+      "title": "Supply Sectors",
+      "description": "Integrated procurement solutions serving industrial and institutional sectors."
+    },
     "capabilities": {
       "title": "Our Procurement Capabilities",
       "items": [

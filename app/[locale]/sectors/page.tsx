@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 import { SendRequirementCTA } from "@/components/rfq/SendRequirementCTA";
@@ -8,9 +9,13 @@ import {
 } from "@/components/sectors/SectorCapabilities";
 import { SectorGrid } from "@/components/sectors/SectorGrid";
 import { Button } from "@/components/ui/Button";
+import { CTA } from "@/components/ui/CTA";
+import { Container } from "@/components/ui/Container";
+import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
-import { Reveal } from "@/components/ui/Reveal";
+import { SectionParticles } from "@/components/ui/SectionParticles";
 import { Stack } from "@/components/ui/Stack";
+import { Text } from "@/components/ui/Text";
 import { getCategoriesBySector } from "@/data/product-categories";
 import { getSortedSectors } from "@/data/sectors";
 import type { Locale } from "@/i18n/routing";
@@ -18,11 +23,17 @@ import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site";
 
-const SECTOR_GRID_ANCHOR = "sector-grid";
+// Existing, already-approved free-licensed asset (see the September SEO/
+// imagery audit) — a warehouse aisle photo, genuinely photographic, no
+// visible third-party branding. Reused here as the listing page's own
+// generic "industrial procurement" hero backdrop; its own card usage
+// (Global Sourcing) is untouched.
+const HERO_IMAGE = "/images/categories/marine-logistics.jpg";
+const SECTOR_GRID_ANCHOR = "sectors-grid";
 // How many of a sector's real registered categories to surface as its
 // card's short "scope of supply" hint — enough to read as representative
-// without turning into a second description.
-const MAX_SCOPE_HINT_CATEGORIES = 3;
+// without turning into a second description or risking an awkward wrap.
+const MAX_SCOPE_HINT_CATEGORIES = 2;
 
 interface SectorsPageProps {
   params: Promise<{ locale: string }>;
@@ -44,10 +55,11 @@ export async function generateMetadata({
 
 /**
  * `/sectors` — the full 10-sector Procurement Sectors index. Its own richer
- * hero copy (`sectors.listingHero.*`) is deliberately separate from the
- * shared `sectors.title`/`sectors.description` the homepage's "What We
- * Supply" teaser (`components/sections/home/Sectors.tsx`) also reads from
- * — changing this page's hero text must never change the homepage's.
+ * copy (`sectors.listingHero.*`, `sectors.sectorsSection.*`) is deliberately
+ * separate from the shared `sectors.title`/`sectors.description` the
+ * homepage's "What We Supply" teaser (`components/sections/home/Sectors.tsx`)
+ * also reads from — changing this page's copy must never change the
+ * homepage's.
  */
 export default async function SectorsPage({ params }: SectorsPageProps) {
   const { locale } = await params;
@@ -58,8 +70,8 @@ export default async function SectorsPage({ params }: SectorsPageProps) {
   const items = getSortedSectors().map((sector) => {
     // Real "scope of supply" hint — the sector's own top registered product
     // categories (`data/product-categories.ts`), never invented copy. Every
-    // sector but Fire Protection has exactly 3 categories today, so this
-    // shows its full scope; Fire Protection (8 categories) shows its top 3.
+    // sector but Fire Protection has exactly 3 categories today; this shows
+    // its top 2 either way, short enough to never need mid-word truncation.
     const categories = getCategoriesBySector(sector.id);
     const scopeHint = categories.length
       ? categories
@@ -93,32 +105,63 @@ export default async function SectorsPage({ params }: SectorsPageProps) {
           ),
         }}
       />
-      <PremiumDarkSection
-        topPadding
-        header={{
-          eyebrow: t("eyebrow"),
-          title: t("listingHero.title"),
-          description: t("listingHero.description"),
-        }}
-      >
-        <Reveal delay={0.1}>
-          <Stack
-            direction="row"
-            gap="sm"
-            wrap
-            justify="center"
-            className="mb-16 lg:mb-20"
-          >
+
+      {/* Hero — same photo-hero technique as `SectorHero` (bottom-anchored
+          text over a dark gradient), written inline here since this page
+          needs its own generic dual-CTA row, not a single-sector
+          Request-Quote button with a breadcrumb. */}
+      <div className="relative flex min-h-[480px] flex-col justify-end pt-28 pb-12 sm:min-h-[560px] lg:pt-32 lg:pb-16">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover contrast-110 saturate-105 sepia-[0.08]"
+        />
+        <div
+          aria-hidden="true"
+          className="from-ink via-ink/50 pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="bg-grid-pattern text-canvas/[0.06] pointer-events-none absolute inset-0"
+        />
+        <SectionParticles />
+
+        <Container className="relative">
+          <Stack gap="md" className="max-w-3xl">
+            <Heading level={1} size={1} className="text-canvas">
+              {t("listingHero.title")}
+            </Heading>
+            <Text size="lg" className="text-canvas max-w-2xl opacity-85">
+              {t("listingHero.description")}
+            </Text>
+          </Stack>
+          <Stack direction="row" gap="sm" wrap className="mt-8">
             <Button href={`#${SECTOR_GRID_ANCHOR}`} variant="accent" size="lg">
               {t("listingHero.exploreCta")}
             </Button>
             <SendRequirementCTA
               href="/send-requirement"
               label={t("listingHero.requirementCta")}
+              onDark
             />
           </Stack>
-        </Reveal>
+        </Container>
+      </div>
 
+      {/* Sectors — compact header directly into the 5×2 grid, no top
+          padding of its own (the hero above already provides the page's
+          entry space) and a tighter "md" rhythm than the default. */}
+      <PremiumDarkSection
+        spacing="md"
+        header={{
+          eyebrow: t("sectorsSection.eyebrow"),
+          title: t("sectorsSection.title"),
+          description: t("sectorsSection.description"),
+        }}
+      >
         <div id={SECTOR_GRID_ANCHOR} className="scroll-mt-24">
           <SectorGrid items={items} exploreLabel={t("exploreSector")} />
         </div>
@@ -129,16 +172,19 @@ export default async function SectorsPage({ params }: SectorsPageProps) {
         items={capabilityItems}
       />
 
-      <PremiumDarkSection spacing="md">
-        <SendRequirementCTA
-          variant="banner"
-          href="/send-requirement"
-          label={t("listingRequirement.cta")}
-          title={t("listingRequirement.title")}
-          description={t("listingRequirement.description")}
-          className="mx-auto max-w-2xl"
-        />
-      </PremiumDarkSection>
+      <CTA
+        title={t("listingRequirement.title")}
+        description={t("listingRequirement.description")}
+        tone="primary"
+        premium
+        actions={
+          <SendRequirementCTA
+            href="/send-requirement"
+            label={t("listingRequirement.cta")}
+            prominent
+          />
+        }
+      />
     </>
   );
 }

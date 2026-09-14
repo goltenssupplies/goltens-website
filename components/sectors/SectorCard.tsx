@@ -111,7 +111,7 @@ export function SectorCard({
                   size="xs"
                   tone="inverse"
                   weight="medium"
-                  className="text-gold line-clamp-1 opacity-90"
+                  className="text-gold line-clamp-2 opacity-90"
                 >
                   {item.scopeHint}
                 </Text>
@@ -120,9 +120,16 @@ export function SectorCard({
 
             <span
               className={cn(
-                "text-gold inline-flex items-center gap-1.5 text-xs font-semibold",
-                "-translate-y-1 opacity-0 transition-all duration-300",
-                "group-hover:translate-y-0 group-hover:opacity-100",
+                "text-gold inline-flex items-center gap-1.5 text-xs font-semibold transition-all duration-300",
+                // With a `scopeHint` (the richer `/sectors` listing card),
+                // this is a permanently-visible content row — hiding it
+                // until `:hover` would mean touch/mobile visitors (no hover
+                // state at all) never see it. Every other caller (no
+                // `scopeHint`, e.g. the homepage teaser) keeps the original
+                // reveal-on-hover treatment unchanged.
+                item.scopeHint
+                  ? "mt-1"
+                  : "-translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100",
               )}
             >
               {exploreLabel}
