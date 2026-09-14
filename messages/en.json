@@ -28,7 +28,7 @@
     },
     "sectors": {
       "title": "Procurement Sectors",
-      "description": "Integrated procurement solutions for government entities, projects, factories, hospitals, and companies, through a global network of approved suppliers and brands, upholding the highest standards of quality and speed of execution."
+      "description": "GOLTENS supplies government entities, institutions, industrial facilities, and projects in Egypt across 10 procurement sectors — from specialized equipment and systems to materials, spare parts, and global sourcing."
     },
     "brands": {
       "title": "Global Brands — GOLTENS GENERAL SUPPLIES",
@@ -155,7 +155,39 @@
     "sendRequirementLinkLabel": "Looking for something not listed? Send your requirement",
     "sendRequirementBannerTitle": "Can't find what you need?",
     "sendRequirementBannerDescription": "Send us your specification, part number, drawing, BOQ, or product photo. We'll source it for you.",
-    "sendRequirementBannerButton": "Send Your Requirement"
+    "sendRequirementBannerButton": "Send Your Requirement",
+    "listingHero": {
+      "title": "Specialized Procurement Solutions for Industrial & Institutional Sectors",
+      "description": "We provide end-to-end procurement solutions for government entities, institutions, industrial facilities, and projects — from specialized equipment and systems to materials, spare parts, and global sourcing.",
+      "exploreCta": "Explore Our Sectors",
+      "requirementCta": "Send Your Requirement"
+    },
+    "capabilities": {
+      "title": "Our Procurement Capabilities",
+      "items": [
+        {
+          "title": "Equipment",
+          "description": "Specialized equipment, industrial machinery, heavy equipment, and hospital equipment."
+        },
+        {
+          "title": "Systems & Solutions",
+          "description": "Fire protection systems, electrical and energy solutions, and infrastructure solutions."
+        },
+        {
+          "title": "Materials & Supplies",
+          "description": "Industrial materials, lubricants, chemicals, and construction materials and general supplies."
+        },
+        {
+          "title": "Sourcing & Procurement",
+          "description": "Government procurement, global sourcing, spare parts, and genuine OEM brand sourcing where applicable."
+        }
+      ]
+    },
+    "listingRequirement": {
+      "title": "Can't find your requirement?",
+      "description": "Send us your specifications, part number, or requirement details, and we will review the procurement need and identify the appropriate sourcing path.",
+      "cta": "Send Your Requirement"
+    }
   },
   "products": {
     "overviewTitle": "Overview",

@@ -16,6 +16,8 @@ export interface SectorCardItem {
   description: string;
   image: string | null;
   icon: string;
+  /** Short "scope of supply" line (e.g. its top real category names joined) — rendered under the description when provided. Omit to keep the card exactly as before (used by the homepage teaser). */
+  scopeHint?: string;
 }
 
 export interface SectorCardProps {
@@ -97,10 +99,23 @@ export function SectorCard({
               <Text
                 size="xs"
                 tone="inverse"
-                className="line-clamp-1 opacity-55"
+                className={cn(
+                  "opacity-55",
+                  item.scopeHint ? "line-clamp-2" : "line-clamp-1",
+                )}
               >
                 {item.description}
               </Text>
+              {item.scopeHint && (
+                <Text
+                  size="xs"
+                  tone="inverse"
+                  weight="medium"
+                  className="text-gold line-clamp-1 opacity-90"
+                >
+                  {item.scopeHint}
+                </Text>
+              )}
             </Stack>
 
             <span
