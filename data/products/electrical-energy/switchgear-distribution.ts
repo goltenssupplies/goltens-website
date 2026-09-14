@@ -114,9 +114,9 @@ export const electricalSwitchgearDistribution: Product[] = [
     shortDescription_ar:
       "لوحات توزيع كهربائية متوسطة الجهد لتطبيقات التوزيع الرئيسي والمحطات الفرعية.",
     longDescription_en:
-      "Medium voltage switchgear for primary distribution, substation, and industrial power feeder applications. We source panels matched to your voltage class and fault-level requirement.",
+      "Medium voltage switchgear is the equipment that switches, protects, and isolates circuits operating in the 3.3kV–36kV range — the voltage band between utility-scale high voltage transmission and building-level low voltage distribution. It forms the backbone of primary distribution, substation, and industrial power feeder applications, directing incoming and outgoing power safely between transformers, generators, and downstream circuits. Two main configurations are available: air-insulated (AIS), which uses ambient air as the insulating medium and suits sites where space is not a primary constraint, and gas-insulated (GIS), which can use SF6 as the insulating medium depending on the specified design, for a more compact footprint in space-limited substations; switching itself is carried out via vacuum or SF6 circuit breakers, with a modular bay design that allows the assembly to be extended as a network grows. Reliable switching and protection at this voltage level is central to keeping a distribution network safe and available, isolating faults before they propagate and supporting planned maintenance and fault isolation with appropriate system design and operating procedures. We source medium voltage switchgear panels matched to your voltage class and fault-level requirement, typically specified/tested to IEC 62271-200 for AC metal-enclosed switchgear above 1kV.",
     longDescription_ar:
-      "لوحات توزيع كهربائية متوسطة الجهد لتطبيقات التوزيع الرئيسي والمحطات الفرعية ومغذيات الطاقة الصناعية. نقوم بتوريد اللوحات المطابقة لفئة الجهد ومستوى العطل المطلوب لديكم.",
+      "لوحات التوزيع الكهربائية متوسطة الجهد هي المعدات التي تتولى تحويل وحماية وعزل الدوائر العاملة ضمن نطاق 3.3 إلى 36 كيلوفولت — وهو نطاق الجهد الواقع بين جهد النقل العالي على مستوى المرافق العامة والتوزيع منخفض الجهد على مستوى المباني. وتشكّل هذه اللوحات العمود الفقري لتطبيقات التوزيع الرئيسي والمحطات الفرعية ومغذيات الطاقة الصناعية، حيث توجّه التيار الوارد والصادر بأمان بين المحولات والمولدات والدوائر التابعة لها. ويتوفر تكوينان رئيسيان: المعزول بالهواء (AIS)، الذي يستخدم الهواء المحيط كوسط عزل ويناسب المواقع التي لا تمثّل فيها المساحة قيدًا أساسيًا، والمعزول بالغاز (GIS)، وقد يستخدم غاز SF6 كوسط للعزل وفقًا للتصميم والمواصفات المطلوبة، لتوفير تصميم أكثر إحكامًا في المحطات ذات المساحة المحدودة؛ ويتم التحويل عبر قواطع دائرة فراغية (Vacuum) أو بغاز SF6، مع تصميم وحدات (Bays) معياري يتيح توسعة المنظومة مع نمو الشبكة. ويُعد التحويل والحماية الموثوقان عند هذا المستوى من الجهد أمرًا محوريًا للحفاظ على أمان وتوافر شبكة التوزيع، إذ يتيحان عزل الأعطال قبل انتشارها، وتدعم أعمال الصيانة المخططة وعزل الأعطال وفقًا لتصميم المنظومة وإجراءات التشغيل المعتمدة. ونقوم بتوريد لوحات التوزيع الكهربائية متوسطة الجهد المطابقة لفئة الجهد ومستوى العطل المطلوب لديكم، والتي عادةً ما تكون محددة/مختبرة وفق معيار IEC 62271-200 الخاص بمعدات التحويل المعدنية المغلقة للتيار المتردد فوق 1 كيلوفولت.",
     sectorId: "electrical-energy",
     categoryId: "switchgear-distribution",
     features_en: [
@@ -201,6 +201,78 @@ export const electricalSwitchgearDistribution: Product[] = [
     ],
     images: [
       "/images/products/electrical-energy/medium-voltage-switchgear.webp",
+    ],
+    seo: {
+      title_en:
+        "Medium Voltage Switchgear (3.3kV–36kV) for Substations & Primary Distribution",
+      title_ar:
+        "لوحات التوزيع الكهربائية متوسطة الجهد (3.3–36 كيلوفولت) للمحطات الفرعية والتوزيع الرئيسي",
+      description_en:
+        "Medium voltage switchgear (3.3kV–36kV) for substations, primary distribution, and industrial feeders — AIS or GIS, sourced to match your project's voltage class and fault-level requirement.",
+      description_ar:
+        "لوحات توزيع كهربائية متوسطة الجهد (3.3–36 كيلوفولت) للمحطات الفرعية والتوزيع الرئيسي ومغذيات الطاقة الصناعية — بتكوين AIS أو GIS، تُوَرَّد وفق فئة الجهد ومستوى العطل المطلوب لمشروعكم.",
+      keywords: [
+        "medium voltage switchgear",
+        "MV switchgear supplier",
+        "primary distribution switchgear",
+        "substation switchgear",
+        "AIS switchgear",
+        "GIS switchgear",
+      ],
+    },
+    faq: [
+      {
+        question_en: "What is medium voltage switchgear?",
+        answer_en:
+          "Medium voltage switchgear is equipment that switches, protects, and isolates electrical circuits in the medium voltage range (3.3kV–36kV) — controlling power flow safely at substations and primary distribution points before it steps down to low voltage for final use.",
+        question_ar: "ما هي لوحات التوزيع الكهربائية متوسطة الجهد؟",
+        answer_ar:
+          "لوحات التوزيع الكهربائية متوسطة الجهد هي معدات تتولى تحويل وحماية وعزل الدوائر الكهربائية ضمن نطاق الجهد المتوسط (3.3–36 كيلوفولت) — وتتحكم في تدفق الطاقة بأمان عند المحطات الفرعية ونقاط التوزيع الرئيسي قبل خفضها إلى الجهد المنخفض للاستخدام النهائي.",
+      },
+      {
+        question_en:
+          "What is the difference between medium voltage and low voltage switchgear?",
+        answer_en:
+          "The key difference is the voltage range each is rated for. Our medium voltage switchgear covers 3.3kV–36kV for primary distribution and substation applications, while our low voltage switchgear covers up to 690V AC for building and facility-level distribution.",
+        question_ar: "ما الفرق بين لوحات التوزيع متوسطة الجهد ومنخفضة الجهد؟",
+        answer_ar:
+          "الفرق الأساسي هو نطاق الجهد المصمم كل نوع للعمل ضمنه. تغطي لوحات التوزيع متوسطة الجهد لدينا نطاق 3.3 إلى 36 كيلوفولت لتطبيقات التوزيع الرئيسي والمحطات الفرعية، بينما تغطي لوحات التوزيع منخفضة الجهد لدينا حتى 690 فولت تيار متردد للتوزيع على مستوى المباني والمنشآت.",
+      },
+      {
+        question_en: "What is the difference between AIS and GIS switchgear?",
+        answer_en:
+          "AIS (air-insulated switchgear) uses ambient air as the insulating medium and is a common choice where space is not the primary constraint. GIS (gas-insulated switchgear) uses a gas insulating medium and may use SF6 depending on the specified design, allowing a more compact footprint — useful in space-limited substations. Both configurations are available for this product; the right fit depends on your site's space and layout requirements.",
+        question_ar: "ما الفرق بين لوحات AIS وGIS؟",
+        answer_ar:
+          "يستخدم النوع المعزول بالهواء (AIS) الهواء المحيط كوسط عزل، ويُعد خيارًا شائعًا حيث لا تمثّل المساحة القيد الأساسي. أما لوحات GIS (المعزولة بالغاز) فتستخدم وسط عزل غازي، وقد تستخدم غاز SF6 وفقًا للتصميم والمواصفات المطلوبة، مما يتيح تصميمًا أكثر إحكامًا — وهو مفيد في المحطات ذات المساحة المحدودة. كلا التكوينين متاح لهذا المنتج؛ ويعتمد اختيار الأنسب لمشروعكم على مساحة الموقع ومتطلبات التخطيط لديكم.",
+      },
+      {
+        question_en: "Where is medium voltage switchgear used?",
+        answer_en:
+          "Typical applications include utility and industrial primary distribution substations, renewable energy plant grid interconnection, large industrial facility power feeders, mining and process plant electrical substations, and commercial or district cooling plant incomers.",
+        question_ar: "أين تُستخدم لوحات التوزيع متوسطة الجهد؟",
+        answer_ar:
+          "من التطبيقات النموذجية: محطات التوزيع الرئيسي للمرافق العامة والمنشآت الصناعية، وربط محطات الطاقة المتجددة بالشبكة، ومغذيات الطاقة للمنشآت الصناعية الكبيرة، والمحطات الفرعية الكهربائية لمنشآت التعدين والعمليات، وقواطع التغذية الواردة للمنشآت التجارية ومحطات التبريد المركزي.",
+      },
+      {
+        question_en:
+          "Can medium voltage switchgear be specified according to project requirements?",
+        answer_en:
+          "Yes. As a sourcing partner rather than a manufacturer, we match panels to your specific voltage class and fault-level requirement, in either AIS or GIS configuration, based on the details you provide for your project.",
+        question_ar:
+          "هل يمكن تخصيص لوحات التوزيع متوسطة الجهد وفق متطلبات المشروع؟",
+        answer_ar:
+          "نعم. بصفتنا شريك توريد وليس جهة تصنيع، نقوم بمطابقة اللوحات مع فئة الجهد ومستوى العطل المطلوبين لمشروعكم تحديدًا، بتكوين AIS أو GIS، بناءً على التفاصيل التي تزوّدوننا بها.",
+      },
+      {
+        question_en:
+          "What standard is typically associated with this type of switchgear?",
+        answer_en:
+          "This category is typically specified/tested to IEC 62271-200, the standard covering AC metal-enclosed switchgear and controlgear for rated voltages above 1kV.",
+        question_ar: "ما المعيار المرتبط عادةً بهذا النوع من لوحات التوزيع؟",
+        answer_ar:
+          "تُحدَّد/تُختبر هذه الفئة عادةً وفق معيار IEC 62271-200، وهو المعيار الخاص بمعدات التحويل والتحكم المعدنية المغلقة للتيار المتردد للجهد الاسمي فوق 1 كيلوفولت.",
+      },
     ],
     availability: "available",
     quoteEnabled: true,
