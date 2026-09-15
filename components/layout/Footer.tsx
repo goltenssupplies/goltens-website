@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Mail, Phone } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 
 import { Container } from "@/components/ui/Container";
 import { Divider } from "@/components/ui/Divider";
@@ -30,6 +31,8 @@ export interface FooterProps {
   salesEmail: string;
   /** Small label above `salesEmail`, e.g. "Sales & Quotes". */
   salesEmailLabel: string;
+  /** Official GOLTENS LinkedIn company page — the site's only verified social profile. */
+  linkedInUrl: string;
   legalLinksHeading: string;
   legalLinks: FooterLink[];
   /** Full bottom-bar copyright line, e.g. "© 2026 GOLTENS. All Rights Reserved." */
@@ -83,9 +86,10 @@ function ColumnHeading({ children }: { children: ReactNode }) {
  * columns above — still clearly tappable, and a legal requirement rather
  * than "extra" content), a lighter divider, and finally the bare copyright
  * line. WhatsApp is available as a quick channel on the Contact page
- * itself. Social icons are omitted — no real LinkedIn/Facebook company
- * page URLs exist yet; add a `socialLinks` prop here once they do, rather
- * than link to nothing.
+ * itself. LinkedIn is the site's only verified social profile so far — it
+ * renders as one more row in the Contact column rather than a separate
+ * "social icons" section; add further platforms here only once their real
+ * GOLTENS company page URLs are confirmed, never speculative ones.
  */
 export function Footer({
   quickLinksHeading,
@@ -97,6 +101,7 @@ export function Footer({
   emailLabel,
   salesEmail,
   salesEmailLabel,
+  linkedInUrl,
   legalLinksHeading,
   legalLinks,
   bottomText,
@@ -209,6 +214,18 @@ export function Footer({
                     {salesEmail}
                   </a>
                 </div>
+                <a
+                  href={linkedInUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-canvas/65 hover:text-gold inline-flex items-center gap-2.5 transition-colors duration-200"
+                >
+                  <FaLinkedin
+                    aria-hidden="true"
+                    className="text-gold size-4 shrink-0"
+                  />
+                  LinkedIn
+                </a>
               </Stack>
             </div>
           </div>

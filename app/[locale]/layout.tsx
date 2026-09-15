@@ -30,6 +30,7 @@ import {
   contactEmail,
   contactPhoneDisplay,
   contactPhoneHref,
+  linkedInUrl,
   salesEmail,
   siteUrl,
 } from "@/lib/site";
@@ -219,6 +220,7 @@ export default async function LocaleLayout({
                       emailLabel={tFooter("emailLabel")}
                       salesEmail={salesEmail}
                       salesEmailLabel={tFooter("salesEmailLabel")}
+                      linkedInUrl={linkedInUrl}
                       legalLinksHeading={tFooter("legalLinksHeading")}
                       legalLinks={legalLinks}
                       bottomText={tFooter("copyright", {

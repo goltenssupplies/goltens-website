@@ -1,4 +1,10 @@
-import { contactEmail, contactPhoneHref, siteName, siteUrl } from "@/lib/site";
+import {
+  contactEmail,
+  contactPhoneHref,
+  linkedInUrl,
+  siteName,
+  siteUrl,
+} from "@/lib/site";
 
 interface BreadcrumbJsonLdItem {
   name: string;
@@ -29,6 +35,7 @@ export function organizationJsonLd(locale: string) {
       addressRegion: "Monufia Governorate",
       addressCountry: "EG",
     },
+    sameAs: [linkedInUrl],
   };
 }
 

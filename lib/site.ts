@@ -11,6 +11,10 @@ export const contactPhoneDisplay = "+20 122 560 0983";
 export const contactPhoneHref = "tel:+201225600983";
 export const contactWhatsAppHref = "https://wa.me/201225600983";
 
+// Official company page — the only verified social/professional profile.
+export const linkedInUrl =
+  "https://www.linkedin.com/company/goltens-general-supplies/";
+
 // Sales inbox — where quote/contact form submissions are routed (see
 // `RFQ_NOTIFICATION_EMAIL` fallback in `lib/actions/submit-*.ts`).
 export const salesEmail = "sales@goltenssupplies.com";
