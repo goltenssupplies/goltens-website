@@ -78,4 +78,4 @@ export const SOLUTIONS_ENABLED = false;
  * `true` to fully restore normal footer/sitemap/indexing behavior
  * everywhere at once.
  */
-export const KNOWLEDGE_CENTER_ENABLED = true;
+export const KNOWLEDGE_CENTER_ENABLED = false;

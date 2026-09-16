@@ -110,9 +110,9 @@ export const electricalSwitchgearDistribution: Product[] = [
     name_en: "Medium Voltage Switchgear",
     name_ar: "لوحات التوزيع الكهربائية متوسطة الجهد",
     shortDescription_en:
-      "MV switchgear for primary distribution and substation applications.",
+      "Medium voltage switchgear (3.3kV–36kV) for primary distribution and substation applications.",
     shortDescription_ar:
-      "لوحات توزيع كهربائية متوسطة الجهد لتطبيقات التوزيع الرئيسي والمحطات الفرعية.",
+      "لوحات توزيع كهربائية متوسطة الجهد (3.3–36 كيلوفولت) لتطبيقات التوزيع الرئيسي والمحطات الفرعية.",
     longDescription_en:
       "Medium voltage switchgear is the equipment that switches, protects, and isolates circuits operating in the 3.3kV–36kV range — the voltage band between utility-scale high voltage transmission and building-level low voltage distribution. It forms the backbone of primary distribution, substation, and industrial power feeder applications, directing incoming and outgoing power safely between transformers, generators, and downstream circuits. Two main configurations are available: air-insulated (AIS), which uses ambient air as the insulating medium and suits sites where space is not a primary constraint, and gas-insulated (GIS), which can use SF6 as the insulating medium depending on the specified design, for a more compact footprint in space-limited substations; switching itself is carried out via vacuum or SF6 circuit breakers, with a modular bay design that allows the assembly to be extended as a network grows. Reliable switching and protection at this voltage level is central to keeping a distribution network safe and available, isolating faults before they propagate and supporting planned maintenance and fault isolation with appropriate system design and operating procedures. We source medium voltage switchgear panels matched to your voltage class and fault-level requirement, typically specified/tested to IEC 62271-200 for AC metal-enclosed switchgear above 1kV.",
     longDescription_ar:
