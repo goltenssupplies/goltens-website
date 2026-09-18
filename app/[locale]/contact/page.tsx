@@ -69,50 +69,67 @@ export default async function ContactPage({ params }: ContactPageProps) {
           className="bg-grid-pattern text-ink/[0.035] pointer-events-none absolute inset-0"
         />
 
-        <Container className="relative">
-          {/* Headline, intro, feature points — full-width, above the
-              image/form grid. No phone numbers, response-time, or shipping
-              promises here — this reads as a corporate contact page, not a
-              marketing CTA. */}
-          <Reveal>
-            <Stack gap="xl">
-              <Stack gap="md">
-                <Heading level={1} size={1} tone="ink">
-                  {t("headline")}
-                </Heading>
-                <span
-                  aria-hidden="true"
-                  className="bg-gold h-[3px] w-16 rounded-full"
-                />
-                <Text size="lg" tone="muted" className="max-w-lg">
-                  {t("subtitle")}
-                </Text>
-              </Stack>
+        {/* Full-width industrial intro band — deliberately rendered OUTSIDE
+            `Container` (Section/`<main>` have no max-width of their own) so
+            it spans the whole page width instead of the constrained content
+            column, with its own inner `Container` just for the text
+            gutters. Reuses the exact `.bg-industrial-photo` class/DOM
+            pattern `Section.tsx` already renders for `background="canvas"`
+            elsewhere; `.contact-intro-photo` (globals.css) is a page-scoped
+            addition that overrides its blur and wash, since that shared
+            class is used by other pages too. Never reaches the form/image
+            grid below, which keeps its own separate `Container`. */}
+        <Reveal>
+          <div className="relative flex min-h-[320px] items-center overflow-hidden lg:min-h-[380px]">
+            <div
+              aria-hidden="true"
+              className="bg-industrial-photo contact-intro-photo absolute inset-0 overflow-hidden"
+            />
+            <Container className="relative">
+              {/* Headline, intro, feature points. No phone numbers,
+                  response-time, or shipping promises here — this reads as a
+                  corporate contact page, not a marketing CTA. */}
+              <Stack gap="xl">
+                <Stack gap="md">
+                  <Heading level={1} size={1} tone="ink">
+                    {t("headline")}
+                  </Heading>
+                  <span
+                    aria-hidden="true"
+                    className="bg-gold h-[3px] w-16 rounded-full"
+                  />
+                  <Text size="lg" tone="muted" className="max-w-lg">
+                    {t("subtitle")}
+                  </Text>
+                </Stack>
 
-              <Stack direction="row" gap="lg" wrap>
-                {features.map((feature, index) => {
-                  const FeatureIcon = FEATURE_ICONS[index];
-                  return (
-                    <Stack
-                      key={feature}
-                      direction="row"
-                      gap="sm"
-                      align="center"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="border-gold/30 bg-gold/10 text-gold flex size-10 shrink-0 items-center justify-center rounded-full border"
+                <Stack direction="row" gap="lg" wrap>
+                  {features.map((feature, index) => {
+                    const FeatureIcon = FEATURE_ICONS[index];
+                    return (
+                      <Stack
+                        key={feature}
+                        direction="row"
+                        gap="sm"
+                        align="center"
                       >
-                        <FeatureIcon className="size-5" strokeWidth={1.75} />
-                      </span>
-                      <Text weight="medium">{feature}</Text>
-                    </Stack>
-                  );
-                })}
+                        <span
+                          aria-hidden="true"
+                          className="border-gold/30 bg-gold/10 text-gold flex size-10 shrink-0 items-center justify-center rounded-full border"
+                        >
+                          <FeatureIcon className="size-5" strokeWidth={1.75} />
+                        </span>
+                        <Text weight="medium">{feature}</Text>
+                      </Stack>
+                    );
+                  })}
+                </Stack>
               </Stack>
-            </Stack>
-          </Reveal>
+            </Container>
+          </div>
+        </Reveal>
 
+        <Container className="relative">
           <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-24">
             {/* RIGHT (visual, under RTL) — the support-team photo + real
               contact details. */}

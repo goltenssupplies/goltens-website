@@ -210,16 +210,19 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </Container>
       </Section>
 
-      {/* CORE VALUES */}
+      {/* CORE VALUES — the section's own `background="canvas"` carries the
+          sitewide `background.jpg` blueprint layer directly (see
+          `.bg-canvas-texture`/`.bg-industrial-photo` in globals.css); no
+          separate SVG motif layer needed here anymore — same one
+          `background.jpg` mechanism every other page's content sections
+          use, for a consistent identity rather than an isolated effect on
+          this one page. Replaces the section's previous plain
+          `.bg-dot-pattern` overlay; nothing else in this section changed. */}
       <Section
         spacing="lg"
         background="canvas"
         className="relative overflow-hidden"
       >
-        <div
-          aria-hidden="true"
-          className="bg-dot-pattern text-accent/[0.05] pointer-events-none absolute inset-0"
-        />
         <Container className="relative">
           <Reveal>
             <Heading
@@ -235,7 +238,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
               <Reveal key={value.title} delay={index * 0.08}>
                 <Stack
                   gap="sm"
-                  className="border-border bg-canvas h-full rounded-[20px] border p-6 shadow-[0_2px_8px_rgba(30,29,27,0.04),0_20px_48px_rgba(30,29,27,0.08)]"
+                  className="border-ink/15 bg-canvas h-full rounded-[20px] border p-6 shadow-[0_2px_8px_rgba(30,29,27,0.07),0_20px_48px_rgba(30,29,27,0.16)]"
                 >
                   <IconBadge icon={VALUE_ICONS[index]} />
                   <Text weight="semibold" tone="inverse" className="text-lg">

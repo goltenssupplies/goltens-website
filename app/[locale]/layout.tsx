@@ -178,8 +178,24 @@ export default async function LocaleLayout({
       className={`${plexSans.variable} ${plexSansArabic.variable} ${plexSansCondensed.variable} ${plexMono.variable}`}
     >
       <body
-        className={`bg-canvas text-ink min-h-full antialiased ${bodyFontClassByLocale[locale]}`}
+        className={`bg-canvas-texture text-ink min-h-full antialiased ${bodyFontClassByLocale[locale]}`}
       >
+        {/* The ONE sitewide instance of the approved `background.jpg`
+            industrial photo (`.bg-industrial-photo`, see globals.css) —
+            `fixed` so it is one single, viewport-anchored photograph behind
+            the entire page regardless of scroll position or page height,
+            painting behind the Navbar/page content/Footer by DOM order.
+            `Section background="canvas"`/`"obsidian"` (Section.tsx) never
+            render their own copy of this image anymore — they're
+            translucent surfaces (`.bg-canvas-veil`/`.bg-obsidian-veil`)
+            that let this one layer show through, which is what keeps the
+            photo reading as one continuous scene instead of visibly
+            restarting at every section boundary. Cards stay fully opaque
+            and cover it completely wherever they sit. */}
+        <div
+          aria-hidden="true"
+          className="bg-industrial-photo pointer-events-none fixed inset-0"
+        />
         <NextIntlClientProvider messages={messages}>
           <SplashProvider>
             <RfqCartProvider>
