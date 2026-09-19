@@ -393,17 +393,24 @@
    Blur softens jpeg noise without flattening the photo's own contrast;
    `saturate`/`contrast` keep it reading as a real industrial scene rather
    than a washed-out watermark. `background-position` is biased toward the
-   artwork-rich middle band of the image. Hidden below `sm` — mobile keeps
-   only each section's own flat/translucent tone, no photo, for density and
-   legibility on small screens. */
+   artwork-rich middle band of the image. Visible below `sm` too (mobile) —
+   same photo/position/blur recipe as the `sm`/`lg` tiers below, just a
+   stronger wash (0.5 vs 0.38) since mobile sections often have text sitting
+   more tightly against this layer with less surrounding card chrome, and
+   there's no larger viewport to fall back on for contrast headroom. */
 .bg-industrial-photo {
-  display: none;
   pointer-events: none;
+  background-image:
+    linear-gradient(rgba(244, 246, 248, 0.5), rgba(244, 246, 248, 0.5)),
+    url("/images/categories/background.jpg");
+  background-size: cover;
+  background-position: center 44%;
+  background-repeat: no-repeat;
+  filter: blur(2px) saturate(1.15) contrast(1.06);
 }
 
 @media (min-width: 640px) {
   .bg-industrial-photo {
-    display: block;
     background-image:
       linear-gradient(rgba(244, 246, 248, 0.38), rgba(244, 246, 248, 0.38)),
       url("/images/categories/background.jpg");
