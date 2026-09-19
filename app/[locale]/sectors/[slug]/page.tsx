@@ -14,9 +14,21 @@ import {
   SectorAdvantages,
   type SectorAdvantageItem,
 } from "@/components/sectors/SectorAdvantages";
+import {
+  SectorApplications,
+  type SectorApplicationItem,
+} from "@/components/sectors/SectorApplications";
+import {
+  SectorCatalogues,
+  type SectorCatalogueItem,
+} from "@/components/sectors/SectorCatalogues";
 import { SectorFAQ } from "@/components/sectors/SectorFAQ";
 import { SectorHero } from "@/components/sectors/SectorHero";
 import { SectorHowWeWork } from "@/components/sectors/SectorHowWeWork";
+import {
+  SectorProjects,
+  type SectorProjectItem,
+} from "@/components/sectors/SectorProjects";
 import { SectorQuoteCTA } from "@/components/sectors/SectorQuoteCTA";
 import { RelatedSectors } from "@/components/sectors/RelatedSectors";
 import type { SectorCardItem } from "@/components/sectors/SectorCard";
@@ -159,9 +171,51 @@ export default async function SectorPage({ params }: SectorPageProps) {
       label: isArabic ? category.name_ar : category.name_en,
     }));
 
-  // Industries We Serve — the same static list on every sector page (not
-  // per-sector content), per the content refinement brief.
+  // Industries We Serve — a sector's own curated `applications` (real,
+  // sector-specific settings, already authored for every current sector)
+  // when present; the old sitewide generic list only as a fallback for a
+  // sector that hasn't curated its own yet, so this section never renders
+  // empty.
   const industriesServedItems = t.raw("industriesServedItems") as string[];
+  const applicationItems: SectorApplicationItem[] | null = content.applications
+    ?.length
+    ? content.applications.map((application) => ({
+        title: isArabic ? application.title_ar : application.title_en,
+        icon:
+          SECTOR_CONTENT_ICONS[application.icon] ?? DEFAULT_ADVANTAGE_ICONS[0],
+        description: isArabic
+          ? application.description_ar
+          : application.description_en,
+      }))
+    : null;
+
+  // Technical Catalogues — only rendered when a sector has curated real
+  // catalogue entries (currently Fire Protection); each entry's own
+  // `fileUrl` may still be `null`, which `SectorCatalogues` itself renders
+  // as an honest "Coming Soon" state rather than a dead link.
+  const catalogueItems: SectorCatalogueItem[] = (content.catalogues ?? []).map(
+    (catalogue) => ({
+      id: catalogue.id,
+      title: isArabic ? catalogue.title_ar : catalogue.title_en,
+      brand: catalogue.brand,
+      language: catalogue.language,
+      fileUrl: catalogue.fileUrl,
+    }),
+  );
+
+  // Projects We Serve — only rendered when a sector has curated real
+  // project-type entries (currently Fire Protection). `image: null` falls
+  // back to the sector's own hero image, per `SectorProject`'s own
+  // contract. `recommendedBrandSlugs`/`recommendedProductSlugs` are
+  // deliberately not mapped through — there is no brand registry in this
+  // codebase to resolve a brand slug against yet.
+  const projectItems: SectorProjectItem[] = (content.projects ?? []).map(
+    (project) => ({
+      title: isArabic ? project.title_ar : project.title_en,
+      description: isArabic ? project.description_ar : project.description_en,
+      image: project.image ?? getSectorImage(sector.image),
+    }),
+  );
 
   // Advantages — a sector's own, or the sitewide "Why Choose GOLTENS" list
   // (already-approved, reused, never invented).
@@ -307,30 +361,56 @@ export default async function SectorPage({ params }: SectorPageProps) {
         />
       </PremiumDarkSection>
 
+      {catalogueItems.length > 0 && (
+        <PremiumDarkSection>
+          <SectorCatalogues
+            title={t("cataloguesTitle")}
+            items={catalogueItems}
+            downloadLabel={t("catalogueDownload")}
+            comingSoonLabel={t("comingSoon")}
+          />
+        </PremiumDarkSection>
+      )}
+
       <PremiumDarkSection>
-        <Reveal>
-          <Heading level={2} tone="inverse" className="mb-10 lg:mb-12">
-            {t("industriesServedTitle")}
-          </Heading>
-        </Reveal>
-        <ul className="grid grid-cols-2 gap-x-8 gap-y-4 sm:grid-cols-3 lg:grid-cols-4">
-          {industriesServedItems.map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="bg-gold mt-2.5 size-1.5 shrink-0 rounded-full"
-              />
-              <Text tone="inverse" className="opacity-80">
-                {item}
-              </Text>
-            </li>
-          ))}
-        </ul>
+        {applicationItems ? (
+          <SectorApplications
+            title={t("industriesServedTitle")}
+            items={applicationItems}
+          />
+        ) : (
+          <>
+            <Reveal>
+              <Heading level={2} tone="inverse" className="mb-10 lg:mb-12">
+                {t("industriesServedTitle")}
+              </Heading>
+            </Reveal>
+            <ul className="grid grid-cols-2 gap-x-8 gap-y-4 sm:grid-cols-3 lg:grid-cols-4">
+              {industriesServedItems.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="bg-gold mt-2.5 size-1.5 shrink-0 rounded-full"
+                  />
+                  <Text tone="inverse" className="opacity-80">
+                    {item}
+                  </Text>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </PremiumDarkSection>
 
       <PremiumDarkSection>
         <SectorAdvantages title={t("advantagesTitle")} items={advantageItems} />
       </PremiumDarkSection>
+
+      {projectItems.length > 0 && (
+        <PremiumDarkSection>
+          <SectorProjects title={t("projectsTitle")} items={projectItems} />
+        </PremiumDarkSection>
+      )}
 
       {howWeWork && (
         <SectorHowWeWork
