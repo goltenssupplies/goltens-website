@@ -330,6 +330,35 @@ export function HeroSlideshow() {
               </Text>
             </motion.div>
 
+            <motion.div
+              initial={
+                prefersReducedMotion
+                  ? false
+                  : { opacity: 0, y: 10, scale: 0.94 }
+              }
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.5, delay: CTA_DELAY, ease: EASE }}
+            >
+              {/* Primary CTA — always visible, independent of
+                  `SOLUTIONS_ENABLED` (the secondary "browse solutions"
+                  button below stays gated on that flag). Reuses the
+                  existing `hero.primaryCta` translation key (already
+                  defined, previously unused) and the same `variant="accent"
+                  size="lg"` treatment the homepage's own closing CTA and
+                  `/solutions`'s closing CTA already use for this exact
+                  "Request a Quote" action — a solid, opaque fill needs no
+                  extra text-shadow/contrast handling on this dark photo,
+                  unlike the transparent secondary button below. */}
+              <Button
+                href="/contact"
+                variant="accent"
+                size="lg"
+                className="mt-5"
+              >
+                {t("primaryCta")}
+              </Button>
+            </motion.div>
+
             {SOLUTIONS_ENABLED && (
               <motion.div
                 initial={
@@ -340,11 +369,10 @@ export function HeroSlideshow() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.5, delay: CTA_DELAY, ease: EASE }}
               >
-                {/* Single secondary CTA — "browse solutions", not a
-                    request-a-quote button (the Hero's job right now is
-                    introducing GOLTENS, not asking for a quote — that CTA
-                    lands elsewhere once the rest of the page is built).
-                    Design unchanged: `variant="secondary"`'s default styling
+                {/* Secondary CTA — "browse solutions", a lighter-weight
+                    second action alongside the primary "Request a Quote"
+                    button above. Design unchanged: `variant="secondary"`'s
+                    default styling
                     (light border, dark text) is tuned for the site's
                     light-background sections — overridden here for a
                     transparent button with a thin light border that reads

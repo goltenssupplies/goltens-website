@@ -20,6 +20,7 @@ import { WhatsAppButtonLoader } from "@/components/layout/WhatsAppButtonLoader";
 import { WhatsAppMessageProvider } from "@/components/layout/WhatsAppMessageContext";
 import { ComparisonProvider } from "@/components/products/ComparisonContext";
 import { RfqCartProvider } from "@/components/rfq/RfqCartContext";
+import { Button } from "@/components/ui/Button";
 import { routing, type Locale } from "@/i18n/routing";
 import {
   DOWNLOADS_CENTER_ENABLED,
@@ -218,6 +219,11 @@ export default async function LocaleLayout({
                       logo={<HeaderLogo />}
                       navItems={navItems}
                       primaryNavLabel={t("primaryNav")}
+                      cta={
+                        <Button href="/contact" variant="accent" size="sm">
+                          {tCommon("requestQuotation")}
+                        </Button>
+                      }
                       menuOpenLabel={t("openMenu")}
                       menuCloseLabel={t("closeMenu")}
                     />
