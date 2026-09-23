@@ -75,8 +75,8 @@
     "label": "Enterprise Procurement Solutions",
     "brandLine": "GOLTENS",
     "headline": "General Supplies",
-    "subheadline": "Integrated Solutions for Government & Industrial Supply",
-    "paragraph": "We provide companies and government entities with reliable sourcing and supply solutions, with a strong commitment to quality and efficiency.",
+    "subheadline": "Integrated Government, Commercial & Industrial Supply Solutions",
+    "paragraph": "GOLTENS provides general supply services to government entities and private companies across industrial and commercial sectors. We supply products and equipment in accordance with technical specifications and customer requirements, with a commitment to quality and efficient execution.",
     "primaryCta": "Request a Quote",
     "secondaryCta": "Browse Our Solutions",
     "quickNavLabel": "Quick sector navigation"
@@ -224,7 +224,16 @@
     "addToRfqAddedLabel": "Added to RFQ",
     "addToCompareLabel": "Add to Compare",
     "addToCompareAddedLabel": "Added to Compare",
-    "sendRequirementLinkLabel": "Can't find this exact spec? Send your requirement"
+    "sendRequirementLinkLabel": "Can't find this exact spec? Send your requirement",
+    "viewCategoryPageLabel": "View Full Category Page",
+    "availabilityAvailable": "Available",
+    "availabilityOnRequest": "Available on Request",
+    "availabilityComingSoon": "Coming Soon"
+  },
+  "categories": {
+    "ctaTitle": "Ready to request a quotation for this category?",
+    "ctaDescription": "Share your requirements and our team will get back to you with a tailored quotation.",
+    "metaDescriptionFallback": "Browse {category} products within GOLTENS' {sector} sourcing scope."
   },
   "solutions": {
     "eyebrow": "Supply Solutions",

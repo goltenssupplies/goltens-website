@@ -75,8 +75,8 @@
     "label": "GOLTENS",
     "brandLine": "شركة GOLTENS",
     "headline": "للتوريدات العمومية",
-    "subheadline": "حلول متكاملة للتوريدات الحكومية والصناعية",
-    "paragraph": "نوفر احتياجات الشركات والجهات الحكومية من موردين موثوقين، مع الالتزام بالجودة والكفاءة.",
+    "subheadline": "حلول متكاملة للتوريدات الحكومية والتجارية والصناعية",
+    "paragraph": "تقدم GOLTENS خدمات التوريدات العامة للجهات الحكومية والشركات الخاصة بمختلف القطاعات الصناعية والتجارية، وتتولى توريد المنتجات والمعدات وفقًا للمواصفات الفنية واحتياجات كل جهة، مع الالتزام بالجودة والكفاءة في تنفيذ التوريدات.",
     "primaryCta": "اطلب عرض سعر",
     "secondaryCta": "تصفح حلولنا",
     "quickNavLabel": "استكشاف سريع للقطاعات"
@@ -224,7 +224,16 @@
     "addToRfqAddedLabel": "تمت الإضافة إلى طلب عرض السعر",
     "addToCompareLabel": "أضف إلى المقارنة",
     "addToCompareAddedLabel": "تمت الإضافة إلى المقارنة",
-    "sendRequirementLinkLabel": "لم تجد هذه المواصفة تحديدًا؟ أرسل طلبك"
+    "sendRequirementLinkLabel": "لم تجد هذه المواصفة تحديدًا؟ أرسل طلبك",
+    "viewCategoryPageLabel": "عرض صفحة الفئة الكاملة",
+    "availabilityAvailable": "متوفر",
+    "availabilityOnRequest": "متوفر عند الطلب",
+    "availabilityComingSoon": "قريبًا"
+  },
+  "categories": {
+    "ctaTitle": "هل أنتم مستعدون لطلب عرض سعر لهذه الفئة؟",
+    "ctaDescription": "شاركونا متطلباتكم وسيتواصل معكم فريقنا بعرض سعر مخصص.",
+    "metaDescriptionFallback": "تصفّحوا منتجات {category} ضمن نطاق توريد GOLTENS لقطاع {sector}."
   },
   "solutions": {
     "eyebrow": "حلول التوريد",

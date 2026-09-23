@@ -5,6 +5,7 @@ import type { ComparisonItem } from "@/components/products/ComparisonContext";
 import { ProductBreadcrumb } from "@/components/products/ProductBreadcrumb";
 import { AddToRfqButton } from "@/components/rfq/AddToRfqButton";
 import { SendRequirementCTA } from "@/components/rfq/SendRequirementCTA";
+import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
@@ -21,6 +22,9 @@ export interface ProductHeroProps {
   sectorsLabel: string;
   sectorLabel: string;
   sectorHref: string;
+  /** The product's category name/link — omit both to keep the original Home / Sectors / [sector] / [product] trail (same "resolved or omitted, never fabricated" rule as every other optional pair here). Forwarded straight through to `ProductBreadcrumb`. */
+  categoryLabel?: string;
+  categoryHref?: string;
   navLabel: string;
   requestQuoteLabel: string;
   /** Anchor id (without "#") of the page's Request Quotation section. */
@@ -34,6 +38,9 @@ export interface ProductHeroProps {
   /** "Can't find this exact spec? Send your requirement" — omit both this and the label below to hide the secondary entry point entirely. */
   sendRequirementHref?: string;
   sendRequirementLabel?: string;
+  /** Current sourcing/order status label (e.g. "Available", "Available on Request", "Coming Soon") — omit both this and `availabilityTone` to hide the status badge. */
+  availabilityLabel?: string;
+  availabilityTone?: "success" | "warning" | "accent";
 }
 
 /**
@@ -52,6 +59,8 @@ export function ProductHero({
   sectorsLabel,
   sectorLabel,
   sectorHref,
+  categoryLabel,
+  categoryHref,
   navLabel,
   requestQuoteLabel,
   requestQuoteHref,
@@ -62,6 +71,8 @@ export function ProductHero({
   addToCompareAddedLabel,
   sendRequirementHref,
   sendRequirementLabel,
+  availabilityLabel,
+  availabilityTone,
 }: ProductHeroProps) {
   return (
     <div className="relative flex min-h-[480px] flex-col justify-end pt-24 pb-12 sm:min-h-[560px] lg:pt-28 lg:pb-16">
@@ -89,6 +100,8 @@ export function ProductHero({
           sectorsLabel={sectorsLabel}
           sectorLabel={sectorLabel}
           sectorHref={sectorHref}
+          categoryLabel={categoryLabel}
+          categoryHref={categoryHref}
           currentLabel={name}
           navLabel={navLabel}
           className="mb-4"
@@ -96,6 +109,11 @@ export function ProductHero({
         {/* Photo + dark scrim hero (see the gradient above), not the site's
             light `obsidian` panel surface — text stays explicitly light. */}
         <Stack gap="md" className="max-w-3xl">
+          {availabilityLabel && availabilityTone && (
+            <Badge tone={availabilityTone} className="w-fit backdrop-blur-sm">
+              {availabilityLabel}
+            </Badge>
+          )}
           <Heading level={1} size={1} className="text-canvas">
             {name}
           </Heading>

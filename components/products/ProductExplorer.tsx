@@ -1,13 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 
 import {
   SectorProducts,
   type SectorProductItem,
   type SectorProductsProps,
 } from "@/components/sectors/SectorProducts";
+import { Button } from "@/components/ui/Button";
 import { Heading } from "@/components/ui/Heading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Text } from "@/components/ui/Text";
@@ -20,6 +21,8 @@ export interface ProductExplorerItem extends SectorProductItem {
 export interface ProductExplorerCategory {
   id: string;
   label: string;
+  /** Dedicated category page URL (e.g. `/sectors/[slug]/categories/[category]`) — omit for a caller with no such route yet; the "View Full Category Page" link is skipped for any category missing this. */
+  href?: string;
 }
 
 export interface ProductExplorerProps extends Omit<
@@ -33,6 +36,8 @@ export interface ProductExplorerProps extends Omit<
   filterAllLabel: string;
   noResultsTitle: string;
   noResultsDescription: string;
+  /** "View Full Category Page" link label — omit both this and every category's `href` to hide the link entirely (matches every other optional-link-pair convention on this site, e.g. `ProductHero`'s `sendRequirementLabel`). */
+  viewCategoryPageLabel?: string;
 }
 
 /**
@@ -56,6 +61,7 @@ export function ProductExplorer({
   filterAllLabel,
   noResultsTitle,
   noResultsDescription,
+  viewCategoryPageLabel,
   title,
   ...sectorProductsProps
 }: ProductExplorerProps) {
@@ -80,14 +86,39 @@ export function ProductExplorer({
     );
   }, [items, activeCategory, query]);
 
+  const activeCategoryHref =
+    activeCategory === "all"
+      ? undefined
+      : presentCategories.find((category) => category.id === activeCategory)
+          ?.href;
+
   if (presentCategories.length <= 1) {
+    const [onlyCategory] = presentCategories;
     return (
-      <SectorProducts
-        title={title}
-        items={items}
-        {...sectorProductsProps}
-        variant="list"
-      />
+      <div>
+        <SectorProducts
+          title={title}
+          items={items}
+          {...sectorProductsProps}
+          variant="list"
+        />
+        {onlyCategory?.href && viewCategoryPageLabel && (
+          <Button
+            href={onlyCategory.href}
+            variant="ghost"
+            size="sm"
+            iconEnd={
+              <ArrowRight
+                aria-hidden="true"
+                className="size-4 rtl:rotate-180"
+              />
+            }
+            className="mt-6"
+          >
+            {viewCategoryPageLabel}
+          </Button>
+        )}
+      </div>
     );
   }
 
@@ -150,6 +181,27 @@ export function ProductExplorer({
           ))}
         </div>
       </div>
+
+      {/* Only shown once a single real category is selected (never for
+          "All") — the one contextual link for that category, not one per
+          chip, keeps the filter bar itself uncluttered. */}
+      {activeCategoryHref && viewCategoryPageLabel && (
+        <div className="mb-8">
+          <Button
+            href={activeCategoryHref}
+            variant="ghost"
+            size="sm"
+            iconEnd={
+              <ArrowRight
+                aria-hidden="true"
+                className="size-4 rtl:rotate-180"
+              />
+            }
+          >
+            {viewCategoryPageLabel}
+          </Button>
+        </div>
+      )}
 
       {filteredItems.length > 0 ? (
         <SectorProducts

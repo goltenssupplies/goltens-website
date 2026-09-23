@@ -169,6 +169,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
     sectorProductCategories.map((category) => ({
       id: category.id,
       label: isArabic ? category.name_ar : category.name_en,
+      href: `/sectors/${slug}/categories/${category.slug}`,
     }));
 
   // Industries We Serve — a sector's own curated `applications` (real,
@@ -358,6 +359,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
           addToRfqAddedLabel={tProducts("addToRfqAddedLabel")}
           addToCompareLabel={tProducts("addToCompareLabel")}
           addToCompareAddedLabel={tProducts("addToCompareAddedLabel")}
+          viewCategoryPageLabel={tProducts("viewCategoryPageLabel")}
         />
       </PremiumDarkSection>
 

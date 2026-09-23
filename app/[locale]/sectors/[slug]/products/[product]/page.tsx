@@ -22,6 +22,7 @@ import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { getKnowledgeItemsForProduct } from "@/data/knowledge";
+import { getCategoryById } from "@/data/product-categories";
 import { getAllProductParams, getProductBySlug } from "@/data/products";
 import { getSectorArticle, getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug } from "@/data/sectors";
@@ -113,6 +114,23 @@ export default async function ProductPage({ params }: ProductPageProps) {
     : product.longDescription_en;
   const sectorTitle = isArabic ? sector.title_ar : sector.title_en;
 
+  // Breadcrumb category segment — resolved from the real registry via the
+  // product's own `categoryId`, never inferred from its name. `category` is
+  // `undefined` for any unresolved/missing relationship (should not happen
+  // for real data, but handled safely rather than assumed) and both values
+  // below stay `undefined` together, so `ProductBreadcrumb` falls back to
+  // its original Home / Sectors / [sector] / [product] trail with no gap or
+  // fabricated label.
+  const category = getCategoryById(product.categoryId);
+  const categoryLabel = category
+    ? isArabic
+      ? category.name_ar
+      : category.name_en
+    : undefined;
+  const categoryHref = category
+    ? `/sectors/${slug}/categories/${category.slug}`
+    : undefined;
+
   const t = await getTranslations("products");
   const tNav = await getTranslations("nav");
   const tSectors = await getTranslations("sectors");
@@ -178,6 +196,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     }));
 
   const relatedProductItems = (product.relatedProductSlugs ?? [])
+    .filter((relatedSlug) => relatedSlug !== product.slug)
     .map((relatedSlug) => getProductBySlug(relatedSlug))
     .filter((item): item is NonNullable<typeof item> => item !== undefined)
     .map((relatedProduct) => ({
@@ -229,6 +248,22 @@ export default async function ProductPage({ params }: ProductPageProps) {
         };
       });
 
+  // Existing sourcing/order status — verbatim labels per state, never
+  // reinterpreted (e.g. "on-request" never reads as in-stock).
+  const availabilityLabels: Record<typeof product.availability, string> = {
+    available: t("availabilityAvailable"),
+    "on-request": t("availabilityOnRequest"),
+    "coming-soon": t("availabilityComingSoon"),
+  };
+  const availabilityTones: Record<
+    typeof product.availability,
+    "success" | "warning" | "accent"
+  > = {
+    available: "success",
+    "on-request": "warning",
+    "coming-soon": "accent",
+  };
+
   const faqItems = (product.faq ?? []).map((faq) => ({
     question: isArabic ? faq.question_ar : faq.question_en,
     answer: isArabic ? faq.answer_ar : faq.answer_en,
@@ -258,6 +293,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 name: sectorTitle,
                 url: `${siteUrl}/${locale}/sectors/${slug}`,
               },
+              // Same resolved category (or lack thereof) the visual
+              // breadcrumb above already uses — reusing categoryLabel/
+              // categoryHref keeps the two in lockstep by construction
+              // rather than re-deriving the category a second time here.
+              ...(categoryLabel && categoryHref
+                ? [
+                    {
+                      name: categoryLabel,
+                      url: `${siteUrl}/${locale}${categoryHref}`,
+                    },
+                  ]
+                : []),
               { name, url: pageUrl },
             ]),
           ),
@@ -280,6 +327,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
         sectorsLabel={tNav("sectors")}
         sectorLabel={sectorTitle}
         sectorHref={`/sectors/${slug}`}
+        categoryLabel={categoryLabel}
+        categoryHref={categoryHref}
         navLabel={tNav("sectors")}
         requestQuoteLabel={tSectors("heroRequestQuote")}
         requestQuoteHref={REQUEST_QUOTE_ANCHOR}
@@ -290,6 +339,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
         addToCompareAddedLabel={t("addToCompareAddedLabel")}
         sendRequirementHref={`/send-requirement?product=${encodeURIComponent(name)}`}
         sendRequirementLabel={t("sendRequirementLinkLabel")}
+        availabilityLabel={availabilityLabels[product.availability]}
+        availabilityTone={availabilityTones[product.availability]}
       />
 
       <PremiumDarkSection>
@@ -373,7 +424,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </PremiumDarkSection>
       )}
 
-      {RELATED_PRODUCTS_ENABLED && (
+      {RELATED_PRODUCTS_ENABLED && relatedProductItems.length > 0 && (
         <PremiumDarkSection>
           <SectorProducts
             title={t("relatedProductsTitle")}

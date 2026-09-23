@@ -19,16 +19,18 @@
 export const DOWNLOADS_CENTER_ENABLED = false;
 
 /**
- * `false` = hides the "Available Catalogues" section (`products.cataloguesTitle`
+ * `true` = shows the "Available Catalogues" section (`products.cataloguesTitle`
  * — `<SectorCatalogues>`) on the product detail page
- * (`app/[locale]/sectors/[slug]/products/[product]/page.tsx`) while its PDFs
- * are being prepared. That's the only place this exact section renders today
- * (`/solutions/[slug]` and `/knowledge/[slug]` have their own,
- * differently-labeled catalogue sections and are unaffected). No catalogue
- * data, `SectorCatalogues`, or `CatalogueLibrary` code is touched — the
- * section's own `PremiumDarkSection` block simply isn't rendered.
+ * (`app/[locale]/sectors/[slug]/products/[product]/page.tsx`). That's the
+ * only place this exact section renders today (`/solutions/[slug]` and
+ * `/knowledge/[slug]` have their own, differently-labeled catalogue sections
+ * and are unaffected). Entries with `fileUrl: null` render an honest
+ * "Coming Soon" / "Official Datasheet Not Available" badge instead of a
+ * download link — see `SectorCatalogues`. Flip back to `false` to hide the
+ * section again while PDFs are prepared; no catalogue data or component code
+ * is touched either way.
  */
-export const AVAILABLE_CATALOGUES_ENABLED = false;
+export const AVAILABLE_CATALOGUES_ENABLED = true;
 
 /**
  * `false` = hides the "Related Articles" section (`products.articlesTitle`
@@ -41,16 +43,20 @@ export const AVAILABLE_CATALOGUES_ENABLED = false;
 export const RELATED_ARTICLES_ENABLED = false;
 
 /**
- * `false` = hides the "Related Products" section (`products.relatedProductsTitle`
- * — `<SectorProducts>`) on the product detail page. That's the only place
- * this exact section renders today — the main product-browsing grids on
- * `/sectors/[slug]` and `/solutions/[slug]` are a different `SectorProducts`
- * usage (core listing content, not a "related" appendix) and are unaffected,
- * as is the knowledge article page's own "Related Products" section. No
- * product data or the product catalogue is touched, and this never affects
- * the product being viewed itself — only this one appendix section.
+ * `true` = shows the "Related Products" section (`products.relatedProductsTitle`
+ * — `<SectorProducts>`) on the product detail page, built from each
+ * product's `relatedProductSlugs`. The page only renders this section when
+ * at least one valid, resolvable, *different* product remains after
+ * filtering out the product being viewed — never an empty-state card, and
+ * never the current product listed as related to itself. That's the only
+ * place this exact section renders today — the main product-browsing grids
+ * on `/sectors/[slug]` and `/solutions/[slug]` are a different
+ * `SectorProducts` usage (core listing content, not a "related" appendix)
+ * and are unaffected, as is the knowledge article page's own "Related
+ * Products" section. Flip back to `false` to hide this appendix again; no
+ * product data is touched either way.
  */
-export const RELATED_PRODUCTS_ENABLED = false;
+export const RELATED_PRODUCTS_ENABLED = true;
 
 /**
  * `false` = temporary hold on `/solutions` and all 11 `/solutions/[slug]`
