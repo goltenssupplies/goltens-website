@@ -338,13 +338,6 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
   },
 
   {
-    id: "industrial-lubricants-fluids",
-    slug: "industrial-lubricants-fluids",
-    sectorId: "industrial-chemicals",
-    name_en: "Lubricants & Fluids",
-    name_ar: "الزيوت والسوائل الصناعية",
-  },
-  {
     id: "water-wastewater-chemicals",
     slug: "water-wastewater-chemicals",
     sectorId: "industrial-chemicals",
@@ -357,6 +350,94 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     sectorId: "industrial-chemicals",
     name_en: "Corrosion Protection & Coatings",
     name_ar: "الحماية من التآكل والطلاءات",
+  },
+
+  // Lubricants & Oils — the 5 categories below have real, registered
+  // products (see data/products/lubricants-oils/lubricants-oils.ts). The
+  // 6 after them are taxonomy-only: no ProductCategory here implies a
+  // populated range on its own — the category page renders the honest
+  // "no products yet" empty state for these until real products are
+  // sourced, and none is indexable (no `indexable`/`description_en/ar`
+  // set) so it's never surfaced as a finished catalog page.
+  {
+    id: "hydraulic-oils",
+    slug: "hydraulic-oils",
+    sectorId: "lubricants-oils",
+    name_en: "Hydraulic Oils",
+    name_ar: "الزيوت الهيدروليكية",
+  },
+  {
+    id: "gear-oils-category",
+    slug: "gear-oils-category",
+    sectorId: "lubricants-oils",
+    name_en: "Gear Oils",
+    name_ar: "زيوت التروس",
+  },
+  {
+    id: "greases",
+    slug: "greases",
+    sectorId: "lubricants-oils",
+    name_en: "Greases",
+    name_ar: "الشحوم",
+  },
+  {
+    id: "metalworking-fluids-category",
+    slug: "metalworking-fluids-category",
+    sectorId: "lubricants-oils",
+    name_en: "Metalworking Fluids",
+    name_ar: "سوائل التشغيل المعدني",
+  },
+  {
+    id: "specialty-industrial-lubricants",
+    slug: "specialty-industrial-lubricants",
+    sectorId: "lubricants-oils",
+    name_en: "Specialty Industrial Lubricants",
+    name_ar: "زيوت التشحيم الصناعية المتخصصة",
+  },
+  // Taxonomy-only — no real products registered yet (see the note above).
+  {
+    id: "engine-oils",
+    slug: "engine-oils",
+    sectorId: "lubricants-oils",
+    name_en: "Engine Oils",
+    name_ar: "زيوت المحركات",
+  },
+  {
+    id: "compressor-oils",
+    slug: "compressor-oils",
+    sectorId: "lubricants-oils",
+    name_en: "Compressor Oils",
+    name_ar: "زيوت الضواغط",
+  },
+  {
+    id: "turbine-oils",
+    slug: "turbine-oils",
+    sectorId: "lubricants-oils",
+    name_en: "Turbine Oils",
+    name_ar: "زيوت التوربينات",
+  },
+  {
+    id: "circulating-oils",
+    slug: "circulating-oils",
+    sectorId: "lubricants-oils",
+    name_en: "Circulating Oils",
+    name_ar: "الزيوت الدورانية",
+  },
+  {
+    id: "transformer-oils",
+    slug: "transformer-oils",
+    sectorId: "lubricants-oils",
+    name_en: "Transformer Oils",
+    name_ar: "زيوت المحولات",
+  },
+  {
+    // Industrial equipment/machinery cooling & lubrication duty — not
+    // air-conditioning/refrigeration oil. See implementation report.
+    id: "industrial-machine-cooling-lubricants",
+    slug: "industrial-machine-cooling-lubricants",
+    sectorId: "lubricants-oils",
+    name_en: "Industrial Machine / Cooling Lubricants",
+    name_ar: "زيوت تبريد وتشحيم الآلات الصناعية",
   },
 
   {

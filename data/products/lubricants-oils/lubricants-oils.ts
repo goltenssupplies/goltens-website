@@ -1,7 +1,19 @@
 import type { Product } from "@/data/products/types";
 
-/** Industrial Chemicals & Lubricants → Lubricants & Fluids category. */
-export const chemicalsIndustrialLubricantsFluids: Product[] = [
+/**
+ * Lubricants & Oils — all 5 real products previously registered under the
+ * combined "Industrial Chemicals & Lubricants" sector, moved here with
+ * `sectorId`/`categoryId` updated per the approved catalog restructuring
+ * (see the taxonomy implementation report). No product id, slug, name, or
+ * content changed — only which sector/category each one belongs to.
+ * Reclassification:
+ *   industrial-lubricating-oils -> Specialty Industrial Lubricants
+ *   industrial-greases          -> Greases
+ *   hydraulic-fluids            -> Hydraulic Oils
+ *   gear-oils                   -> Gear Oils
+ *   metalworking-fluids         -> Metalworking Fluids
+ */
+export const lubricantsOilsProducts: Product[] = [
   {
     id: "industrial-lubricating-oils",
     slug: "industrial-lubricating-oils",
@@ -14,8 +26,8 @@ export const chemicalsIndustrialLubricantsFluids: Product[] = [
       "Lubricating oils for industrial machinery, gearboxes, and rotating equipment, sourced to your equipment manufacturer's grade and viscosity requirement.",
     longDescription_ar:
       "زيوت تشحيم للآلات الصناعية وعلب التروس والمعدات الدوارة، يتم توريدها وفق الدرجة واللزوجة التي تحددها الجهة المصنّعة لمعداتكم.",
-    sectorId: "industrial-chemicals",
-    categoryId: "industrial-lubricants-fluids",
+    sectorId: "lubricants-oils",
+    categoryId: "specialty-industrial-lubricants",
     features_en: [
       "Selectable by viscosity grade and base oil type to match your equipment manufacturer's requirement",
       "Mineral, semi-synthetic, and full-synthetic options for different operating temperature ranges",
@@ -108,8 +120,8 @@ export const chemicalsIndustrialLubricantsFluids: Product[] = [
       "Industrial greases for bearings, seals, and components where an oil film alone doesn't provide adequate lubrication or protection. We source products matched to your operating temperature and load conditions.",
     longDescription_ar:
       "شحوم صناعية للمحامل والأختام والمكونات التي لا توفر لها طبقة الزيت وحدها تشحيمًا أو حماية كافية. نقوم بتوريد المنتجات المطابقة لدرجة حرارة التشغيل وظروف الحمل لديكم.",
-    sectorId: "industrial-chemicals",
-    categoryId: "industrial-lubricants-fluids",
+    sectorId: "lubricants-oils",
+    categoryId: "greases",
     features_en: [
       "Selected by NLGI consistency grade and thickener type for the load and speed conditions of your application",
       "Standard, high-temperature, and water-resistant formulations available",
@@ -206,8 +218,8 @@ export const chemicalsIndustrialLubricantsFluids: Product[] = [
       "Hydraulic fluids for industrial and mobile equipment hydraulic systems, sourced to your equipment's viscosity grade and additive package requirement.",
     longDescription_ar:
       "سوائل هيدروليكية للأنظمة الهيدروليكية للمعدات الصناعية والمتنقلة، يتم توريدها وفق درجة اللزوجة وحزمة الإضافات التي تتطلبها معداتكم.",
-    sectorId: "industrial-chemicals",
-    categoryId: "industrial-lubricants-fluids",
+    sectorId: "lubricants-oils",
+    categoryId: "hydraulic-oils",
     features_en: [
       "Selectable by ISO VG grade to match your pump manufacturer's requirement",
       "Anti-wear and high-viscosity-index formulations available",
@@ -304,8 +316,8 @@ export const chemicalsIndustrialLubricantsFluids: Product[] = [
       "Gear oils formulated for the extreme-pressure conditions inside industrial gearboxes and drive systems, sourced to your equipment's specified grade and application.",
     longDescription_ar:
       "زيوت تروس مصممة لتحمل ظروف الضغط الشديد داخل علب التروس الصناعية وأنظمة النقل الحركي، يتم توريدها وفق الدرجة والتطبيق المحدد لمعداتكم.",
-    sectorId: "industrial-chemicals",
-    categoryId: "industrial-lubricants-fluids",
+    sectorId: "lubricants-oils",
+    categoryId: "gear-oils-category",
     features_en: [
       "EP-formulated for shock loading and high-pressure gear-tooth contact",
       "Available in mineral and synthetic base for extended service intervals",
@@ -403,8 +415,8 @@ export const chemicalsIndustrialLubricantsFluids: Product[] = [
       "Cutting oils and coolant fluids for metal machining, cutting, and fabrication processes, sourced to your material type and machining process.",
     longDescription_ar:
       "زيوت قطع وسوائل تبريد لعمليات التشغيل والقطع والتصنيع المعدني، يتم توريدها وفق نوع المادة وعملية التشغيل لديكم.",
-    sectorId: "industrial-chemicals",
-    categoryId: "industrial-lubricants-fluids",
+    sectorId: "lubricants-oils",
+    categoryId: "metalworking-fluids-category",
     features_en: [
       "Available as soluble oil, semi-synthetic, or full-synthetic formulations",
       "Rust-inhibited for machining of ferrous metals",

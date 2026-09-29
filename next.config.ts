@@ -22,6 +22,40 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["framer-motion"],
   },
+  // Catalog taxonomy restructuring: the 5 real lubricant products (and
+  // their category page) moved from the "industrial-chemicals" sector to
+  // the new "lubricants-oils" sector — only their sectorId changed, not
+  // their slug, so every one of these is a straight 1:1 path swap. No
+  // other product/category/sector URL is affected. `:locale(ar|en)`
+  // covers both locale prefixes in one rule each, matching this site's
+  // `localePrefix: "always"` routing (`i18n/routing.ts`).
+  async redirects() {
+    const movedProductSlugs = [
+      "industrial-lubricating-oils",
+      "industrial-greases",
+      "hydraulic-fluids",
+      "gear-oils",
+      "metalworking-fluids",
+    ];
+
+    return [
+      ...movedProductSlugs.map((slug) => ({
+        source: `/:locale(ar|en)/sectors/industrial-chemicals/products/${slug}`,
+        destination: `/:locale/sectors/lubricants-oils/products/${slug}`,
+        permanent: true,
+      })),
+      {
+        // The old category covered all 5 products across what are now 5
+        // different categories under the new sector — no single new
+        // category is an honest 1:1 replacement, so this points to the
+        // new sector's own page rather than picking one arbitrarily.
+        source:
+          "/:locale(ar|en)/sectors/industrial-chemicals/categories/industrial-lubricants-fluids",
+        destination: "/:locale/sectors/lubricants-oils",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

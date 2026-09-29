@@ -153,16 +153,15 @@ export const SECTORS: Sector[] = [
   {
     id: "industrial-chemicals",
     slug: "industrial-chemicals",
-    title_en: "Industrial Chemicals & Lubricants",
-    title_ar: "الكيماويات والزيوت الصناعية",
+    title_en: "Industrial Chemicals",
+    title_ar: "الكيماويات الصناعية",
     subtitle_en:
-      "GOLTENS supplies industrial chemicals, lubricants, and water-treatment products — matched to your process specification, with safety data sheets provided.",
+      "GOLTENS supplies industrial chemicals and water-treatment products — matched to your process specification, with safety data sheets provided.",
     subtitle_ar:
-      "توفر GOLTENS كيماويات صناعية وزيوتًا صناعية ومواد معالجة مياه — مطابقة لمواصفات عملياتكم، مع توفير نشرات بيانات السلامة.",
+      "توفر GOLTENS كيماويات صناعية ومواد معالجة مياه — مطابقة لمواصفات عملياتكم، مع توفير نشرات بيانات السلامة.",
     description_en:
-      "Industrial chemicals, laboratory reagents, and high-quality lubricants supplied to specification.",
-    description_ar:
-      "كيماويات صناعية ومواد مختبرية وزيوت صناعية عالية الجودة وفق المواصفات المطلوبة.",
+      "Industrial chemicals and laboratory reagents supplied to specification.",
+    description_ar: "كيماويات صناعية ومواد مختبرية وفق المواصفات المطلوبة.",
     image: "/images/categories/industrial-chemicals.jpg",
     icon: "FlaskConical",
     featured: false,
@@ -203,6 +202,26 @@ export const SECTORS: Sector[] = [
     icon: "Globe",
     featured: false,
     order: 10,
+  },
+  {
+    id: "lubricants-oils",
+    slug: "lubricants-oils",
+    title_en: "Lubricants & Oils",
+    title_ar: "الزيوت ومواد التشحيم الصناعية",
+    subtitle_en:
+      "GOLTENS supplies industrial lubricants, hydraulic oils, gear oils, greases, and metalworking fluids — matched to your equipment manufacturer's grade and viscosity requirement.",
+    subtitle_ar:
+      "توفر GOLTENS زيوتًا صناعية وزيوتًا هيدروليكية وزيوت تروس وشحومًا وسوائل تشغيل معدني — مطابقة للدرجة واللزوجة التي تحددها الجهة المصنّعة لمعداتكم.",
+    description_en:
+      "Industrial lubricants and oils supplied to your equipment's specified grade.",
+    description_ar: "زيوت ومواد تشحيم صناعية وفق الدرجة المحددة لمعداتكم.",
+    // No dedicated photo sourced yet — falls back to the sitewide hero image
+    // via `getSectorImage` (lib/sectors.ts), same convention every other
+    // sector without one uses. Never a guessed/invented file path.
+    image: null,
+    icon: "Droplets",
+    featured: false,
+    order: 11,
   },
 ];
 

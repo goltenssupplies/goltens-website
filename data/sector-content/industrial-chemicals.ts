@@ -1,33 +1,33 @@
 import type { SectorContent } from "@/data/sector-content/types";
 
 /**
- * Industrial Chemicals & Lubricants' real content — written to the same
- * standard as `fire-protection.ts`: no invented certifications, no named
- * customer projects, no fabricated technical specifications or lead times.
+ * Industrial Chemicals' real content — written to the same standard as
+ * `fire-protection.ts`: no invented certifications, no named customer
+ * projects, no fabricated technical specifications or lead times.
+ *
+ * `categories_en/ar` lists ONLY the 2 categories with real, registered
+ * products (`data/product-categories.ts`, sectorId "industrial-chemicals")
+ * — never a category tag with no `ProductCategory`/`Product` behind it.
+ * Broader sourcing capability beyond today's catalog (cleaning/degreasing,
+ * adhesives/sealants, fuels/gases, laboratory/specialty chemicals) is real
+ * and commercially useful, so it stays in `intro_en/ar` as an explicit
+ * "beyond our current catalog, we can also source..." sourcing-capability
+ * statement — deliberately worded differently from the catalog-categories
+ * tags, so a visitor can't read it as "these are catalog categories too."
  */
 export const industrialChemicalsContent: SectorContent = {
   about: {
     intro_en:
-      "GOLTENS supplies industrial chemicals, laboratory reagents, and high-quality lubricants sourced from trusted global manufacturers, covering lubricants and fluids, water and wastewater treatment chemicals, cleaning and degreasing agents, corrosion protection and coatings, adhesives and sealants, and laboratory and specialty chemicals. Our procurement team matches your process specification against genuine, quality-assured products before every quotation.",
+      "GOLTENS supplies industrial chemicals sourced from trusted global manufacturers, covering water and wastewater treatment chemicals and corrosion protection and coatings. Beyond our current catalog, we can also source cleaning and degreasing agents, adhesives and sealants, fuels, gases and additives, and laboratory and specialty chemicals through our broader procurement network — availability and specification confirmed per request. Our procurement team matches your process specification against genuine, quality-assured products before every quotation.",
     intro_ar:
-      "توفر GOLTENS كيماويات صناعية ومواد مختبرية وزيوت صناعية عالية الجودة يتم توريدها من شركات مصنّعة عالمية موثوقة، وتغطي الزيوت والسوائل الصناعية، وكيماويات معالجة المياه والصرف الصحي، ومواد التنظيف وإزالة الشحوم، والحماية من التآكل والطلاءات، والمواد اللاصقة والعوازل، والكيماويات المخبرية والمتخصصة. يقوم فريق التوريد لدينا بمطابقة مواصفات عملياتكم مع منتجات أصلية ومضمونة الجودة قبل كل عرض سعر.",
+      "توفر GOLTENS كيماويات صناعية يتم توريدها من شركات مصنّعة عالمية موثوقة، وتغطي كيماويات معالجة المياه والصرف الصحي والحماية من التآكل والطلاءات. وبالإضافة إلى كتالوجنا الحالي، يمكننا أيضًا توريد مواد التنظيف وإزالة الشحوم، والمواد اللاصقة والعوازل، والوقود والغازات والإضافات، والكيماويات المخبرية والمتخصصة من خلال شبكة التوريد الأوسع لدينا — مع تأكيد التوافر والمواصفات لكل طلب. يقوم فريق التوريد لدينا بمطابقة مواصفات عملياتكم مع منتجات أصلية ومضمونة الجودة قبل كل عرض سعر.",
     categories_en: [
-      "Lubricants & Fluids",
       "Water & Wastewater Treatment Chemicals",
-      "Cleaning, Degreasing & Sanitizing",
       "Corrosion Protection & Coatings",
-      "Adhesives, Sealants & Compounds",
-      "Fuels, Gases & Additives",
-      "Laboratory & Specialty Chemicals",
     ],
     categories_ar: [
-      "الزيوت والسوائل الصناعية",
       "كيماويات معالجة المياه والصرف الصحي",
-      "التنظيف وإزالة الشحوم والتعقيم",
       "الحماية من التآكل والطلاءات",
-      "المواد اللاصقة والعوازل والمركبات",
-      "الوقود والغازات والإضافات",
-      "الكيماويات المخبرية والمتخصصة",
     ],
     complianceNote_en:
       "Products are supplied with safety data sheets and handling documentation matched to your project's requirements — we confirm the exact grade and specification needed as part of the quotation process.",
@@ -131,10 +131,10 @@ export const industrialChemicalsContent: SectorContent = {
     {
       question_en: "Can GOLTENS source international brands?",
       answer_en:
-        "Yes. We source industrial chemicals and lubricants from trusted global manufacturers through our international supplier network, subject to availability, and confirm brand and grade options as part of every quotation.",
+        "Yes. We source industrial chemicals from trusted global manufacturers through our international supplier network, subject to availability, and confirm brand and grade options as part of every quotation.",
       question_ar: "هل يمكن لـGOLTENS توريد علامات تجارية عالمية؟",
       answer_ar:
-        "نعم، نقوم بتوريد كيماويات صناعية وزيوت من شركات مصنّعة عالمية موثوقة من خلال شبكة موردينا الدولية، وفقًا لتوافرها، ونؤكد خيارات العلامة التجارية والدرجة كجزء من كل عرض سعر.",
+        "نعم، نقوم بتوريد كيماويات صناعية من شركات مصنّعة عالمية موثوقة من خلال شبكة موردينا الدولية، وفقًا لتوافرها، ونؤكد خيارات العلامة التجارية والدرجة كجزء من كل عرض سعر.",
     },
     {
       question_en: "Do you provide technical support?",
@@ -147,6 +147,7 @@ export const industrialChemicalsContent: SectorContent = {
   ],
 
   relatedSectorSlugs: [
+    "lubricants-oils",
     "industrial-equipment",
     "healthcare",
     "fire-protection",
@@ -155,11 +156,11 @@ export const industrialChemicalsContent: SectorContent = {
   ],
 
   seo: {
-    title_en: "Industrial Chemicals & Lubricants Supplier Egypt",
-    title_ar: "مورد الكيماويات والزيوت الصناعية في مصر",
+    title_en: "Industrial Chemicals Supplier Egypt",
+    title_ar: "مورد الكيماويات الصناعية في مصر",
     description_en:
-      "GOLTENS supplies industrial chemicals, water treatment chemicals, and lubricants in Egypt, sourced from trusted manufacturers and matched to your process specification.",
+      "GOLTENS supplies industrial chemicals and water treatment chemicals in Egypt, sourced from trusted manufacturers and matched to your process specification.",
     description_ar:
-      "توفر GOLTENS الكيماويات الصناعية وكيماويات معالجة المياه والزيوت الصناعية في مصر، من مصنّعين موثوقين ووفق مواصفات عملياتكم.",
+      "توفر GOLTENS الكيماويات الصناعية وكيماويات معالجة المياه في مصر، من مصنّعين موثوقين ووفق مواصفات عملياتكم.",
   },
 };

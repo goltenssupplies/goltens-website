@@ -149,7 +149,18 @@ export default async function SectorPage({ params }: SectorPageProps) {
   // registry. Each card links to the real product detail route
   // (`/sectors/[slug]/products/[product]`).
   const sectorProducts = getProductsBySector(sector.id);
-  const sectorProductCategories = getCategoriesBySector(sector.id);
+  // Only categories that currently have at least one real product — a
+  // taxonomy-only category (e.g. Lubricants & Oils' Engine Oils) stays in
+  // `data/product-categories.ts` for future use, but must never be sent to
+  // the client at all here: `ProductExplorer` already filters its own
+  // rendered chip row to "present" categories, but the full `categories`
+  // prop is still serialized into the page for hydration regardless of
+  // that render-time filter, so an unfiltered list here would still leak
+  // every empty category's name/href into the page source.
+  const sectorProductCategories = getCategoriesBySector(sector.id).filter(
+    (category) =>
+      sectorProducts.some((product) => product.categoryId === category.id),
+  );
 
   const productExplorerItems: ProductExplorerItem[] = sectorProducts.map(
     (product) => ({

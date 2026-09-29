@@ -31,11 +31,11 @@ import { heavyConcreteCompactionEquipment } from "@/data/products/heavy-equipmen
 import { heavyCranesLiftingEquipment } from "@/data/products/heavy-equipment/cranes-lifting-equipment";
 import { heavyEarthmovingEquipment } from "@/data/products/heavy-equipment/earthmoving-equipment";
 import { chemicalsCorrosionProtectionCoatings } from "@/data/products/industrial-chemicals/corrosion-protection-coatings";
-import { chemicalsIndustrialLubricantsFluids } from "@/data/products/industrial-chemicals/industrial-lubricants-fluids";
 import { chemicalsWaterWastewaterChemicals } from "@/data/products/industrial-chemicals/water-wastewater-chemicals";
 import { industrialAirCompressorsSystems } from "@/data/products/industrial-equipment/air-compressors-systems";
 import { industrialValvesActuators } from "@/data/products/industrial-equipment/industrial-valves-actuators";
 import { industrialProcessPumps } from "@/data/products/industrial-equipment/process-pumps";
+import { lubricantsOilsProducts } from "@/data/products/lubricants-oils/lubricants-oils";
 import type { Product, ProductCatalogue } from "@/data/products/types";
 
 /**
@@ -84,7 +84,6 @@ const PRODUCTS: Product[] = [
   ...healthcareHospitalBedsPatientHandling,
   ...healthcareMedicalFurnitureTrolleysCarts,
   ...healthcareSurgicalSupplies,
-  ...chemicalsIndustrialLubricantsFluids,
   ...chemicalsWaterWastewaterChemicals,
   ...chemicalsCorrosionProtectionCoatings,
   ...constructionCementConcreteMaterials,
@@ -93,6 +92,7 @@ const PRODUCTS: Product[] = [
   ...globalSpartsPartsOemSourcing,
   ...globalBulkMaterialsIndustrialSupply,
   ...globalProjectSourcingLogistics,
+  ...lubricantsOilsProducts,
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {

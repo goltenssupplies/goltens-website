@@ -10,6 +10,7 @@ import { healthcareContent } from "@/data/sector-content/healthcare";
 import { heavyEquipmentContent } from "@/data/sector-content/heavy-equipment";
 import { industrialChemicalsContent } from "@/data/sector-content/industrial-chemicals";
 import { industrialEquipmentContent } from "@/data/sector-content/industrial-equipment";
+import { lubricantsOilsContent } from "@/data/sector-content/lubricants-oils";
 import type { SectorArticle, SectorContent } from "@/data/sector-content/types";
 import {
   getSectorBySlug,
@@ -35,6 +36,7 @@ const SECTOR_CONTENT: Partial<Record<SectorSlug, SectorContent>> = {
   "industrial-chemicals": industrialChemicalsContent,
   construction: constructionContent,
   "global-sourcing": globalSourcingContent,
+  "lubricants-oils": lubricantsOilsContent,
 };
 
 /** Maps a Knowledge Platform item back to the legacy `SectorArticle` shape every existing consumer of `SectorContent.articles` already expects — the id-based relations `KnowledgeItem` carries are resolved back to slugs here, at the boundary, so nothing downstream needs to change. */

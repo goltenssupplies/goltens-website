@@ -17,6 +17,7 @@ import { SectionParticles } from "@/components/ui/SectionParticles";
 import { Stack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { getCategoriesBySector } from "@/data/product-categories";
+import { getProductsByCategory } from "@/data/products";
 import { getSortedSectors } from "@/data/sectors";
 import type { Locale } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/metadata";
@@ -72,7 +73,13 @@ export default async function SectorsPage({ params }: SectorsPageProps) {
     // categories (`data/product-categories.ts`), never invented copy. Every
     // sector but Fire Protection has exactly 3 categories today; this shows
     // its top 2 either way, short enough to never need mid-word truncation.
-    const categories = getCategoriesBySector(sector.id);
+    // Filtered to categories that currently have at least one real product —
+    // a taxonomy-only category (e.g. Lubricants & Oils' Engine Oils) is kept
+    // in `data/product-categories.ts` for future use but must never surface
+    // here as if it were already a populated part of the catalog.
+    const categories = getCategoriesBySector(sector.id).filter(
+      (category) => getProductsByCategory(category.id).length > 0,
+    );
     const scopeHint = categories.length
       ? categories
           .slice(0, MAX_SCOPE_HINT_CATEGORIES)
