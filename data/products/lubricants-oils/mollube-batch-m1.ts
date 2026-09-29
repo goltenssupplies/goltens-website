@@ -5,8 +5,19 @@ import type { Product, ProductSpecification } from "@/data/products/types";
  * Lubricants & Oils catalog. Every description, feature, application, and
  * technical value below is taken directly from MOLLUBE's own supplied
  * catalogues (verified page-by-page before implementation):
- *  - "Mollube Engine Oil & Grease .pdf", p.4 — MOL-PROHYDRO HLP
+ *  - "MOLLUBE Catalog Engine oil and Greases for Truck 2026.pdf", p.5 —
+ *    MOL-PROHYDRO HLP (corrected source — see note on the product below)
  *  - "MOLLUBE Gear Oils 2024.pdf", p.2-3 — MOL-GLO SY, MOL-GLO PG, MOL-GEAR
+ *
+ * MOL-PROHYDRO HLP source correction: "Mollube Engine Oil & Grease .pdf",
+ * p.4 also documents this product, as a single consolidated "46-68" entry
+ * (VI 96-110.7, Pour -29/-21, Flash 220-230, Foaming 10/0) rather than
+ * discrete grades. That data was originally used here at first M1
+ * implementation. The 2026 Truck catalogue was later found to document the
+ * same product with an explicit 32/46/68 grade-specific table instead, and
+ * per approved review that version now supersedes the consolidated one
+ * below — the older figures are intentionally not shown on the public
+ * product page, kept only in this comment for provenance.
  *
  * GOLTENS is supplying these products, not representing MOLLUBE as an
  * authorized distributor/agent/partner — every product uses neutral
@@ -468,13 +479,13 @@ export const mollubeBatchM1: Product[] = [
     name_en: "MOLLUBE MOL-PROHYDRO HLP",
     name_ar: "MOLLUBE MOL-PROHYDRO HLP",
     shortDescription_en:
-      "MOLLUBE MOL-PROHYDRO HLP — high-performance anti-wear hydraulic oil (viscosity 46-68) for moderate to severe mobile and industrial hydraulic systems.",
+      "MOLLUBE MOL-PROHYDRO HLP — high-performance anti-wear hydraulic oil (ISO VG 32/46/68) for moderate to severe mobile and industrial hydraulic systems.",
     shortDescription_ar:
-      "MOLLUBE MOL-PROHYDRO HLP — زيت هيدروليكي مضاد للتآكل عالي الأداء (لزوجة 46-68) للأنظمة الهيدروليكية المتنقلة والصناعية متوسطة إلى شديدة التحميل.",
+      "MOLLUBE MOL-PROHYDRO HLP — زيت هيدروليكي مضاد للتآكل عالي الأداء (ISO VG 32/46/68) للأنظمة الهيدروليكية المتنقلة والصناعية متوسطة إلى شديدة التحميل.",
     longDescription_en:
-      "MOL-PROHYDRO HLP is MOLLUBE's high-performance anti-wear hydraulic oil, offering superior protection and fluid properties for moderate to severe mobile and industrial hydraulic systems, across a viscosity range of 46-68. Available for supply from GOLTENS, matched to your equipment manufacturer's specification.",
+      "MOL-PROHYDRO HLP is MOLLUBE's high-performance anti-wear hydraulic oil, offering superior protection and fluid properties for moderate to severe mobile and industrial hydraulic systems, across ISO VG 32, 46, and 68 grades. Available for supply from GOLTENS, matched to your equipment manufacturer's specification.",
     longDescription_ar:
-      "MOL-PROHYDRO HLP هو زيت هيدروليكي مضاد للتآكل عالي الأداء من MOLLUBE، يوفر حماية وخصائص سائلة متفوقة للأنظمة الهيدروليكية المتنقلة والصناعية متوسطة إلى شديدة التحميل، ضمن نطاق لزوجة 46-68. متوفر للتوريد من GOLTENS، مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+      "MOL-PROHYDRO HLP هو زيت هيدروليكي مضاد للتآكل عالي الأداء من MOLLUBE، يوفر حماية وخصائص سائلة متفوقة للأنظمة الهيدروليكية المتنقلة والصناعية متوسطة إلى شديدة التحميل، بدرجات لزوجة ISO VG 32 و46 و68. متوفر للتوريد من GOLTENS، مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
     sectorId: "lubricants-oils",
     categoryId: "hydraulic-oils",
     applications_en: [
@@ -485,41 +496,73 @@ export const mollubeBatchM1: Product[] = [
       "الأنظمة الهيدروليكية المتنقلة متوسطة إلى شديدة التحميل",
       "الأنظمة الهيدروليكية الصناعية متوسطة إلى شديدة التحميل",
     ],
+    // MOLLUBE Catalog Engine oil and Greases for Truck 2026.pdf, p.5 —
+    // "MOL-PROHYDRO HLP (Series)", explicit 32/46/68 grade table. No
+    // Foaming value is stated for this table (that field only appeared in
+    // the superseded consolidated-range source — see file header note).
     specifications: [
-      {
-        label_en: "Viscosity",
-        label_ar: "اللزوجة",
-        value: "46-68",
-        group_en: "Performance",
-        group_ar: "الأداء",
-      },
       {
         label_en: "Viscosity Index",
         label_ar: "مؤشر اللزوجة",
-        value: "96-110.7",
-        group_en: "Performance",
-        group_ar: "الأداء",
+        value: "99",
+        group_en: "ISO VG 32",
+        group_ar: "درجة اللزوجة ISO VG 32",
       },
       {
         label_en: "Pour Point",
         label_ar: "نقطة الانسكاب",
-        value: "-29°C / -21°C",
-        group_en: "Performance",
-        group_ar: "الأداء",
+        value: "-30°C",
+        group_en: "ISO VG 32",
+        group_ar: "درجة اللزوجة ISO VG 32",
       },
       {
         label_en: "Flash Point",
         label_ar: "نقطة الوميض",
-        value: "220-230°C",
-        group_en: "Performance",
-        group_ar: "الأداء",
+        value: "219°C",
+        group_en: "ISO VG 32",
+        group_ar: "درجة اللزوجة ISO VG 32",
       },
       {
-        label_en: "Foaming",
-        label_ar: "الرغوة",
-        value: "10/0",
-        group_en: "Performance",
-        group_ar: "الأداء",
+        label_en: "Viscosity Index",
+        label_ar: "مؤشر اللزوجة",
+        value: "98",
+        group_en: "ISO VG 46",
+        group_ar: "درجة اللزوجة ISO VG 46",
+      },
+      {
+        label_en: "Pour Point",
+        label_ar: "نقطة الانسكاب",
+        value: "-29°C",
+        group_en: "ISO VG 46",
+        group_ar: "درجة اللزوجة ISO VG 46",
+      },
+      {
+        label_en: "Flash Point",
+        label_ar: "نقطة الوميض",
+        value: "232°C",
+        group_en: "ISO VG 46",
+        group_ar: "درجة اللزوجة ISO VG 46",
+      },
+      {
+        label_en: "Viscosity Index",
+        label_ar: "مؤشر اللزوجة",
+        value: "97",
+        group_en: "ISO VG 68",
+        group_ar: "درجة اللزوجة ISO VG 68",
+      },
+      {
+        label_en: "Pour Point",
+        label_ar: "نقطة الانسكاب",
+        value: "-23°C",
+        group_en: "ISO VG 68",
+        group_ar: "درجة اللزوجة ISO VG 68",
+      },
+      {
+        label_en: "Flash Point",
+        label_ar: "نقطة الوميض",
+        value: "238°C",
+        group_en: "ISO VG 68",
+        group_ar: "درجة اللزوجة ISO VG 68",
       },
     ],
     relatedProductSlugs: [
