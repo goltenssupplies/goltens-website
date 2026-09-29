@@ -37,6 +37,7 @@ import { industrialValvesActuators } from "@/data/products/industrial-equipment/
 import { industrialProcessPumps } from "@/data/products/industrial-equipment/process-pumps";
 import { lubricantsOilsBrandedGrades } from "@/data/products/lubricants-oils/branded-grades";
 import { lubricantsOilsProducts } from "@/data/products/lubricants-oils/lubricants-oils";
+import { mollubeBatchM1 } from "@/data/products/lubricants-oils/mollube-batch-m1";
 import type { Product, ProductCatalogue } from "@/data/products/types";
 
 /**
@@ -95,6 +96,7 @@ const PRODUCTS: Product[] = [
   ...globalProjectSourcingLogistics,
   ...lubricantsOilsProducts,
   ...lubricantsOilsBrandedGrades,
+  ...mollubeBatchM1,
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
