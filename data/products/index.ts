@@ -35,6 +35,7 @@ import { chemicalsWaterWastewaterChemicals } from "@/data/products/industrial-ch
 import { industrialAirCompressorsSystems } from "@/data/products/industrial-equipment/air-compressors-systems";
 import { industrialValvesActuators } from "@/data/products/industrial-equipment/industrial-valves-actuators";
 import { industrialProcessPumps } from "@/data/products/industrial-equipment/process-pumps";
+import { lubricantsOilsBrandedGrades } from "@/data/products/lubricants-oils/branded-grades";
 import { lubricantsOilsProducts } from "@/data/products/lubricants-oils/lubricants-oils";
 import type { Product, ProductCatalogue } from "@/data/products/types";
 
@@ -93,6 +94,7 @@ const PRODUCTS: Product[] = [
   ...globalBulkMaterialsIndustrialSupply,
   ...globalProjectSourcingLogistics,
   ...lubricantsOilsProducts,
+  ...lubricantsOilsBrandedGrades,
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
