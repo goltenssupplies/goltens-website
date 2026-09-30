@@ -39,6 +39,10 @@ import { lubricantsOilsBrandedGrades } from "@/data/products/lubricants-oils/bra
 import { lubricantsOilsProducts } from "@/data/products/lubricants-oils/lubricants-oils";
 import { mollubeBatchM1 } from "@/data/products/lubricants-oils/mollube-batch-m1";
 import { mollubeBatchM2Greases } from "@/data/products/lubricants-oils/mollube-batch-m2-greases";
+import { mobilBatch1Greases } from "@/data/products/lubricants-oils/mobil-batch-1-greases";
+import { mobilBatch1Hydraulic } from "@/data/products/lubricants-oils/mobil-batch-1-hydraulic";
+import { mobilBatch1Specialty } from "@/data/products/lubricants-oils/mobil-batch-1-specialty";
+import { mobilBatch1Turbine } from "@/data/products/lubricants-oils/mobil-batch-1-turbine";
 import { mollubeBatchM2Metalworking } from "@/data/products/lubricants-oils/mollube-batch-m2-metalworking";
 import { mollubeBatchM3AutomotiveGear } from "@/data/products/lubricants-oils/mollube-batch-m3-automotive-gear";
 import { mollubeBatchM3EngineOils } from "@/data/products/lubricants-oils/mollube-batch-m3-engine-oils";
@@ -109,6 +113,10 @@ const PRODUCTS: Product[] = [
   ...mollubeBatchM2Ohc,
   ...mollubeBatchM3EngineOils,
   ...mollubeBatchM3AutomotiveGear,
+  ...mobilBatch1Hydraulic,
+  ...mobilBatch1Turbine,
+  ...mobilBatch1Greases,
+  ...mobilBatch1Specialty,
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
