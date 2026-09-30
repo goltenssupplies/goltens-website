@@ -9,12 +9,14 @@ import type { SectorContent } from "@/data/sector-content/types";
  * times, and no brand named beyond the same general "trusted global
  * manufacturers" phrasing every sibling sector already uses.
  *
- * `categories_en/ar` lists ONLY the 5 categories with real, registered
+ * `categories_en/ar` lists ONLY the categories with real, registered
  * products (`data/product-categories.ts`, sectorId "lubricants-oils") —
- * the 6 taxonomy-only categories (Engine Oils, Compressor Oils, Turbine
- * Oils, Circulating Oils, Transformer Oils, Industrial Machine / Cooling
- * Lubricants) are deliberately NOT mentioned here, so this page never
- * implies a product range that doesn't exist yet.
+ * the remaining taxonomy-only categories (Engine Oils, Compressor Oils,
+ * Turbine Oils, Circulating Oils, Transformer Oils, Industrial Machine /
+ * Cooling Lubricants) are deliberately NOT mentioned here, so this page
+ * never implies a product range that doesn't exist yet. "Refrigeration
+ * Oils" was added to this list once the MOLLUBE MOL-FREEZ batch gave it
+ * real products.
  *
  * `applications` below is drawn directly from the real `applications_en`
  * text already in the 5 products
@@ -34,6 +36,7 @@ export const lubricantsOilsContent: SectorContent = {
       "Greases",
       "Metalworking Fluids",
       "Specialty Industrial Lubricants",
+      "Refrigeration Oils",
     ],
     categories_ar: [
       "الزيوت الهيدروليكية",
@@ -41,6 +44,7 @@ export const lubricantsOilsContent: SectorContent = {
       "الشحوم",
       "سوائل التشغيل المعدني",
       "زيوت التشحيم الصناعية المتخصصة",
+      "زيوت التبريد",
     ],
     complianceNote_en:
       "Products are supplied with technical data sheets matched to your project's requirements — we confirm the exact grade and specification needed as part of the quotation process.",

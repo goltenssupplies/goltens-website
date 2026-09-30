@@ -394,6 +394,17 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     name_en: "Specialty Industrial Lubricants",
     name_ar: "زيوت التشحيم الصناعية المتخصصة",
   },
+  {
+    // MOLLUBE refrigeration-compressor oils (MOL-FREEZ family) — distinct
+    // from the taxonomy-only "Industrial Machine / Cooling Lubricants"
+    // category below, which covers industrial equipment cooling/lubrication
+    // duty, not refrigerant-compatible compressor oil.
+    id: "refrigeration-oils",
+    slug: "refrigeration-oils",
+    sectorId: "lubricants-oils",
+    name_en: "Refrigeration Oils",
+    name_ar: "زيوت التبريد",
+  },
   // Taxonomy-only — no real products registered yet (see the note above).
   {
     id: "engine-oils",
