@@ -181,6 +181,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       "GOLTENS supplies earthmoving equipment for excavation, site clearing, loading, and grading work on construction, infrastructure, and quarry projects. This category covers hydraulic excavators, wheel loaders, bulldozers, motor graders, and backhoe loaders, sourced from global manufacturers and matched to your operating weight, bucket or blade capacity, and ground condition. Our team confirms the right machine class and configuration for your jobsite before finalizing your quotation.",
     description_ar:
       "توفر GOLTENS معدات نقل التراب لأعمال الحفر وتمهيد المواقع والتحميل والتسوية في مشروعات الإنشاءات والبنية التحتية والمحاجر. تشمل هذه الفئة الحفارات الهيدروليكية، واللوادر ذات العجلات، والجرافات، ومعدات تسوية الطرق، واللوادر الحفارة، نوفرها من شركات مصنّعة عالمية ونطابقها لوزن التشغيل وسعة الجرافة أو الشفرة وطبيعة الأرض لديكم. يحدد فريقنا فئة الآلية والتكوين المناسب لموقع عملكم قبل إتمام عرض السعر.",
+    indexable: true,
     seo: {
       title_en: "Earthmoving Equipment Supplier Egypt",
       title_ar: "مورد معدات نقل التراب في مصر",
@@ -208,6 +209,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       description_ar:
         "رافعات متحركة وزاحفة ورافعات شوكية وتلسكوبية ومنصات عمل هوائية، مطابقة لسعة الرفع ومدى الوصول وطبيعة موقعكم.",
     },
+    indexable: true,
   },
   {
     id: "concrete-compaction-equipment",
@@ -227,6 +229,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       description_ar:
         "خلاطات ومضخات خرسانة ورصاصات اهتزازية وفارشات أسفلت ومطارق هيدروليكية، مطابقة لحجم الصب ومتطلبات الدك لديكم.",
     },
+    indexable: true,
   },
 
   {
@@ -247,6 +250,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       description_ar:
         "مركبات تجارية خفيفة وشاحنات متوسطة وثقيلة وشاحنات بيك أب وشاحنات توصيل، مطابقة لحمولة أسطولكم ومتطلبات التشغيل.",
     },
+    indexable: true,
   },
   {
     id: "trailers-transport-equipment",
@@ -266,6 +270,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       description_ar:
         "مقطورات مسطحة وصهاريج ومبردة ومنخفضة وثقيلة، مطابقة لنوع بضاعتكم ومتطلبات الحمولة وتوافق الخزان.",
     },
+    indexable: true,
   },
   {
     id: "specialized-municipal-vehicles",
@@ -285,6 +290,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       description_ar:
         "مركبات جمع مخلفات وسيارات إسعاف وصهاريج وقود ومياه، لعمليات الأساطيل البلدية والمتخصصة وفق احتياجكم.",
     },
+    indexable: true,
   },
 
   // Healthcare's 9 legacy operational-supply categories (electrical,
