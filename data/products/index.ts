@@ -40,6 +40,7 @@ import { lubricantsOilsProducts } from "@/data/products/lubricants-oils/lubrican
 import { mollubeBatchM1 } from "@/data/products/lubricants-oils/mollube-batch-m1";
 import { mollubeBatchM2Greases } from "@/data/products/lubricants-oils/mollube-batch-m2-greases";
 import { mollubeBatchM2Metalworking } from "@/data/products/lubricants-oils/mollube-batch-m2-metalworking";
+import { mollubeBatchM2Ohc } from "@/data/products/lubricants-oils/mollube-batch-m2-ohc";
 import { mollubeBatchM2Refrigeration } from "@/data/products/lubricants-oils/mollube-batch-m2-refrigeration";
 import type { Product, ProductCatalogue } from "@/data/products/types";
 
@@ -103,6 +104,7 @@ const PRODUCTS: Product[] = [
   ...mollubeBatchM2Refrigeration,
   ...mollubeBatchM2Metalworking,
   ...mollubeBatchM2Greases,
+  ...mollubeBatchM2Ohc,
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {

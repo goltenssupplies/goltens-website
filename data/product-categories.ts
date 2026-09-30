@@ -411,6 +411,28 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     name_en: "Refrigeration Oils",
     name_ar: "زيوت التبريد",
   },
+  {
+    // MOLLUBE overhead-conductor protective greases — functionally and
+    // technically distinct from the "greases" category above (bearing/
+    // mechanical greases): different standards regime (IEC 61394, BS EN
+    // 50326, GB/T 36292), different test methodology (oil separation over
+    // time, low-temperature adhesion, aging tests, "Class XXAXXX"
+    // classification), different application (conductor surface
+    // protection, not bearing lubrication). See the approved Data Model
+    // Review for the full taxonomy rationale.
+    id: "overhead-conductor-greases",
+    slug: "overhead-conductor-greases",
+    sectorId: "lubricants-oils",
+    name_en: "Overhead Conductor Greases",
+    name_ar: "شحوم موصلات خطوط النقل الهوائية",
+    description_en:
+      "Protective greases for overhead electrical conductors, engineered for corrosion protection and long-term durability on aluminium, aluminium alloy, and steel bare conductors used in power transmission networks.",
+    description_ar:
+      "شحوم حماية لموصلات خطوط الكهرباء الهوائية، مصممة للحماية من التآكل والمتانة طويلة الأمد على الموصلات الألومنيوم والألومنيوم المركب والفولاذ العاري المستخدمة في شبكات نقل الطاقة.",
+    // Not indexable at launch — consistent with every other newly-added
+    // category in this catalog (Refrigeration Oils, Metalworking Fluids
+    // additions, Greases additions all launched non-indexable).
+  },
   // Taxonomy-only — no real products registered yet (see the note above).
   {
     id: "engine-oils",
