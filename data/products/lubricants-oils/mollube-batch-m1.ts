@@ -486,6 +486,20 @@ export const mollubeBatchM1: Product[] = [
       "MOL-PROHYDRO HLP is MOLLUBE's high-performance anti-wear hydraulic oil, offering superior protection and fluid properties for moderate to severe mobile and industrial hydraulic systems, across ISO VG 32, 46, and 68 grades. Available for supply from GOLTENS, matched to your equipment manufacturer's specification.",
     longDescription_ar:
       "MOL-PROHYDRO HLP هو زيت هيدروليكي مضاد للتآكل عالي الأداء من MOLLUBE، يوفر حماية وخصائص سائلة متفوقة للأنظمة الهيدروليكية المتنقلة والصناعية متوسطة إلى شديدة التحميل، بدرجات لزوجة ISO VG 32 و46 و68. متوفر للتوريد من GOLTENS، مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    publicName_en: "Anti-Wear Hydraulic Oil — ISO VG 32/46/68",
+    publicName_ar: "زيت هيدروليكي مضاد للتآكل — ISO VG 32/46/68",
+    publicShortDescription_en:
+      "High-performance anti-wear hydraulic oil (ISO VG 32/46/68) for moderate to severe mobile and industrial hydraulic systems.",
+    publicShortDescription_ar:
+      "زيت هيدروليكي مضاد للتآكل عالي الأداء (ISO VG 32/46/68) للأنظمة الهيدروليكية المتنقلة والصناعية متوسطة إلى شديدة التحميل.",
+    publicLongDescription_en:
+      "A high-performance anti-wear hydraulic oil, offering superior protection and fluid properties for moderate to severe mobile and industrial hydraulic systems, across ISO VG 32, 46, and 68 grades. Available for supply from GOLTENS, matched to your equipment manufacturer's specification.",
+    publicLongDescription_ar:
+      "زيت هيدروليكي مضاد للتآكل عالي الأداء، يوفر حماية وخصائص سائلة متفوقة للأنظمة الهيدروليكية المتنقلة والصناعية متوسطة إلى شديدة التحميل، بدرجات لزوجة ISO VG 32 و46 و68. متوفر للتوريد من GOLTENS، مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-PROHYDRO HLP",
+    },
     sectorId: "lubricants-oils",
     categoryId: "hydraulic-oils",
     applications_en: [
@@ -574,8 +588,8 @@ export const mollubeBatchM1: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-prohydro-hlp-datasheet",
-        title_en: "MOLLUBE MOL-PROHYDRO HLP Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE MOL-PROHYDRO HLP",
+        title_en: "Anti-Wear Hydraulic Oil — ISO VG 32/46/68 Datasheet",
+        title_ar: "نشرة بيانات زيت هيدروليكي مضاد للتآكل — ISO VG 32/46/68",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -584,12 +598,12 @@ export const mollubeBatchM1: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-PROHYDRO HLP Hydraulic Oil Supplier Egypt",
-      title_ar: "مورد زيت MOLLUBE MOL-PROHYDRO HLP الهيدروليكي في مصر",
+      title_en: "Anti-Wear Hydraulic Oil — ISO VG 32/46/68 Supplier Egypt",
+      title_ar: "مورد زيت هيدروليكي مضاد للتآكل — ISO VG 32/46/68 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-PROHYDRO HLP anti-wear hydraulic oil, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies anti-wear hydraulic oil (ISO VG 32/46/68), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت MOLLUBE MOL-PROHYDRO HLP الهيدروليكي المضاد للتآكل، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيتًا هيدروليكيًا مضادًا للتآكل (ISO VG 32/46/68)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -607,6 +621,21 @@ export const mollubeBatchM1: Product[] = [
       "MOL-GLO SY Series is MOLLUBE's fully synthetic industrial gear oil, based on specially selected Polyalpha Olefin (PAO) base fluids, offering very high oxidation and temperature stability and a naturally high viscosity index for use across a wide temperature range. Designed for the lubrication of gears, especially for heavy-duty, severe-service applications, including industrial gears (spur, helical and bevel) and anti-friction bearings (plain or rolling). Available across ISO VG 46, 68, 100, 150, 220, 320, 460, 680, 1000, and 3200 grades, supplied by GOLTENS matched to your gearbox manufacturer's specification.",
     longDescription_ar:
       "سلسلة MOL-GLO SY هي زيت تروس صناعي اصطناعي بالكامل من MOLLUBE، قائم على زيوت أساسية من نوع بولي ألفا أوليفين (PAO) مختارة بعناية، ويوفر ثباتًا عاليًا جدًا ضد الأكسدة ودرجة الحرارة، مع مؤشر لزوجة طبيعي مرتفع يسمح باستخدامه ضمن نطاق واسع من درجات الحرارة. مصمم لتشحيم التروس، خاصة في التطبيقات شديدة التحميل والخدمة القاسية، بما في ذلك التروس الصناعية (المستقيمة والحلزونية والمخروطية) والمحامل المضادة للاحتكاك (السطحية أو الدوارة). متوفر بدرجات لزوجة ISO VG من 46 إلى 3200، وتوفره GOLTENS مطابقًا لمواصفات الجهة المصنّعة لعلبة التروس لديكم.",
+    publicName_en: "Synthetic PAO Industrial Gear Oil — ISO VG 46-3200",
+    publicName_ar: "زيت تروس صناعي اصطناعي PAO — ISO VG 46-3200",
+    publicShortDescription_en:
+      "Fully synthetic PAO-based industrial gear oil, ISO VG 46 to 3200, for heavy-duty, severe-service gears and anti-friction bearings.",
+    publicShortDescription_ar:
+      "زيت تروس صناعي اصطناعي بالكامل قائم على PAO، بدرجات لزوجة ISO VG من 46 إلى 3200، للتروس والمحامل المضادة للاحتكاك في التطبيقات شديدة التحميل.",
+    publicLongDescription_en:
+      "A fully synthetic industrial gear oil, based on specially selected Polyalpha Olefin (PAO) base fluids, offering very high oxidation and temperature stability and a naturally high viscosity index for use across a wide temperature range. Designed for the lubrication of gears, especially for heavy-duty, severe-service applications, including industrial gears (spur, helical and bevel) and anti-friction bearings (plain or rolling). Available across ISO VG 46, 68, 100, 150, 220, 320, 460, 680, 1000, and 3200 grades, supplied by GOLTENS matched to your gearbox manufacturer's specification.",
+    publicLongDescription_ar:
+      "زيت تروس صناعي اصطناعي بالكامل، قائم على زيوت أساسية من نوع بولي ألفا أوليفين (PAO) مختارة بعناية، ويوفر ثباتًا عاليًا جدًا ضد الأكسدة ودرجة الحرارة، مع مؤشر لزوجة طبيعي مرتفع يسمح باستخدامه ضمن نطاق واسع من درجات الحرارة. مصمم لتشحيم التروس، خاصة في التطبيقات شديدة التحميل والخدمة القاسية، بما في ذلك التروس الصناعية (المستقيمة والحلزونية والمخروطية) والمحامل المضادة للاحتكاك (السطحية أو الدوارة). متوفر بدرجات لزوجة ISO VG من 46 إلى 3200، وتوفره GOLTENS مطابقًا لمواصفات الجهة المصنّعة لعلبة التروس لديكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-GLO SY Series",
+      sourceDocument: "MOLLUBE Gear Oils 2024.pdf",
+    },
     sectorId: "lubricants-oils",
     categoryId: "gear-oils-category",
     features_en: [
@@ -642,8 +671,9 @@ export const mollubeBatchM1: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-glo-sy-datasheet",
-        title_en: "MOLLUBE MOL-GLO SY Series Datasheet",
-        title_ar: "نشرة بيانات سلسلة MOLLUBE MOL-GLO SY",
+        title_en:
+          "Synthetic PAO Industrial Gear Oil — ISO VG 46-3200 Datasheet",
+        title_ar: "نشرة بيانات زيت تروس صناعي اصطناعي PAO — ISO VG 46-3200",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -652,12 +682,13 @@ export const mollubeBatchM1: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-GLO SY Series Gear Oil Supplier Egypt",
-      title_ar: "مورد زيت التروس سلسلة MOLLUBE MOL-GLO SY في مصر",
+      title_en:
+        "Synthetic PAO Industrial Gear Oil — ISO VG 46-3200 Supplier Egypt",
+      title_ar: "مورد زيت تروس صناعي اصطناعي PAO — ISO VG 46-3200 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-GLO SY Series synthetic industrial gear oil (ISO VG 46-3200), available for supply and matched to your gearbox specification. Request a quote.",
+        "GOLTENS supplies synthetic PAO industrial gear oil (ISO VG 46-3200), available for supply and matched to your gearbox specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التروس الصناعي الاصطناعي سلسلة MOLLUBE MOL-GLO SY (ISO VG 46-3200)، متوفر للتوريد ومطابق لمواصفات علبة التروس لديكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت تروس صناعي اصطناعي PAO (ISO VG 46-3200)، متوفر للتوريد ومطابق لمواصفات علبة التروس لديكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -675,6 +706,21 @@ export const mollubeBatchM1: Product[] = [
       "MOL-GLO PG Series is MOLLUBE's fully synthetic industrial gear oil, based on specially selected polyglycol base oils, offering very high oxidation and temperature stability and a naturally high viscosity index for use across a wide temperature range. Specifically designed for the lubrication of worm gears, and suitable for many types of industrial gears and anti-friction bearings, especially for heavy-duty, severe-service applications. Available across ISO VG 46, 68, 100, 150, 220, 320, 460, 680, and 1000 grades, supplied by GOLTENS matched to your gearbox manufacturer's specification.",
     longDescription_ar:
       "سلسلة MOL-GLO PG هي زيت تروس صناعي اصطناعي بالكامل من MOLLUBE، قائم على زيوت بولي جلايكول أساسية مختارة بعناية، ويوفر ثباتًا عاليًا جدًا ضد الأكسدة ودرجة الحرارة، مع مؤشر لزوجة طبيعي مرتفع يسمح باستخدامه ضمن نطاق واسع من درجات الحرارة. مصمم خصيصًا لتشحيم التروس الدودية، ومناسب للعديد من أنواع التروس الصناعية والمحامل المضادة للاحتكاك، خاصة في التطبيقات شديدة التحميل والخدمة القاسية. متوفر بدرجات لزوجة ISO VG من 46 إلى 1000، وتوفره GOLTENS مطابقًا لمواصفات الجهة المصنّعة لعلبة التروس لديكم.",
+    publicName_en: "Synthetic Polyglycol Industrial Gear Oil — ISO VG 46-1000",
+    publicName_ar: "زيت تروس صناعي اصطناعي من البولي جلايكول — ISO VG 46-1000",
+    publicShortDescription_en:
+      "Fully synthetic polyglycol-based industrial gear oil, ISO VG 46 to 1000, specifically designed for worm gears and heavy-duty, severe-service applications.",
+    publicShortDescription_ar:
+      "زيت تروس صناعي اصطناعي بالكامل قائم على البولي جلايكول، بدرجات لزوجة ISO VG من 46 إلى 1000، مصمم خصيصًا للتروس الدودية والتطبيقات شديدة التحميل.",
+    publicLongDescription_en:
+      "A fully synthetic industrial gear oil, based on specially selected polyglycol base oils, offering very high oxidation and temperature stability and a naturally high viscosity index for use across a wide temperature range. Specifically designed for the lubrication of worm gears, and suitable for many types of industrial gears and anti-friction bearings, especially for heavy-duty, severe-service applications. Available across ISO VG 46, 68, 100, 150, 220, 320, 460, 680, and 1000 grades, supplied by GOLTENS matched to your gearbox manufacturer's specification.",
+    publicLongDescription_ar:
+      "زيت تروس صناعي اصطناعي بالكامل، قائم على زيوت بولي جلايكول أساسية مختارة بعناية، ويوفر ثباتًا عاليًا جدًا ضد الأكسدة ودرجة الحرارة، مع مؤشر لزوجة طبيعي مرتفع يسمح باستخدامه ضمن نطاق واسع من درجات الحرارة. مصمم خصيصًا لتشحيم التروس الدودية، ومناسب للعديد من أنواع التروس الصناعية والمحامل المضادة للاحتكاك، خاصة في التطبيقات شديدة التحميل والخدمة القاسية. متوفر بدرجات لزوجة ISO VG من 46 إلى 1000، وتوفره GOLTENS مطابقًا لمواصفات الجهة المصنّعة لعلبة التروس لديكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-GLO PG Series",
+      sourceDocument: "MOLLUBE Gear Oils 2024.pdf",
+    },
     sectorId: "lubricants-oils",
     categoryId: "gear-oils-category",
     features_en: [
@@ -709,8 +755,10 @@ export const mollubeBatchM1: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-glo-pg-datasheet",
-        title_en: "MOLLUBE MOL-GLO PG Series Datasheet",
-        title_ar: "نشرة بيانات سلسلة MOLLUBE MOL-GLO PG",
+        title_en:
+          "Synthetic Polyglycol Industrial Gear Oil — ISO VG 46-1000 Datasheet",
+        title_ar:
+          "نشرة بيانات زيت تروس صناعي اصطناعي من البولي جلايكول — ISO VG 46-1000",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -719,12 +767,14 @@ export const mollubeBatchM1: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-GLO PG Series Gear Oil Supplier Egypt",
-      title_ar: "مورد زيت التروس سلسلة MOLLUBE MOL-GLO PG في مصر",
+      title_en:
+        "Synthetic Polyglycol Industrial Gear Oil — ISO VG 46-1000 Supplier Egypt",
+      title_ar:
+        "مورد زيت تروس صناعي اصطناعي من البولي جلايكول — ISO VG 46-1000 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-GLO PG Series synthetic industrial gear oil (ISO VG 46-1000), available for supply and matched to your gearbox specification. Request a quote.",
+        "GOLTENS supplies synthetic polyglycol industrial gear oil (ISO VG 46-1000), available for supply and matched to your gearbox specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التروس الصناعي الاصطناعي سلسلة MOLLUBE MOL-GLO PG (ISO VG 46-1000)، متوفر للتوريد ومطابق لمواصفات علبة التروس لديكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت تروس صناعي اصطناعي من البولي جلايكول (ISO VG 46-1000)، متوفر للتوريد ومطابق لمواصفات علبة التروس لديكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -742,6 +792,22 @@ export const mollubeBatchM1: Product[] = [
       "MOL-GEAR Series are MOLLUBE's CLP-class, high-performance extreme-pressure industrial gear oils, blended from high-quality base stocks with a sulphur-phosphorus type extreme-pressure additive. Suitable for a wide range of industrial spur, helical, bevel, and steel-on-steel worm gears, and for enclosed gears operating under extreme-pressure performance. Available across ISO VG 46, 68, 100, 150, 220, 320, 460, 680, and 1000 grades, supplied by GOLTENS matched to your gearbox manufacturer's specification. This is MOLLUBE's industrial gear-oil line — MOLLUBE separately offers an automotive axle gear-oil range (SAE 90, 140, 75W-90, 80W-90, 85W-140), which is not part of this catalog entry.",
     longDescription_ar:
       "سلسلة MOL-GEAR هي زيوت تروس صناعية من فئة CLP عالية الأداء وبخاصية الضغط العالي من MOLLUBE، مصنّعة من مواد أساسية عالية الجودة مع إضافة مقاومة للضغط العالي من نوع الكبريت-الفوسفور. مناسبة لمجموعة واسعة من التروس الصناعية المستقيمة والحلزونية والمخروطية والتروس الدودية من الفولاذ على الفولاذ، وللتروس المغلقة العاملة تحت أداء الضغط العالي. متوفرة بدرجات لزوجة ISO VG من 46 إلى 1000، وتوفرها GOLTENS مطابقة لمواصفات الجهة المصنّعة لعلبة التروس لديكم. هذه هي خط زيوت التروس الصناعية من MOLLUBE — وتقدّم MOLLUBE بشكل منفصل مجموعة زيوت تروس للمحاور الآلية (SAE 90، 140، 75W-90، 80W-90، 85W-140)، وهي ليست جزءًا من هذا السجل في الكتالوج.",
+    publicName_en: "CLP Extreme-Pressure Industrial Gear Oil — ISO VG 46-1000",
+    publicName_ar:
+      "زيت تروس صناعي من فئة CLP بخاصية الضغط العالي — ISO VG 46-1000",
+    publicShortDescription_en:
+      "CLP-class extreme-pressure industrial gear oil, ISO VG 46 to 1000, for enclosed industrial gears under extreme-pressure performance.",
+    publicShortDescription_ar:
+      "زيت تروس صناعي من فئة CLP بخاصية الضغط العالي، بدرجات لزوجة ISO VG من 46 إلى 1000، للتروس الصناعية المغلقة تحت أداء الضغط العالي.",
+    publicLongDescription_en:
+      "A CLP-class, high-performance extreme-pressure industrial gear oil, blended from high-quality base stocks with a sulphur-phosphorus type extreme-pressure additive. Suitable for a wide range of industrial spur, helical, bevel, and steel-on-steel worm gears, and for enclosed gears operating under extreme-pressure performance. Available across ISO VG 46, 68, 100, 150, 220, 320, 460, 680, and 1000 grades, supplied by GOLTENS matched to your gearbox manufacturer's specification.",
+    publicLongDescription_ar:
+      "زيت تروس صناعي من فئة CLP عالي الأداء وبخاصية الضغط العالي، مصنّع من مواد أساسية عالية الجودة مع إضافة مقاومة للضغط العالي من نوع الكبريت-الفوسفور. مناسب لمجموعة واسعة من التروس الصناعية المستقيمة والحلزونية والمخروطية والتروس الدودية من الفولاذ على الفولاذ، وللتروس المغلقة العاملة تحت أداء الضغط العالي. متوفر بدرجات لزوجة ISO VG من 46 إلى 1000، وتوفره GOLTENS مطابقًا لمواصفات الجهة المصنّعة لعلبة التروس لديكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-GEAR Series",
+      sourceDocument: "MOLLUBE Gear Oils 2024.pdf",
+    },
     sectorId: "lubricants-oils",
     categoryId: "gear-oils-category",
     features_en: [
@@ -775,8 +841,10 @@ export const mollubeBatchM1: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-gear-datasheet",
-        title_en: "MOLLUBE MOL-GEAR Series Datasheet",
-        title_ar: "نشرة بيانات سلسلة MOLLUBE MOL-GEAR",
+        title_en:
+          "CLP Extreme-Pressure Industrial Gear Oil — ISO VG 46-1000 Datasheet",
+        title_ar:
+          "نشرة بيانات زيت تروس صناعي من فئة CLP بخاصية الضغط العالي — ISO VG 46-1000",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -785,12 +853,14 @@ export const mollubeBatchM1: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-GEAR Series Gear Oil Supplier Egypt",
-      title_ar: "مورد زيت التروس سلسلة MOLLUBE MOL-GEAR في مصر",
+      title_en:
+        "CLP Extreme-Pressure Industrial Gear Oil — ISO VG 46-1000 Supplier Egypt",
+      title_ar:
+        "مورد زيت تروس صناعي من فئة CLP بخاصية الضغط العالي — ISO VG 46-1000 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-GEAR Series extreme-pressure industrial gear oil (ISO VG 46-1000), available for supply and matched to your gearbox specification. Request a quote.",
+        "GOLTENS supplies CLP extreme-pressure industrial gear oil (ISO VG 46-1000), available for supply and matched to your gearbox specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التروس الصناعي بخاصية الضغط العالي سلسلة MOLLUBE MOL-GEAR (ISO VG 46-1000)، متوفر للتوريد ومطابق لمواصفات علبة التروس لديكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت تروس صناعي من فئة CLP بخاصية الضغط العالي (ISO VG 46-1000)، متوفر للتوريد ومطابق لمواصفات علبة التروس لديكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,

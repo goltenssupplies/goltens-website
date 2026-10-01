@@ -167,6 +167,23 @@ export const mollubeBatchM3AutomotiveGear: Product[] = [
       "MOL-GEAR Automotive is MOLLUBE's heavy-duty gear lubricant, formulated from high-performance base oils and an advanced additive system, engineered for automotive applications including heavy-duty axles and final drives where extreme pressures and shock loading are expected, providing excellent performance where API GL-5 service is required. The multi-grade line is produced by adding extreme-pressure (EP) resistant rust and wear preventive additives to paraffin-based base oils, for use in automotive differential, spur gear, and hypoid gears in passenger cars, trucks, and construction equipment operating under high-velocity/low-torque and low-velocity/high-torque conditions. This is a distinct product line from MOLLUBE's industrial MOL-GEAR Series (CLP-class, ISO VG 46-1000). Available for supply through GOLTENS, matched to your vehicle or equipment manufacturer's specification.",
     longDescription_ar:
       "MOL-GEAR Automotive هو زيت تروس شاق من MOLLUBE، مصنّع من زيوت أساسية عالية الأداء ونظام إضافات متقدم، مصمم للتطبيقات السيارات بما في ذلك المحاور ووحدات الدفع النهائي الشاقة حيث يُتوقع ضغط عالٍ وأحمال صدمية، ويوفر أداءً ممتازًا حيث تُطلب خدمة API GL-5. يتم إنتاج الدرجات المتعددة بإضافة مواد مضادة للضغط العالي (EP) ومانعة للصدأ والتآكل إلى زيوت أساسية بارافينية، للاستخدام في التروس التفاضلية والمستقيمة والهايبويد في السيارات الركاب والشاحنات ومعدات الإنشاءات العاملة تحت ظروف السرعة العالية/العزم المنخفض والسرعة المنخفضة/العزم العالي. هذا خط منتجات مختلف عن سلسلة MOL-GEAR الصناعية من MOLLUBE (فئة CLP، ISO VG 46-1000). متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات الجهة المصنّعة لمركبتكم أو معداتكم.",
+    publicName_en:
+      "API GL-5 Automotive Gear Lubricant — SAE 90/140, 75W80-85W140",
+    publicName_ar: "زيت تروس سيارات API GL-5 — SAE 90/140، 75W80-85W140",
+    publicShortDescription_en:
+      "Heavy-duty API GL-5 automotive gear lubricant, mono-grade SAE 90/140 and multi-grade 75W80/75W90/80W90/85W140, for axles, final drives, and differentials.",
+    publicShortDescription_ar:
+      "زيت تروس سيارات شاق بتصنيف API GL-5، بدرجة أحادية SAE 90/140 ودرجات متعددة 75W80/75W90/80W90/85W140، للمحاور ووحدات الدفع النهائي والتروس التفاضلية.",
+    publicLongDescription_en:
+      "A heavy-duty gear lubricant, formulated from high-performance base oils and an advanced additive system, engineered for automotive applications including heavy-duty axles and final drives where extreme pressures and shock loading are expected, providing excellent performance where API GL-5 service is required. The multi-grade line is produced by adding extreme-pressure (EP) resistant rust and wear preventive additives to paraffin-based base oils, for use in automotive differential, spur gear, and hypoid gears in passenger cars, trucks, and construction equipment operating under high-velocity/low-torque and low-velocity/high-torque conditions. Available for supply through GOLTENS, matched to your vehicle or equipment manufacturer's specification.",
+    publicLongDescription_ar:
+      "زيت تروس شاق، مصنّع من زيوت أساسية عالية الأداء ونظام إضافات متقدم، مصمم للتطبيقات السيارات بما في ذلك المحاور ووحدات الدفع النهائي الشاقة حيث يُتوقع ضغط عالٍ وأحمال صدمية، ويوفر أداءً ممتازًا حيث تُطلب خدمة API GL-5. يتم إنتاج الدرجات المتعددة بإضافة مواد مضادة للضغط العالي (EP) ومانعة للصدأ والتآكل إلى زيوت أساسية بارافينية، للاستخدام في التروس التفاضلية والمستقيمة والهايبويد في السيارات الركاب والشاحنات ومعدات الإنشاءات العاملة تحت ظروف السرعة العالية/العزم المنخفض والسرعة المنخفضة/العزم العالي. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات الجهة المصنّعة لمركبتكم أو معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-GEAR Automotive",
+      sourceDocument:
+        "MOLLUBE Catalog Engine oil and Greases for Truck 2026.pdf",
+    },
     sectorId: "lubricants-oils",
     categoryId: "gear-oils-category",
     applications_en: [
@@ -187,8 +204,10 @@ export const mollubeBatchM3AutomotiveGear: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-gear-automotive-datasheet",
-        title_en: "MOLLUBE MOL-GEAR Automotive Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE MOL-GEAR Automotive",
+        title_en:
+          "API GL-5 Automotive Gear Lubricant — SAE 90/140, 75W80-85W140 Datasheet",
+        title_ar:
+          "نشرة بيانات زيت تروس سيارات API GL-5 — SAE 90/140، 75W80-85W140",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -197,12 +216,14 @@ export const mollubeBatchM3AutomotiveGear: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-GEAR Automotive Gear Oil Supplier Egypt",
-      title_ar: "مورد زيت تروس MOLLUBE MOL-GEAR Automotive في مصر",
+      title_en:
+        "API GL-5 Automotive Gear Lubricant — SAE 90/140, 75W80-85W140 Supplier Egypt",
+      title_ar:
+        "مورد زيت تروس سيارات API GL-5 — SAE 90/140، 75W80-85W140 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-GEAR Automotive API GL-5 gear lubricant (SAE 90/140, 75W80-85W140), available for supply and matched to your vehicle specification. Request a quote.",
+        "GOLTENS supplies API GL-5 automotive gear lubricant (SAE 90/140, 75W80-85W140), available for supply and matched to your vehicle specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التروس MOLLUBE MOL-GEAR Automotive بتصنيف API GL-5 (SAE 90/140، 75W80-85W140)، متوفر للتوريد ومطابق لمواصفات مركبتكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت تروس سيارات بتصنيف API GL-5 (SAE 90/140، 75W80-85W140)، متوفر للتوريد ومطابق لمواصفات مركبتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,

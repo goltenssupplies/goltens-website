@@ -52,6 +52,21 @@ export const mollubeBatchM2Metalworking: Product[] = [
       "MOL-PROCUT MW is MOLLUBE's high-performance, water-soluble metalworking fluid with advanced additives for excellent lubricity, corrosion protection, tool life, and surface finish, suitable for ferrous and non-ferrous machining in demanding industrial applications. Available for supply through GOLTENS, matched to your machining process.",
     longDescription_ar:
       "MOL-PROCUT MW هو سائل تشغيل معدني عالي الأداء وقابل للذوبان في الماء من MOLLUBE، يحتوي على إضافات متقدمة لتحسين خصائص التزييت والحماية من التآكل وعمر الأداة وجودة السطح، ومناسب للتشغيل على المعادن الحديدية وغير الحديدية في التطبيقات الصناعية الصعبة. متوفر للتوريد من خلال GOLTENS، مطابقًا لعملية التشغيل لديكم.",
+    publicName_en: "Water-Soluble Mineral Emulsion Metalworking Fluid",
+    publicName_ar: "سائل تشغيل معدني مستحلب معدني قابل للذوبان في الماء",
+    publicShortDescription_en:
+      "High-performance, water-soluble mineral emulsion metalworking fluid for ferrous and non-ferrous machining.",
+    publicShortDescription_ar:
+      "سائل تشغيل معدني مستحلب معدني عالي الأداء وقابل للذوبان في الماء، للتشغيل على المعادن الحديدية وغير الحديدية.",
+    publicLongDescription_en:
+      "A high-performance, water-soluble metalworking fluid with advanced additives for excellent lubricity, corrosion protection, tool life, and surface finish, suitable for ferrous and non-ferrous machining in demanding industrial applications. Available for supply through GOLTENS, matched to your machining process.",
+    publicLongDescription_ar:
+      "سائل تشغيل معدني عالي الأداء وقابل للذوبان في الماء، يحتوي على إضافات متقدمة لتحسين خصائص التزييت والحماية من التآكل وعمر الأداة وجودة السطح، ومناسب للتشغيل على المعادن الحديدية وغير الحديدية في التطبيقات الصناعية الصعبة. متوفر للتوريد من خلال GOLTENS، مطابقًا لعملية التشغيل لديكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-PROCUT MW",
+      sourceDocument: "MOLLUBE Metalworking lubricants 2025.pdf",
+    },
     sectorId: "lubricants-oils",
     categoryId: "metalworking-fluids-category",
     features_en: [
@@ -165,8 +180,9 @@ export const mollubeBatchM2Metalworking: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-procut-mw-datasheet",
-        title_en: "MOLLUBE MOL-PROCUT MW Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE MOL-PROCUT MW",
+        title_en: "Water-Soluble Mineral Emulsion Metalworking Fluid Datasheet",
+        title_ar:
+          "نشرة بيانات سائل تشغيل معدني مستحلب معدني قابل للذوبان في الماء",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -175,12 +191,14 @@ export const mollubeBatchM2Metalworking: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-PROCUT MW Metalworking Fluid Supplier Egypt",
-      title_ar: "مورد سائل التشغيل المعدني MOLLUBE MOL-PROCUT MW في مصر",
+      title_en:
+        "Water-Soluble Mineral Emulsion Metalworking Fluid Supplier Egypt",
+      title_ar:
+        "مورد سائل تشغيل معدني مستحلب معدني قابل للذوبان في الماء في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-PROCUT MW mineral emulsion metalworking fluid, available for supply and matched to your machining process. Request a quote.",
+        "GOLTENS supplies water-soluble mineral emulsion metalworking fluid, available for supply and matched to your machining process. Request a quote.",
       description_ar:
-        "توفر GOLTENS سائل التشغيل المعدني المستحلب المعدني MOLLUBE MOL-PROCUT MW، متوفر للتوريد ومطابق لعملية التشغيل لديكم. اطلب عرض سعر.",
+        "توفر GOLTENS سائل تشغيل معدني مستحلب معدني قابل للذوبان في الماء، متوفر للتوريد ومطابق لعملية التشغيل لديكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -198,6 +216,21 @@ export const mollubeBatchM2Metalworking: Product[] = [
       "MOL-PROCUT SYM is MOLLUBE's high-performance semi-synthetic oil, water-miscible and anti-corrosive, with excellent biological stability and resistance to bacterial and fungal attacks. It offers outstanding lubricity, maintains a stable emulsion even under tough working conditions, and has strong detergency for cleaning machine tools, forming an odorless solution when mixed with water. Available for supply through GOLTENS, matched to your machining process.",
     longDescription_ar:
       "MOL-PROCUT SYM هو زيت شبه اصطناعي عالي الأداء من MOLLUBE، قابل للامتزاج بالماء ومضاد للتآكل، ويتميز بثبات بيولوجي ممتاز ومقاومة للبكتيريا والفطريات. يوفر تزييتًا متميزًا، ويحافظ على استقرار المستحلب حتى في ظروف العمل الصعبة، ويتمتع بقدرة تنظيف قوية لماكينات التشغيل، ويشكّل محلولًا عديم الرائحة عند خلطه بالماء. متوفر للتوريد من خلال GOLTENS، مطابقًا لعملية التشغيل لديكم.",
+    publicName_en: "Semi-Synthetic Water-Miscible Metalworking Fluid",
+    publicName_ar: "سائل تشغيل معدني شبه اصطناعي قابل للامتزاج بالماء",
+    publicShortDescription_en:
+      "Water-miscible semi-synthetic metalworking oil for CNC machining of cast iron, steel, aluminum, and non-ferrous metals.",
+    publicShortDescription_ar:
+      "زيت تشغيل معدني شبه اصطناعي قابل للامتزاج بالماء، لتشغيل CNC للحديد الزهر والصلب والألمنيوم والمعادن غير الحديدية.",
+    publicLongDescription_en:
+      "A high-performance semi-synthetic oil, water-miscible and anti-corrosive, with excellent biological stability and resistance to bacterial and fungal attacks. It offers outstanding lubricity, maintains a stable emulsion even under tough working conditions, and has strong detergency for cleaning machine tools, forming an odorless solution when mixed with water. Available for supply through GOLTENS, matched to your machining process.",
+    publicLongDescription_ar:
+      "زيت شبه اصطناعي عالي الأداء، قابل للامتزاج بالماء ومضاد للتآكل، ويتميز بثبات بيولوجي ممتاز ومقاومة للبكتيريا والفطريات. يوفر تزييتًا متميزًا، ويحافظ على استقرار المستحلب حتى في ظروف العمل الصعبة، ويتمتع بقدرة تنظيف قوية لماكينات التشغيل، ويشكّل محلولًا عديم الرائحة عند خلطه بالماء. متوفر للتوريد من خلال GOLTENS، مطابقًا لعملية التشغيل لديكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-PROCUT SYM",
+      sourceDocument: "MOLLUBE Metalworking lubricants 2025.pdf",
+    },
     sectorId: "lubricants-oils",
     categoryId: "metalworking-fluids-category",
     features_en: [
@@ -299,8 +332,9 @@ export const mollubeBatchM2Metalworking: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-procut-sym-datasheet",
-        title_en: "MOLLUBE MOL-PROCUT SYM Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE MOL-PROCUT SYM",
+        title_en: "Semi-Synthetic Water-Miscible Metalworking Fluid Datasheet",
+        title_ar:
+          "نشرة بيانات سائل تشغيل معدني شبه اصطناعي قابل للامتزاج بالماء",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -309,12 +343,13 @@ export const mollubeBatchM2Metalworking: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-PROCUT SYM Metalworking Fluid Supplier Egypt",
-      title_ar: "مورد سائل التشغيل المعدني MOLLUBE MOL-PROCUT SYM في مصر",
+      title_en:
+        "Semi-Synthetic Water-Miscible Metalworking Fluid Supplier Egypt",
+      title_ar: "مورد سائل تشغيل معدني شبه اصطناعي قابل للامتزاج بالماء في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-PROCUT SYM semi-synthetic metalworking oil, available for supply and matched to your machining process. Request a quote.",
+        "GOLTENS supplies semi-synthetic water-miscible metalworking fluid, available for supply and matched to your machining process. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التشغيل المعدني شبه الاصطناعي MOLLUBE MOL-PROCUT SYM، متوفر للتوريد ومطابق لعملية التشغيل لديكم. اطلب عرض سعر.",
+        "توفر GOLTENS سائل تشغيل معدني شبه اصطناعي قابل للامتزاج بالماء، متوفر للتوريد ومطابق لعملية التشغيل لديكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -332,6 +367,21 @@ export const mollubeBatchM2Metalworking: Product[] = [
       "MOL-PROCUT SY 500 is specially formulated for use in medium and hard-water grinding operations. It is fully synthetic and does not contain water-soluble coolant and mineral oil. Available for supply through GOLTENS, matched to your machining process.",
     longDescription_ar:
       "MOL-PROCUT SY 500 مُصمم خصيصًا للاستخدام في عمليات الطحن بالمياه متوسطة وعالية العسر. وهو منتج اصطناعي بالكامل ولا يحتوي على سائل تبريد قابل للذوبان في الماء أو زيت معدني. متوفر للتوريد من خلال GOLTENS، مطابقًا لعملية التشغيل لديكم.",
+    publicName_en: "Synthetic Metalworking Fluid — Grinding Applications",
+    publicName_ar: "سائل تشغيل معدني اصطناعي — لعمليات الطحن",
+    publicShortDescription_en:
+      "Fully synthetic metalworking fluid for medium and hard-water grinding operations.",
+    publicShortDescription_ar:
+      "سائل تشغيل معدني اصطناعي بالكامل لعمليات الطحن في المياه متوسطة وعالية العسر.",
+    publicLongDescription_en:
+      "Specially formulated for use in medium and hard-water grinding operations. Fully synthetic and does not contain water-soluble coolant and mineral oil. Available for supply through GOLTENS, matched to your machining process.",
+    publicLongDescription_ar:
+      "مُصمم خصيصًا للاستخدام في عمليات الطحن بالمياه متوسطة وعالية العسر. وهو منتج اصطناعي بالكامل ولا يحتوي على سائل تبريد قابل للذوبان في الماء أو زيت معدني. متوفر للتوريد من خلال GOLTENS، مطابقًا لعملية التشغيل لديكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-PROCUT SY 500",
+      sourceDocument: "MOLLUBE Metalworking lubricants 2025.pdf",
+    },
     sectorId: "lubricants-oils",
     categoryId: "metalworking-fluids-category",
     features_en: [
@@ -419,8 +469,9 @@ export const mollubeBatchM2Metalworking: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-procut-sy-500-datasheet",
-        title_en: "MOLLUBE MOL-PROCUT SY 500 Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE MOL-PROCUT SY 500",
+        title_en:
+          "Synthetic Metalworking Fluid — Grinding Applications Datasheet",
+        title_ar: "نشرة بيانات سائل تشغيل معدني اصطناعي — لعمليات الطحن",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -429,12 +480,13 @@ export const mollubeBatchM2Metalworking: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-PROCUT SY 500 Metalworking Fluid Supplier Egypt",
-      title_ar: "مورد سائل التشغيل المعدني MOLLUBE MOL-PROCUT SY 500 في مصر",
+      title_en:
+        "Synthetic Metalworking Fluid — Grinding Applications Supplier Egypt",
+      title_ar: "مورد سائل تشغيل معدني اصطناعي — لعمليات الطحن في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-PROCUT SY 500 fully synthetic metalworking fluid, available for supply and matched to your machining process. Request a quote.",
+        "GOLTENS supplies synthetic metalworking fluid for grinding applications, available for supply and matched to your machining process. Request a quote.",
       description_ar:
-        "توفر GOLTENS سائل التشغيل المعدني الاصطناعي بالكامل MOLLUBE MOL-PROCUT SY 500، متوفر للتوريد ومطابق لعملية التشغيل لديكم. اطلب عرض سعر.",
+        "توفر GOLTENS سائل تشغيل معدني اصطناعي لعمليات الطحن، متوفر للتوريد ومطابق لعملية التشغيل لديكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -452,6 +504,21 @@ export const mollubeBatchM2Metalworking: Product[] = [
       "MOL-MET Series is MOLLUBE's extra-high-performance neat cutting oil, chlorine-free and intended for severe cutting operations, especially on difficult-to-machine steels. It delivers superior surface finish, extended tool life, and control of built-up edge; its light, transparent color provides a clear view of the tool and work piece, and it is formulated to prevent the formation of oil mist in the vicinity of the tools. Two viscosity values are available: 22 cSt and 32 cSt at 40°C. Available for supply through GOLTENS, matched to your machining process.",
     longDescription_ar:
       "سلسلة MOL-MET هي زيت قطع صافٍ عالي الأداء من MOLLUBE، خالٍ من الكلور ومخصص لعمليات القطع الصعبة، خاصة على الفولاذ صعب التشغيل. يوفر جودة سطح متميزة وعمر أداة أطول وتحكمًا في تكوّن الحافة المتراكمة (built-up edge)؛ ويوفر لونه الفاتح الشفاف رؤية واضحة للأداة وقطعة العمل، وهو مصمم لمنع تكوّن ضباب الزيت في محيط الأدوات. تتوفر قيمتا لزوجة: 22 سنتيستوك و32 سنتيستوك عند 40°م. متوفر للتوريد من خلال GOLTENS، مطابقًا لعملية التشغيل لديكم.",
+    publicName_en: "Chlorine-Free Neat Cutting Oil — Extra-High Performance",
+    publicName_ar: "زيت قطع صافٍ خالٍ من الكلور — أداء فائق",
+    publicShortDescription_en:
+      "Chlorine-free, extra-high-performance neat cutting oil for severe machining of difficult-to-machine steels.",
+    publicShortDescription_ar:
+      "زيت قطع صافٍ خالٍ من الكلور وعالي الأداء، لعمليات التشغيل الصعبة على الفولاذ صعب التشغيل.",
+    publicLongDescription_en:
+      "An extra-high-performance neat cutting oil, chlorine-free and intended for severe cutting operations, especially on difficult-to-machine steels. It delivers superior surface finish, extended tool life, and control of built-up edge; its light, transparent color provides a clear view of the tool and work piece, and it is formulated to prevent the formation of oil mist in the vicinity of the tools. Two viscosity values are available: 22 cSt and 32 cSt at 40°C. Available for supply through GOLTENS, matched to your machining process.",
+    publicLongDescription_ar:
+      "زيت قطع صافٍ عالي الأداء، خالٍ من الكلور ومخصص لعمليات القطع الصعبة، خاصة على الفولاذ صعب التشغيل. يوفر جودة سطح متميزة وعمر أداة أطول وتحكمًا في تكوّن الحافة المتراكمة (built-up edge)؛ ويوفر لونه الفاتح الشفاف رؤية واضحة للأداة وقطعة العمل، وهو مصمم لمنع تكوّن ضباب الزيت في محيط الأدوات. تتوفر قيمتا لزوجة: 22 سنتيستوك و32 سنتيستوك عند 40°م. متوفر للتوريد من خلال GOLTENS، مطابقًا لعملية التشغيل لديكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-MET Series",
+      sourceDocument: "MOLLUBE Metalworking lubricants 2025.pdf",
+    },
     sectorId: "lubricants-oils",
     categoryId: "metalworking-fluids-category",
     features_en: [
@@ -618,8 +685,9 @@ export const mollubeBatchM2Metalworking: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-met-datasheet",
-        title_en: "MOLLUBE MOL-MET Series Datasheet",
-        title_ar: "نشرة بيانات سلسلة MOLLUBE MOL-MET",
+        title_en:
+          "Chlorine-Free Neat Cutting Oil — Extra-High Performance Datasheet",
+        title_ar: "نشرة بيانات زيت قطع صافٍ خالٍ من الكلور — أداء فائق",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -628,12 +696,13 @@ export const mollubeBatchM2Metalworking: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-MET Series Neat Cutting Oil Supplier Egypt",
-      title_ar: "مورد زيت القطع الصافي سلسلة MOLLUBE MOL-MET في مصر",
+      title_en:
+        "Chlorine-Free Neat Cutting Oil — Extra-High Performance Supplier Egypt",
+      title_ar: "مورد زيت قطع صافٍ خالٍ من الكلور — أداء فائق في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-MET Series chlorine-free neat cutting oil, available for supply and matched to your machining process. Request a quote.",
+        "GOLTENS supplies chlorine-free, extra-high-performance neat cutting oil, available for supply and matched to your machining process. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت القطع الصافي الخالي من الكلور سلسلة MOLLUBE MOL-MET، متوفر للتوريد ومطابق لعملية التشغيل لديكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت قطع صافٍ خالٍ من الكلور وعالي الأداء، متوفر للتوريد ومطابق لعملية التشغيل لديكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
