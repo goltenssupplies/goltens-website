@@ -49,7 +49,11 @@ interface GradeRow {
 
 const GRADE_ROWS: GradeRow[] = [
   {
-    grade: "DTE 832 (ISO VG 32)",
+    // Phase 6B-3: `grade` only ever feeds `group_en`/`group_ar` below (see
+    // `buildGradeSpecifications`) — never a spec `value` or `label`. Was
+    // "DTE 832 (ISO VG 32)"; the branded grade-family code is dropped,
+    // the ISO VG value (the only technical fact it carried) is kept.
+    grade: "ISO VG 32",
     kv40: "29.6",
     kv100: "5.4",
     vi: "110",
@@ -58,7 +62,8 @@ const GRADE_ROWS: GradeRow[] = [
     density: "0.87",
   },
   {
-    grade: "DTE 846 (ISO VG 46)",
+    // Was "DTE 846 (ISO VG 46)" — same Phase 6B-3 correction as above.
+    grade: "ISO VG 46",
     kv40: "42.4",
     kv100: "6.2",
     vi: "106",
@@ -127,6 +132,28 @@ export const mobilBatch1Turbine: Product[] = [
       "Mobil DTE 800 Series are turbine oils, available in DTE 832 (ISO VG 32) and DTE 846 (ISO VG 46) grades, for steam turbines, gas turbines, and combined-cycle gas turbine (CCGT) applications, including electric power generation, natural gas pipeline transmission, and cogeneration plants. Available for supply through GOLTENS — request a quote for your application.",
     longDescription_ar:
       "سلسلة Mobil DTE 800 هي زيوت توربينات، متوفرة بدرجتي DTE 832 (ISO VG 32) وDTE 846 (ISO VG 46)، للتوربينات البخارية وتوربينات الغاز وتطبيقات الدورة المركبة لتوربينات الغاز (CCGT)، بما في ذلك توليد الطاقة الكهربائية ونقل الغاز الطبيعي عبر الأنابيب ومحطات التوليد المشترك. متوفر للتوريد من خلال GOLTENS — اطلب عرض سعر لتطبيقكم.",
+    // Phase 6B-1 — manufacturer-neutral public identity. NOTE: the
+    // `specifications` array below still uses "DTE 832 (ISO VG 32)"/
+    // "DTE 846 (ISO VG 46)" as grade group labels — per Phase 6B-1's
+    // instruction to preserve technical specifications exactly, this was
+    // NOT touched, so the public spec table still shows "DTE" grade
+    // codes. Flagged in the migration report as a residual exposure the
+    // Phase 8 leakage scanner does not check (it scans identity/SEO/
+    // catalogue fields only, not `specifications`).
+    publicName_en: "Turbine Oil — ISO VG 32/46",
+    publicName_ar: "زيت توربينات — ISO VG 32/46",
+    publicShortDescription_en:
+      "Turbine oils, ISO VG 32 and 46, for steam turbines, gas turbines, and combined-cycle gas turbine (CCGT) applications.",
+    publicShortDescription_ar:
+      "زيوت توربينات، بدرجتي لزوجة ISO VG 32 و46، للتوربينات البخارية وتوربينات الغاز وتطبيقات الدورة المركبة (CCGT).",
+    publicLongDescription_en:
+      "Turbine oils, available in ISO VG 32 and ISO VG 46 grades, for steam turbines, gas turbines, and combined-cycle gas turbine (CCGT) applications, including electric power generation, natural gas pipeline transmission, and cogeneration plants. Available for supply through GOLTENS — request a quote for your application.",
+    publicLongDescription_ar:
+      "زيوت توربينات، متوفرة بدرجتي لزوجة ISO VG 32 وISO VG 46، للتوربينات البخارية وتوربينات الغاز وتطبيقات الدورة المركبة لتوربينات الغاز (CCGT)، بما في ذلك توليد الطاقة الكهربائية ونقل الغاز الطبيعي عبر الأنابيب ومحطات التوليد المشترك. متوفر للتوريد من خلال GOLTENS — اطلب عرض سعر لتطبيقكم.",
+    sourcing: {
+      manufacturer: "Mobil",
+      originalProductName_en: "Mobil DTE 800 Series",
+    },
     sectorId: "lubricants-oils",
     categoryId: "turbine-oils",
     applications_en: [
@@ -167,8 +194,8 @@ export const mobilBatch1Turbine: Product[] = [
     catalogues: [
       {
         id: "mobil-dte-800-series-datasheet",
-        title_en: "Mobil DTE 800 Series Datasheet",
-        title_ar: "نشرة بيانات سلسلة Mobil DTE 800",
+        title_en: "Turbine Oil — ISO VG 32/46 Datasheet",
+        title_ar: "نشرة بيانات زيت توربينات — ISO VG 32/46",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -177,12 +204,12 @@ export const mobilBatch1Turbine: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "Mobil DTE 800 Series Turbine Oil Supplier Egypt",
-      title_ar: "مورد زيت توربينات سلسلة Mobil DTE 800 في مصر",
+      title_en: "Turbine Oil — ISO VG 32/46 Supplier Egypt",
+      title_ar: "مورد زيت توربينات — ISO VG 32/46 في مصر",
       description_en:
-        "GOLTENS supplies Mobil DTE 800 Series turbine oil (ISO VG 32/46) for steam and gas turbines, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies turbine oil (ISO VG 32/46) for steam and gas turbines, available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التوربينات سلسلة Mobil DTE 800 (ISO VG 32/46) للتوربينات البخارية وتوربينات الغاز، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت توربينات (ISO VG 32/46) للتوربينات البخارية وتوربينات الغاز، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,

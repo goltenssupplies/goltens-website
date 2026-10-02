@@ -48,6 +48,7 @@ import { mollubeBatchM3AutomotiveGear } from "@/data/products/lubricants-oils/mo
 import { mollubeBatchM3EngineOils } from "@/data/products/lubricants-oils/mollube-batch-m3-engine-oils";
 import { mollubeBatchM2Ohc } from "@/data/products/lubricants-oils/mollube-batch-m2-ohc";
 import { mollubeBatchM2Refrigeration } from "@/data/products/lubricants-oils/mollube-batch-m2-refrigeration";
+import { toPublicProduct } from "@/lib/products/public-product";
 import type { Product, ProductCatalogue } from "@/data/products/types";
 
 /**
@@ -158,18 +159,28 @@ export interface CatalogueLibraryEntry extends ProductCatalogue {
  * are all filtered views over this one list. No second catalogue data
  * structure: this is a pure join over `Product.catalogues`, the same
  * `ProductCatalogue` type every product page already renders from.
+ *
+ * Goes through `toPublicProduct()` for both the joined `productName_en/ar`
+ * and the catalogue `title_en/ar` themselves — never the raw `Product` —
+ * so this public-facing join can't leak manufacturer identity the same way
+ * `Product.name_en/ar` can. A product missing its public identity throws
+ * `MissingPublicIdentityError` here same as everywhere else `toPublicProduct()`
+ * is used; this function deliberately does not catch it and fall back to
+ * raw data.
  */
 export function getAllProductCatalogues(): CatalogueLibraryEntry[] {
-  return PRODUCTS.flatMap((product) =>
-    (product.catalogues ?? []).map((catalogue) => ({
+  return PRODUCTS.flatMap((product) => {
+    if (!product.catalogues || product.catalogues.length === 0) return [];
+    const publicProduct = toPublicProduct(product);
+    return (publicProduct.catalogues ?? []).map((catalogue) => ({
       ...catalogue,
-      productSlug: product.slug,
-      productName_en: product.name_en,
-      productName_ar: product.name_ar,
-      sectorId: product.sectorId,
-      categoryId: product.categoryId,
-    })),
-  );
+      productSlug: publicProduct.slug,
+      productName_en: publicProduct.name_en,
+      productName_ar: publicProduct.name_ar,
+      sectorId: publicProduct.sectorId,
+      categoryId: publicProduct.categoryId,
+    }));
+  });
 }
 
 /** Every (sectorId, productSlug) pair — drives the product route's `generateStaticParams`. */

@@ -95,6 +95,21 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD LXSY is MOLLUBE's special multipurpose extreme-pressure grease, based on a synthetic lithium complex thickener, available at base oil viscosities of 100, 220, and 460 cSt @ 40°C. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD LXSY هو شحم خاص متعدد الأغراض بخاصية الضغط العالي من MOLLUBE، بمادة سميكة من مركّب الليثيوم الاصطناعي، ومتوفر بلزوجات زيت أساسي 100 و220 و460 سنتيستوك عند 40°م. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Synthetic Lithium Complex EP Grease — 100/220/460 cSt",
+    publicName_ar:
+      "شحم مركّب ليثيوم اصطناعي بخاصية الضغط العالي — 100/220/460 سنتيستوك",
+    publicShortDescription_en:
+      "Synthetic lithium complex extreme-pressure grease, base oil viscosities 100/220/460 cSt, for multipurpose industrial and automotive bearing applications.",
+    publicShortDescription_ar:
+      "شحم مركّب ليثيوم اصطناعي بخاصية الضغط العالي، بلزوجات زيت أساسي 100/220/460 سنتيستوك، لتطبيقات المحامل الصناعية والسيارات متعددة الأغراض.",
+    publicLongDescription_en:
+      "A special multipurpose extreme-pressure grease, based on a synthetic lithium complex thickener, available at base oil viscosities of 100, 220, and 460 cSt @ 40°C. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم خاص متعدد الأغراض بخاصية الضغط العالي، بمادة سميكة من مركّب الليثيوم الاصطناعي، ومتوفر بلزوجات زيت أساسي 100 و220 و460 سنتيستوك عند 40°م. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD LXSY",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -185,8 +200,10 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-lxsy-datasheet",
-        title_en: "MOLLUBE PROGUARD LXSY Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD LXSY",
+        title_en:
+          "Synthetic Lithium Complex EP Grease — 100/220/460 cSt Datasheet",
+        title_ar:
+          "نشرة بيانات شحم مركّب ليثيوم اصطناعي بخاصية الضغط العالي — 100/220/460 سنتيستوك",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -195,12 +212,14 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD LXSY Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD LXSY في مصر",
+      title_en:
+        "Synthetic Lithium Complex EP Grease — 100/220/460 cSt Supplier Egypt",
+      title_ar:
+        "مورد شحم مركّب ليثيوم اصطناعي بخاصية الضغط العالي — 100/220/460 سنتيستوك في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD LXSY synthetic lithium complex grease (100/220/460 cSt), available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies synthetic lithium complex grease (100/220/460 cSt), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD LXSY المركب الليثيومي الاصطناعي (100/220/460 سنتيستوك)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم مركّب ليثيوم اصطناعي (100/220/460 سنتيستوك)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -218,6 +237,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD LX 220 is MOLLUBE's excellent high-temperature and high-load grease, with very good mechanical stability, high load-carrying capacity, and good corrosion protection — a modern, high-performance grease suitable for many industrial applications. Available in NLGI 1 and NLGI 2. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD LX 220 هو شحم ممتاز لدرجات الحرارة والأحمال العالية من MOLLUBE، بثبات ميكانيكي جيد جدًا وقدرة تحمّل حمل عالية وحماية جيدة من التآكل — شحم حديث عالي الأداء مناسب للعديد من التطبيقات الصناعية. متوفر بدرجتي NLGI 1 وNLGI 2. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Mineral Lithium Complex Grease — 220 cSt",
+    publicName_ar: "شحم مركّب ليثيوم معدني — 220 سنتيستوك",
+    publicShortDescription_en:
+      "Mineral lithium complex grease, base oil viscosity 220 cSt, available in NLGI 1 and NLGI 2, for high-temperature and high-load industrial applications.",
+    publicShortDescription_ar:
+      "شحم مركّب ليثيوم معدني، بلزوجة زيت أساسي 220 سنتيستوك، متوفر بدرجتي NLGI 1 وNLGI 2، للتطبيقات الصناعية عالية الحرارة والتحميل.",
+    publicLongDescription_en:
+      "An excellent high-temperature and high-load grease, with very good mechanical stability, high load-carrying capacity, and good corrosion protection — a modern, high-performance grease suitable for many industrial applications. Available in NLGI 1 and NLGI 2. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم ممتاز لدرجات الحرارة والأحمال العالية، بثبات ميكانيكي جيد جدًا وقدرة تحمّل حمل عالية وحماية جيدة من التآكل — شحم حديث عالي الأداء مناسب للعديد من التطبيقات الصناعية. متوفر بدرجتي NLGI 1 وNLGI 2. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD LX 220",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -291,8 +324,8 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-lx-220-datasheet",
-        title_en: "MOLLUBE PROGUARD LX 220 Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD LX 220",
+        title_en: "Mineral Lithium Complex Grease — 220 cSt Datasheet",
+        title_ar: "نشرة بيانات شحم مركّب ليثيوم معدني — 220 سنتيستوك",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -301,12 +334,12 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD LX 220 Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD LX 220 في مصر",
+      title_en: "Mineral Lithium Complex Grease — 220 cSt Supplier Egypt",
+      title_ar: "مورد شحم مركّب ليثيوم معدني — 220 سنتيستوك في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD LX 220 mineral lithium complex grease (NLGI 1/2), available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies mineral lithium complex grease (NLGI 1/2), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD LX 220 المركب الليثيومي المعدني (NLGI 1/2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم مركّب ليثيوم معدني (NLGI 1/2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -324,6 +357,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD SY PU is MOLLUBE's synthetic (PAO) polyurea grease, ideal for special bearing applications requiring high performance and long life. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD SY PU هو شحم بولي يوريا اصطناعي (PAO) من MOLLUBE، مثالي لتطبيقات المحامل الخاصة التي تتطلب أداءً عاليًا وعمرًا طويلًا. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Synthetic Polyurea Grease — NLGI 2",
+    publicName_ar: "شحم بولي يوريا اصطناعي — NLGI 2",
+    publicShortDescription_en:
+      "Synthetic (PAO) polyurea grease for special bearing applications requiring high performance and long life.",
+    publicShortDescription_ar:
+      "شحم بولي يوريا اصطناعي (PAO) لتطبيقات المحامل الخاصة التي تتطلب أداءً عاليًا وعمرًا طويلًا.",
+    publicLongDescription_en:
+      "A synthetic (PAO) polyurea grease, ideal for special bearing applications requiring high performance and long life. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم بولي يوريا اصطناعي (PAO)، مثالي لتطبيقات المحامل الخاصة التي تتطلب أداءً عاليًا وعمرًا طويلًا. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD SY PU",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -387,8 +434,8 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-sy-pu-datasheet",
-        title_en: "MOLLUBE PROGUARD SY PU Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD SY PU",
+        title_en: "Synthetic Polyurea Grease — NLGI 2 Datasheet",
+        title_ar: "نشرة بيانات شحم بولي يوريا اصطناعي — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -397,12 +444,12 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD SY PU Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD SY PU في مصر",
+      title_en: "Synthetic Polyurea Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم بولي يوريا اصطناعي — NLGI 2 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD SY PU synthetic polyurea grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies synthetic polyurea grease (NLGI 2), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD SY PU البولي يوريا الاصطناعي، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم بولي يوريا اصطناعي (NLGI 2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -420,6 +467,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD M PU is MOLLUBE's mineral polyurea grease used in the lubrication of high-temperature bearings such as those in annealing and drying furnaces, conveyors, cooling beds, manipulators, and rotary kilns. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD M PU هو شحم بولي يوريا معدني من MOLLUBE، يُستخدم لتشحيم المحامل عالية الحرارة مثل تلك الموجودة في أفران التلدين والتجفيف والناقلات وأسرّة التبريد وأذرع المناولة والأفران الدوارة. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Mineral Polyurea High-Temperature Grease — NLGI 2",
+    publicName_ar: "شحم بولي يوريا معدني عالي الحرارة — NLGI 2",
+    publicShortDescription_en:
+      "Mineral polyurea grease for high-temperature bearings in furnaces, kilns, and heavy industrial processing equipment.",
+    publicShortDescription_ar:
+      "شحم بولي يوريا معدني لمحامل الأفران والقمائن ومعدات المعالجة الصناعية الثقيلة عالية الحرارة.",
+    publicLongDescription_en:
+      "A mineral polyurea grease used in the lubrication of high-temperature bearings such as those in annealing and drying furnaces, conveyors, cooling beds, manipulators, and rotary kilns. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم بولي يوريا معدني، يُستخدم لتشحيم المحامل عالية الحرارة مثل تلك الموجودة في أفران التلدين والتجفيف والناقلات وأسرّة التبريد وأذرع المناولة والأفران الدوارة. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD M PU",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -483,8 +544,8 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-m-pu-datasheet",
-        title_en: "MOLLUBE PROGUARD M PU Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD M PU",
+        title_en: "Mineral Polyurea High-Temperature Grease — NLGI 2 Datasheet",
+        title_ar: "نشرة بيانات شحم بولي يوريا معدني عالي الحرارة — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -493,12 +554,13 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD M PU Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD M PU في مصر",
+      title_en:
+        "Mineral Polyurea High-Temperature Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم بولي يوريا معدني عالي الحرارة — NLGI 2 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD M PU mineral polyurea high-temperature grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies mineral polyurea high-temperature grease (NLGI 2), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD M PU البولي يوريا المعدني عالي الحرارة، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم بولي يوريا معدني عالي الحرارة (NLGI 2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -520,6 +582,21 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD CSX is MOLLUBE's mineral calcium sulfonate complex grease, suitable for the lubrication of bearings in steel plants (continuous castings and rolling mills) and in the paper industry, and applied in heavy industries such as steel making, mining, cement, and paper. Available at base oil viscosities of 222 and 462 cSt @ 40°C. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD CSX هو شحم مركّب سلفونات كالسيوم معدني من MOLLUBE، مناسب لتشحيم المحامل في مصانع الصلب (الصب المستمر وطواحين الدرفلة) وفي صناعة الورق، ويُستخدم في الصناعات الثقيلة مثل صناعة الصلب والتعدين والأسمنت والورق. متوفر بلزوجات زيت أساسي 222 و462 سنتيستوك عند 40°م. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Calcium Sulfonate Complex EP Grease — 222/462 cSt",
+    publicName_ar:
+      "شحم مركّب سلفونات كالسيوم بخاصية الضغط العالي — 222/462 سنتيستوك",
+    publicShortDescription_en:
+      "Mineral calcium sulfonate complex extreme-pressure grease, base oil viscosities 222/462 cSt, for steel and paper mill bearings.",
+    publicShortDescription_ar:
+      "شحم مركّب سلفونات كالسيوم معدني بخاصية الضغط العالي، بلزوجات زيت أساسي 222/462 سنتيستوك، لمحامل مصانع الصلب والورق.",
+    publicLongDescription_en:
+      "A mineral calcium sulfonate complex grease, suitable for the lubrication of bearings in steel plants (continuous castings and rolling mills) and in the paper industry, and applied in heavy industries such as steel making, mining, cement, and paper. Available at base oil viscosities of 222 and 462 cSt @ 40°C. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم مركّب سلفونات كالسيوم معدني، مناسب لتشحيم المحامل في مصانع الصلب (الصب المستمر وطواحين الدرفلة) وفي صناعة الورق، ويُستخدم في الصناعات الثقيلة مثل صناعة الصلب والتعدين والأسمنت والورق. متوفر بلزوجات زيت أساسي 222 و462 سنتيستوك عند 40°م. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD CSX",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -599,8 +676,9 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-csx-datasheet",
-        title_en: "MOLLUBE PROGUARD CSX Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD CSX",
+        title_en: "Calcium Sulfonate Complex EP Grease — 222/462 cSt Datasheet",
+        title_ar:
+          "نشرة بيانات شحم مركّب سلفونات كالسيوم بخاصية الضغط العالي — 222/462 سنتيستوك",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -609,12 +687,14 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD CSX Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD CSX في مصر",
+      title_en:
+        "Calcium Sulfonate Complex EP Grease — 222/462 cSt Supplier Egypt",
+      title_ar:
+        "مورد شحم مركّب سلفونات كالسيوم بخاصية الضغط العالي — 222/462 سنتيستوك في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD CSX calcium sulfonate complex grease (222/462 cSt), available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies calcium sulfonate complex grease (222/462 cSt), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD CSX المركب من سلفونات الكالسيوم (222/462 سنتيستوك)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم مركب من سلفونات الكالسيوم (222/462 سنتيستوك)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -632,6 +712,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD MP2 is MOLLUBE's multipurpose mineral lithium grease at NLGI 2, used for multipurpose applications in anti-friction and plain bearings, bushings, and pins. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD MP2 هو شحم ليثيوم معدني متعدد الأغراض من MOLLUBE بدرجة NLGI 2، يُستخدم للتطبيقات متعددة الأغراض في المحامل المضادة للاحتكاك والمحامل السطحية والجلب والمحاور. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Lithium Multi-Purpose Grease — NLGI 2",
+    publicName_ar: "شحم ليثيوم متعدد الأغراض — NLGI 2",
+    publicShortDescription_en:
+      "NLGI 2 mineral lithium multipurpose grease for anti-friction and plain bearings, bushings, and pins.",
+    publicShortDescription_ar:
+      "شحم ليثيوم معدني متعدد الأغراض بدرجة NLGI 2، للمحامل المضادة للاحتكاك والمحامل السطحية والجلب والمحاور.",
+    publicLongDescription_en:
+      "A multipurpose mineral lithium grease at NLGI 2, used for multipurpose applications in anti-friction and plain bearings, bushings, and pins. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم ليثيوم معدني متعدد الأغراض بدرجة NLGI 2، يُستخدم للتطبيقات متعددة الأغراض في المحامل المضادة للاحتكاك والمحامل السطحية والجلب والمحاور. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD MP2",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -688,8 +782,8 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-mp2-datasheet",
-        title_en: "MOLLUBE PROGUARD MP2 Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD MP2",
+        title_en: "Lithium Multi-Purpose Grease — NLGI 2 Datasheet",
+        title_ar: "نشرة بيانات شحم ليثيوم متعدد الأغراض — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -698,12 +792,12 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD MP2 Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD MP2 في مصر",
+      title_en: "Lithium Multi-Purpose Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم ليثيوم متعدد الأغراض — NLGI 2 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD MP2 multipurpose mineral lithium grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies lithium multi-purpose grease (NLGI 2), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD MP2 الليثيومي المعدني متعدد الأغراض، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم ليثيوم متعدد الأغراض (NLGI 2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -721,6 +815,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD HB-MP3 is MOLLUBE's multipurpose mineral lithium grease at NLGI 3, used for multipurpose applications in anti-friction and plain bearings, bushings, and pins. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD HB-MP3 هو شحم ليثيوم معدني متعدد الأغراض من MOLLUBE بدرجة NLGI 3، يُستخدم للتطبيقات متعددة الأغراض في المحامل المضادة للاحتكاك والمحامل السطحية والجلب والمحاور. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Lithium Multi-Purpose Grease — NLGI 3",
+    publicName_ar: "شحم ليثيوم متعدد الأغراض — NLGI 3",
+    publicShortDescription_en:
+      "NLGI 3 mineral lithium multipurpose grease for anti-friction and plain bearings, bushings, and pins.",
+    publicShortDescription_ar:
+      "شحم ليثيوم معدني متعدد الأغراض بدرجة NLGI 3، للمحامل المضادة للاحتكاك والمحامل السطحية والجلب والمحاور.",
+    publicLongDescription_en:
+      "A multipurpose mineral lithium grease at NLGI 3, used for multipurpose applications in anti-friction and plain bearings, bushings, and pins. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم ليثيوم معدني متعدد الأغراض بدرجة NLGI 3، يُستخدم للتطبيقات متعددة الأغراض في المحامل المضادة للاحتكاك والمحامل السطحية والجلب والمحاور. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD HB-MP3",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -777,8 +885,8 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-hb-mp3-datasheet",
-        title_en: "MOLLUBE PROGUARD HB-MP3 Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD HB-MP3",
+        title_en: "Lithium Multi-Purpose Grease — NLGI 3 Datasheet",
+        title_ar: "نشرة بيانات شحم ليثيوم متعدد الأغراض — NLGI 3",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -787,12 +895,12 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD HB-MP3 Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD HB-MP3 في مصر",
+      title_en: "Lithium Multi-Purpose Grease — NLGI 3 Supplier Egypt",
+      title_ar: "مورد شحم ليثيوم متعدد الأغراض — NLGI 3 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD HB-MP3 multipurpose mineral lithium grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies lithium multi-purpose grease (NLGI 3), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD HB-MP3 الليثيومي المعدني متعدد الأغراض، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم ليثيوم متعدد الأغراض (NLGI 3)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -810,6 +918,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "MOL-PROGUARD LCX2 is MOLLUBE's lithium calcium complex grease, used for heavily loaded and high-temperature service, and resistant to water saturation and steam. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "MOL-PROGUARD LCX2 هو شحم مركّب ليثيوم-كالسيوم من MOLLUBE، يُستخدم للخدمة تحت الأحمال الثقيلة ودرجات الحرارة العالية، ومقاوم للتشبع بالماء والبخار. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Lithium Calcium Complex Grease — NLGI 2",
+    publicName_ar: "شحم مركب ليثيوم-كالسيوم — NLGI 2",
+    publicShortDescription_en:
+      "Lithium calcium complex grease for heavily loaded, high-temperature, water-saturated, and steam-resistant service.",
+    publicShortDescription_ar:
+      "شحم مركّب ليثيوم-كالسيوم للخدمة تحت الأحمال الثقيلة ودرجات الحرارة العالية والتشبع بالماء ومقاومة البخار.",
+    publicLongDescription_en:
+      "A lithium calcium complex grease, used for heavily loaded and high-temperature service, and resistant to water saturation and steam. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم مركّب ليثيوم-كالسيوم، يُستخدم للخدمة تحت الأحمال الثقيلة ودرجات الحرارة العالية، ومقاوم للتشبع بالماء والبخار. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-PROGUARD LCX2",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -873,8 +995,8 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-proguard-lcx2-datasheet",
-        title_en: "MOLLUBE MOL-PROGUARD LCX2 Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE MOL-PROGUARD LCX2",
+        title_en: "Lithium Calcium Complex Grease — NLGI 2 Datasheet",
+        title_ar: "نشرة بيانات شحم مركب ليثيوم-كالسيوم — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -883,12 +1005,12 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-PROGUARD LCX2 Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE MOL-PROGUARD LCX2 في مصر",
+      title_en: "Lithium Calcium Complex Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم مركب ليثيوم-كالسيوم — NLGI 2 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-PROGUARD LCX2 lithium calcium complex grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies lithium calcium complex grease (NLGI 2), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE MOL-PROGUARD LCX2 المركب من الليثيوم والكالسيوم، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم مركب ليثيوم-كالسيوم (NLGI 2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -906,6 +1028,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD M BX is MOLLUBE's mineral barium complex grease, used in traction motors, journal bearings in electric motors, pumps, and tapered roller bearings — proven efficient as a rolling-bearing and high-pressure grease that protects against wear. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD M BX هو شحم مركّب باريوم معدني من MOLLUBE، يُستخدم في محركات الجر والمحامل المحورية في المحركات الكهربائية والمضخات والمحامل الأسطوانية المخروطية — وأثبت كفاءته كشحم للمحامل الدوارة وذو ضغط عالٍ يحمي من التآكل. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Barium Complex Grease — NLGI 2",
+    publicName_ar: "شحم مركب باريوم — NLGI 2",
+    publicShortDescription_en:
+      "Mineral barium complex grease for traction motors, journal bearings, pumps, and tapered roller bearings.",
+    publicShortDescription_ar:
+      "شحم مركّب باريوم معدني لمحركات الجر والمحامل المحورية والمضخات والمحامل الأسطوانية المخروطية.",
+    publicLongDescription_en:
+      "A mineral barium complex grease, used in traction motors, journal bearings in electric motors, pumps, and tapered roller bearings — proven efficient as a rolling-bearing and high-pressure grease that protects against wear. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم مركّب باريوم معدني، يُستخدم في محركات الجر والمحامل المحورية في المحركات الكهربائية والمضخات والمحامل الأسطوانية المخروطية — وأثبت كفاءته كشحم للمحامل الدوارة وذو ضغط عالٍ يحمي من التآكل. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD M BX",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -969,8 +1105,8 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-m-bx-datasheet",
-        title_en: "MOLLUBE PROGUARD M BX Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD M BX",
+        title_en: "Barium Complex Grease — NLGI 2 Datasheet",
+        title_ar: "نشرة بيانات شحم مركب باريوم — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -979,12 +1115,12 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD M BX Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD M BX في مصر",
+      title_en: "Barium Complex Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم مركب باريوم — NLGI 2 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD M BX mineral barium complex grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies barium complex grease (NLGI 2), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD M BX المركب الباريومي المعدني، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم مركب باريوم (NLGI 2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -1002,6 +1138,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD INOR SY is MOLLUBE's synthetic (PAO), soap-free grease, used in all moving mechanical parts where a low-temperature property and adhesion to metal are needed, including the refrigeration industry, arctic environments, drying ovens, and hot roll beds of glass. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD INOR SY هو شحم اصطناعي (PAO) خالٍ من الصابون من MOLLUBE، يُستخدم في جميع الأجزاء الميكانيكية المتحركة التي تتطلب خاصية منخفضة درجة الحرارة والالتصاق بالمعدن، بما في ذلك صناعة التبريد والبيئات القطبية وأفران التجفيف وأسرّة الدرفلة الساخنة للزجاج. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Synthetic PAO Soap-Free Low-Temperature Grease",
+    publicName_ar: "شحم اصطناعي (PAO) خالٍ من الصابون منخفض درجة الحرارة",
+    publicShortDescription_en:
+      "Synthetic (PAO), soap-free grease for low-temperature applications, including refrigeration and arctic environments.",
+    publicShortDescription_ar:
+      "شحم اصطناعي (PAO) خالٍ من الصابون للتطبيقات منخفضة درجة الحرارة، بما في ذلك التبريد والبيئات القطبية.",
+    publicLongDescription_en:
+      "A synthetic (PAO), soap-free grease, used in all moving mechanical parts where a low-temperature property and adhesion to metal are needed, including the refrigeration industry, arctic environments, drying ovens, and hot roll beds of glass. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم اصطناعي (PAO) خالٍ من الصابون، يُستخدم في جميع الأجزاء الميكانيكية المتحركة التي تتطلب خاصية منخفضة درجة الحرارة والالتصاق بالمعدن، بما في ذلك صناعة التبريد والبيئات القطبية وأفران التجفيف وأسرّة الدرفلة الساخنة للزجاج. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD INOR SY",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -1062,8 +1212,9 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-inor-sy-datasheet",
-        title_en: "MOLLUBE PROGUARD INOR SY Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD INOR SY",
+        title_en: "Synthetic PAO Soap-Free Low-Temperature Grease Datasheet",
+        title_ar:
+          "نشرة بيانات شحم اصطناعي (PAO) خالٍ من الصابون منخفض درجة الحرارة",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -1072,12 +1223,13 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD INOR SY Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD INOR SY في مصر",
+      title_en: "Synthetic PAO Soap-Free Low-Temperature Grease Supplier Egypt",
+      title_ar:
+        "مورد شحم اصطناعي (PAO) خالٍ من الصابون منخفض درجة الحرارة في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD INOR SY synthetic soap-free grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies synthetic PAO soap-free low-temperature grease, available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD INOR SY الاصطناعي الخالي من الصابون، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم اصطناعي (PAO) خالٍ من الصابون منخفض درجة الحرارة، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -1099,6 +1251,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD HT BO is MOLLUBE's grease designed for high temperatures and multipurpose use. Ideal for applications requiring water resistance and strong adhesion to metal surfaces, it is suited for use in plain bearings, agricultural and road machinery, and other high-temperature environments. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD HT BO هو شحم من MOLLUBE مصمم لدرجات الحرارة العالية والاستخدام متعدد الأغراض. مثالي للتطبيقات التي تتطلب مقاومة للماء والتصاقًا قويًا بالأسطح المعدنية، ومناسب للاستخدام في المحامل السطحية والآلات الزراعية وآلات الطرق والبيئات الأخرى عالية الحرارة. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "High-Temperature Multi-Purpose Grease — Water-Resistant",
+    publicName_ar: "شحم متعدد الأغراض عالي الحرارة — مقاوم للماء",
+    publicShortDescription_en:
+      "High-temperature, multipurpose grease with water resistance and strong metal adhesion, for plain bearings and high-temperature machinery.",
+    publicShortDescription_ar:
+      "شحم متعدد الأغراض عالي الحرارة، بمقاومة للماء والتصاق قوي بالمعدن، للمحامل السطحية والآلات عالية الحرارة.",
+    publicLongDescription_en:
+      "A grease designed for high temperatures and multipurpose use. Ideal for applications requiring water resistance and strong adhesion to metal surfaces, it is suited for use in plain bearings, agricultural and road machinery, and other high-temperature environments. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم مصمم لدرجات الحرارة العالية والاستخدام متعدد الأغراض. مثالي للتطبيقات التي تتطلب مقاومة للماء والتصاقًا قويًا بالأسطح المعدنية، ومناسب للاستخدام في المحامل السطحية والآلات الزراعية وآلات الطرق والبيئات الأخرى عالية الحرارة. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD HT BO",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -1164,8 +1330,9 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-ht-bo-datasheet",
-        title_en: "MOLLUBE PROGUARD HT BO Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD HT BO",
+        title_en:
+          "High-Temperature Multi-Purpose Grease — Water-Resistant Datasheet",
+        title_ar: "نشرة بيانات شحم متعدد الأغراض عالي الحرارة — مقاوم للماء",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -1174,12 +1341,13 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD HT BO Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD HT BO في مصر",
+      title_en:
+        "High-Temperature Multi-Purpose Grease — Water-Resistant Supplier Egypt",
+      title_ar: "مورد شحم متعدد الأغراض عالي الحرارة — مقاوم للماء في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD HT BO high-temperature multipurpose grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies high-temperature multi-purpose water-resistant grease, available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD HT BO متعدد الأغراض عالي الحرارة، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم متعدد الأغراض عالي الحرارة مقاوم للماء، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -1197,6 +1365,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD MO LX is MOLLUBE's grease designed for moderate-duty service in industrial applications, chassis components, and farm equipment, and suitable for heavy-duty use in king pins, U-joints, fifth wheels, and mining and cement industries. Contains molybdenum disulfide for enhanced performance under heavy loads and reduced friction. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD MO LX هو شحم من MOLLUBE مصمم للخدمة متوسطة الشدة في التطبيقات الصناعية ومكونات الشاسيه والمعدات الزراعية، ومناسب للاستخدام الشاق في دبابيس التوجيه ومفاصل U والصحن الخامس وصناعات التعدين والأسمنت. يحتوي على ثاني كبريتيد الموليبدينوم لتحسين الأداء تحت الأحمال الثقيلة وتقليل الاحتكاك. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Molybdenum-Enhanced Lithium Complex Grease — NLGI 2",
+    publicName_ar: "شحم مركب ليثيوم معزز بالموليبدينوم — NLGI 2",
+    publicShortDescription_en:
+      "Molybdenum disulfide-enhanced mineral lithium complex grease for chassis components, king pins, U-joints, and fifth wheels.",
+    publicShortDescription_ar:
+      "شحم مركّب ليثيوم معدني معزز بثاني كبريتيد الموليبدينوم لمكونات الشاسيه ودبابيس التوجيه ومفاصل U والصحن الخامس.",
+    publicLongDescription_en:
+      "A grease designed for moderate-duty service in industrial applications, chassis components, and farm equipment, and suitable for heavy-duty use in king pins, U-joints, fifth wheels, and mining and cement industries. Contains molybdenum disulfide for enhanced performance under heavy loads and reduced friction. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم مصمم للخدمة متوسطة الشدة في التطبيقات الصناعية ومكونات الشاسيه والمعدات الزراعية، ومناسب للاستخدام الشاق في دبابيس التوجيه ومفاصل U والصحن الخامس وصناعات التعدين والأسمنت. يحتوي على ثاني كبريتيد الموليبدينوم لتحسين الأداء تحت الأحمال الثقيلة وتقليل الاحتكاك. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD MO LX",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -1272,8 +1454,9 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-mo-lx-datasheet",
-        title_en: "MOLLUBE PROGUARD MO LX Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD MO LX",
+        title_en:
+          "Molybdenum-Enhanced Lithium Complex Grease — NLGI 2 Datasheet",
+        title_ar: "نشرة بيانات شحم مركب ليثيوم معزز بالموليبدينوم — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -1282,12 +1465,13 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD MO LX Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD MO LX في مصر",
+      title_en:
+        "Molybdenum-Enhanced Lithium Complex Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم مركب ليثيوم معزز بالموليبدينوم — NLGI 2 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD MO LX molybdenum disulfide-enhanced lithium complex grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies molybdenum-enhanced lithium complex grease (NLGI 2), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD MO LX الليثيومي المعزز بثاني كبريتيد الموليبدينوم، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم مركب ليثيوم معزز بالموليبدينوم (NLGI 2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -1305,6 +1489,20 @@ export const mollubeBatchM2Greases: Product[] = [
       "PROGUARD XMO 180 is MOLLUBE's mineral-based metal complex grease used in various applications, including ball, plain roller, and thrust bearings. It is suitable for presses and crushers at heavy industry, quarries, docks and ports, film stretching, and construction, and can be applied manually, with a grease gun, or using a keg pump. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "PROGUARD XMO 180 هو شحم مركّب معدني ذو أساس معدني من MOLLUBE، يُستخدم في تطبيقات متعددة، بما في ذلك المحامل الكروية والأسطوانية السطحية ومحامل الدفع. مناسب للمكابس والكسّارات في الصناعات الثقيلة والمحاجر والموانئ والأرصفة وتمديد الأفلام والإنشاءات، ويمكن تطبيقه يدويًا أو بمسدس الشحم أو باستخدام مضخة البرميل. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Metal Complex Grease — NLGI 2",
+    publicName_ar: "شحم مركب معدني — NLGI 2",
+    publicShortDescription_en:
+      "Mineral metal complex grease for ball, plain roller, and thrust bearings in presses, crushers, and heavy industry.",
+    publicShortDescription_ar:
+      "شحم مركّب معدني للمحامل الكروية والأسطوانية السطحية ومحامل الدفع في المكابس والكسّارات والصناعات الثقيلة.",
+    publicLongDescription_en:
+      "A mineral-based metal complex grease used in various applications, including ball, plain roller, and thrust bearings. It is suitable for presses and crushers at heavy industry, quarries, docks and ports, film stretching, and construction, and can be applied manually, with a grease gun, or using a keg pump. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "شحم مركّب معدني ذو أساس معدني، يُستخدم في تطبيقات متعددة، بما في ذلك المحامل الكروية والأسطوانية السطحية ومحامل الدفع. مناسب للمكابس والكسّارات في الصناعات الثقيلة والمحاجر والموانئ والأرصفة وتمديد الأفلام والإنشاءات، ويمكن تطبيقه يدويًا أو بمسدس الشحم أو باستخدام مضخة البرميل. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE PROGUARD XMO 180",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -1377,8 +1575,8 @@ export const mollubeBatchM2Greases: Product[] = [
     catalogues: [
       {
         id: "mollube-proguard-xmo-180-datasheet",
-        title_en: "MOLLUBE PROGUARD XMO 180 Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE PROGUARD XMO 180",
+        title_en: "Metal Complex Grease — NLGI 2 Datasheet",
+        title_ar: "نشرة بيانات شحم مركب معدني — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -1387,12 +1585,12 @@ export const mollubeBatchM2Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE PROGUARD XMO 180 Grease Supplier Egypt",
-      title_ar: "مورد شحم MOLLUBE PROGUARD XMO 180 في مصر",
+      title_en: "Metal Complex Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم مركب معدني — NLGI 2 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE PROGUARD XMO 180 mineral metal complex grease, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies metal complex grease (NLGI 2), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم MOLLUBE PROGUARD XMO 180 المركب المعدني، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم مركب معدني (NLGI 2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,

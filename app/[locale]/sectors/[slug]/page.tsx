@@ -47,6 +47,10 @@ import {
   DEFAULT_ADVANTAGE_ICONS,
   SECTOR_CONTENT_ICONS,
 } from "@/lib/sector-content-icons";
+import {
+  hasPublicIdentity,
+  toPublicProduct,
+} from "@/lib/products/public-product";
 import { getSectorImage } from "@/lib/sectors";
 import {
   breadcrumbJsonLd,
@@ -162,19 +166,26 @@ export default async function SectorPage({ params }: SectorPageProps) {
       sectorProducts.some((product) => product.categoryId === category.id),
   );
 
-  const productExplorerItems: ProductExplorerItem[] = sectorProducts.map(
-    (product) => ({
-      slug: product.slug,
-      title: isArabic ? product.name_ar : product.name_en,
+  // Every product is projected through `toPublicProduct()` before any of
+  // its identity fields are read — this listing must never pass a raw
+  // `Product` field downstream, same boundary as the product detail page.
+  // Filtered to migrated products first: the catalog is migrated
+  // incrementally, so an unmigrated product here is simply omitted from
+  // the listing rather than throwing and taking down the whole page.
+  const productExplorerItems: ProductExplorerItem[] = sectorProducts
+    .filter(hasPublicIdentity)
+    .map((product) => toPublicProduct(product))
+    .map((publicProduct) => ({
+      slug: publicProduct.slug,
+      title: isArabic ? publicProduct.name_ar : publicProduct.name_en,
       description: isArabic
-        ? product.shortDescription_ar
-        : product.shortDescription_en,
-      image: product.images?.[0] ?? null,
-      href: `/sectors/${slug}/products/${product.slug}`,
-      sectorId: product.sectorId,
-      categoryId: product.categoryId,
-    }),
-  );
+        ? publicProduct.shortDescription_ar
+        : publicProduct.shortDescription_en,
+      image: publicProduct.images?.[0] ?? null,
+      href: `/sectors/${slug}/products/${publicProduct.slug}`,
+      sectorId: publicProduct.sectorId,
+      categoryId: publicProduct.categoryId,
+    }));
 
   const productExplorerCategories: ProductExplorerCategory[] =
     sectorProductCategories.map((category) => ({

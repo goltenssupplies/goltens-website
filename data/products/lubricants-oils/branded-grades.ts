@@ -35,6 +35,20 @@ export const lubricantsOilsBrandedGrades: Product[] = [
       "Mobil DTE 24 is part of the Mobil DTE 20 Series of anti-wear hydraulic oils, formulated at ISO VG 32 for high-pressure hydraulic systems, servo-valve systems, and numerically controlled (NC) machine tools. We source this product matched to your equipment manufacturer's specification.",
     longDescription_ar:
       "Mobil DTE 24 هو جزء من سلسلة Mobil DTE 20 لزيوت هيدروليكية مضادة للتآكل، بدرجة لزوجة ISO VG 32، مخصص للأنظمة الهيدروليكية عالية الضغط وأنظمة الصمامات التتبعية (servo-valve) وماكينات التحكم الرقمي (NC). نقوم بتوريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    publicName_en: "Anti-Wear Hydraulic Oil — ISO VG 32",
+    publicName_ar: "زيت هيدروليكي مضاد للتآكل — ISO VG 32",
+    publicShortDescription_en:
+      "Anti-wear hydraulic oil (ISO VG 32) for industrial and precision hydraulic systems.",
+    publicShortDescription_ar:
+      "زيت هيدروليكي مضاد للتآكل (ISO VG 32) للأنظمة الهيدروليكية الصناعية والدقيقة.",
+    publicLongDescription_en:
+      "An anti-wear hydraulic oil formulated at ISO VG 32 for high-pressure hydraulic systems, servo-valve systems, and numerically controlled (NC) machine tools. Sourced and supplied matched to your equipment manufacturer's specification.",
+    publicLongDescription_ar:
+      "زيت هيدروليكي مضاد للتآكل، بدرجة لزوجة ISO VG 32، مخصص للأنظمة الهيدروليكية عالية الضغط وأنظمة الصمامات التتبعية (servo-valve) وماكينات التحكم الرقمي (NC). يتم توريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    sourcing: {
+      manufacturer: "Mobil",
+      originalProductName_en: "Mobil DTE 24",
+    },
     sectorId: "lubricants-oils",
     categoryId: "hydraulic-oils",
     features_en: [
@@ -90,8 +104,8 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     catalogues: [
       {
         id: "mobil-dte-24-datasheet",
-        title_en: "Mobil DTE 24 Datasheet",
-        title_ar: "نشرة بيانات Mobil DTE 24",
+        title_en: "Anti-Wear Hydraulic Oil — ISO VG 32 Datasheet",
+        title_ar: "نشرة بيانات زيت هيدروليكي مضاد للتآكل — ISO VG 32",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -100,12 +114,12 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "Mobil DTE 24 Hydraulic Oil Supplier Egypt",
-      title_ar: "مورد زيت Mobil DTE 24 الهيدروليكي في مصر",
+      title_en: "Anti-Wear Hydraulic Oil — ISO VG 32 Supplier Egypt",
+      title_ar: "مورد زيت هيدروليكي مضاد للتآكل — ISO VG 32 في مصر",
       description_en:
-        "GOLTENS sources Mobil DTE 24 (ISO VG 32) anti-wear hydraulic oil, matched to your equipment specification.",
+        "GOLTENS sources anti-wear hydraulic oil (ISO VG 32), matched to your equipment specification.",
       description_ar:
-        "توفر GOLTENS زيت Mobil DTE 24 الهيدروليكي المضاد للتآكل (ISO VG 32)، مطابقًا لمواصفات معداتكم.",
+        "توفر GOLTENS زيتًا هيدروليكيًا مضادًا للتآكل (ISO VG 32)، مطابقًا لمواصفات معداتكم.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -123,6 +137,20 @@ export const lubricantsOilsBrandedGrades: Product[] = [
       "Castrol Hyspin AWS 46 is part of the Castrol Hyspin AWS range of anti-wear hydraulic oils, formulated at ISO VG 46 from highly refined mineral oil with a stabilised zinc additive system, for industrial hydraulic systems, lightly loaded gears, variable speed units, and bearings. We source this product matched to your equipment manufacturer's specification.",
     longDescription_ar:
       "Castrol Hyspin AWS 46 جزء من مجموعة Castrol Hyspin AWS لزيوت هيدروليكية مضادة للتآكل، بدرجة لزوجة ISO VG 46، مصنّعة من زيت معدني عالي التكرير مع نظام إضافات زنك مثبّت، للأنظمة الهيدروليكية الصناعية والتروس خفيفة التحميل ووحدات السرعة المتغيرة والمحامل. نقوم بتوريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    publicName_en: "Anti-Wear Hydraulic Oil — ISO VG 46",
+    publicName_ar: "زيت هيدروليكي مضاد للتآكل — ISO VG 46",
+    publicShortDescription_en:
+      "Anti-wear hydraulic oil (ISO VG 46) for industrial hydraulic systems.",
+    publicShortDescription_ar:
+      "زيت هيدروليكي مضاد للتآكل (ISO VG 46) للأنظمة الهيدروليكية الصناعية.",
+    publicLongDescription_en:
+      "An anti-wear hydraulic oil formulated at ISO VG 46 from highly refined mineral oil with a stabilised zinc additive system, for industrial hydraulic systems, lightly loaded gears, variable speed units, and bearings. Sourced and supplied matched to your equipment manufacturer's specification.",
+    publicLongDescription_ar:
+      "زيت هيدروليكي مضاد للتآكل، بدرجة لزوجة ISO VG 46، مصنّع من زيت معدني عالي التكرير مع نظام إضافات زنك مثبّت، للأنظمة الهيدروليكية الصناعية والتروس خفيفة التحميل ووحدات السرعة المتغيرة والمحامل. يتم توريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    sourcing: {
+      manufacturer: "Castrol",
+      originalProductName_en: "Castrol Hyspin AWS 46",
+    },
     sectorId: "lubricants-oils",
     categoryId: "hydraulic-oils",
     features_en: [
@@ -191,8 +219,8 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     catalogues: [
       {
         id: "castrol-hyspin-aws-46-datasheet",
-        title_en: "Castrol Hyspin AWS 46 Datasheet",
-        title_ar: "نشرة بيانات Castrol Hyspin AWS 46",
+        title_en: "Anti-Wear Hydraulic Oil — ISO VG 46 Datasheet",
+        title_ar: "نشرة بيانات زيت هيدروليكي مضاد للتآكل — ISO VG 46",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -201,12 +229,12 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "Castrol Hyspin AWS 46 Hydraulic Oil Supplier Egypt",
-      title_ar: "مورد زيت Castrol Hyspin AWS 46 الهيدروليكي في مصر",
+      title_en: "Anti-Wear Hydraulic Oil — ISO VG 46 Supplier Egypt",
+      title_ar: "مورد زيت هيدروليكي مضاد للتآكل — ISO VG 46 في مصر",
       description_en:
-        "GOLTENS sources Castrol Hyspin AWS 46 (ISO VG 46) anti-wear hydraulic oil, matched to your equipment specification.",
+        "GOLTENS sources anti-wear hydraulic oil (ISO VG 46), matched to your equipment specification.",
       description_ar:
-        "توفر GOLTENS زيت Castrol Hyspin AWS 46 الهيدروليكي المضاد للتآكل (ISO VG 46)، مطابقًا لمواصفات معداتكم.",
+        "توفر GOLTENS زيتًا هيدروليكيًا مضادًا للتآكل (ISO VG 46)، مطابقًا لمواصفات معداتكم.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -224,6 +252,20 @@ export const lubricantsOilsBrandedGrades: Product[] = [
       "Mobilgear 600 XP 220 is part of the Mobilgear 600 XP Series of extra high performance gear oils, formulated at ISO VG 220 with extreme-pressure characteristics for enclosed industrial gear drives (spur, helical, bevel) with circulation or splash lubrication, and heavily loaded, slow-speed bearings. We source this product matched to your gearbox manufacturer's specification.",
     longDescription_ar:
       "Mobilgear 600 XP 220 جزء من سلسلة Mobilgear 600 XP لزيوت التروس عالية الأداء، بدرجة لزوجة ISO VG 220 وخصائص تحمّل ضغط عالٍ، مخصص للتروس الصناعية المغلقة (مستقيمة، حلزونية، مخروطية) بأنظمة تزييت دوراني أو رذاذي، والمحامل الثقيلة التحميل بطيئة السرعة. نقوم بتوريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لعلبة التروس لديكم.",
+    publicName_en: "Extreme-Pressure Industrial Gear Oil — ISO VG 220",
+    publicName_ar: "زيت تروس صناعي شديد التحمل — ISO VG 220",
+    publicShortDescription_en:
+      "Extreme-pressure industrial gear oil (ISO VG 220).",
+    publicShortDescription_ar:
+      "زيت تروس صناعي بخاصية الضغط العالي (ISO VG 220).",
+    publicLongDescription_en:
+      "An extra-high-performance gear oil formulated at ISO VG 220 with extreme-pressure characteristics for enclosed industrial gear drives (spur, helical, bevel) with circulation or splash lubrication, and heavily loaded, slow-speed bearings. Sourced and supplied matched to your gearbox manufacturer's specification.",
+    publicLongDescription_ar:
+      "زيت تروس فائق الأداء، بدرجة لزوجة ISO VG 220 وخصائص تحمّل ضغط عالٍ، مخصص للتروس الصناعية المغلقة (مستقيمة، حلزونية، مخروطية) بأنظمة تزييت دوراني أو رذاذي، والمحامل الثقيلة التحميل بطيئة السرعة. يتم توريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لعلبة التروس لديكم.",
+    sourcing: {
+      manufacturer: "Mobil",
+      originalProductName_en: "Mobilgear 600 XP 220",
+    },
     sectorId: "lubricants-oils",
     categoryId: "gear-oils-category",
     features_en: [
@@ -298,8 +340,8 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     catalogues: [
       {
         id: "mobilgear-600-xp-220-datasheet",
-        title_en: "Mobilgear 600 XP 220 Datasheet",
-        title_ar: "نشرة بيانات Mobilgear 600 XP 220",
+        title_en: "Extreme-Pressure Industrial Gear Oil — ISO VG 220 Datasheet",
+        title_ar: "نشرة بيانات زيت تروس صناعي شديد التحمل — ISO VG 220",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -308,12 +350,13 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "Mobilgear 600 XP 220 Gear Oil Supplier Egypt",
-      title_ar: "مورد زيت تروس Mobilgear 600 XP 220 في مصر",
+      title_en:
+        "Extreme-Pressure Industrial Gear Oil — ISO VG 220 Supplier Egypt",
+      title_ar: "مورد زيت تروس صناعي شديد التحمل — ISO VG 220 في مصر",
       description_en:
-        "GOLTENS sources Mobilgear 600 XP 220 (ISO VG 220) extreme-pressure industrial gear oil, matched to your gearbox specification.",
+        "GOLTENS sources extreme-pressure industrial gear oil (ISO VG 220), matched to your gearbox specification.",
       description_ar:
-        "توفر GOLTENS زيت التروس الصناعي Mobilgear 600 XP 220 (ISO VG 220) بخاصية الضغط العالي، مطابقًا لمواصفات علبة التروس لديكم.",
+        "توفر GOLTENS زيت تروس صناعي شديد التحمل (ISO VG 220)، مطابقًا لمواصفات علبة التروس لديكم.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -331,6 +374,20 @@ export const lubricantsOilsBrandedGrades: Product[] = [
       "Shell Gadus S5 V220 2 is an advanced-performance lithium complex grease at NLGI consistency grade 2, based on a high viscosity index synthetic base oil, for the grease lubrication of bearings in transport and industrial applications, including paper machine bearings. We source this product matched to your equipment manufacturer's specification.",
     longDescription_ar:
       "Shell Gadus S5 V220 2 شحم متقدم الأداء بقوام NLGI درجة 2، بمادة سميكة من مركّب الليثيوم وزيت أساسي اصطناعي عالي مؤشر اللزوجة، لتشحيم محامل معدات النقل والصناعة، بما في ذلك محامل ماكينات الورق. نقوم بتوريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    publicName_en: "Synthetic Lithium Complex Grease — NLGI 2",
+    publicName_ar: "شحم مركب ليثيوم صناعي — NLGI 2",
+    publicShortDescription_en:
+      "Synthetic lithium complex grease (NLGI 2), advanced-performance, for transport and industrial bearings.",
+    publicShortDescription_ar:
+      "شحم مركب ليثيوم صناعي (NLGI 2) عالي الأداء لمحامل النقل والصناعة.",
+    publicLongDescription_en:
+      "An advanced-performance lithium complex grease at NLGI consistency grade 2, based on a high viscosity index synthetic base oil, for the grease lubrication of bearings in transport and industrial applications, including paper machine bearings. Sourced and supplied matched to your equipment manufacturer's specification.",
+    publicLongDescription_ar:
+      "شحم متقدم الأداء بقوام NLGI درجة 2، بمادة سميكة من مركّب الليثيوم وزيت أساسي اصطناعي عالي مؤشر اللزوجة، لتشحيم محامل معدات النقل والصناعة، بما في ذلك محامل ماكينات الورق. يتم توريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    sourcing: {
+      manufacturer: "Shell",
+      originalProductName_en: "Shell Gadus S5 V220 2",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     features_en: [
@@ -397,8 +454,8 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     catalogues: [
       {
         id: "shell-gadus-s5-v220-2-datasheet",
-        title_en: "Shell Gadus S5 V220 2 Datasheet",
-        title_ar: "نشرة بيانات Shell Gadus S5 V220 2",
+        title_en: "Synthetic Lithium Complex Grease — NLGI 2 Datasheet",
+        title_ar: "نشرة بيانات شحم مركب ليثيوم صناعي — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -407,12 +464,12 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "Shell Gadus S5 V220 2 Grease Supplier Egypt",
-      title_ar: "مورد شحم Shell Gadus S5 V220 2 في مصر",
+      title_en: "Synthetic Lithium Complex Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم مركب ليثيوم صناعي — NLGI 2 في مصر",
       description_en:
-        "GOLTENS sources Shell Gadus S5 V220 2 (NLGI 2) advanced-performance grease, matched to your equipment specification.",
+        "GOLTENS sources synthetic lithium complex grease (NLGI 2), advanced-performance, matched to your equipment specification.",
       description_ar:
-        "توفر GOLTENS شحم Shell Gadus S5 V220 2 عالي الأداء (NLGI 2)، مطابقًا لمواصفات معداتكم.",
+        "توفر GOLTENS شحم مركب ليثيوم صناعي عالي الأداء (NLGI 2)، مطابقًا لمواصفات معداتكم.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -430,6 +487,20 @@ export const lubricantsOilsBrandedGrades: Product[] = [
       "Mobilux EP 2 Moly is a premium-quality, multi-purpose lithium-base grease at NLGI consistency grade 2, containing an extreme-pressure additive and molybdenum disulfide (MoS2) for enhanced anti-friction performance under boundary lubrication conditions. We source this product matched to your equipment manufacturer's specification.",
     longDescription_ar:
       "Mobilux EP 2 Moly شحم متعدد الأغراض عالي الجودة بقاعدة ليثيوم وقوام NLGI درجة 2، يحتوي على إضافة مقاومة للضغط العالي وثاني كبريتيد الموليبدينوم (MoS2) لتحسين أداء مقاومة الاحتكاك في ظروف التزييت الحدّي. نقوم بتوريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    publicName_en: "Molybdenum-Enhanced EP Lithium Grease — NLGI 2",
+    publicName_ar: "شحم ليثيوم عالي الضغط معزز بالموليبدينوم — NLGI 2",
+    publicShortDescription_en:
+      "Molybdenum-enhanced EP lithium grease (NLGI 2), multi-purpose, for general industrial applications.",
+    publicShortDescription_ar:
+      "شحم ليثيوم عالي الضغط معزز بالموليبدينوم (NLGI 2)، متعدد الأغراض، للتطبيقات الصناعية العامة.",
+    publicLongDescription_en:
+      "A premium-quality, multi-purpose lithium-base grease at NLGI consistency grade 2, containing an extreme-pressure additive and molybdenum disulfide (MoS2) for enhanced anti-friction performance under boundary lubrication conditions. Sourced and supplied matched to your equipment manufacturer's specification.",
+    publicLongDescription_ar:
+      "شحم متعدد الأغراض عالي الجودة بقاعدة ليثيوم وقوام NLGI درجة 2، يحتوي على إضافة مقاومة للضغط العالي وثاني كبريتيد الموليبدينوم (MoS2) لتحسين أداء مقاومة الاحتكاك في ظروف التزييت الحدّي. يتم توريد هذا المنتج مطابقًا لمواصفات الجهة المصنّعة لمعداتكم.",
+    sourcing: {
+      manufacturer: "Mobil",
+      originalProductName_en: "Mobilux EP 2 Moly",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     features_en: [
@@ -501,8 +572,9 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     catalogues: [
       {
         id: "mobilux-ep-2-moly-datasheet",
-        title_en: "Mobilux EP 2 Moly Datasheet",
-        title_ar: "نشرة بيانات Mobilux EP 2 Moly",
+        title_en: "Molybdenum-Enhanced EP Lithium Grease — NLGI 2 Datasheet",
+        title_ar:
+          "نشرة بيانات شحم ليثيوم عالي الضغط معزز بالموليبدينوم — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -511,12 +583,12 @@ export const lubricantsOilsBrandedGrades: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "Mobilux EP 2 Moly Grease Supplier Egypt",
-      title_ar: "مورد شحم Mobilux EP 2 Moly في مصر",
+      title_en: "Molybdenum-Enhanced EP Lithium Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم ليثيوم عالي الضغط معزز بالموليبدينوم — NLGI 2 في مصر",
       description_en:
-        "GOLTENS sources Mobilux EP 2 Moly (NLGI 2) multi-purpose grease with molybdenum disulfide, matched to your equipment specification.",
+        "GOLTENS sources molybdenum-enhanced EP lithium grease (NLGI 2), multi-purpose, matched to your equipment specification.",
       description_ar:
-        "توفر GOLTENS شحم Mobilux EP 2 Moly متعدد الأغراض (NLGI 2) المحتوي على ثاني كبريتيد الموليبدينوم، مطابقًا لمواصفات معداتكم.",
+        "توفر GOLTENS شحم ليثيوم عالي الضغط معزز بالموليبدينوم (NLGI 2)، متعدد الأغراض، مطابقًا لمواصفات معداتكم.",
     },
     availability: "available",
     quoteEnabled: true,

@@ -54,6 +54,38 @@ export interface Product {
   shortDescription_ar: string;
   longDescription_en: string;
   longDescription_ar: string;
+  /**
+   * Manufacturer-neutral public identity — every public surface (product
+   * cards, product detail, breadcrumbs, SEO, JSON-LD, search, AI search)
+   * must read these instead of `name_en`/`name_ar`, once a record is
+   * migrated. Optional here because the catalog is migrated incrementally
+   * (34/222 as of this schema change) — a raw `Product` without these
+   * fields is still a valid, unmigrated record. The required boundary
+   * lives at `toPublicProduct()` (`lib/products/public-product.ts`), which
+   * throws `MissingPublicIdentityError` instead of projecting a record
+   * missing any of the four, and `hasPublicIdentity()` in the same module,
+   * which public listing pages must filter with before calling
+   * `toPublicProduct()` on an array that may contain unmigrated records.
+   */
+  publicName_en?: string;
+  publicName_ar?: string;
+  publicShortDescription_en?: string;
+  publicShortDescription_ar?: string;
+  publicLongDescription_en?: string;
+  publicLongDescription_ar?: string;
+  /**
+   * Internal-only sourcing/manufacturer record — must never be read by
+   * public-facing code (UI, SEO, JSON-LD, search, AI search). Distinct
+   * from the dormant `relatedBrandSlugs` below: this is the actual
+   * manufacturer/source-of-truth record, not a public-facing brand
+   * association.
+   */
+  sourcing?: {
+    manufacturer?: string;
+    originalProductName_en?: string;
+    sourceDocument?: string;
+    sourcingReference?: string;
+  };
   /** Matches `Sector.id` in `data/sectors.ts`. */
   sectorId: string;
   /** Matches `ProductCategory.id` in `data/product-categories.ts`. */

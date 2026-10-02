@@ -38,6 +38,10 @@ import {
 import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { LEGACY_HEALTHCARE_PRODUCT_SLUGS } from "@/lib/legacy-healthcare-product-redirects";
 import { buildMetadata } from "@/lib/metadata";
+import {
+  hasPublicIdentity,
+  toPublicProduct,
+} from "@/lib/products/public-product";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site";
 
@@ -58,20 +62,32 @@ export async function generateMetadata({
   const product = getProductBySlug(productSlug);
   if (!product || product.sectorId !== slug) return {};
 
+  // Same public rendering boundary as the page component below: metadata
+  // is built ONLY from `publicProduct`, never the raw `product` object.
+  // `seo.title_*`/`description_*` are projected through unchanged (Phase 6
+  // still owns neutralizing their actual content) but the ultimate fallback
+  // — when a record has no `seo` override — now lands on the public name,
+  // not the raw brand-bearing one.
+  const publicProduct = toPublicProduct(product);
+
   const isArabic = (locale as Locale) === "ar";
   const title =
-    (isArabic ? product.seo?.title_ar : product.seo?.title_en) ??
-    (isArabic ? product.name_ar : product.name_en);
+    (isArabic ? publicProduct.seo?.title_ar : publicProduct.seo?.title_en) ??
+    (isArabic ? publicProduct.name_ar : publicProduct.name_en);
   const description =
-    (isArabic ? product.seo?.description_ar : product.seo?.description_en) ??
-    (isArabic ? product.shortDescription_ar : product.shortDescription_en);
+    (isArabic
+      ? publicProduct.seo?.description_ar
+      : publicProduct.seo?.description_en) ??
+    (isArabic
+      ? publicProduct.shortDescription_ar
+      : publicProduct.shortDescription_en);
 
   return buildMetadata({
     locale: locale as Locale,
     path: `/sectors/${slug}/products/${productSlug}`,
     title,
     description,
-    keywords: product.seo?.keywords,
+    keywords: publicProduct.seo?.keywords,
   });
 }
 
@@ -104,14 +120,21 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const sector = getSectorBySlug(slug);
   if (!sector) notFound();
 
+  // Public rendering boundary: everything below reads ONLY `publicProduct`,
+  // never the raw `product` object — see lib/products/public-product.ts.
+  // Throws `MissingPublicIdentityError` for any record not yet migrated to
+  // carry a public identity (Phase 6); that is the intended, loud failure
+  // mode until then, not something to fall back around here.
+  const publicProduct = toPublicProduct(product);
+
   const isArabic = (locale as Locale) === "ar";
-  const name = isArabic ? product.name_ar : product.name_en;
+  const name = isArabic ? publicProduct.name_ar : publicProduct.name_en;
   const shortDescription = isArabic
-    ? product.shortDescription_ar
-    : product.shortDescription_en;
+    ? publicProduct.shortDescription_ar
+    : publicProduct.shortDescription_en;
   const longDescription = isArabic
-    ? product.longDescription_ar
-    : product.longDescription_en;
+    ? publicProduct.longDescription_ar
+    : publicProduct.longDescription_en;
   const sectorTitle = isArabic ? sector.title_ar : sector.title_en;
 
   // Breadcrumb category segment — resolved from the real registry via the
@@ -121,7 +144,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   // below stay `undefined` together, so `ProductBreadcrumb` falls back to
   // its original Home / Sectors / [sector] / [product] trail with no gap or
   // fabricated label.
-  const category = getCategoryById(product.categoryId);
+  const category = getCategoryById(publicProduct.categoryId);
   const categoryLabel = category
     ? isArabic
       ? category.name_ar
@@ -146,19 +169,27 @@ export default async function ProductPage({ params }: ProductPageProps) {
     productName: name,
   });
 
-  const featureItems = isArabic ? product.features_ar : product.features_en;
+  const featureItems = isArabic
+    ? publicProduct.features_ar
+    : publicProduct.features_en;
   const applicationItems = isArabic
-    ? product.applications_ar
-    : product.applications_en;
+    ? publicProduct.applications_ar
+    : publicProduct.applications_en;
 
-  const specificationItems = (product.specifications ?? []).map((spec) => ({
-    label: isArabic ? spec.label_ar : spec.label_en,
-    value: spec.value,
-    group: isArabic ? spec.group_ar : spec.group_en,
-  }));
+  const specificationItems = (publicProduct.specifications ?? []).map(
+    (spec) => ({
+      label: isArabic ? spec.label_ar : spec.label_en,
+      value: spec.value,
+      group: isArabic ? spec.group_ar : spec.group_en,
+    }),
+  );
 
-  const catalogueItems = product.catalogues?.length
-    ? product.catalogues.map((catalogue) => ({
+  // Catalogue titles are NOT rewritten in this phase — `PublicCatalogueItem`
+  // still carries the existing (possibly brand-bearing) `title_en`/`title_ar`
+  // verbatim; only Phase 6 is authorized to neutralize them. This phase only
+  // moves the read from `product.catalogues` to `publicProduct.catalogues`.
+  const catalogueItems = publicProduct.catalogues?.length
+    ? publicProduct.catalogues.map((catalogue) => ({
         id: catalogue.id,
         title: isArabic ? catalogue.title_ar : catalogue.title_en,
         language: catalogue.language,
@@ -168,7 +199,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       }))
     : [
         {
-          id: `${product.slug}-datasheet`,
+          id: `${publicProduct.slug}-datasheet`,
           title: t("cataloguesDefault", { product: name }),
           language: "en",
           fileUrl: null,
@@ -179,8 +210,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   // sector's own Knowledge Center list (same fallback shape
   // `relatedSectorSlugs` already uses at the sector level).
   const sectorArticles = getSectorContent(slug).articles ?? [];
-  const articleSlugs = product.relatedArticleSlugs?.length
-    ? product.relatedArticleSlugs
+  const articleSlugs = publicProduct.relatedArticleSlugs?.length
+    ? publicProduct.relatedArticleSlugs
     : sectorArticles.map((article) => article.slug);
   const articleItems = articleSlugs
     .map((articleSlug) => getSectorArticle(slug, articleSlug))
@@ -195,31 +226,42 @@ export default async function ProductPage({ params }: ProductPageProps) {
       coverImage: article.coverImage,
     }));
 
-  const relatedProductItems = (product.relatedProductSlugs ?? [])
-    .filter((relatedSlug) => relatedSlug !== product.slug)
+  // Related products: each resolved raw `Product` is ALSO projected through
+  // `toPublicProduct()` before any of its fields are read — a related
+  // product is public rendering too, not an internal lookup. Filtered to
+  // migrated products first: the catalog is migrated incrementally, so an
+  // unmigrated related product is simply omitted from this section rather
+  // than throwing and taking down the whole page (same pattern as every
+  // other public listing).
+  const relatedProductItems = (publicProduct.relatedProductSlugs ?? [])
+    .filter((relatedSlug) => relatedSlug !== publicProduct.slug)
     .map((relatedSlug) => getProductBySlug(relatedSlug))
     .filter((item): item is NonNullable<typeof item> => item !== undefined)
-    .map((relatedProduct) => ({
-      slug: relatedProduct.slug,
-      title: isArabic ? relatedProduct.name_ar : relatedProduct.name_en,
+    .filter(hasPublicIdentity)
+    .map((relatedProduct) => toPublicProduct(relatedProduct))
+    .map((relatedPublicProduct) => ({
+      slug: relatedPublicProduct.slug,
+      title: isArabic
+        ? relatedPublicProduct.name_ar
+        : relatedPublicProduct.name_en,
       description: isArabic
-        ? relatedProduct.shortDescription_ar
-        : relatedProduct.shortDescription_en,
-      image: relatedProduct.images?.[0] ?? null,
-      href: `/sectors/${slug}/products/${relatedProduct.slug}`,
-      sectorId: relatedProduct.sectorId,
-      categoryId: relatedProduct.categoryId,
+        ? relatedPublicProduct.shortDescription_ar
+        : relatedPublicProduct.shortDescription_en,
+      image: relatedPublicProduct.images?.[0] ?? null,
+      href: `/sectors/${slug}/products/${relatedPublicProduct.slug}`,
+      sectorId: relatedPublicProduct.sectorId,
+      categoryId: relatedPublicProduct.categoryId,
     }));
 
   // This product itself, shaped for the RFQ cart / Comparison Engine —
   // passed to `ProductHero`'s "Add to RFQ"/"Add to Compare" controls.
   const comparisonProduct = {
-    slug: product.slug,
+    slug: publicProduct.slug,
     name,
-    image: product.images?.[0] ?? null,
-    sectorId: product.sectorId,
-    categoryId: product.categoryId,
-    href: `/sectors/${slug}/products/${product.slug}`,
+    image: publicProduct.images?.[0] ?? null,
+    sectorId: publicProduct.sectorId,
+    categoryId: publicProduct.categoryId,
+    href: `/sectors/${slug}/products/${publicProduct.slug}`,
   };
 
   // Related Knowledge — guides/comparisons/standards etc. genuinely tied to
@@ -227,7 +269,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   // covered by the "Related Articles" section above, sourced from the same
   // registry) so nothing is ever shown twice.
   const relatedKnowledgeItems: KnowledgeCardItem[] =
-    getKnowledgeItemsForProduct(product.id)
+    getKnowledgeItemsForProduct(publicProduct.id)
       .filter((knowledgeItem) => knowledgeItem.type !== "article")
       .map((knowledgeItem) => {
         const knowledgeBody =
@@ -250,13 +292,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   // Existing sourcing/order status — verbatim labels per state, never
   // reinterpreted (e.g. "on-request" never reads as in-stock).
-  const availabilityLabels: Record<typeof product.availability, string> = {
-    available: t("availabilityAvailable"),
-    "on-request": t("availabilityOnRequest"),
-    "coming-soon": t("availabilityComingSoon"),
-  };
+  const availabilityLabels: Record<typeof publicProduct.availability, string> =
+    {
+      available: t("availabilityAvailable"),
+      "on-request": t("availabilityOnRequest"),
+      "coming-soon": t("availabilityComingSoon"),
+    };
   const availabilityTones: Record<
-    typeof product.availability,
+    typeof publicProduct.availability,
     "success" | "warning" | "accent"
   > = {
     available: "success",
@@ -264,7 +307,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     "coming-soon": "accent",
   };
 
-  const faqItems = (product.faq ?? []).map((faq) => ({
+  const faqItems = (publicProduct.faq ?? []).map((faq) => ({
     question: isArabic ? faq.question_ar : faq.question_en,
     answer: isArabic ? faq.answer_ar : faq.answer_en,
   }));
@@ -322,7 +365,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <ProductHero
         name={name}
         description={shortDescription}
-        image={product.images?.[0] ?? null}
+        image={publicProduct.images?.[0] ?? null}
         homeLabel={tNav("home")}
         sectorsLabel={tNav("sectors")}
         sectorLabel={sectorTitle}
@@ -339,13 +382,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
         addToCompareAddedLabel={t("addToCompareAddedLabel")}
         sendRequirementHref={`/send-requirement?product=${encodeURIComponent(name)}`}
         sendRequirementLabel={t("sendRequirementLinkLabel")}
-        availabilityLabel={availabilityLabels[product.availability]}
-        availabilityTone={availabilityTones[product.availability]}
+        availabilityLabel={availabilityLabels[publicProduct.availability]}
+        availabilityTone={availabilityTones[publicProduct.availability]}
       />
 
-      <PremiumDarkSection>
-        <SectorAbout title={t("overviewTitle")} intro={longDescription} />
-      </PremiumDarkSection>
+      {longDescription && (
+        <PremiumDarkSection>
+          <SectorAbout title={t("overviewTitle")} intro={longDescription} />
+        </PremiumDarkSection>
+      )}
 
       {featureItems && featureItems.length > 0 && (
         <PremiumDarkSection>
@@ -447,7 +492,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </PremiumDarkSection>
       )}
 
-      {product.quoteEnabled && (
+      {publicProduct.quoteEnabled && (
         <SectorQuoteCTA
           id={REQUEST_QUOTE_ANCHOR}
           locale={locale as Locale}

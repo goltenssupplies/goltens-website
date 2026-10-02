@@ -53,6 +53,20 @@ export const mobilBatch1Greases: Product[] = [
       "Mobilgrease XTC is a lithium complex grease at NLGI 1, formulated for grid-type and gear-type flexible couplings and high-speed coupling applications, meeting AGMA CG-1, CG-2, and CG-3 specifications. Available for supply through GOLTENS — request a quote for your application.",
     longDescription_ar:
       "Mobilgrease XTC هو شحم مركّب ليثيوم بدرجة NLGI 1، مصمم لوصلات المرونة الشبكية والمسننة وتطبيقات الوصلات عالية السرعة، ومطابق لمعايير AGMA CG-1 وCG-2 وCG-3. متوفر للتوريد من خلال GOLTENS — اطلب عرض سعر لتطبيقكم.",
+    publicName_en: "Lithium Complex Coupling Grease — NLGI 1",
+    publicName_ar: "شحم وصلات مركب ليثيوم — NLGI 1",
+    publicShortDescription_en:
+      "NLGI 1 lithium complex coupling grease for grid-type and gear-type flexible couplings, meeting AGMA CG-1/CG-2/CG-3.",
+    publicShortDescription_ar:
+      "شحم وصلات مركّب ليثيوم بدرجة NLGI 1، لوصلات المرونة الشبكية والمسننة، مطابق لمعايير AGMA CG-1/CG-2/CG-3.",
+    publicLongDescription_en:
+      "A lithium complex grease at NLGI 1, formulated for grid-type and gear-type flexible couplings and high-speed coupling applications, meeting AGMA CG-1, CG-2, and CG-3 specifications. Available for supply through GOLTENS — request a quote for your application.",
+    publicLongDescription_ar:
+      "شحم مركّب ليثيوم بدرجة NLGI 1، مصمم لوصلات المرونة الشبكية والمسننة وتطبيقات الوصلات عالية السرعة، ومطابق لمعايير AGMA CG-1 وCG-2 وCG-3. متوفر للتوريد من خلال GOLTENS — اطلب عرض سعر لتطبيقكم.",
+    sourcing: {
+      manufacturer: "Mobil",
+      originalProductName_en: "Mobilgrease XTC",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -128,8 +142,8 @@ export const mobilBatch1Greases: Product[] = [
     catalogues: [
       {
         id: "mobilgrease-xtc-datasheet",
-        title_en: "Mobilgrease XTC Datasheet",
-        title_ar: "نشرة بيانات Mobilgrease XTC",
+        title_en: "Lithium Complex Coupling Grease — NLGI 1 Datasheet",
+        title_ar: "نشرة بيانات شحم وصلات مركب ليثيوم — NLGI 1",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -138,12 +152,12 @@ export const mobilBatch1Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "Mobilgrease XTC Coupling Grease Supplier Egypt",
-      title_ar: "مورد شحم وصلات Mobilgrease XTC في مصر",
+      title_en: "Lithium Complex Coupling Grease — NLGI 1 Supplier Egypt",
+      title_ar: "مورد شحم وصلات مركب ليثيوم — NLGI 1 في مصر",
       description_en:
-        "GOLTENS supplies Mobilgrease XTC lithium complex coupling grease (NLGI 1), available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies lithium complex coupling grease (NLGI 1), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم الوصلات Mobilgrease XTC المركب الليثيومي (NLGI 1)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم وصلات مركب ليثيوم (NLGI 1)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -161,6 +175,20 @@ export const mobilBatch1Greases: Product[] = [
       "Mobil Polyrex EP 2 is a polyurea grease at NLGI 2, an excellent multi-purpose grease for a wide array of industrial and construction applications, particularly suitable for roller bearings and heavily water-contaminated environments. Available for supply through GOLTENS — request a quote for your application.",
     longDescription_ar:
       "Mobil Polyrex EP 2 هو شحم بولي يوريا بدرجة NLGI 2، ممتاز ومتعدد الأغراض لمجموعة واسعة من التطبيقات الصناعية والإنشائية، مناسب بشكل خاص للمحامل الأسطوانية والبيئات شديدة التلوث بالماء. متوفر للتوريد من خلال GOLTENS — اطلب عرض سعر لتطبيقكم.",
+    publicName_en: "Polyurea Multi-Purpose Grease — NLGI 2",
+    publicName_ar: "شحم بولي يوريا متعدد الأغراض — NLGI 2",
+    publicShortDescription_en:
+      "NLGI 2 polyurea multi-purpose grease for industrial and construction applications, including roller bearings and water-contaminated environments.",
+    publicShortDescription_ar:
+      "شحم بولي يوريا متعدد الأغراض بدرجة NLGI 2، للتطبيقات الصناعية والإنشائية، بما في ذلك المحامل الأسطوانية والبيئات الملوثة بالماء.",
+    publicLongDescription_en:
+      "A polyurea grease at NLGI 2, an excellent multi-purpose grease for a wide array of industrial and construction applications, particularly suitable for roller bearings and heavily water-contaminated environments. Available for supply through GOLTENS — request a quote for your application.",
+    publicLongDescription_ar:
+      "شحم بولي يوريا بدرجة NLGI 2، ممتاز ومتعدد الأغراض لمجموعة واسعة من التطبيقات الصناعية والإنشائية، مناسب بشكل خاص للمحامل الأسطوانية والبيئات شديدة التلوث بالماء. متوفر للتوريد من خلال GOLTENS — اطلب عرض سعر لتطبيقكم.",
+    sourcing: {
+      manufacturer: "Mobil",
+      originalProductName_en: "Mobil Polyrex EP 2",
+    },
     sectorId: "lubricants-oils",
     categoryId: "greases",
     applications_en: [
@@ -235,8 +263,8 @@ export const mobilBatch1Greases: Product[] = [
     catalogues: [
       {
         id: "mobil-polyrex-ep-2-datasheet",
-        title_en: "Mobil Polyrex EP 2 Datasheet",
-        title_ar: "نشرة بيانات Mobil Polyrex EP 2",
+        title_en: "Polyurea Multi-Purpose Grease — NLGI 2 Datasheet",
+        title_ar: "نشرة بيانات شحم بولي يوريا متعدد الأغراض — NLGI 2",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -245,12 +273,12 @@ export const mobilBatch1Greases: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "Mobil Polyrex EP 2 Grease Supplier Egypt",
-      title_ar: "مورد شحم Mobil Polyrex EP 2 في مصر",
+      title_en: "Polyurea Multi-Purpose Grease — NLGI 2 Supplier Egypt",
+      title_ar: "مورد شحم بولي يوريا متعدد الأغراض — NLGI 2 في مصر",
       description_en:
-        "GOLTENS supplies Mobil Polyrex EP 2 polyurea multi-purpose grease (NLGI 2), available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies polyurea multi-purpose grease (NLGI 2), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS شحم Mobil Polyrex EP 2 البولي يوريا متعدد الأغراض (NLGI 2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS شحم بولي يوريا متعدد الأغراض (NLGI 2)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,

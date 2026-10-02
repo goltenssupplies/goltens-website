@@ -306,6 +306,20 @@ export const mollubeBatchM2Refrigeration: Product[] = [
       "MOL-FREEZ M Series is MOLLUBE's high-quality mineral oil for refrigeration systems, offering a range of viscosities from 32 up to 68 to suit various types of refrigeration equipment. Formulated with top-quality naphthenic base oils, it is fully compatible with CFC and Ammonia refrigerant gases and operates safely at low temperatures. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "سلسلة MOL-FREEZ M هي زيت معدني عالي الجودة من MOLLUBE لأنظمة التبريد، يوفر نطاقًا من درجات اللزوجة من 32 إلى 68 لتناسب مختلف أنواع معدات التبريد. مصنّع من زيوت أساسية نافثينية عالية الجودة، وهو متوافق تمامًا مع غازات التبريد CFC والأمونيا، ويعمل بأمان في درجات الحرارة المنخفضة. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Mineral Refrigeration Oil — ISO VG 32-68",
+    publicName_ar: "زيت تبريد معدني — ISO VG 32-68",
+    publicShortDescription_en:
+      "Mineral refrigeration oil, ISO VG 32 to 68, compatible with CFC and Ammonia refrigerant gases.",
+    publicShortDescription_ar:
+      "زيت تبريد معدني، بدرجات لزوجة ISO VG من 32 إلى 68، متوافق مع غازات التبريد CFC والأمونيا.",
+    publicLongDescription_en:
+      "A high-quality mineral oil for refrigeration systems, offering a range of viscosities from 32 up to 68 to suit various types of refrigeration equipment. Formulated with top-quality naphthenic base oils, it is fully compatible with CFC and Ammonia refrigerant gases and operates safely at low temperatures. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "زيت معدني عالي الجودة لأنظمة التبريد، يوفر نطاقًا من درجات اللزوجة من 32 إلى 68 لتناسب مختلف أنواع معدات التبريد. مصنّع من زيوت أساسية نافثينية عالية الجودة، وهو متوافق تمامًا مع غازات التبريد CFC والأمونيا، ويعمل بأمان في درجات الحرارة المنخفضة. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-FREEZ M Series",
+    },
     sectorId: "lubricants-oils",
     categoryId: "refrigeration-oils",
     features_en: [
@@ -347,8 +361,8 @@ export const mollubeBatchM2Refrigeration: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-freez-m-datasheet",
-        title_en: "MOLLUBE MOL-FREEZ M Series Datasheet",
-        title_ar: "نشرة بيانات سلسلة MOLLUBE MOL-FREEZ M",
+        title_en: "Mineral Refrigeration Oil — ISO VG 32-68 Datasheet",
+        title_ar: "نشرة بيانات زيت تبريد معدني — ISO VG 32-68",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -357,12 +371,12 @@ export const mollubeBatchM2Refrigeration: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-FREEZ M Series Refrigeration Oil Supplier Egypt",
-      title_ar: "مورد زيت التبريد سلسلة MOLLUBE MOL-FREEZ M في مصر",
+      title_en: "Mineral Refrigeration Oil — ISO VG 32-68 Supplier Egypt",
+      title_ar: "مورد زيت تبريد معدني — ISO VG 32-68 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-FREEZ M Series mineral refrigeration oil (ISO VG 32-68), available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies mineral refrigeration oil (ISO VG 32-68), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التبريد المعدني سلسلة MOLLUBE MOL-FREEZ M (ISO VG 32-68)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت تبريد معدني (ISO VG 32-68)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -380,6 +394,20 @@ export const mollubeBatchM2Refrigeration: Product[] = [
       "MOL-FREEZ ULTRA 68 is MOLLUBE's superior semi-synthetic refrigeration oil, designed for ammonia compressors using R717 gas. It features special additives for oxidation inhibition, corrosion protection, and enhanced low-temperature performance, and can also be used as a coolant for process-gas rotary screw and reciprocating compressors. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "MOL-FREEZ ULTRA 68 هو زيت تبريد شبه اصطناعي متفوق من MOLLUBE، مصمم لضواغط الأمونيا التي تستخدم غاز R717. يحتوي على إضافات خاصة لمنع الأكسدة والحماية من التآكل وتحسين الأداء في درجات الحرارة المنخفضة، ويمكن استخدامه أيضًا كمبرّد لضواغط الغاز اللولبية والترددية. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Semi-Synthetic Ammonia Refrigeration Oil — ISO VG 68",
+    publicName_ar: "زيت تبريد شبه اصطناعي للأمونيا — ISO VG 68",
+    publicShortDescription_en:
+      "Semi-synthetic ISO VG 68 refrigeration oil for ammonia (R717) compressors.",
+    publicShortDescription_ar:
+      "زيت تبريد شبه اصطناعي بدرجة لزوجة ISO VG 68 لضواغط الأمونيا (R717).",
+    publicLongDescription_en:
+      "A superior semi-synthetic refrigeration oil, designed for ammonia compressors using R717 gas. It features special additives for oxidation inhibition, corrosion protection, and enhanced low-temperature performance, and can also be used as a coolant for process-gas rotary screw and reciprocating compressors. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "زيت تبريد شبه اصطناعي متفوق، مصمم لضواغط الأمونيا التي تستخدم غاز R717. يحتوي على إضافات خاصة لمنع الأكسدة والحماية من التآكل وتحسين الأداء في درجات الحرارة المنخفضة، ويمكن استخدامه أيضًا كمبرّد لضواغط الغاز اللولبية والترددية. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-FREEZ ULTRA 68",
+    },
     sectorId: "lubricants-oils",
     categoryId: "refrigeration-oils",
     features_en: [
@@ -460,8 +488,9 @@ export const mollubeBatchM2Refrigeration: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-freez-ultra-68-datasheet",
-        title_en: "MOLLUBE MOL-FREEZ ULTRA 68 Datasheet",
-        title_ar: "نشرة بيانات MOLLUBE MOL-FREEZ ULTRA 68",
+        title_en:
+          "Semi-Synthetic Ammonia Refrigeration Oil — ISO VG 68 Datasheet",
+        title_ar: "نشرة بيانات زيت تبريد شبه اصطناعي للأمونيا — ISO VG 68",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -470,12 +499,13 @@ export const mollubeBatchM2Refrigeration: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-FREEZ ULTRA 68 Refrigeration Oil Supplier Egypt",
-      title_ar: "مورد زيت التبريد MOLLUBE MOL-FREEZ ULTRA 68 في مصر",
+      title_en:
+        "Semi-Synthetic Ammonia Refrigeration Oil — ISO VG 68 Supplier Egypt",
+      title_ar: "مورد زيت تبريد شبه اصطناعي للأمونيا — ISO VG 68 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-FREEZ ULTRA 68 semi-synthetic refrigeration oil for ammonia compressors, available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies semi-synthetic refrigeration oil for ammonia compressors (ISO VG 68), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التبريد شبه الاصطناعي MOLLUBE MOL-FREEZ ULTRA 68 لضواغط الأمونيا، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت تبريد شبه اصطناعي لضواغط الأمونيا (ISO VG 68)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -493,6 +523,20 @@ export const mollubeBatchM2Refrigeration: Product[] = [
       "MOL-FREEZ PAO Series is MOLLUBE's fully synthetic refrigeration oil, designed for large refrigeration compressors and fully compatible with CFC and Ammonia refrigerant gases. It is formulated with top-quality PAO (Polyalphaolefin) base stock, allowing the oil to operate safely at very low temperatures. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "سلسلة MOL-FREEZ PAO هي زيت تبريد اصطناعي بالكامل من MOLLUBE، مصمم لضواغط التبريد الكبيرة ومتوافق تمامًا مع غازات التبريد CFC والأمونيا. يُصنّع من مادة PAO (بولي ألفا أوليفين) عالية الجودة، مما يتيح للزيت العمل بأمان في درجات حرارة منخفضة جدًا. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Synthetic PAO Refrigeration Oil — ISO VG 150/220",
+    publicName_ar: "زيت تبريد اصطناعي PAO — ISO VG 150/220",
+    publicShortDescription_en:
+      "Fully synthetic PAO refrigeration oil, ISO VG 150 and 220, for large refrigeration compressors.",
+    publicShortDescription_ar:
+      "زيت تبريد اصطناعي بالكامل من نوع PAO، بدرجتي لزوجة ISO VG 150 و220، لضواغط التبريد الكبيرة.",
+    publicLongDescription_en:
+      "A fully synthetic refrigeration oil, designed for large refrigeration compressors and fully compatible with CFC and Ammonia refrigerant gases. It is formulated with top-quality PAO (Polyalphaolefin) base stock, allowing the oil to operate safely at very low temperatures. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "زيت تبريد اصطناعي بالكامل، مصمم لضواغط التبريد الكبيرة ومتوافق تمامًا مع غازات التبريد CFC والأمونيا. يُصنّع من مادة PAO (بولي ألفا أوليفين) عالية الجودة، مما يتيح للزيت العمل بأمان في درجات حرارة منخفضة جدًا. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-FREEZ PAO Series",
+    },
     sectorId: "lubricants-oils",
     categoryId: "refrigeration-oils",
     features_en: [
@@ -534,8 +578,8 @@ export const mollubeBatchM2Refrigeration: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-freez-pao-datasheet",
-        title_en: "MOLLUBE MOL-FREEZ PAO Series Datasheet",
-        title_ar: "نشرة بيانات سلسلة MOLLUBE MOL-FREEZ PAO",
+        title_en: "Synthetic PAO Refrigeration Oil — ISO VG 150/220 Datasheet",
+        title_ar: "نشرة بيانات زيت تبريد اصطناعي PAO — ISO VG 150/220",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -544,12 +588,13 @@ export const mollubeBatchM2Refrigeration: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-FREEZ PAO Series Refrigeration Oil Supplier Egypt",
-      title_ar: "مورد زيت التبريد سلسلة MOLLUBE MOL-FREEZ PAO في مصر",
+      title_en:
+        "Synthetic PAO Refrigeration Oil — ISO VG 150/220 Supplier Egypt",
+      title_ar: "مورد زيت تبريد اصطناعي PAO — ISO VG 150/220 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-FREEZ PAO Series fully synthetic refrigeration oil (ISO VG 150-220), available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies fully synthetic PAO refrigeration oil (ISO VG 150-220), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التبريد الاصطناعي بالكامل سلسلة MOLLUBE MOL-FREEZ PAO (ISO VG 150-220)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت تبريد اصطناعي PAO (ISO VG 150-220)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,
@@ -567,6 +612,20 @@ export const mollubeBatchM2Refrigeration: Product[] = [
       "MOL-FREEZ E Series is MOLLUBE's fully synthetic range of refrigeration lubricants, formulated with high-quality polyol esters (POE) for refrigeration and air conditioning compressors. It is designed to be compatible with a wide variety of refrigerants, including HFCs such as R404A, R407C, R410A, R507A, R509A, and R509B, as well as CFC and HCFC refrigerants, delivering excellent thermal stability, chemical inertness, and superior lubrication properties. Available for supply through GOLTENS, matched to your equipment specification.",
     longDescription_ar:
       "سلسلة MOL-FREEZ E هي مجموعة زيوت تبريد اصطناعية بالكامل من MOLLUBE، مصنّعة من إسترات البوليول (POE) عالية الجودة لضواغط التبريد وتكييف الهواء. مصممة لتكون متوافقة مع مجموعة واسعة من غازات التبريد، بما في ذلك غازات HFC مثل R404A وR407C وR410A وR507A وR509A وR509B، بالإضافة إلى غازات CFC وHCFC، وتوفر ثباتًا حراريًا ممتازًا وخمولًا كيميائيًا وخصائص تشحيم متفوقة. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    publicName_en: "Synthetic POE Refrigeration Oil — ISO VG 22-370",
+    publicName_ar: "زيت تبريد اصطناعي POE — ISO VG 22-370",
+    publicShortDescription_en:
+      "Fully synthetic POE refrigeration oil, ISO VG 22 to 370, for HFC/CFC/HCFC refrigeration and air conditioning compressors.",
+    publicShortDescription_ar:
+      "زيت تبريد اصطناعي بالكامل من نوع POE، بدرجات لزوجة ISO VG من 22 إلى 370، لضواغط التبريد وتكييف الهواء العاملة بغازات HFC وCFC وHCFC.",
+    publicLongDescription_en:
+      "A fully synthetic range of refrigeration lubricants, formulated with high-quality polyol esters (POE) for refrigeration and air conditioning compressors. It is designed to be compatible with a wide variety of refrigerants, including HFCs such as R404A, R407C, R410A, R507A, R509A, and R509B, as well as CFC and HCFC refrigerants, delivering excellent thermal stability, chemical inertness, and superior lubrication properties. Available for supply through GOLTENS, matched to your equipment specification.",
+    publicLongDescription_ar:
+      "مجموعة زيوت تبريد اصطناعية بالكامل، مصنّعة من إسترات البوليول (POE) عالية الجودة لضواغط التبريد وتكييف الهواء. مصممة لتكون متوافقة مع مجموعة واسعة من غازات التبريد، بما في ذلك غازات HFC مثل R404A وR407C وR410A وR507A وR509A وR509B، بالإضافة إلى غازات CFC وHCFC، وتوفر ثباتًا حراريًا ممتازًا وخمولًا كيميائيًا وخصائص تشحيم متفوقة. متوفر للتوريد من خلال GOLTENS، مطابقًا لمواصفات معداتكم.",
+    sourcing: {
+      manufacturer: "MOLLUBE",
+      originalProductName_en: "MOLLUBE MOL-FREEZ E Series",
+    },
     sectorId: "lubricants-oils",
     categoryId: "refrigeration-oils",
     features_en: [
@@ -618,8 +677,8 @@ export const mollubeBatchM2Refrigeration: Product[] = [
     catalogues: [
       {
         id: "mollube-mol-freez-e-datasheet",
-        title_en: "MOLLUBE MOL-FREEZ E Series Datasheet",
-        title_ar: "نشرة بيانات سلسلة MOLLUBE MOL-FREEZ E",
+        title_en: "Synthetic POE Refrigeration Oil — ISO VG 22-370 Datasheet",
+        title_ar: "نشرة بيانات زيت تبريد اصطناعي POE — ISO VG 22-370",
         kind: "datasheet",
         fileType: "pdf",
         language: "en",
@@ -628,12 +687,13 @@ export const mollubeBatchM2Refrigeration: Product[] = [
     ],
     images: [],
     seo: {
-      title_en: "MOLLUBE MOL-FREEZ E Series Refrigeration Oil Supplier Egypt",
-      title_ar: "مورد زيت التبريد سلسلة MOLLUBE MOL-FREEZ E في مصر",
+      title_en:
+        "Synthetic POE Refrigeration Oil — ISO VG 22-370 Supplier Egypt",
+      title_ar: "مورد زيت تبريد اصطناعي POE — ISO VG 22-370 في مصر",
       description_en:
-        "GOLTENS supplies MOLLUBE MOL-FREEZ E Series fully synthetic POE refrigeration oil (ISO VG 22-370), available for supply and matched to your equipment specification. Request a quote.",
+        "GOLTENS supplies fully synthetic POE refrigeration oil (ISO VG 22-370), available for supply and matched to your equipment specification. Request a quote.",
       description_ar:
-        "توفر GOLTENS زيت التبريد الاصطناعي بالكامل POE سلسلة MOLLUBE MOL-FREEZ E (ISO VG 22-370)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
+        "توفر GOLTENS زيت تبريد اصطناعي POE (ISO VG 22-370)، متوفر للتوريد ومطابق لمواصفات معداتكم. اطلب عرض سعر.",
     },
     availability: "available",
     quoteEnabled: true,

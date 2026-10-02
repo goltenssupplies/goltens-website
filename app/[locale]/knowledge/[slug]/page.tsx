@@ -65,6 +65,10 @@ import {
 import { buildMetadata } from "@/lib/metadata";
 import { buildComparisonRows } from "@/lib/product-comparison";
 import {
+  hasPublicIdentity,
+  toPublicProduct,
+} from "@/lib/products/public-product";
+import {
   articleJsonLd,
   breadcrumbJsonLd,
   faqJsonLd,
@@ -313,12 +317,22 @@ export default async function KnowledgeDetailPage({
   const comparisonProducts = (item.comparison?.productIds ?? [])
     .map((id) => getProductById(id))
     .filter((product): product is Product => product !== undefined);
-  const comparisonProductItems = comparisonProducts.map((product) => ({
-    slug: product.slug,
-    name: isArabic ? product.name_ar : product.name_en,
-    image: product.images?.[0] ?? null,
-    href: `/sectors/${product.sectorId}/products/${product.slug}`,
-  }));
+  // `buildComparisonRows` only ever reads `specifications` (never an
+  // identity field — see lib/product-comparison.ts), so it keeps taking the
+  // raw `comparisonProducts` array unchanged. `comparisonProductItems`
+  // renders a name/image, which IS identity — each product is projected
+  // through `toPublicProduct()` first, filtered to migrated products so an
+  // unmigrated one is simply omitted from the card row rather than
+  // throwing.
+  const comparisonProductItems = comparisonProducts
+    .filter(hasPublicIdentity)
+    .map((product) => toPublicProduct(product))
+    .map((publicProduct) => ({
+      slug: publicProduct.slug,
+      name: isArabic ? publicProduct.name_ar : publicProduct.name_en,
+      image: publicProduct.images?.[0] ?? null,
+      href: `/sectors/${publicProduct.sectorId}/products/${publicProduct.slug}`,
+    }));
   const comparisonRows = buildComparisonRows(comparisonProducts, isArabic);
 
   // Related Sectors/Products/Brands/Solutions — every relation resolved via
@@ -355,16 +369,18 @@ export default async function KnowledgeDetailPage({
   )
     .map((id) => getProductById(id))
     .filter((product): product is Product => product !== undefined)
-    .map((product) => ({
-      slug: product.slug,
-      title: isArabic ? product.name_ar : product.name_en,
+    .filter(hasPublicIdentity)
+    .map((product) => toPublicProduct(product))
+    .map((publicProduct) => ({
+      slug: publicProduct.slug,
+      title: isArabic ? publicProduct.name_ar : publicProduct.name_en,
       description: isArabic
-        ? product.shortDescription_ar
-        : product.shortDescription_en,
-      image: product.images?.[0] ?? null,
-      href: `/sectors/${product.sectorId}/products/${product.slug}`,
-      sectorId: product.sectorId,
-      categoryId: product.categoryId,
+        ? publicProduct.shortDescription_ar
+        : publicProduct.shortDescription_en,
+      image: publicProduct.images?.[0] ?? null,
+      href: `/sectors/${publicProduct.sectorId}/products/${publicProduct.slug}`,
+      sectorId: publicProduct.sectorId,
+      categoryId: publicProduct.categoryId,
     }));
 
   // Related Reading — explicit curated ids, or other items of the same

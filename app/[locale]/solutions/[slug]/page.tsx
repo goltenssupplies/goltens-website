@@ -27,6 +27,10 @@ import { SOLUTIONS_ENABLED } from "@/lib/feature-flags";
 import { getReadingTimeMinutes } from "@/lib/knowledge";
 import { buildMetadata } from "@/lib/metadata";
 import {
+  hasPublicIdentity,
+  toPublicProduct,
+} from "@/lib/products/public-product";
+import {
   breadcrumbJsonLd,
   faqJsonLd,
   serviceJsonLd,
@@ -125,19 +129,23 @@ export default async function SolutionPage({ params }: SolutionPageProps) {
 
   // Featured Products — resolved via the Product Engine's global slug
   // lookup; `SectorProducts` shows an honest empty state when this is [].
+  // Filtered to migrated products before projection, same reason as every
+  // other listing: an unmigrated product is omitted, not thrown on.
   const productItems = (solution.relatedProductSlugs ?? [])
     .map((productSlug) => getProductBySlug(productSlug))
     .filter((item): item is NonNullable<typeof item> => item !== undefined)
-    .map((product) => ({
-      slug: product.slug,
-      title: isArabic ? product.name_ar : product.name_en,
+    .filter(hasPublicIdentity)
+    .map((product) => toPublicProduct(product))
+    .map((publicProduct) => ({
+      slug: publicProduct.slug,
+      title: isArabic ? publicProduct.name_ar : publicProduct.name_en,
       description: isArabic
-        ? product.shortDescription_ar
-        : product.shortDescription_en,
-      image: product.images?.[0] ?? null,
-      href: `/sectors/${product.sectorId}/products/${product.slug}`,
-      sectorId: product.sectorId,
-      categoryId: product.categoryId,
+        ? publicProduct.shortDescription_ar
+        : publicProduct.shortDescription_en,
+      image: publicProduct.images?.[0] ?? null,
+      href: `/sectors/${publicProduct.sectorId}/products/${publicProduct.slug}`,
+      sectorId: publicProduct.sectorId,
+      categoryId: publicProduct.categoryId,
     }));
 
   // Downloadable Catalogues — real sector-level catalogues only; the

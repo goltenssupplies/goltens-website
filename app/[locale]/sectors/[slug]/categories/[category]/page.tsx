@@ -18,6 +18,10 @@ import { getProductsByCategory } from "@/data/products";
 import { getSectorBySlug } from "@/data/sectors";
 import type { Locale } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/metadata";
+import {
+  hasPublicIdentity,
+  toPublicProduct,
+} from "@/lib/products/public-product";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { siteUrl } from "@/lib/site";
 
@@ -108,18 +112,28 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   // page's `ProductExplorer` and the product page's "Related Products"
   // both already build `SectorProductItem[]`. Each card links to the real
   // product detail route; no product is duplicated or invented here.
+  // Every product is projected through `toPublicProduct()` before any of
+  // its identity fields are read — same boundary as the sector listing and
+  // product detail pages. Filtered to migrated products first, same
+  // reason as the sector listing: one unmigrated product must not take
+  // down this whole category's listing.
   const categoryProducts = getProductsByCategory(category.id);
-  const productItems: SectorProductItem[] = categoryProducts.map((product) => ({
-    slug: product.slug,
-    title: isArabic ? product.name_ar : product.name_en,
-    description: isArabic
-      ? product.shortDescription_ar
-      : product.shortDescription_en,
-    image: product.images?.[0] ?? null,
-    href: `/sectors/${slug}/products/${product.slug}`,
-    sectorId: product.sectorId,
-    categoryId: product.categoryId,
-  }));
+  const categoryPublicProducts = categoryProducts
+    .filter(hasPublicIdentity)
+    .map((product) => toPublicProduct(product));
+  const productItems: SectorProductItem[] = categoryPublicProducts.map(
+    (publicProduct) => ({
+      slug: publicProduct.slug,
+      title: isArabic ? publicProduct.name_ar : publicProduct.name_en,
+      description: isArabic
+        ? publicProduct.shortDescription_ar
+        : publicProduct.shortDescription_en,
+      image: publicProduct.images?.[0] ?? null,
+      href: `/sectors/${slug}/products/${publicProduct.slug}`,
+      sectorId: publicProduct.sectorId,
+      categoryId: publicProduct.categoryId,
+    }),
+  );
 
   // Hero image — the category's own `image` (rarely set today), else the
   // first real product photo in this category, else the sector's own hero
@@ -128,7 +142,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   // unrelated stand-in.
   const heroImage =
     category.image ??
-    categoryProducts.find((product) => product.images?.[0])?.images?.[0] ??
+    categoryPublicProducts.find((publicProduct) => publicProduct.images?.[0])
+      ?.images?.[0] ??
     sector.image;
 
   return (
