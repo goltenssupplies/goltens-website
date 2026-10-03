@@ -127,6 +127,154 @@ export interface SectorSeo {
   keywords?: string[];
 }
 
+/**
+ * Editorial review state for an equipment guide entry. Never rendered — it
+ * records whether a human has technically reviewed the general-knowledge
+ * claims (and, separately, the Arabic terminology) before publication.
+ * `scripts/verify-equipment-guides.mjs` lists every entry not yet
+ * "verified".
+ */
+export type EquipmentGuideReviewState =
+  "draft" | "needs-verification" | "verified";
+
+export interface EquipmentGuideReview {
+  technical: EquipmentGuideReviewState;
+  arabic: EquipmentGuideReviewState;
+  /** Internal note — which claims still need checking. Never rendered. */
+  notes?: string;
+}
+
+/** Controlled industry/project vocabulary, so EN/AR terms stay consistent across every guide that cites them. */
+export interface EquipmentIndustry {
+  id: string;
+  label_en: string;
+  label_ar: string;
+}
+
+/** One qualitative selection factor — a short label plus one sentence. Never a numeric specification. */
+export interface EquipmentSelectionFactor {
+  factor_en: string;
+  factor_ar: string;
+  detail_en: string;
+  detail_ar: string;
+}
+
+/**
+ * One general equipment-type guide (e.g. "Hydraulic Excavators") —
+ * editorial, manufacturer-neutral application content. Deliberately NOT a
+ * product: it never carries brands, models, or specifications, and it is
+ * never rendered as a GOLTENS product listing.
+ */
+export interface EquipmentTypeGuide {
+  /** Stable anchor id on the page (`#hydraulic-excavators`) — kebab-case, never renamed once published. */
+  id: string;
+  /**
+   * Internal join to a `Product.id` only. The page never reads any field of
+   * that product: it only asks `hasPublicIdentity()` and, if (and only if)
+   * the product is public, links to its public product page.
+   */
+  linkedProductId?: string;
+  name_en: string;
+  name_ar: string;
+  /** One line shown under the heading. */
+  summary_en: string;
+  summary_ar: string;
+  whatItIs_en: string;
+  whatItIs_ar: string;
+  usedFor_en: string;
+  usedFor_ar: string;
+  applications_en: string[];
+  applications_ar: string[];
+  /** → `EquipmentIndustry.id` */
+  industryIds: string[];
+  selectionFactors: EquipmentSelectionFactor[];
+  /** What the customer should include in a quotation request for this equipment type. */
+  requestChecklist_en: string[];
+  requestChecklist_ar: string[];
+  /** → other `EquipmentTypeGuide.id`s */
+  relatedEquipmentIds?: string[];
+  /** Path under /public — only assets with recorded licensing and no visible OEM branding. `null` until one is cleared. */
+  image: string | null;
+  imageAlt_en?: string;
+  imageAlt_ar?: string;
+  review: EquipmentGuideReview;
+}
+
+export interface EquipmentGuideCategory {
+  /** Must equal a `ProductCategory.id` belonging to this sector — also the section's anchor id. */
+  categoryId: string;
+  title_en: string;
+  title_ar: string;
+  intro_en: string;
+  intro_ar: string;
+  /** Lucide icon name, resolved via `SECTOR_CONTENT_ICONS`. */
+  icon: string;
+  equipment: EquipmentTypeGuide[];
+}
+
+/** One row of the "Equipment by project type" matrix. */
+export interface EquipmentProjectGuide {
+  id: string;
+  title_en: string;
+  title_ar: string;
+  description_en: string;
+  description_ar: string;
+  /** → `EquipmentTypeGuide.id`s */
+  equipmentIds: string[];
+  review: EquipmentGuideReview;
+}
+
+export interface EquipmentGuideProcessStep {
+  title_en: string;
+  title_ar: string;
+  description_en: string;
+  description_ar: string;
+}
+
+/**
+ * A sector's equipment procurement & application guide. When present, the
+ * sector template renders the guide layout (project matrix, category
+ * navigation, per-equipment guides, quotation checklist) in place of the
+ * generic About/Industries/Advantages sections. Optional — every sector
+ * without it renders exactly as before.
+ */
+export interface SectorEquipmentGuide {
+  intro: {
+    eyebrow_en: string;
+    eyebrow_ar: string;
+    lead_en: string;
+    lead_ar: string;
+    /** Clarifies that the guides are general guidance, not a list of stocked models. */
+    note_en: string;
+    note_ar: string;
+  };
+  projectsTitle_en: string;
+  projectsTitle_ar: string;
+  projectsIntro_en: string;
+  projectsIntro_ar: string;
+  industries: EquipmentIndustry[];
+  projects: EquipmentProjectGuide[];
+  categories: EquipmentGuideCategory[];
+  request: {
+    title_en: string;
+    title_ar: string;
+    intro_en: string;
+    intro_ar: string;
+    checklist_en: string[];
+    checklist_ar: string[];
+    processTitle_en: string;
+    processTitle_ar: string;
+    /** Exactly 4 steps. */
+    steps: EquipmentGuideProcessStep[];
+  };
+  quote: {
+    title_en: string;
+    title_ar: string;
+    subtitle_en: string;
+    subtitle_ar: string;
+  };
+}
+
 export interface SectorContent {
   about?: SectorAbout;
   applications?: SectorApplication[];
@@ -141,4 +289,6 @@ export interface SectorContent {
   /** Explicit curated related-sector slugs — omit to fall back to "other sectors, sorted by order". */
   relatedSectorSlugs?: string[];
   seo?: SectorSeo;
+  /** Equipment procurement & application guide — see `SectorEquipmentGuide`. */
+  equipmentGuide?: SectorEquipmentGuide;
 }

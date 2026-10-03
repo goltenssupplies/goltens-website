@@ -9,6 +9,12 @@ import {
   type ProductExplorerCategory,
   type ProductExplorerItem,
 } from "@/components/products/ProductExplorer";
+import { EquipmentGuideIntro } from "@/components/sectors/EquipmentGuideIntro";
+import {
+  EquipmentProjectMatrix,
+  type EquipmentProjectMatrixRow,
+} from "@/components/sectors/EquipmentProjectMatrix";
+import { EquipmentRequestGuide } from "@/components/sectors/EquipmentRequestGuide";
 import { SectorAbout } from "@/components/sectors/SectorAbout";
 import {
   SectorAdvantages,
@@ -22,6 +28,11 @@ import {
   SectorCatalogues,
   type SectorCatalogueItem,
 } from "@/components/sectors/SectorCatalogues";
+import { SectorCategoryNav } from "@/components/sectors/SectorCategoryNav";
+import {
+  SectorEquipmentGuide,
+  type SectorEquipmentGuideCategory,
+} from "@/components/sectors/SectorEquipmentGuide";
 import { SectorFAQ } from "@/components/sectors/SectorFAQ";
 import { SectorHero } from "@/components/sectors/SectorHero";
 import { SectorHowWeWork } from "@/components/sectors/SectorHowWeWork";
@@ -37,9 +48,13 @@ import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { Text } from "@/components/ui/Text";
-import { getCategoriesBySector } from "@/data/product-categories";
-import { getProductsBySector } from "@/data/products";
+import {
+  getCategoriesBySector,
+  getCategoryById,
+} from "@/data/product-categories";
+import { getProductById, getProductsBySector } from "@/data/products";
 import { getSectorContent } from "@/data/sector-content";
+import type { SectorEquipmentGuide as SectorEquipmentGuideData } from "@/data/sector-content/types";
 import { getSectorBySlug, getSortedSectors, SECTORS } from "@/data/sectors";
 import type { Locale } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/metadata";
@@ -60,6 +75,138 @@ import {
 import { siteUrl } from "@/lib/site";
 
 const REQUEST_QUOTE_ANCHOR = "request-quote";
+const PROJECT_MATRIX_ANCHOR = "equipment-by-project";
+const QUOTATION_CHECKLIST_ANCHOR = "quotation-checklist";
+
+/**
+ * Localizes a sector's equipment guide (`SectorContent.equipmentGuide`)
+ * into the plain props its components take. Editorial guide content only:
+ * no product field is ever read here except for a guide's optional
+ * `linkedProductId`, and that product is only linked when it belongs to
+ * this sector AND passes `hasPublicIdentity()` — a non-public product is
+ * never surfaced, not even as a link.
+ */
+function buildEquipmentGuideView({
+  guide,
+  sectorId,
+  slug,
+  isArabic,
+  ctaLabel,
+}: {
+  guide: SectorEquipmentGuideData;
+  sectorId: string;
+  slug: string;
+  isArabic: boolean;
+  ctaLabel: (equipment: string) => string;
+}) {
+  const industryLabels = new Map(
+    guide.industries.map((industry) => [
+      industry.id,
+      isArabic ? industry.label_ar : industry.label_en,
+    ]),
+  );
+  const equipmentNames = new Map(
+    guide.categories
+      .flatMap((category) => category.equipment)
+      .map((equipment) => [
+        equipment.id,
+        isArabic ? equipment.name_ar : equipment.name_en,
+      ]),
+  );
+  const toEquipmentLinks = (ids: string[]) =>
+    ids
+      .filter((id) => equipmentNames.has(id))
+      .map((id) => ({ id, label: equipmentNames.get(id) as string }));
+
+  const categories: SectorEquipmentGuideCategory[] = guide.categories
+    .filter(
+      (category) => getCategoryById(category.categoryId)?.sectorId === sectorId,
+    )
+    .map((category) => {
+      const categoryTitle = isArabic ? category.title_ar : category.title_en;
+      return {
+        id: category.categoryId,
+        title: categoryTitle,
+        intro: isArabic ? category.intro_ar : category.intro_en,
+        icon: SECTOR_CONTENT_ICONS[category.icon] ?? DEFAULT_ADVANTAGE_ICONS[0],
+        equipment: category.equipment.map((equipment) => {
+          const name = isArabic ? equipment.name_ar : equipment.name_en;
+          const linkedProduct = equipment.linkedProductId
+            ? getProductById(equipment.linkedProductId)
+            : undefined;
+          const listedHref =
+            linkedProduct &&
+            linkedProduct.sectorId === sectorId &&
+            hasPublicIdentity(linkedProduct)
+              ? `/sectors/${slug}/products/${toPublicProduct(linkedProduct).slug}`
+              : undefined;
+          return {
+            id: equipment.id,
+            name,
+            summary: isArabic ? equipment.summary_ar : equipment.summary_en,
+            whatItIs: isArabic ? equipment.whatItIs_ar : equipment.whatItIs_en,
+            usedFor: isArabic ? equipment.usedFor_ar : equipment.usedFor_en,
+            applications: isArabic
+              ? equipment.applications_ar
+              : equipment.applications_en,
+            industries: equipment.industryIds
+              .map((id) => industryLabels.get(id))
+              .filter((label): label is string => Boolean(label)),
+            selectionFactors: equipment.selectionFactors.map((factor) => ({
+              factor: isArabic ? factor.factor_ar : factor.factor_en,
+              detail: isArabic ? factor.detail_ar : factor.detail_en,
+            })),
+            requestChecklist: isArabic
+              ? equipment.requestChecklist_ar
+              : equipment.requestChecklist_en,
+            related: toEquipmentLinks(equipment.relatedEquipmentIds ?? []),
+            listedHref,
+            ctaLabel: ctaLabel(name),
+            prefill: `${name} — ${categoryTitle}`,
+          };
+        }),
+      };
+    });
+
+  const projectRows: EquipmentProjectMatrixRow[] = guide.projects.map(
+    (project) => ({
+      id: project.id,
+      title: isArabic ? project.title_ar : project.title_en,
+      description: isArabic ? project.description_ar : project.description_en,
+      equipment: toEquipmentLinks(project.equipmentIds),
+    }),
+  );
+
+  return {
+    intro: {
+      eyebrow: isArabic ? guide.intro.eyebrow_ar : guide.intro.eyebrow_en,
+      lead: isArabic ? guide.intro.lead_ar : guide.intro.lead_en,
+      note: isArabic ? guide.intro.note_ar : guide.intro.note_en,
+    },
+    projectsTitle: isArabic ? guide.projectsTitle_ar : guide.projectsTitle_en,
+    projectsIntro: isArabic ? guide.projectsIntro_ar : guide.projectsIntro_en,
+    projectRows,
+    categories,
+    request: {
+      title: isArabic ? guide.request.title_ar : guide.request.title_en,
+      intro: isArabic ? guide.request.intro_ar : guide.request.intro_en,
+      checklist: isArabic
+        ? guide.request.checklist_ar
+        : guide.request.checklist_en,
+      processTitle: isArabic
+        ? guide.request.processTitle_ar
+        : guide.request.processTitle_en,
+      steps: guide.request.steps.map((step) => ({
+        title: isArabic ? step.title_ar : step.title_en,
+        description: isArabic ? step.description_ar : step.description_en,
+      })),
+    },
+    quote: {
+      title: isArabic ? guide.quote.title_ar : guide.quote.title_en,
+      subtitle: isArabic ? guide.quote.subtitle_ar : guide.quote.subtitle_en,
+    },
+  };
+}
 
 interface SectorPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -304,7 +451,9 @@ export default async function SectorPage({ params }: SectorPageProps) {
         answer: t(`faqDefaultA${n}`, { sector: title }),
       }));
 
-  return (
+  // Shared by both layouts below (the generic sector layout and the
+  // equipment-guide layout), so neither can drift from the other.
+  const pageHead = (
     <>
       <SetWhatsAppMessage text={whatsappMessage} />
       <SetFooterBackgroundImage image={getSectorImage(sector.image)} />
@@ -346,6 +495,154 @@ export default async function SectorPage({ params }: SectorPageProps) {
         requestQuoteLabel={t("heroRequestQuote")}
         requestQuoteHref={REQUEST_QUOTE_ANCHOR}
       />
+    </>
+  );
+
+  const productExplorerSection = (
+    <PremiumDarkSection>
+      <Reveal>
+        <Text tone="inverse" className="mb-10 max-w-3xl opacity-80 lg:mb-12">
+          {t("scopeOfSupplyIntro")}
+        </Text>
+      </Reveal>
+      <ProductExplorer
+        title={t("scopeOfSupplyTitle")}
+        items={productExplorerItems}
+        categories={productExplorerCategories}
+        searchLabel={tProducts("filterSearchLabel")}
+        searchPlaceholder={tProducts("filterSearchPlaceholder")}
+        filterAllLabel={tProducts("filterAllLabel")}
+        noResultsTitle={tProducts("filterNoResultsTitle")}
+        noResultsDescription={tProducts("filterNoResultsDescription")}
+        requestQuoteLabel={tCommon("requestQuotation")}
+        requestQuoteHref={REQUEST_QUOTE_ANCHOR}
+        emptyTitle={t("productsEmptyTitle")}
+        emptyBody={t("productsComingSoon")}
+        addToRfqLabel={tProducts("addToRfqLabel")}
+        addToRfqAddedLabel={tProducts("addToRfqAddedLabel")}
+        addToCompareLabel={tProducts("addToCompareLabel")}
+        addToCompareAddedLabel={tProducts("addToCompareAddedLabel")}
+        viewCategoryPageLabel={tProducts("viewCategoryPageLabel")}
+      />
+    </PremiumDarkSection>
+  );
+
+  const pageTail = (
+    <>
+      <PremiumDarkSection>
+        <SectorFAQ title={t("faqTitle")} items={faqItems} />
+      </PremiumDarkSection>
+
+      <PremiumDarkSection>
+        <RelatedSectors
+          title={t("relatedTitle")}
+          items={relatedSectorItems}
+          exploreLabel={t("exploreSector")}
+        />
+      </PremiumDarkSection>
+    </>
+  );
+
+  // Equipment procurement & application guide layout — only for a sector
+  // whose content defines `equipmentGuide` (today: heavy-equipment). It
+  // replaces the generic About / Industries / Advantages sections; the
+  // product explorer appears only once the sector has at least one PUBLIC
+  // product, so non-public product records are never listed or linked.
+  if (content.equipmentGuide) {
+    const tGuide = await getTranslations("sectors.equipmentGuide");
+    const guide = buildEquipmentGuideView({
+      guide: content.equipmentGuide,
+      sectorId: sector.id,
+      slug,
+      isArabic,
+      ctaLabel: (equipment) => tGuide("cta", { equipment }),
+    });
+
+    return (
+      <>
+        {pageHead}
+
+        <EquipmentGuideIntro
+          eyebrow={guide.intro.eyebrow}
+          lead={guide.intro.lead}
+          note={guide.intro.note}
+          jumpLinksLabel={tGuide("jumpLinksLabel")}
+          jumpLinks={[
+            { id: PROJECT_MATRIX_ANCHOR, label: guide.projectsTitle },
+            ...guide.categories.map((category) => ({
+              id: category.id,
+              label: category.title,
+            })),
+            { id: QUOTATION_CHECKLIST_ANCHOR, label: guide.request.title },
+          ]}
+        />
+
+        <EquipmentProjectMatrix
+          id={PROJECT_MATRIX_ANCHOR}
+          title={guide.projectsTitle}
+          intro={guide.projectsIntro}
+          equipmentLabel={tGuide("projectEquipmentLabel")}
+          rows={guide.projectRows}
+        />
+
+        <div>
+          <SectorCategoryNav
+            label={tGuide("categoryNavLabel")}
+            items={guide.categories.map((category) => ({
+              id: category.id,
+              label: category.title,
+            }))}
+          />
+          {guide.categories.map((category) => (
+            <SectorEquipmentGuide
+              key={category.id}
+              category={category}
+              indexLabel={tGuide("categoryIndexLabel")}
+              quoteAnchor={REQUEST_QUOTE_ANCHOR}
+              cardLabels={{
+                whatItIs: tGuide("whatItIs"),
+                usedFor: tGuide("usedFor"),
+                applications: tGuide("applications"),
+                industries: tGuide("industries"),
+                selectionToggle: tGuide("selectionToggle"),
+                selection: tGuide("selection"),
+                requestChecklist: tGuide("requestChecklist"),
+                related: tGuide("related"),
+                viewListed: tGuide("viewListed"),
+              }}
+            />
+          ))}
+        </div>
+
+        {productExplorerItems.length > 0 && productExplorerSection}
+
+        <EquipmentRequestGuide
+          id={QUOTATION_CHECKLIST_ANCHOR}
+          title={guide.request.title}
+          intro={guide.request.intro}
+          checklist={guide.request.checklist}
+          processTitle={guide.request.processTitle}
+          steps={guide.request.steps}
+        />
+
+        <SectorQuoteCTA
+          id={REQUEST_QUOTE_ANCHOR}
+          locale={locale as Locale}
+          title={guide.quote.title}
+          subtitle={guide.quote.subtitle}
+          defaultProductCategory={title}
+          sendRequirementHref="/send-requirement"
+          sendRequirementLabel={t("sendRequirementLinkLabel")}
+        />
+
+        {pageTail}
+      </>
+    );
+  }
+
+  return (
+    <>
+      {pageHead}
 
       {about && (
         <PremiumDarkSection>
@@ -358,32 +655,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
         </PremiumDarkSection>
       )}
 
-      <PremiumDarkSection>
-        <Reveal>
-          <Text tone="inverse" className="mb-10 max-w-3xl opacity-80 lg:mb-12">
-            {t("scopeOfSupplyIntro")}
-          </Text>
-        </Reveal>
-        <ProductExplorer
-          title={t("scopeOfSupplyTitle")}
-          items={productExplorerItems}
-          categories={productExplorerCategories}
-          searchLabel={tProducts("filterSearchLabel")}
-          searchPlaceholder={tProducts("filterSearchPlaceholder")}
-          filterAllLabel={tProducts("filterAllLabel")}
-          noResultsTitle={tProducts("filterNoResultsTitle")}
-          noResultsDescription={tProducts("filterNoResultsDescription")}
-          requestQuoteLabel={tCommon("requestQuotation")}
-          requestQuoteHref={REQUEST_QUOTE_ANCHOR}
-          emptyTitle={t("productsEmptyTitle")}
-          emptyBody={t("productsComingSoon")}
-          addToRfqLabel={tProducts("addToRfqLabel")}
-          addToRfqAddedLabel={tProducts("addToRfqAddedLabel")}
-          addToCompareLabel={tProducts("addToCompareLabel")}
-          addToCompareAddedLabel={tProducts("addToCompareAddedLabel")}
-          viewCategoryPageLabel={tProducts("viewCategoryPageLabel")}
-        />
-      </PremiumDarkSection>
+      {productExplorerSection}
 
       {catalogueItems.length > 0 && (
         <PremiumDarkSection>
@@ -477,17 +749,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
         }
       />
 
-      <PremiumDarkSection>
-        <SectorFAQ title={t("faqTitle")} items={faqItems} />
-      </PremiumDarkSection>
-
-      <PremiumDarkSection>
-        <RelatedSectors
-          title={t("relatedTitle")}
-          items={relatedSectorItems}
-          exploreLabel={t("exploreSector")}
-        />
-      </PremiumDarkSection>
+      {pageTail}
     </>
   );
 }

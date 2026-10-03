@@ -3,10 +3,12 @@ import {
   BadgePercent,
   BellRing,
   Building2,
+  Construction,
   Container,
   Droplets,
   Factory,
   FireExtinguisher,
+  Forklift,
   Fuel,
   Globe,
   GraduationCap,
@@ -18,6 +20,7 @@ import {
   Lightbulb,
   Plane,
   ShieldCheck,
+  Shovel,
   Siren,
   SlidersHorizontal,
   Truck,
@@ -61,6 +64,9 @@ export const SECTOR_CONTENT_ICONS: Record<string, LucideIcon> = {
   Globe,
   Truck,
   Zap,
+  Shovel,
+  Forklift,
+  Construction,
 };
 
 // Same icon set `components/sections/home/WhyChooseUs.tsx` uses for
