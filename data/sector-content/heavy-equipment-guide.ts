@@ -15,8 +15,8 @@ import type {
  * terminology review (`review.arabic`). `scripts/verify-equipment-guides.mjs`
  * validates this file's structure, cross-references and wording rules.
  *
- * Approved Arabic terminology: حفار هيدروليكي · لودر بعجلات · بلدوزر · جريدر ·
- * لودر حفار · ونش متحرك · ونش مجنزر · رافعة شوكية · رافعة مناولة تلسكوبية ·
+ * Approved Arabic terminology: حفار هيدروليكي · لودر بعجلات · بلدوزر · موتور جريدر ·
+ * لودر حفار · ونش متحرك · ونش مجنزر · رافعة شوكية · تلي هاندلر ·
  * منصة عمل مرتفعة · خلاطة خرسانة · مضخة خرسانة · مدحلة اهتزازية ·
  * فرادة أسفلت · مطرقة تكسير هيدروليكية. "جردل" is used for a bucket; brand-
  * derived generic terms are never used.
@@ -557,7 +557,7 @@ export const heavyEquipmentGuide: SectorEquipmentGuide = {
           id: "motor-graders",
           linkedProductId: "motor-graders",
           name_en: "Motor Graders",
-          name_ar: "جريدر",
+          name_ar: "موتور جريدر",
           summary_en:
             "A long-wheelbase machine with an adjustable centre blade for precise grading of roads, platforms and slopes.",
           summary_ar:
@@ -565,7 +565,7 @@ export const heavyEquipmentGuide: SectorEquipmentGuide = {
           whatItIs_en:
             "A motor grader carries a long blade (moldboard) mounted between its front and rear axles. The blade can be raised, angled and tilted, allowing the operator to cut, spread and trim material to a controlled level and cross-slope.",
           whatItIs_ar:
-            "الجريدر معدة مزوّدة بسلاح طويل مثبت بين المحورين الأمامي والخلفي. ويمكن رفع السلاح وتدويره وإمالته، مما يسمح بقطع المواد ونشرها وتهذيبها حتى منسوب محدد وميل عرضي مضبوط.",
+            "الموتور جريدر معدة مزوّدة بسلاح طويل مثبت بين المحورين الأمامي والخلفي. ويمكن رفع السلاح وتدويره وإمالته، مما يسمح بقطع المواد ونشرها وتهذيبها حتى منسوب محدد وميل عرضي مضبوط.",
           usedFor_en:
             "Fine grading and shaping of surfaces — bringing road layers and platforms to their required levels before compaction or paving.",
           usedFor_ar:
@@ -1058,7 +1058,7 @@ export const heavyEquipmentGuide: SectorEquipmentGuide = {
           id: "telehandlers",
           linkedProductId: "telehandlers",
           name_en: "Telehandlers",
-          name_ar: "رافعة مناولة تلسكوبية",
+          name_ar: "تلي هاندلر",
           summary_en:
             "A telescopic-boom handler that lifts loads up and forward — beyond the reach of a standard forklift.",
           summary_ar:
@@ -1066,7 +1066,7 @@ export const heavyEquipmentGuide: SectorEquipmentGuide = {
           whatItIs_en:
             "A telehandler carries forks or other attachments on a telescopic boom mounted on a wheeled chassis. Unlike a forklift's vertical mast, the boom extends both upwards and forwards, so loads can be placed at height and over obstacles.",
           whatItIs_ar:
-            "تحمل رافعة المناولة التلسكوبية شوكًا أو ملحقات أخرى على ذراع تلسكوبي مركّب على شاسيه بعجلات. وعلى عكس الصاري الرأسي في الرافعة الشوكية، يمتد الذراع لأعلى وللأمام معًا، فيمكن وضع الأحمال على ارتفاعات وفوق العوائق.",
+            "يحمل التلي هاندلر شوكًا أو ملحقات أخرى على ذراع تلسكوبي مركّب على شاسيه بعجلات. وعلى عكس الصاري الرأسي في الرافعة الشوكية، يمتد الذراع لأعلى وللأمام معًا، فيمكن وضع الأحمال على ارتفاعات وفوق العوائق.",
           usedFor_en:
             "Placing materials at height and at a distance where a forklift cannot reach and a crane is not needed.",
           usedFor_ar:
@@ -1145,7 +1145,7 @@ export const heavyEquipmentGuide: SectorEquipmentGuide = {
           ],
           image: null,
           review: pending(
-            "T9 — capacity vs height/reach, stabilisers; AR term رافعة مناولة تلسكوبية (high uncertainty)",
+            "T9 — capacity vs height/reach, stabilisers; AR term تلي هاندلر (high uncertainty)",
           ),
         },
         {
