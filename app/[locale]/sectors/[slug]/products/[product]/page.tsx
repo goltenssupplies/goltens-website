@@ -23,7 +23,7 @@ import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { getKnowledgeItemsForProduct } from "@/data/knowledge";
 import { getCategoryById } from "@/data/product-categories";
-import { getAllProductParams, getProductBySlug } from "@/data/products";
+import { getProductBySlug, getPublicProductParams } from "@/data/products";
 import { getSectorArticle, getSectorContent } from "@/data/sector-content";
 import { getSectorBySlug } from "@/data/sectors";
 import { redirect } from "@/i18n/navigation";
@@ -52,7 +52,7 @@ interface ProductPageProps {
 }
 
 export function generateStaticParams() {
-  return getAllProductParams();
+  return getPublicProductParams();
 }
 
 export async function generateMetadata({
@@ -60,7 +60,11 @@ export async function generateMetadata({
 }: ProductPageProps): Promise<Metadata> {
   const { locale, slug, product: productSlug } = await params;
   const product = getProductBySlug(productSlug);
-  if (!product || product.sectorId !== slug) return {};
+  // Unmigrated products (no public identity yet) 404 — checked before
+  // `toPublicProduct()`, which would otherwise throw here.
+  if (!product || product.sectorId !== slug || !hasPublicIdentity(product)) {
+    return {};
+  }
 
   // Same public rendering boundary as the page component below: metadata
   // is built ONLY from `publicProduct`, never the raw `product` object.
@@ -114,17 +118,22 @@ export default async function ProductPage({ params }: ProductPageProps) {
     redirect({ href: "/sectors/healthcare", locale: locale as Locale });
   }
 
+  // A product not yet migrated to a public identity (Phase 6) is not
+  // public: it 404s like an unknown slug, matching the listings, which
+  // already omit it via the same `hasPublicIdentity()` check.
   const product = getProductBySlug(productSlug);
-  if (!product || product.sectorId !== slug) notFound();
+  if (!product || product.sectorId !== slug || !hasPublicIdentity(product)) {
+    notFound();
+  }
 
   const sector = getSectorBySlug(slug);
   if (!sector) notFound();
 
   // Public rendering boundary: everything below reads ONLY `publicProduct`,
   // never the raw `product` object — see lib/products/public-product.ts.
-  // Throws `MissingPublicIdentityError` for any record not yet migrated to
-  // carry a public identity (Phase 6); that is the intended, loud failure
-  // mode until then, not something to fall back around here.
+  // Unmigrated records never reach this call (404'd above);
+  // `toPublicProduct()` still throws `MissingPublicIdentityError` as the
+  // loud backstop, not something to fall back around here.
   const publicProduct = toPublicProduct(product);
 
   const isArabic = (locale as Locale) === "ar";
