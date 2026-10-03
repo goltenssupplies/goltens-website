@@ -1,146 +1,63 @@
+import { heavyEquipmentGuide } from "@/data/sector-content/heavy-equipment-guide";
 import type { SectorContent } from "@/data/sector-content/types";
 
 /**
  * Heavy Equipment & Machinery's real content — written to the same standard
  * as `fire-protection.ts`: no invented certifications, no named customer
  * projects, no fabricated technical specifications or lead times.
+ *
+ * This sector renders the equipment procurement & application guide
+ * (`equipmentGuide`, see `heavy-equipment-guide.ts`) in place of the generic
+ * About / Industries / Advantages sections, so it carries no `about`,
+ * `applications` or `advantages` of its own. Business wording is limited to
+ * confirmed capabilities: GOLTENS supplies heavy equipment and machinery
+ * according to project requirements and specifications, new or used
+ * according to the customer's request.
  */
 export const heavyEquipmentContent: SectorContent = {
-  about: {
-    intro_en:
-      "GOLTENS supplies heavy machinery and equipment sourced from trusted global manufacturers, covering earthmoving equipment, compaction and road construction machinery, cranes and lifting equipment, concrete equipment, drilling and piling rigs, and site vehicles. Our procurement team matches your jobsite requirements and technical specification against genuine, quality-assured equipment before every quotation.",
-    intro_ar:
-      "توفر GOLTENS معدات وآليات ثقيلة يتم توريدها من شركات مصنّعة عالمية موثوقة، وتغطي معدات نقل التراب، ومعدات الدك وإنشاء الطرق، والأوناش ومعدات الرفع، ومعدات الخرسانة، ومعدات الحفر والدق، ومركبات الموقع. يقوم فريق التوريد لدينا بمطابقة متطلبات موقع العمل والمواصفات الفنية لديكم مع معدات أصلية ومضمونة الجودة قبل كل عرض سعر.",
-    categories_en: [
-      "Earthmoving Equipment",
-      "Compaction & Road Construction",
-      "Cranes & Lifting Equipment",
-      "Concrete Equipment",
-      "Drilling, Piling & Demolition",
-      "Site Vehicles & Trucks",
-      "Power & Support Equipment",
-      "Parts & Attachments",
-    ],
-    categories_ar: [
-      "معدات نقل التراب",
-      "الدك وإنشاء الطرق",
-      "الأوناش ومعدات الرفع",
-      "معدات الخرسانة",
-      "الحفر والدق والهدم",
-      "مركبات وشاحنات الموقع",
-      "معدات الطاقة والدعم",
-      "قطع الغيار والملحقات",
-    ],
-    complianceNote_en:
-      "Equipment is sourced to your project specification and applicable safety and operating standards — we confirm capacity, reach, and rating requirements as part of the quotation process.",
-    complianceNote_ar:
-      "يتم توريد المعدات وفق مواصفات مشروعكم ومعايير السلامة والتشغيل المعمول بها — ونؤكد متطلبات السعة ومدى الوصول والتصنيف كجزء من عملية إعداد عرض السعر.",
-  },
-
-  applications: [
-    { title_en: "Construction", title_ar: "الإنشاءات", icon: "HardHat" },
-    {
-      title_en: "Roadworks & Infrastructure",
-      title_ar: "أعمال الطرق والبنية التحتية",
-      icon: "Truck",
-    },
-    {
-      title_en: "Mining & Quarrying",
-      title_ar: "التعدين والمحاجر",
-      icon: "Factory",
-    },
-    {
-      title_en: "Ports & Logistics",
-      title_ar: "الموانئ واللوجستيات",
-      icon: "Container",
-    },
-    { title_en: "Oil & Gas", title_ar: "النفط والغاز", icon: "Fuel" },
-    {
-      title_en: "Government & Public Works",
-      title_ar: "الأعمال الحكومية والعامة",
-      icon: "Landmark",
-    },
-    { title_en: "Power & Utilities", title_ar: "الطاقة والمرافق", icon: "Zap" },
-    {
-      title_en: "Warehousing & Industrial Facilities",
-      title_ar: "المستودعات والمنشآت الصناعية",
-      icon: "Warehouse",
-    },
-  ],
-
-  advantages: [
-    {
-      title_en: "Wide range of heavy machinery in one place.",
-      title_ar: "نطاق واسع من الآليات الثقيلة في مكان واحد.",
-      icon: "HardHat",
-    },
-    {
-      title_en: "Equipment matched to your jobsite requirements.",
-      title_ar: "معدات مطابقة لمتطلبات موقع العمل لديكم.",
-      icon: "ShieldCheck",
-    },
-    {
-      title_en: "Genuine products from trusted global manufacturers.",
-      title_ar: "منتجات أصلية من شركات مصنّعة عالمية موثوقة.",
-      icon: "BadgePercent",
-    },
-    {
-      title_en: "Genuine parts and attachments sourcing.",
-      title_ar: "توريد قطع غيار وملحقات أصلية.",
-      icon: "Truck",
-    },
-    {
-      title_en: "Technical support before and after every order.",
-      title_ar: "دعم فني قبل وبعد كل طلب.",
-      icon: "Headset",
-    },
-    {
-      title_en: "Access to an international supplier network.",
-      title_ar: "الوصول إلى شبكة موردين دولية.",
-      icon: "Globe",
-    },
-  ],
+  equipmentGuide: heavyEquipmentGuide,
 
   faqs: [
     {
       question_en: "How do I request a quotation?",
       answer_en:
-        "Share your jobsite requirements using the request quotation form on this page — equipment type, capacity, or a technical specification if available — and our team will respond with a tailored quotation.",
+        "Use the quotation form on this page. Include the equipment type and quantity, the main tasks and site conditions, and your technical specification if available — each equipment guide lists the details that matter for that machine.",
       question_ar: "كيف يمكنني طلب عرض سعر؟",
       answer_ar:
-        "شاركونا متطلبات موقع العمل من خلال نموذج طلب عرض السعر في هذه الصفحة — نوع المعدة والسعة أو المواصفات الفنية إن وجدت — وسيتواصل معكم فريقنا بعرض سعر مخصص.",
+        "استخدموا نموذج طلب عرض السعر في هذه الصفحة، وأرسلوا نوع المعدة والعدد المطلوب، والمهام الرئيسية وظروف الموقع، والمواصفات الفنية إن وُجدت. ويوضح كل دليل معدة البيانات المهمة الخاصة بها.",
+    },
+    {
+      question_en: "Can GOLTENS supply new or used equipment?",
+      answer_en:
+        "Yes. Heavy equipment can be sourced new or used according to your request. Please state your preference, and any requirement on age or condition, when you request a quotation.",
+      question_ar: "هل توفر GOLTENS معدات جديدة أو مستعملة؟",
+      answer_ar:
+        "نعم، يمكن توريد المعدات الثقيلة جديدة أو مستعملة حسب طلبكم. يُرجى توضيح ما تفضلونه، وأي اشتراطات تخص سنة الصنع أو الحالة، عند طلب عرض السعر.",
+    },
+    {
+      question_en: "Can I request equipment that isn't described on this page?",
+      answer_en:
+        "Yes. GOLTENS supplies heavy equipment and machinery according to project requirements and specifications — send your requirement and our team will review it.",
+      question_ar: "هل يمكنني طلب معدات غير مذكورة في هذه الصفحة؟",
+      answer_ar:
+        "نعم، توفر GOLTENS المعدات والآليات الثقيلة وفق متطلبات المشروع والمواصفات الفنية؛ أرسلوا متطلباتكم وسيراجعها فريقنا.",
+    },
+    {
+      question_en:
+        "Are the equipment guides on this page a list of available models?",
+      answer_en:
+        "No. The guides are general information to help you define your requirement. The exact configuration, condition and availability of the equipment are confirmed in each quotation.",
+      question_ar: "هل أدلة المعدات في هذه الصفحة قائمة بالموديلات المتوفرة؟",
+      answer_ar:
+        "لا، الأدلة معلومات عامة تساعدكم على تحديد احتياجكم، ويتم تأكيد تكوين المعدة وحالتها وتوافرها بدقة في كل عرض سعر.",
     },
     {
       question_en: "What is the lead time?",
       answer_en:
-        "Lead time depends on the specific equipment, brand, and origin, and is confirmed with every quotation — it's not the same across all items, so we always state it explicitly rather than quote a single blanket figure.",
+        "Lead time depends on the specific equipment, whether it is new or used, and its origin, and is confirmed with every quotation — it is not the same across all items, so we always state it explicitly rather than quote a single blanket figure.",
       question_ar: "ما هي مدة التوريد؟",
       answer_ar:
-        "تعتمد مدة التوريد على المعدة والعلامة التجارية وبلد المنشأ، ويتم تأكيدها مع كل عرض سعر — فهي تختلف باختلاف المعدات، لذلك نوضحها دائمًا بشكل صريح بدلاً من تحديد رقم عام موحد.",
-    },
-    {
-      question_en: "Can GOLTENS source international brands?",
-      answer_en:
-        "Yes. We source heavy equipment from trusted global manufacturers through our international supplier network, subject to availability, and confirm brand and model options as part of every quotation.",
-      question_ar: "هل يمكن لـGOLTENS توريد علامات تجارية عالمية؟",
-      answer_ar:
-        "نعم، نقوم بتوريد معدات ثقيلة من شركات مصنّعة عالمية موثوقة من خلال شبكة موردينا الدولية، وفقًا لتوافرها، ونؤكد خيارات العلامة التجارية والطراز كجزء من كل عرض سعر.",
-    },
-    {
-      question_en: "Do you supply spare parts and attachments?",
-      answer_en:
-        "Yes. We source spare parts, undercarriage components, and attachments for the equipment categories we supply, in addition to complete new machines.",
-      question_ar: "هل تورّدون قطع غيار وملحقات؟",
-      answer_ar:
-        "نعم، نقوم بتوريد قطع الغيار ومكونات الجنزير السفلي والملحقات لفئات المعدات التي نوفرها، بالإضافة إلى الآليات الجديدة الكاملة.",
-    },
-    {
-      question_en: "Do you provide technical support?",
-      answer_en:
-        "Yes, our team provides technical support before and after every order — from matching equipment to your requirements through to after-sales support.",
-      question_ar: "هل تقدمون دعمًا فنيًا؟",
-      answer_ar:
-        "نعم، يقدم فريقنا الدعم الفني قبل وبعد كل طلب — من مطابقة المعدات لمتطلباتكم وحتى الدعم بعد البيع.",
+        "تعتمد مدة التوريد على المعدة المطلوبة، وهل هي جديدة أم مستعملة، وبلد المنشأ، ويتم تأكيدها مع كل عرض سعر؛ فهي تختلف من معدة لأخرى، لذلك نوضحها دائمًا بشكل صريح بدلًا من تحديد مدة عامة موحدة.",
     },
   ],
 
@@ -156,8 +73,8 @@ export const heavyEquipmentContent: SectorContent = {
     title_en: "Heavy Equipment & Machinery Supplier Egypt",
     title_ar: "مورد المعدات الثقيلة والآليات في مصر",
     description_en:
-      "GOLTENS supplies earthmoving equipment, cranes, and construction machinery in Egypt, sourced from trusted manufacturers and matched to your jobsite requirements.",
+      "Heavy equipment guide and procurement: excavators, loaders, bulldozers, cranes, forklifts, concrete and compaction equipment — supplied new or used to your project requirements and specifications.",
     description_ar:
-      "توفر GOLTENS معدات نقل التراب والأوناش وآليات الإنشاءات في مصر، من مصنّعين موثوقين ووفق متطلبات موقع العمل لديكم.",
+      "دليل المعدات الثقيلة وتوريدها: حفارات ولودرات وبلدوزرات وأوناش ورافعات شوكية ومعدات الخرسانة والدك، جديدة أو مستعملة وفق متطلبات مشروعكم ومواصفاته.",
   },
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { CircleAlert, CircleCheck } from "lucide-react";
@@ -15,6 +15,10 @@ import { FileUpload } from "@/components/ui/form/FileUpload";
 import { Input } from "@/components/ui/form/Input";
 import { Textarea } from "@/components/ui/form/Textarea";
 import { submitContactRequest } from "@/lib/actions/submit-contact";
+import {
+  QUOTE_PREFILL_EVENT,
+  type QuotePrefillDetail,
+} from "@/lib/quote-prefill";
 
 interface FormValues {
   companyName: string;
@@ -105,6 +109,20 @@ export function ContactForm({
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [submitted, setSubmitted] = useState(false);
   const honeypotRef = useRef<HTMLInputElement>(null);
+
+  // Equipment-specific "Request a quotation for …" links elsewhere on the
+  // page (see `lib/quote-prefill.ts`) update the "Required Products" field
+  // in place — still editable, and a no-op on pages without such links.
+  useEffect(() => {
+    function handlePrefill(event: Event) {
+      const { productCategory } = (event as CustomEvent<QuotePrefillDetail>)
+        .detail;
+      setValues((current) => ({ ...current, productCategory }));
+      setErrors((current) => ({ ...current, productCategory: undefined }));
+    }
+    window.addEventListener(QUOTE_PREFILL_EVENT, handlePrefill);
+    return () => window.removeEventListener(QUOTE_PREFILL_EVENT, handlePrefill);
+  }, []);
 
   function updateField<K extends keyof FormValues>(
     key: K,
