@@ -48,7 +48,10 @@ import { mollubeBatchM3AutomotiveGear } from "@/data/products/lubricants-oils/mo
 import { mollubeBatchM3EngineOils } from "@/data/products/lubricants-oils/mollube-batch-m3-engine-oils";
 import { mollubeBatchM2Ohc } from "@/data/products/lubricants-oils/mollube-batch-m2-ohc";
 import { mollubeBatchM2Refrigeration } from "@/data/products/lubricants-oils/mollube-batch-m2-refrigeration";
-import { toPublicProduct } from "@/lib/products/public-product";
+import {
+  hasPublicIdentity,
+  toPublicProduct,
+} from "@/lib/products/public-product";
 import type { Product, ProductCatalogue } from "@/data/products/types";
 
 /**
@@ -186,6 +189,21 @@ export function getAllProductCatalogues(): CatalogueLibraryEntry[] {
 /** Every (sectorId, productSlug) pair — drives the product route's `generateStaticParams`. */
 export function getAllProductParams() {
   return PRODUCTS.map((product) => ({
+    slug: product.sectorId,
+    product: product.slug,
+  }));
+}
+
+/**
+ * Every (sectorId, productSlug) pair for products with a complete public
+ * identity (`hasPublicIdentity()`) — the publicly renderable subset of
+ * `getAllProductParams()`. Drives the product route's
+ * `generateStaticParams` and `app/sitemap.ts`, so neither lists a product
+ * the detail page would 404. `getAllProductParams()` stays the full
+ * registry for the verification scripts that audit every record.
+ */
+export function getPublicProductParams() {
+  return PRODUCTS.filter(hasPublicIdentity).map((product) => ({
     slug: product.sectorId,
     product: product.slug,
   }));

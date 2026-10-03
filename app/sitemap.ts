@@ -5,7 +5,7 @@ import {
   isCategoryIndexable,
   PRODUCT_CATEGORIES,
 } from "@/data/product-categories";
-import { getAllProductParams } from "@/data/products";
+import { getPublicProductParams } from "@/data/products";
 import { SECTORS } from "@/data/sectors";
 import { getAllSolutionParams } from "@/data/solutions";
 import { routing } from "@/i18n/routing";
@@ -25,6 +25,8 @@ import { siteUrl } from "@/lib/site";
  * empty/generic state to a crawler with no `localStorage`, so they carry
  * `robots: { index: false }` in their own metadata instead of a sitemap
  * entry — see `app/[locale]/rfq/page.tsx` and `app/[locale]/compare/page.tsx`.
+ * Product pages are listed via `getPublicProductParams()` — only products
+ * with a public identity; unmigrated ones 404 and are left out here too.
  * Category pages (`/sectors/[slug]/categories/[category]`, added in Phase
  * 3d) are included here only for categories where `isCategoryIndexable()`
  * returns `true` — every category today returns `false` (no category has
@@ -57,7 +59,7 @@ const paths: string[] = [
   "/accessibility",
   "/sectors",
   ...SECTORS.map((sector) => `/sectors/${sector.slug}`),
-  ...getAllProductParams().map(
+  ...getPublicProductParams().map(
     ({ slug, product }) => `/sectors/${slug}/products/${product}`,
   ),
   ...PRODUCT_CATEGORIES.filter(isCategoryIndexable).map(
