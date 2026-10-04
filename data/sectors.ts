@@ -70,9 +70,9 @@ export const SECTORS: Sector[] = [
     subtitle_ar:
       "توفر GOLTENS حلولاً متكاملة لمكافحة الحريق للجهات الحكومية والمستشفيات والجامعات والمنشآت الصناعية والمباني التجارية ومشروعات البنية التحتية.",
     description_en:
-      "We supply complete fire protection equipment, systems and certified components for government projects, industrial facilities, hospitals, universities, commercial buildings and infrastructure projects.",
+      "Fire protection equipment, systems and components, supplied to your project specifications for government projects, industrial facilities, hospitals, universities, commercial buildings and infrastructure projects.",
     description_ar:
-      "نوفر معدات وأنظمة ومكونات مكافحة حريق معتمدة وكاملة للمشروعات الحكومية، والمنشآت الصناعية، والمستشفيات، والجامعات، والمباني التجارية، ومشروعات البنية التحتية.",
+      "معدات وأنظمة ومكونات مكافحة الحريق، يتم توريدها وفق مواصفات مشروعكم للمشروعات الحكومية، والمنشآت الصناعية، والمستشفيات، والجامعات، والمباني التجارية، ومشروعات البنية التحتية.",
     image: "/images/categories/fire-protection-new.jpg",
     icon: "Flame",
     featured: true,
