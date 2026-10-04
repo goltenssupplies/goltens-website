@@ -260,9 +260,13 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
   const isArabic = (locale as Locale) === "ar";
   const title = isArabic ? sector.title_ar : sector.title_en;
-  const subtitle = isArabic ? sector.subtitle_ar : sector.subtitle_en;
-  const description = isArabic ? sector.description_ar : sector.description_en;
   const content = getSectorContent(slug);
+  // Sector content may replace the hero copy for this page only.
+  const heroCopy = content.hero ?? sector;
+  const subtitle = isArabic ? heroCopy.subtitle_ar : heroCopy.subtitle_en;
+  const description = isArabic
+    ? heroCopy.description_ar
+    : heroCopy.description_en;
 
   const t = await getTranslations("sectors");
   const tNav = await getTranslations("nav");
@@ -451,12 +455,19 @@ export default async function SectorPage({ params }: SectorPageProps) {
         answer: t(`faqDefaultA${n}`, { sector: title }),
       }));
 
+  // A guide may opt out of the sector photo (`heroVisual: "neutral"`) when
+  // that photo isn't cleared for use — the Hero then renders a photo-free
+  // treatment and the Footer keeps its sitewide default.
+  const heroVisual = content.equipmentGuide?.heroVisual ?? "photo";
+
   // Shared by both layouts below (the generic sector layout and the
   // equipment-guide layout), so neither can drift from the other.
   const pageHead = (
     <>
       <SetWhatsAppMessage text={whatsappMessage} />
-      <SetFooterBackgroundImage image={getSectorImage(sector.image)} />
+      <SetFooterBackgroundImage
+        image={heroVisual === "neutral" ? null : getSectorImage(sector.image)}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -489,6 +500,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
         subtitle={subtitle}
         description={description}
         image={sector.image}
+        visual={heroVisual}
         homeLabel={tNav("home")}
         sectorsLabel={tNav("sectors")}
         navLabel={tNav("sectors")}
@@ -549,7 +561,13 @@ export default async function SectorPage({ params }: SectorPageProps) {
   // product explorer appears only once the sector has at least one PUBLIC
   // product, so non-public product records are never listed or linked.
   if (content.equipmentGuide) {
-    const tGuide = await getTranslations("sectors.equipmentGuide");
+    // Shared guide components, sector-appropriate wording ("Equipment
+    // categories" vs "Vehicle categories", …) — see `terminology`.
+    const tGuide = await getTranslations(
+      content.equipmentGuide.terminology === "vehicle"
+        ? "sectors.vehicleGuide"
+        : "sectors.equipmentGuide",
+    );
     const guide = buildEquipmentGuideView({
       guide: content.equipmentGuide,
       sectorId: sector.id,

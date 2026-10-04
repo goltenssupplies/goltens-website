@@ -133,6 +133,22 @@
       "viewListed": "View listed equipment",
       "cta": "Request a quotation for {equipment}"
     },
+    "vehicleGuide": {
+      "jumpLinksLabel": "On this page",
+      "categoryNavLabel": "Vehicle categories",
+      "categoryIndexLabel": "Vehicle types in this category",
+      "projectEquipmentLabel": "Typical vehicles",
+      "whatItIs": "What it is",
+      "usedFor": "What it is used for",
+      "applications": "Typical applications",
+      "industries": "Where it is used",
+      "selectionToggle": "Selection considerations and quotation checklist",
+      "selection": "Key selection considerations",
+      "requestChecklist": "Include in your quotation request",
+      "related": "Related vehicles",
+      "viewListed": "View listed vehicle",
+      "cta": "Request a quotation for {equipment}"
+    },
     "scopeOfSupplyTitle": "Scope of Supply",
     "scopeOfSupplyIntro": "We provide integrated supply solutions covering thousands of industrial and commercial products from leading global manufacturers. Products are selected according to each project's requirements and the required technical specifications, offering the best technical and commercial alternatives to ensure quality and appropriate cost.",
     "cataloguesTitle": "Technical Catalogues",

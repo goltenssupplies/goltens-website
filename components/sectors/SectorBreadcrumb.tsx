@@ -7,6 +7,8 @@ export interface SectorBreadcrumbProps {
   currentLabel?: string;
   navLabel: string;
   className?: string;
+  /** "inverse" when placed directly on a dark background (see `Breadcrumb`). */
+  tone?: "default" | "inverse";
 }
 
 /** Home / Sectors / [current sector] trail, shared by the listing and every detail page. */
@@ -16,11 +18,13 @@ export function SectorBreadcrumb({
   currentLabel,
   navLabel,
   className,
+  tone,
 }: SectorBreadcrumbProps) {
   return (
     <Breadcrumb
       label={navLabel}
       className={className}
+      tone={tone}
       items={[
         { label: homeLabel, href: "/" },
         currentLabel
