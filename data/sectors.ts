@@ -63,12 +63,12 @@ export const SECTORS: Sector[] = [
   {
     id: "fire-protection",
     slug: "fire-protection",
-    title_en: "Fire Protection Systems & Safety Solutions",
-    title_ar: "أنظمة مكافحة الحريق وحلول السلامة",
+    title_en: "Fire Protection Equipment",
+    title_ar: "معدات مكافحة الحريق",
     subtitle_en:
-      "GOLTENS supplies complete fire protection solutions for government, hospitals, universities, industrial facilities, commercial buildings, and infrastructure projects.",
+      "GOLTENS supplies fire protection equipment according to your project requirements, technical specifications and customer or consultant-approved documentation.",
     subtitle_ar:
-      "توفر GOLTENS حلولاً متكاملة لمكافحة الحريق للجهات الحكومية والمستشفيات والجامعات والمنشآت الصناعية والمباني التجارية ومشروعات البنية التحتية.",
+      "توفر GOLTENS معدات مكافحة الحريق وفق متطلبات المشروع والمواصفات الفنية والمستندات المعتمدة من العميل أو الاستشاري.",
     description_en:
       "Fire protection equipment, systems and components, supplied to your project specifications for government projects, industrial facilities, hospitals, universities, commercial buildings and infrastructure projects.",
     description_ar:
