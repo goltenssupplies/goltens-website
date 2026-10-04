@@ -41,7 +41,10 @@ const load = (path) => import(new URL(path, root).href);
 const { SECTORS } = await load("data/sectors.ts");
 const { getSectorContent } = await load("data/sector-content/index.ts");
 const { getCategoryById } = await load("data/product-categories.ts");
-const { getProductById } = await load("data/products/index.ts");
+const { getProductById, getProductsBySector } = await load(
+  "data/products/index.ts",
+);
+const { hasPublicIdentity } = await load("lib/products/public-product.ts");
 const { getActiveDenylistTerms } = await load("data/manufacturers/denylist.ts");
 
 const REQUIRE_VERIFIED = process.argv.includes("--require-verified");
@@ -50,6 +53,7 @@ const RESERVED_ANCHORS = new Set([
   "main-content",
   "equipment-by-project",
   "quotation-checklist",
+  "replacing-existing-equipment",
 ]);
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -77,6 +81,7 @@ const COMMON_WORD_TOKENS = new Set(["case", "carrier"]);
 const CASE_SENSITIVE_BRANDS = new Map([["man", "MAN"]]);
 
 const PROHIBITED_CLAIMS = [
+  /\/products\//,
   /authori[sz]ed/i,
   /official (?:dealer|distributor|agent|representative)/i,
   /\bdealer(?:ship)?\b/i,
@@ -135,6 +140,67 @@ const SECTOR_PROHIBITED_CLAIMS = {
     /\bsecond[- ]hand\b/i,
     /مستعمل/,
   ],
+  // Industrial equipment: approved scope is pumps, valves & actuators and air
+  // compressors & systems, "available on request". No standards or
+  // ratings, no spare-parts / seals supply, no stock or delivery promises,
+  // no air-purity or hazardous-area certification wording, no packaged
+  // pressure-boosting systems, and no relief-valve or gas-compressor guide.
+  "industrial-equipment": [
+    /\b(?:API|ISO|IEC|ASME|ANSI|PED|ATEX|NEMA|DIN|ASTM|AWWA)\b/,
+    /\bIP ?rat/i,
+    /\bclass zero\b|\bclass ?0\b/i,
+    /\bseals\b/i,
+    /\bseal kits?\b/i,
+    /\bin stock\b|\bstocked items?\b|\bex[- ]stock\b/i,
+    /\bimmediate(?:ly)? (?:delivery|available|availability|dispatch)\b/i,
+    /\bguarantee/i,
+    /\btrusted\b/i,
+    /\bexplosion[- ]proof\b|\bhazardous[- ]area\b/i,
+    /\b(?:food|pharma(?:ceutical)?|medical)[- ]grade\b/i,
+    /\bbooster sets?\b|\bpackaged booster/i,
+    /\b(?:pressure )?relief valves?\b|\bsafety valves?\b/i,
+    /\bgas compressors?\b/i,
+    /\binstallation services?\b|\bcommissioning\b/i,
+    /أختام/,
+    /مضمون/,
+    /موثوق/,
+    /أصلي/,
+    /فور[يا]/,
+    /متوفر(?:ة)? في المخزن|من المخزن/,
+    /صمامات? (?:تنفيس|تخفيف) الضغط|صمامات? أمان|بلف أمان/,
+    /ضواغط? (?:ال)?غاز/,
+    /ذاتية التشغيل/,
+    /محركات? تشغيل/,
+    /مقاومة? للانفجار/,
+    /شهاد(?:ة|ات)|اعتماد/,
+  ],
+};
+
+// Sector-specific structure rules, checked in addition to the shared ones.
+const SECTOR_POLICIES = {
+  "industrial-equipment": {
+    categoryCounts: {
+      "process-pumps": 4,
+      "industrial-valves-actuators": 4,
+      "air-compressors-systems": 4,
+    },
+    totalGuides: 12,
+    forbiddenGuideIds: [
+      "pressure-relief-valves",
+      "gas-compressors",
+      "centrifugal-pumps",
+    ],
+    forbiddenLinkedProductIds: [
+      "pressure-relief-valves",
+      "gas-compressors",
+      "centrifugal-pumps",
+    ],
+    heroVisual: "neutral",
+    availability: { en: "Available on request.", ar: "متاح حسب الطلب." },
+    requireReplacement: true,
+    requireSecondaryChecklist: true,
+    linkedProductsNonPublic: true,
+  },
 };
 
 let passed = 0;
@@ -244,10 +310,42 @@ function collectGuideStrings(guide) {
       push(`request.steps[${i}].${key}`, value);
     }
   });
+  for (const key of [
+    "checklistTitle_en",
+    "checklistTitle_ar",
+    "checklistNote_en",
+    "checklistNote_ar",
+  ]) {
+    if (request[key] !== undefined) push(`request.${key}`, request[key]);
+  }
+  if (request.secondaryChecklist) {
+    pushGroup("request.secondaryChecklist", request.secondaryChecklist);
+  }
+  for (const key of ["availability_en", "availability_ar"]) {
+    if (guide[key] !== undefined) push(key, guide[key]);
+  }
+  const replacement = guide.replacement;
+  if (replacement) {
+    for (const [key, value] of Object.entries(replacement)) {
+      if (typeof value === "string") push(`replacement.${key}`, value);
+    }
+    replacement.flow_en.forEach((v, i) => push(`replacement.flow_en[${i}]`, v));
+    replacement.flow_ar.forEach((v, i) => push(`replacement.flow_ar[${i}]`, v));
+    replacement.groups.forEach((group, i) =>
+      pushGroup(`replacement.groups[${i}]`, group),
+    );
+  }
   for (const [key, value] of Object.entries(guide.quote)) {
     push(`quote.${key}`, value);
   }
   return out;
+
+  function pushGroup(base, group) {
+    push(`${base}.title_en`, group.title_en);
+    push(`${base}.title_ar`, group.title_ar);
+    group.items_en.forEach((v, i) => push(`${base}.items_en[${i}]`, v));
+    group.items_ar.forEach((v, i) => push(`${base}.items_ar[${i}]`, v));
+  }
 }
 
 function isNonEmptyString(value) {
@@ -438,6 +536,88 @@ for (const sector of sectorsWithGuides) {
     "the request process has exactly four steps",
     guide.request.steps.length === 4,
   );
+  const groupProblems = [];
+  const checkGroup = (path, group) => {
+    if (!group.items_en.length) groupProblems.push(`${path} empty`);
+    if (group.items_en.length !== group.items_ar.length) {
+      groupProblems.push(`${path} EN/AR length mismatch`);
+    }
+  };
+  if (guide.request.secondaryChecklist) {
+    checkGroup("request.secondaryChecklist", guide.request.secondaryChecklist);
+  }
+  if (guide.replacement) {
+    if (guide.replacement.flow_en.length !== guide.replacement.flow_ar.length) {
+      groupProblems.push("replacement.flow EN/AR length mismatch");
+    }
+    if (!guide.replacement.groups.length) {
+      groupProblems.push("replacement.groups empty");
+    }
+    guide.replacement.groups.forEach((group, i) =>
+      checkGroup(`replacement.groups[${i}]`, group),
+    );
+  }
+  report(
+    "optional checklist / replacement lists are non-empty and EN/AR aligned",
+    groupProblems.length === 0,
+    groupProblems.join("; "),
+  );
+
+  // --- Sector policy ---------------------------------------------------------
+  const policy = SECTOR_POLICIES[sector.slug];
+  if (policy) {
+    const counts = Object.fromEntries(
+      guide.categories.map((c) => [c.categoryId, c.equipment.length]),
+    );
+    report(
+      `exact guide counts per category (${JSON.stringify(policy.categoryCounts)})`,
+      JSON.stringify(counts) === JSON.stringify(policy.categoryCounts),
+      JSON.stringify(counts),
+    );
+    report(
+      `exactly ${policy.totalGuides} guides`,
+      equipment.length === policy.totalGuides,
+      `${equipment.length}`,
+    );
+    const forbiddenGuides = equipment.filter(
+      (e) =>
+        policy.forbiddenGuideIds.includes(e.id) ||
+        policy.forbiddenLinkedProductIds.includes(e.linkedProductId),
+    );
+    report(
+      "no guide for excluded records (relief valves, gas compressors, umbrella)",
+      forbiddenGuides.length === 0,
+      forbiddenGuides.map((e) => e.id).join(", "),
+    );
+    report(
+      `hero visual is "${policy.heroVisual}"`,
+      guide.heroVisual === policy.heroVisual,
+      `${guide.heroVisual}`,
+    );
+    report(
+      "availability wording is the approved text",
+      guide.availability_en === policy.availability.en &&
+        guide.availability_ar === policy.availability.ar,
+      `${guide.availability_en} / ${guide.availability_ar}`,
+    );
+    report(
+      "replacement / nameplate section exists",
+      !policy.requireReplacement || Boolean(guide.replacement),
+    );
+    report(
+      "two-part RFQ checklist exists (minimum + useful technical information)",
+      !policy.requireSecondaryChecklist ||
+        (guide.request.checklist_en.length > 0 &&
+          Boolean(guide.request.secondaryChecklist?.items_en.length) &&
+          isNonEmptyString(guide.request.checklistTitle_en)),
+    );
+    const publicLinks = linkedProducts.filter((p) => hasPublicIdentity(p));
+    report(
+      "every linked product stays non-public (0 product links on the page)",
+      !policy.linkedProductsNonPublic || publicLinks.length === 0,
+      publicLinks.map((p) => p.id).join(", "),
+    );
+  }
 
   // --- Images ---------------------------------------------------------------
   const imageProblems = [];
@@ -458,7 +638,15 @@ for (const sector of sectorsWithGuides) {
 
   // --- Manufacturer neutrality ---------------------------------------------
   const brandTerms = new Set(getActiveDenylistTerms().map((t) => t.term));
-  for (const product of linkedProducts) {
+  // Every product of the sector — linked or not (an umbrella record, or one
+  // deliberately left without a guide) — contributes its brand identity.
+  const sectorProducts = new Map(
+    [...getProductsBySector(sector.id), ...linkedProducts].map((p) => [
+      p.id,
+      p,
+    ]),
+  );
+  for (const product of sectorProducts.values()) {
     for (const slug of product.relatedBrandSlugs ?? []) {
       brandTerms.add(slug.replace(/-/g, " "));
       const first = slug.split("-")[0];

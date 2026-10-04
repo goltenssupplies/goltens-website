@@ -46,15 +46,15 @@ export const SECTORS: Sector[] = [
     id: "industrial-equipment",
     slug: "industrial-equipment",
     title_en: "Industrial Equipment & Pumps",
-    title_ar: "المضخات والمعدات الصناعية",
+    title_ar: "المعدات الصناعية والمضخات",
     subtitle_en:
       "GOLTENS supplies industrial pumps, compressors, valves, and mechanical equipment — matched to your flow, pressure, and duty-condition requirements.",
     subtitle_ar:
       "توفر GOLTENS مضخات صناعية وضواغط هواء وصمامات ومعدات ميكانيكية — مطابقة لمتطلبات التدفق والضغط وظروف التشغيل لديكم.",
     description_en:
-      "Reliable industrial pumps and mechanical equipment, matched to your technical specifications.",
+      "Industrial pumps, valves, actuators and compressed-air equipment, supplied to your technical specifications.",
     description_ar:
-      "مضخات صناعية ومعدات ميكانيكية موثوقة، مطابقة لمواصفاتكم الفنية.",
+      "مضخات وصمامات ومشغلات ومعدات هواء مضغوط صناعية، يتم توريدها وفق مواصفاتكم الفنية.",
     image: "/images/categories/industrial-pumps-new.jpg",
     icon: "Wrench",
     featured: true,

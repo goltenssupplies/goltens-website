@@ -19,6 +19,8 @@ export interface EquipmentTypeCardItem {
   related: { id: string; label: string }[];
   /** Public product page — only ever set when the linked product passes `hasPublicIdentity()`. */
   listedHref?: string;
+  /** Optional availability wording (e.g. "Available on request."), shown under the summary. */
+  availability?: string;
   ctaLabel: string;
   /** Value prefilled into the quote form's product field. */
   prefill: string;
@@ -73,6 +75,11 @@ export function EquipmentTypeCard({
         <Text tone="muted" className="mt-2 max-w-3xl">
           {item.summary}
         </Text>
+        {item.availability && (
+          <p className="border-gold/25 bg-gold/10 text-ink mt-3 inline-flex rounded-sm border px-3 py-1 text-sm">
+            {item.availability}
+          </p>
+        )}
       </header>
 
       <dl className="mt-6 grid gap-x-10 gap-y-6 lg:grid-cols-2">

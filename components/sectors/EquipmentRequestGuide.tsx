@@ -12,8 +12,39 @@ export interface EquipmentRequestGuideProps {
   title: string;
   intro: string;
   checklist: string[];
+  /**
+   * Optional two-group layout: when `checklistTitle` is set, `checklist` is
+   * shown under it (e.g. "Minimum information"), then `secondaryChecklist`
+   * under its own title, then `checklistNote`. Omitted, the single
+   * checklist renders exactly as before.
+   */
+  checklistTitle?: string;
+  secondaryChecklist?: { title: string; items: string[] };
+  checklistNote?: string;
   processTitle: string;
   steps: { title: string; description: string }[];
+}
+
+function ChecklistItems({
+  items,
+  spacing = "mt-8",
+}: {
+  items: string[];
+  spacing?: "mt-8" | "mt-4";
+}) {
+  return (
+    <ul className={`${spacing} flex flex-col gap-3`}>
+      {items.map((entry) => (
+        <li key={entry} className="flex items-start gap-3">
+          <CheckCircle2
+            aria-hidden="true"
+            className="text-gold mt-0.5 size-5 shrink-0"
+          />
+          <Text tone="inverse">{entry}</Text>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 /**
@@ -27,6 +58,9 @@ export function EquipmentRequestGuide({
   title,
   intro,
   checklist,
+  checklistTitle,
+  secondaryChecklist,
+  checklistNote,
   processTitle,
   steps,
 }: EquipmentRequestGuideProps) {
@@ -47,17 +81,37 @@ export function EquipmentRequestGuide({
             <Text tone="muted" className="mt-4">
               {intro}
             </Text>
-            <ul className="mt-8 flex flex-col gap-3">
-              {checklist.map((entry) => (
-                <li key={entry} className="flex items-start gap-3">
-                  <CheckCircle2
-                    aria-hidden="true"
-                    className="text-gold mt-0.5 size-5 shrink-0"
-                  />
-                  <Text tone="inverse">{entry}</Text>
-                </li>
-              ))}
-            </ul>
+            {checklistTitle ? (
+              <>
+                <Heading level={3} size={5} tone="inverse" className="mt-8">
+                  {checklistTitle}
+                </Heading>
+                <ChecklistItems items={checklist} spacing="mt-4" />
+                {secondaryChecklist && (
+                  <>
+                    <Heading
+                      level={3}
+                      size={5}
+                      tone="inverse"
+                      className="mt-10"
+                    >
+                      {secondaryChecklist.title}
+                    </Heading>
+                    <ChecklistItems
+                      items={secondaryChecklist.items}
+                      spacing="mt-4"
+                    />
+                  </>
+                )}
+                {checklistNote && (
+                  <Text tone="muted" className="mt-8">
+                    {checklistNote}
+                  </Text>
+                )}
+              </>
+            ) : (
+              <ChecklistItems items={checklist} />
+            )}
           </div>
           <div>
             <Text

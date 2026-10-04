@@ -14,6 +14,7 @@ import {
   EquipmentProjectMatrix,
   type EquipmentProjectMatrixRow,
 } from "@/components/sectors/EquipmentProjectMatrix";
+import { EquipmentReplacementGuide } from "@/components/sectors/EquipmentReplacementGuide";
 import { EquipmentRequestGuide } from "@/components/sectors/EquipmentRequestGuide";
 import { SectorAbout } from "@/components/sectors/SectorAbout";
 import {
@@ -77,6 +78,7 @@ import { siteUrl } from "@/lib/site";
 const REQUEST_QUOTE_ANCHOR = "request-quote";
 const PROJECT_MATRIX_ANCHOR = "equipment-by-project";
 const QUOTATION_CHECKLIST_ANCHOR = "quotation-checklist";
+const REPLACEMENT_ANCHOR = "replacing-existing-equipment";
 
 /**
  * Localizes a sector's equipment guide (`SectorContent.equipmentGuide`)
@@ -161,6 +163,9 @@ function buildEquipmentGuideView({
               : equipment.requestChecklist_en,
             related: toEquipmentLinks(equipment.relatedEquipmentIds ?? []),
             listedHref,
+            availability: isArabic
+              ? guide.availability_ar
+              : guide.availability_en,
             ctaLabel: ctaLabel(name),
             prefill: `${name} — ${categoryTitle}`,
           };
@@ -193,6 +198,20 @@ function buildEquipmentGuideView({
       checklist: isArabic
         ? guide.request.checklist_ar
         : guide.request.checklist_en,
+      checklistTitle: isArabic
+        ? guide.request.checklistTitle_ar
+        : guide.request.checklistTitle_en,
+      secondaryChecklist: guide.request.secondaryChecklist && {
+        title: isArabic
+          ? guide.request.secondaryChecklist.title_ar
+          : guide.request.secondaryChecklist.title_en,
+        items: isArabic
+          ? guide.request.secondaryChecklist.items_ar
+          : guide.request.secondaryChecklist.items_en,
+      },
+      checklistNote: isArabic
+        ? guide.request.checklistNote_ar
+        : guide.request.checklistNote_en,
       processTitle: isArabic
         ? guide.request.processTitle_ar
         : guide.request.processTitle_en,
@@ -200,6 +219,25 @@ function buildEquipmentGuideView({
         title: isArabic ? step.title_ar : step.title_en,
         description: isArabic ? step.description_ar : step.description_en,
       })),
+    },
+    replacement: guide.replacement && {
+      title: isArabic ? guide.replacement.title_ar : guide.replacement.title_en,
+      intro: isArabic ? guide.replacement.intro_ar : guide.replacement.intro_en,
+      flowLabel: isArabic
+        ? guide.replacement.flowTitle_ar
+        : guide.replacement.flowTitle_en,
+      flow: isArabic ? guide.replacement.flow_ar : guide.replacement.flow_en,
+      groups: guide.replacement.groups.map((group) => ({
+        title: isArabic ? group.title_ar : group.title_en,
+        items: isArabic ? group.items_ar : group.items_en,
+      })),
+      note: isArabic ? guide.replacement.note_ar : guide.replacement.note_en,
+      ctaLabel: isArabic
+        ? guide.replacement.ctaLabel_ar
+        : guide.replacement.ctaLabel_en,
+      prefill: isArabic
+        ? guide.replacement.prefill_ar
+        : guide.replacement.prefill_en,
     },
     quote: {
       title: isArabic ? guide.quote.title_ar : guide.quote.title_en,
@@ -556,10 +594,11 @@ export default async function SectorPage({ params }: SectorPageProps) {
   );
 
   // Equipment procurement & application guide layout — only for a sector
-  // whose content defines `equipmentGuide` (today: heavy-equipment). It
-  // replaces the generic About / Industries / Advantages sections; the
-  // product explorer appears only once the sector has at least one PUBLIC
-  // product, so non-public product records are never listed or linked.
+  // whose content defines `equipmentGuide` (heavy-equipment,
+  // commercial-vehicles, industrial-equipment). It replaces the generic
+  // About / Industries / Advantages sections; the product explorer appears
+  // only once the sector has at least one PUBLIC product, so non-public
+  // product records are never listed or linked.
   if (content.equipmentGuide) {
     // Shared guide components, sector-appropriate wording ("Equipment
     // categories" vs "Vehicle categories", …) — see `terminology`.
@@ -591,6 +630,9 @@ export default async function SectorPage({ params }: SectorPageProps) {
               id: category.id,
               label: category.title,
             })),
+            ...(guide.replacement
+              ? [{ id: REPLACEMENT_ANCHOR, label: guide.replacement.title }]
+              : []),
             { id: QUOTATION_CHECKLIST_ANCHOR, label: guide.request.title },
           ]}
         />
@@ -634,11 +676,29 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
         {productExplorerItems.length > 0 && productExplorerSection}
 
+        {guide.replacement && (
+          <EquipmentReplacementGuide
+            id={REPLACEMENT_ANCHOR}
+            title={guide.replacement.title}
+            intro={guide.replacement.intro}
+            flowLabel={guide.replacement.flowLabel}
+            flow={guide.replacement.flow}
+            groups={guide.replacement.groups}
+            note={guide.replacement.note}
+            ctaLabel={guide.replacement.ctaLabel}
+            prefill={guide.replacement.prefill}
+            quoteAnchor={REQUEST_QUOTE_ANCHOR}
+          />
+        )}
+
         <EquipmentRequestGuide
           id={QUOTATION_CHECKLIST_ANCHOR}
           title={guide.request.title}
           intro={guide.request.intro}
           checklist={guide.request.checklist}
+          checklistTitle={guide.request.checklistTitle}
+          secondaryChecklist={guide.request.secondaryChecklist}
+          checklistNote={guide.request.checklistNote}
           processTitle={guide.request.processTitle}
           steps={guide.request.steps}
         />
