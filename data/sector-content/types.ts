@@ -231,6 +231,42 @@ export interface EquipmentGuideProcessStep {
   description_ar: string;
 }
 
+/** One labelled list of what to send — e.g. "Pumps" in the replacement section. */
+export interface EquipmentGuideInfoGroup {
+  title_en: string;
+  title_ar: string;
+  items_en: string[];
+  items_ar: string[];
+}
+
+/**
+ * "Replacing existing equipment?" — the nameplate-based replacement /
+ * equivalent-sourcing path. Wording must leave final equivalence and
+ * suitability with the customer's engineering team.
+ */
+export interface EquipmentReplacementGuide {
+  title_en: string;
+  title_ar: string;
+  intro_en: string;
+  intro_ar: string;
+  /** Label above the stages, e.g. "How a replacement request works". */
+  flowTitle_en: string;
+  flowTitle_ar: string;
+  /** Short ordered stages, existing equipment → quotation. */
+  flow_en: string[];
+  flow_ar: string[];
+  /** What to send — one group for all equipment, then one per family. */
+  groups: EquipmentGuideInfoGroup[];
+  /** Responsibility note: final equivalence is confirmed by the customer. */
+  note_en: string;
+  note_ar: string;
+  ctaLabel_en: string;
+  ctaLabel_ar: string;
+  /** Value prefilled into the quote form's product field. */
+  prefill_en: string;
+  prefill_ar: string;
+}
+
 /**
  * A sector's equipment procurement & application guide. When present, the
  * sector template renders the guide layout (project matrix, category
@@ -253,6 +289,13 @@ export interface SectorEquipmentGuide {
    * Omit to keep the sector's photo, as before.
    */
   heroVisual?: "photo" | "neutral";
+  /**
+   * Optional availability wording shown on every equipment guide card (e.g.
+   * "Available on request.") — means supplyable according to the customer's
+   * requirement, never warehouse stock. Omit to show nothing, as before.
+   */
+  availability_en?: string;
+  availability_ar?: string;
   intro: {
     eyebrow_en: string;
     eyebrow_ar: string;
@@ -276,11 +319,25 @@ export interface SectorEquipmentGuide {
     intro_ar: string;
     checklist_en: string[];
     checklist_ar: string[];
+    /**
+     * Optional second checklist group. When present, `checklist_*` is shown
+     * under `checklistTitle_*` (e.g. "Minimum information") and this group
+     * under its own title (e.g. "Useful technical information"), followed
+     * by `checklistNote_*`. Omit all of them to render the single checklist
+     * exactly as before.
+     */
+    checklistTitle_en?: string;
+    checklistTitle_ar?: string;
+    secondaryChecklist?: EquipmentGuideInfoGroup;
+    checklistNote_en?: string;
+    checklistNote_ar?: string;
     processTitle_en: string;
     processTitle_ar: string;
     /** Exactly 4 steps. */
     steps: EquipmentGuideProcessStep[];
   };
+  /** Optional replacement / nameplate path, rendered after the equipment guides. */
+  replacement?: EquipmentReplacementGuide;
   quote: {
     title_en: string;
     title_ar: string;

@@ -27,6 +27,7 @@ import {
   Truck,
   Warehouse,
   Waves,
+  Wind,
   Zap,
   type LucideIcon,
 } from "lucide-react";
@@ -69,6 +70,7 @@ export const SECTOR_CONTENT_ICONS: Record<string, LucideIcon> = {
   Forklift,
   Construction,
   Recycle,
+  Wind,
 };
 
 // Same icon set `components/sections/home/WhyChooseUs.tsx` uses for
