@@ -239,6 +239,20 @@ export interface EquipmentGuideProcessStep {
  * without it renders exactly as before.
  */
 export interface SectorEquipmentGuide {
+  /**
+   * Which UI wording the shared guide components use: "equipment" (default —
+   * "Equipment categories", "Related equipment", …) or "vehicle" ("Vehicle
+   * categories", "Related vehicles", …). Selects the `sectors.equipmentGuide`
+   * or `sectors.vehicleGuide` translation namespace; content is unaffected.
+   */
+  terminology?: "equipment" | "vehicle";
+  /**
+   * "neutral" replaces the sector's hero photo with a photo-free visual
+   * treatment (and leaves the Footer on its sitewide default) — for a sector
+   * whose `data/sectors.ts` image is not cleared for use on this page.
+   * Omit to keep the sector's photo, as before.
+   */
+  heroVisual?: "photo" | "neutral";
   intro: {
     eyebrow_en: string;
     eyebrow_ar: string;
@@ -275,6 +289,13 @@ export interface SectorEquipmentGuide {
   };
 }
 
+export interface SectorHeroCopy {
+  subtitle_en: string;
+  subtitle_ar: string;
+  description_en: string;
+  description_ar: string;
+}
+
 export interface SectorContent {
   about?: SectorAbout;
   applications?: SectorApplication[];
@@ -289,6 +310,13 @@ export interface SectorContent {
   /** Explicit curated related-sector slugs — omit to fall back to "other sectors, sorted by order". */
   relatedSectorSlugs?: string[];
   seo?: SectorSeo;
+  /**
+   * Optional replacement for the sector detail page's hero subtitle and
+   * description (normally `subtitle_*` / `description_*` from
+   * `data/sectors.ts`). Applies to the sector page only — listing and
+   * homepage cards keep the `data/sectors.ts` copy.
+   */
+  hero?: SectorHeroCopy;
   /** Equipment procurement & application guide — see `SectorEquipmentGuide`. */
   equipmentGuide?: SectorEquipmentGuide;
 }

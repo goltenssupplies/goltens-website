@@ -8,6 +8,7 @@ import { Stack } from "@/components/ui/Stack";
 import { Text } from "@/components/ui/Text";
 import { SectorBreadcrumb } from "@/components/sectors/SectorBreadcrumb";
 import { getSectorImage } from "@/lib/sectors";
+import { cn } from "@/lib/utils";
 
 export interface SectorHeroProps {
   title: string;
@@ -25,6 +26,13 @@ export interface SectorHeroProps {
   secondaryCtaLabel?: string;
   /** Anchor id (without "#") to scroll to. */
   secondaryCtaHref?: string;
+  /**
+   * "photo" (default) renders `image` full-bleed, as every sector always
+   * has. "neutral" renders a photo-free dark grid treatment instead — for a
+   * sector whose photo is not cleared for use (e.g. visible third-party
+   * branding); `image` is then ignored.
+   */
+  visual?: "photo" | "neutral";
 }
 
 /**
@@ -48,21 +56,46 @@ export function SectorHero({
   requestQuoteHref,
   secondaryCtaLabel,
   secondaryCtaHref,
+  visual = "photo",
 }: SectorHeroProps) {
   return (
-    <div className="relative flex min-h-[480px] flex-col justify-end pt-24 pb-12 sm:min-h-[560px] lg:pt-28 lg:pb-16">
-      <Image
-        src={getSectorImage(image)}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover contrast-110 saturate-105 sepia-[0.08]"
-      />
-      <div
-        aria-hidden="true"
-        className="from-ink via-ink/50 pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent"
-      />
+    <div
+      className={cn(
+        "relative flex min-h-[480px] flex-col justify-end pt-24 pb-12 sm:min-h-[560px] lg:pt-28 lg:pb-16",
+        visual === "neutral" && "bg-ink overflow-hidden",
+      )}
+    >
+      {visual === "photo" ? (
+        <>
+          <Image
+            src={getSectorImage(image)}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover contrast-110 saturate-105 sepia-[0.08]"
+          />
+          <div
+            aria-hidden="true"
+            className="from-ink via-ink/50 pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent"
+          />
+        </>
+      ) : (
+        <>
+          <div
+            aria-hidden="true"
+            className="bg-gold/[0.10] pointer-events-none absolute -end-32 -top-40 size-[34rem] rounded-full blur-3xl"
+          />
+          <div
+            aria-hidden="true"
+            className="bg-gold/[0.06] pointer-events-none absolute -start-24 -bottom-32 size-[26rem] rounded-full blur-3xl"
+          />
+          <div
+            aria-hidden="true"
+            className="via-gold/40 pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent to-transparent"
+          />
+        </>
+      )}
       <div
         aria-hidden="true"
         className="bg-grid-pattern text-canvas/[0.06] pointer-events-none absolute inset-0"
@@ -75,6 +108,7 @@ export function SectorHero({
           sectorsLabel={sectorsLabel}
           currentLabel={title}
           navLabel={navLabel}
+          tone={visual === "neutral" ? "inverse" : "default"}
           className="mb-4"
         />
         {/* This hero sits on a photo + dark scrim (see the gradient above),

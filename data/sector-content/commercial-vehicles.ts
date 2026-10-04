@@ -1,154 +1,77 @@
+import { commercialVehiclesGuide } from "@/data/sector-content/commercial-vehicles-guide";
 import type { SectorContent } from "@/data/sector-content/types";
 
 /**
  * Commercial Vehicles & Fleet Solutions' real content — written to the same
  * standard as `fire-protection.ts`: no invented certifications, no named
  * customer projects, no fabricated technical specifications or lead times.
+ *
+ * This sector renders the commercial vehicle & fleet procurement guide
+ * (`equipmentGuide`, see `commercial-vehicles-guide.ts`) in place of the
+ * generic About / Industries / Advantages sections, so it carries no
+ * `about`, `applications` or `advantages` of its own. Business wording is
+ * limited to confirmed capabilities: GOLTENS supplies commercial vehicles
+ * according to project, fleet and operating requirements, and can
+ * coordinate specialized body builders or qualified contractors when
+ * required. Configuration, condition, availability and lead time are
+ * confirmed during quotation. `hero` replaces the sector page's hero copy
+ * from `data/sectors.ts` with the same conservative procurement wording.
  */
 export const commercialVehiclesContent: SectorContent = {
-  about: {
-    intro_en:
-      "GOLTENS supplies commercial vehicles and fleet solutions sourced from trusted global manufacturers, covering trucks and light vehicles, trailers and transport equipment, and specialized and municipal vehicles. Our procurement team matches your fleet requirements and technical specification — payload, drivetrain, tank or body configuration — against genuine, quality-assured vehicles before every quotation.",
-    intro_ar:
-      "توفر GOLTENS مركبات تجارية وحلول تجهيز أساطيل يتم توريدها من شركات مصنّعة عالمية موثوقة، وتغطي الشاحنات والمركبات الخفيفة، والمقطورات ومعدات النقل، والمركبات المتخصصة والبلدية. يقوم فريق التوريد لدينا بمطابقة متطلبات أسطولكم والمواصفات الفنية — الحمولة ونظام الدفع وتكوين الخزان أو الهيكل — مع مركبات أصلية ومضمونة الجودة قبل كل عرض سعر.",
-    categories_en: [
-      "Trucks & Light Vehicles",
-      "Trailers & Transport Equipment",
-      "Specialized & Municipal Vehicles",
-    ],
-    categories_ar: [
-      "الشاحنات والمركبات الخفيفة",
-      "المقطورات ومعدات النقل",
-      "المركبات المتخصصة والبلدية",
-    ],
-    complianceNote_en:
-      "Vehicles and parts are sourced to meet the specifications and road-safety requirements your fleet operation requires — we confirm the exact configuration as part of the quotation process.",
-    complianceNote_ar:
-      "يتم توريد المركبات وقطع الغيار بما يتوافق مع المواصفات ومتطلبات السلامة المرورية التي تتطلبها عمليات أسطولكم — ونؤكد التهيئة الدقيقة كجزء من عملية إعداد عرض السعر.",
+  hero: {
+    subtitle_en:
+      "GOLTENS supplies commercial vehicles and fleet solutions according to your operational requirements, technical specifications and project or tender needs.",
+    subtitle_ar:
+      "توفر GOLTENS المركبات التجارية وحلول الأساطيل وفق متطلبات التشغيل لديكم والمواصفات الفنية واحتياجات المشروع أو المناقصة.",
+    description_en:
+      "Trucks, light vehicles, trailers and specialized municipal vehicles, specified to your operation. Configuration, availability and lead time are confirmed during quotation.",
+    description_ar:
+      "شاحنات ومركبات خفيفة ومقطورات ومركبات بلدية متخصصة تُحدَّد وفق طبيعة التشغيل لديكم، ويتم تأكيد التكوين والتوافر ومدة التوريد أثناء إعداد عرض السعر.",
   },
 
-  applications: [
-    {
-      title_en: "Logistics & Distribution",
-      title_ar: "اللوجستيات والتوزيع",
-      icon: "Truck",
-    },
-    {
-      title_en: "Construction & Contracting",
-      title_ar: "الإنشاءات والمقاولات",
-      icon: "HardHat",
-    },
-    {
-      title_en: "Municipalities & Public Works",
-      title_ar: "البلديات والأشغال العامة",
-      icon: "Landmark",
-    },
-    {
-      title_en: "Waste Management",
-      title_ar: "إدارة النفايات",
-      icon: "Container",
-    },
-    {
-      title_en: "Government Fleets",
-      title_ar: "الأساطيل الحكومية",
-      icon: "Building2",
-    },
-    {
-      title_en: "Oil & Gas / Fuel Distribution",
-      title_ar: "النفط والغاز وتوزيع الوقود",
-      icon: "Fuel",
-    },
-    {
-      title_en: "Water Utilities & Site Supply",
-      title_ar: "مرافق المياه وتزويد المواقع",
-      icon: "Droplets",
-    },
-    {
-      title_en: "Industrial & Manufacturing",
-      title_ar: "الصناعة والتصنيع",
-      icon: "Factory",
-    },
-    {
-      title_en: "Warehousing & Distribution Centers",
-      title_ar: "المستودعات ومراكز التوزيع",
-      icon: "Warehouse",
-    },
-  ],
-
-  advantages: [
-    {
-      title_en: "Single point of contact for fleet-wide procurement.",
-      title_ar: "جهة اتصال واحدة لتوريد الأسطول بالكامل.",
-      icon: "Truck",
-    },
-    {
-      title_en: "Vehicles matched to your operational requirements.",
-      title_ar: "مركبات مطابقة لمتطلبات التشغيل لديكم.",
-      icon: "ShieldCheck",
-    },
-    {
-      title_en: "Genuine parts availability for existing fleets.",
-      title_ar: "توفر قطع غيار أصلية للأساطيل الحالية.",
-      icon: "BadgePercent",
-    },
-    {
-      title_en: "Reliable delivery for fleet renewal schedules.",
-      title_ar: "توصيل موثوق لجداول تجديد الأسطول.",
-      icon: "Globe",
-    },
-    {
-      title_en: "Workshop and after-sales support.",
-      title_ar: "دعم الورش وخدمة ما بعد البيع.",
-      icon: "Headset",
-    },
-    {
-      title_en: "Access to an international supplier network.",
-      title_ar: "الوصول إلى شبكة موردين دولية.",
-      icon: "Award",
-    },
-  ],
+  equipmentGuide: commercialVehiclesGuide,
 
   faqs: [
     {
       question_en: "How do I request a quotation?",
       answer_en:
-        "Share your fleet requirement using the request quotation form on this page — vehicle type, quantity, or a technical specification if available — and our team will respond with a tailored quotation.",
+        "Use the quotation form on this page. Include the vehicle type and quantity, the operation and route conditions, and your technical specification if available — each vehicle guide lists the details that matter for that vehicle.",
       question_ar: "كيف يمكنني طلب عرض سعر؟",
       answer_ar:
-        "شاركونا متطلبات أسطولكم من خلال نموذج طلب عرض السعر في هذه الصفحة — نوع المركبة والكمية أو المواصفات الفنية إن وجدت — وسيتواصل معكم فريقنا بعرض سعر مخصص.",
+        "استخدموا نموذج طلب عرض السعر في هذه الصفحة، وأرسلوا نوع المركبة والعدد المطلوب، وطبيعة التشغيل وظروف المسارات، والمواصفات الفنية إن وُجدت. ويوضح كل دليل مركبة البيانات المهمة الخاصة بها.",
+    },
+    {
+      question_en:
+        "Are the vehicle guides on this page a list of available models?",
+      answer_en:
+        "No. The guides are general information to help you define your requirement. GOLTENS supplies commercial vehicles according to project, fleet and operating requirements; the specific configuration, condition, availability and lead time are confirmed during quotation.",
+      question_ar: "هل أدلة المركبات في هذه الصفحة قائمة بالموديلات المتوفرة؟",
+      answer_ar:
+        "لا، الأدلة معلومات عامة تساعدكم على تحديد احتياجكم. توفر GOLTENS المركبات التجارية وفق متطلبات المشروع والأسطول والتشغيل، ويتم تأكيد التكوين والحالة والتوافر ومدة التوريد أثناء إعداد عرض السعر.",
+    },
+    {
+      question_en: "Can GOLTENS arrange specialized bodies and equipment?",
+      answer_en:
+        "When a vehicle needs a specialized body or mounted equipment, GOLTENS can coordinate specialized body builders or qualified contractors when required. Describe the body or equipment you need in your quotation request.",
+      question_ar: "هل يمكن لـGOLTENS ترتيب الهياكل والتجهيزات المتخصصة؟",
+      answer_ar:
+        "عندما تحتاج المركبة إلى هيكل متخصص أو تجهيزات مركّبة، يمكن لـGOLTENS التنسيق مع مصنّعي الهياكل المتخصصة أو المقاولين المؤهلين عند الحاجة. يُرجى وصف الهيكل أو التجهيزات المطلوبة في طلب عرض السعر.",
+    },
+    {
+      question_en: "Can I request a vehicle that isn't described on this page?",
+      answer_en:
+        "Yes. Send your requirement and our team will review it against your project, fleet and operating requirements.",
+      question_ar: "هل يمكنني طلب مركبة غير مذكورة في هذه الصفحة؟",
+      answer_ar:
+        "نعم، أرسلوا متطلباتكم وسيراجعها فريقنا وفق متطلبات مشروعكم وأسطولكم وطبيعة التشغيل.",
     },
     {
       question_en: "What is the lead time?",
       answer_en:
-        "Lead time depends on the specific vehicle, brand, and origin, and is confirmed with every quotation — it's not the same across all items, so we always state it explicitly rather than quote a single blanket figure.",
+        "Lead time depends on the specific vehicle and its configuration, including any specialized body, and is confirmed during quotation — it is not the same across all vehicles, so we always state it explicitly rather than quote a single blanket figure.",
       question_ar: "ما هي مدة التوريد؟",
       answer_ar:
-        "تعتمد مدة التوريد على المركبة والعلامة التجارية وبلد المنشأ، ويتم تأكيدها مع كل عرض سعر — فهي تختلف باختلاف المركبات، لذلك نوضحها دائمًا بشكل صريح بدلاً من تحديد رقم عام موحد.",
-    },
-    {
-      question_en: "Can GOLTENS source international brands?",
-      answer_en:
-        "Yes. We source commercial vehicles and fleet equipment from trusted global manufacturers through our international supplier network, subject to availability, and confirm brand and model options as part of every quotation.",
-      question_ar: "هل يمكن لـGOLTENS توريد علامات تجارية عالمية؟",
-      answer_ar:
-        "نعم، نقوم بتوريد مركبات تجارية ومعدات أسطول من شركات مصنّعة عالمية موثوقة من خلال شبكة موردينا الدولية، وفقًا لتوافرها، ونؤكد خيارات العلامة التجارية والطراز كجزء من كل عرض سعر.",
-    },
-    {
-      question_en:
-        "Do you supply spare parts and consumables for existing fleets?",
-      answer_en:
-        "Yes. We source spare parts, tires, batteries, and consumables for the vehicle categories we supply, in addition to complete new and specialized vehicles.",
-      question_ar: "هل تورّدون قطع غيار ومستهلكات للأساطيل الحالية؟",
-      answer_ar:
-        "نعم، نقوم بتوريد قطع الغيار والإطارات والبطاريات والمستهلكات لفئات المركبات التي نوفرها، بالإضافة إلى المركبات الجديدة والمتخصصة الكاملة.",
-    },
-    {
-      question_en: "Do you supply government and municipal fleets?",
-      answer_en:
-        "Yes. We supply commercial and specialized municipal vehicles for government and public-sector fleet operations, and can provide the documentation typically required for tender submission on request.",
-      question_ar: "هل تورّدون للأساطيل الحكومية والبلدية؟",
-      answer_ar:
-        "نعم، نقوم بتوريد المركبات التجارية والبلدية المتخصصة لعمليات الأساطيل الحكومية والقطاع العام، ويمكننا توفير الوثائق المطلوبة عادةً لتقديم المناقصات عند الطلب.",
+        "تعتمد مدة التوريد على المركبة المطلوبة وتكوينها، بما في ذلك أي هيكل متخصص، ويتم تأكيدها أثناء إعداد عرض السعر؛ فهي تختلف من مركبة لأخرى، لذلك نوضحها دائمًا بشكل صريح بدلًا من تحديد مدة عامة موحدة.",
     },
   ],
 
@@ -164,8 +87,8 @@ export const commercialVehiclesContent: SectorContent = {
     title_en: "Commercial Vehicles & Fleet Supplier Egypt",
     title_ar: "مورد المركبات التجارية والأساطيل في مصر",
     description_en:
-      "GOLTENS supplies trucks, trailers, and specialized municipal vehicles in Egypt, sourced from trusted manufacturers and matched to your fleet's operational requirements.",
+      "Commercial vehicle and fleet procurement guide: trucks, vans, pickups, trailers, tankers and specialized municipal vehicles — supplied according to your project, fleet and operating requirements.",
     description_ar:
-      "توفر GOLTENS الشاحنات والمقطورات والمركبات البلدية المتخصصة في مصر، من مصنّعين موثوقين ووفق متطلبات تشغيل أسطولكم.",
+      "دليل المركبات التجارية وتوريد الأساطيل: شاحنات وفانات وبيك أب ومقطورات وصهاريج ومركبات بلدية متخصصة، وفق متطلبات مشروعكم وأسطولكم وطبيعة التشغيل.",
   },
 };

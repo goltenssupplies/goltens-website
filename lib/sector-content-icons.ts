@@ -19,6 +19,7 @@ import {
   Landmark,
   Lightbulb,
   Plane,
+  Recycle,
   ShieldCheck,
   Shovel,
   Siren,
@@ -67,6 +68,7 @@ export const SECTOR_CONTENT_ICONS: Record<string, LucideIcon> = {
   Shovel,
   Forklift,
   Construction,
+  Recycle,
 };
 
 // Same icon set `components/sections/home/WhyChooseUs.tsx` uses for

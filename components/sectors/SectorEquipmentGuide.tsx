@@ -78,7 +78,12 @@ export function SectorEquipmentGuide({
               <Text size="lg" className="text-canvas mt-4 max-w-3xl opacity-85">
                 {category.intro}
               </Text>
-              <nav aria-label={indexLabel} className="mt-7">
+              {/* The category name makes each of the page's per-category
+                  landmarks uniquely identifiable to screen-reader users. */}
+              <nav
+                aria-label={`${indexLabel}: ${category.title}`}
+                className="mt-7"
+              >
                 <Text
                   size="xs"
                   weight="semibold"

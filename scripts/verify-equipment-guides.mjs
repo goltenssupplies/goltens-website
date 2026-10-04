@@ -16,11 +16,13 @@
  *     different lengths, or a process that isn't exactly four steps
  *   - any manufacturer/brand identity (active denylist terms, the OEM brand
  *     slugs and sourcing values of the linked products, brand-derived
- *     generic terms) in rendered guide or FAQ/SEO text
- *   - any digit in rendered guide text (no invented numeric specifications)
+ *     generic terms) in rendered guide, hero override or FAQ/SEO text
+ *   - any digit in rendered guide or hero override text (no invented
+ *     numeric specifications)
  *   - prohibited business claims (authorized dealer, after-sales, genuine
- *     OEM parts, supplier network, certifications, …) and generic
- *     marketing superlatives
+ *     OEM parts, supplier network, certifications, spare parts, warranty,
+ *     customs, stock claims, …), sector-specific claims (no used vehicles
+ *     for commercial vehicles) and generic marketing superlatives
  *   - an image path that doesn't exist, or an image without EN/AR alt text
  * Reports (without failing) every entry whose technical or Arabic review is
  * not yet "verified". Pass `--require-verified` to make that a failure too.
@@ -52,16 +54,27 @@ const RESERVED_ANCHORS = new Set([
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 // Brand-derived generic terms used in the Egyptian market — never used as
-// equipment names. "هراس" is listed because it is ambiguous (commonly a
-// roller) and must not be used for the hydraulic breaker.
+// equipment or vehicle names. "هراس" is listed because it is ambiguous
+// (commonly a roller) and must not be used for the hydraulic breaker;
+// "هايس" (from a manufacturer's van model) must not be used for vans.
 const BRAND_DERIVED_TERMS = [
   "بوكلين",
   "كلارك",
   "جي سي بي",
   "هراس",
+  "هايس",
   "Bobcat",
   "Poclain",
 ];
+
+// First tokens of multi-word brand slugs that are ordinary English words
+// ("case" from "case-ce", "carrier" from "carrier-transicold"). The full
+// slug is still matched; only the bare common word is exempt.
+const COMMON_WORD_TOKENS = new Set(["case", "carrier"]);
+
+// Brands whose name is an ordinary English word in lower case ("man"). They
+// are matched case-sensitively, in their upper-case brand spelling only.
+const CASE_SENSITIVE_BRANDS = new Map([["man", "MAN"]]);
 
 const PROHIBITED_CLAIMS = [
   /authori[sz]ed/i,
@@ -92,7 +105,37 @@ const PROHIBITED_CLAIMS = [
   /معتمدة? من/,
   /الأفضل/,
   /رائدة?/,
+  // No stock or availability claims, and no parts / warranty / customs /
+  // licensing / government-approval claims.
+  /\bin stock\b/i,
+  /\bready stock\b/i,
+  /spare parts/i,
+  /warrant(?:y|ies)/i,
+  /customs/i,
+  /vehicle licensing/i,
+  /Ministry of Health/i,
+  /government approvals?/i,
+  /tender documentation/i,
+  /متوفرة? (?:في|بـ?)المخزن/,
+  /قطع غيار/,
+  /(?<!\p{L})(?:ال)?ضمانا?ت?(?!\p{L})/u,
+  /تخليص جمركي/,
+  /ترخيص المركبات/,
+  /وزارة الصحة/,
+  /وثائق المناقصات/,
 ];
+
+// Claims that are valid for one sector but not another: heavy equipment can
+// be sourced new or used, commercial vehicles are supplied new only.
+const SECTOR_PROHIBITED_CLAIMS = {
+  "commercial-vehicles": [
+    /\bnew (?:and|or|&) used\b/i,
+    /\bused (?:vehicles?|trucks?|vans?|pickups?|trailers?|tankers?|ambulances?|cars?)\b/i,
+    /\bpre-?owned\b/i,
+    /\bsecond[- ]hand\b/i,
+    /مستعمل/,
+  ],
+};
 
 let passed = 0;
 let failed = 0;
@@ -419,19 +462,27 @@ for (const sector of sectorsWithGuides) {
     for (const slug of product.relatedBrandSlugs ?? []) {
       brandTerms.add(slug.replace(/-/g, " "));
       const first = slug.split("-")[0];
-      // "case" (from "case-ce") is a common English word; its full slug is
-      // already covered above.
-      if (first.length >= 3 && first !== "case") brandTerms.add(first);
+      if (CASE_SENSITIVE_BRANDS.has(slug)) continue;
+      if (first.length >= 3 && !COMMON_WORD_TOKENS.has(first)) {
+        brandTerms.add(first);
+      }
     }
     for (const value of Object.values(product.sourcing ?? {})) {
       if (isNonEmptyString(value)) brandTerms.add(value);
     }
   }
   for (const term of BRAND_DERIVED_TERMS) brandTerms.add(term);
+  for (const slug of CASE_SENSITIVE_BRANDS.keys()) brandTerms.delete(slug);
   const brandPatterns = [...brandTerms].map((term) => [
     term,
     wordPattern(term),
   ]);
+  for (const spelling of CASE_SENSITIVE_BRANDS.values()) {
+    brandPatterns.push([
+      spelling,
+      new RegExp(`(?<![\\p{L}\\p{N}])${spelling}(?![\\p{L}\\p{N}])`, "u"),
+    ]);
+  }
 
   const faqAndSeoStrings = [
     ...(content.faqs ?? []).flatMap((faq, i) =>
@@ -441,7 +492,11 @@ for (const sector of sectorsWithGuides) {
       .filter(([, value]) => typeof value === "string")
       .map(([key, value]) => [`seo.${key}`, value]),
   ];
-  const textToScan = [...strings, ...faqAndSeoStrings];
+  const heroStrings = Object.entries(content.hero ?? {}).map(([key, value]) => [
+    `hero.${key}`,
+    value,
+  ]);
+  const textToScan = [...strings, ...heroStrings, ...faqAndSeoStrings];
 
   const brandHits = [];
   for (const [path, value] of textToScan) {
@@ -450,15 +505,17 @@ for (const sector of sectorsWithGuides) {
     }
   }
   report(
-    `no manufacturer/brand identity in guide, FAQ or SEO text (${brandPatterns.length} terms)`,
+    `no manufacturer/brand identity in guide, hero, FAQ or SEO text (${brandPatterns.length} terms)`,
     brandHits.length === 0,
     brandHits.slice(0, 10).join("; "),
   );
 
   // --- No numeric specifications -------------------------------------------
-  const digitHits = strings.filter(([, value]) => /[0-9٠-٩۰-۹]/.test(value));
+  const digitHits = [...strings, ...heroStrings].filter(([, value]) =>
+    /[0-9٠-٩۰-۹]/.test(value),
+  );
   report(
-    "no digits in rendered guide text (no invented numeric specifications)",
+    "no digits in rendered guide or hero text (no invented numeric specifications)",
     digitHits.length === 0,
     digitHits
       .slice(0, 10)
@@ -468,8 +525,12 @@ for (const sector of sectorsWithGuides) {
 
   // --- Prohibited claims and marketing language -----------------------------
   const claimHits = [];
+  const claimPatterns = [
+    ...PROHIBITED_CLAIMS,
+    ...(SECTOR_PROHIBITED_CLAIMS[sector.slug] ?? []),
+  ];
   for (const [path, value] of textToScan) {
-    for (const pattern of PROHIBITED_CLAIMS) {
+    for (const pattern of claimPatterns) {
       if (pattern.test(value)) claimHits.push(`${path} matches ${pattern}`);
     }
   }
