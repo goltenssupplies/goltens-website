@@ -174,6 +174,39 @@ const SECTOR_PROHIBITED_CLAIMS = {
     /مقاومة? للانفجار/,
     /شهاد(?:ة|ات)|اعتماد/,
   ],
+  // Electrical & energy: equipment supply only, quoted against the
+  // customer's own documents. Legitimate RFQ inputs (voltage, current,
+  // frequency, phase, power, IP rating, voltage class, load schedule,
+  // single-line diagram, BOQ) stay allowed; standards, approvals, design /
+  // installation / commissioning / maintenance services, package-delivery
+  // wording, stock and delivery promises, superlatives, hazardous-area
+  // lighting and the rejected Arabic terms do not.
+  "electrical-energy": [
+    /\b(?:IEC|ISO|IEEE|UL|CE|NFPA|ATEX|IECEx|NEMA|ANSI|DIN|ASTM)\b/,
+    /\bapprov/i,
+    /\bEPC\b|\bturnkey\b|\bcommissioning\b/i,
+    /\binstallation (?:services?|works?|contract)|\binstaller\b|\bwe install\b/i,
+    /\b(?:we|GOLTENS) (?:design|designs|size|sizes|calculate|calculates|certify|certifies)\b/i,
+    /\bdesign services?\b|\bengineering (?:services?|design|consultan)/i,
+    /\bmaintenance\b/i,
+    /complete electrical package|fully coordinated|single source for/i,
+    /\bguarantee/i,
+    /\btrusted\b|\breliable\b/i,
+    /\bin stock\b|\bex[- ]stock\b/i,
+    /\bimmediate(?:ly)? (?:delivery|available|availability|dispatch)\b/i,
+    /\bexplosion[- ]proof\b|\bhazardous[- ]area\b/i,
+    /المفاتيح الكهربائية/,
+    /عاكسات?/,
+    /القضبان الناقلة/,
+    /مضمون/,
+    /موثوق/,
+    /أصلي/,
+    /شهاد(?:ة|ات)|اعتماد/,
+    /تسليم (?:ال)?مفتاح/,
+    /الصيانة/,
+    /التشغيل التجريبي/,
+    /مقاومة? للانفجار|المناطق الخطرة/,
+  ],
 };
 
 // Sector-specific structure rules, checked in addition to the shared ones.
@@ -200,6 +233,51 @@ const SECTOR_POLICIES = {
     requireReplacement: true,
     requireSecondaryChecklist: true,
     linkedProductsNonPublic: true,
+  },
+  "electrical-energy": {
+    categoryCounts: {
+      "switchgear-distribution": 8,
+      "standby-power-systems": 5,
+      "industrial-lighting-solar": 4,
+    },
+    totalGuides: 17,
+    applicationRows: 10,
+    forbiddenGuideIds: ["explosion-proof-lighting", "hazardous-area-lighting"],
+    forbiddenLinkedProductIds: ["explosion-proof-lighting"],
+    heroVisual: "neutral",
+    availability: { en: "Available on request.", ar: "متاح حسب الطلب." },
+    requireReplacement: true,
+    requireSecondaryChecklist: true,
+    linkedProductsNonPublic: true,
+    sectorProductsNonPublic: true,
+    // Record-less supply categories: no linked record, and no invented
+    // specifications (units, ratings or model wording) in their text.
+    recordlessGuideIds: [
+      "distribution-transformers",
+      "power-cables-cable-management",
+      "circuit-breakers-protection-devices",
+    ],
+    recordlessForbidden: [
+      /\b(?:kVA|MVA|kV|kW|MW|kA|mm²|mm2|AWG|Hz)\b/i,
+      /\bmodel(?:s)? [A-Z0-9]/,
+      /\bseries\b/i,
+    ],
+    // Replacement guidance only for the approved families.
+    replacementGroups_en: [
+      "All equipment",
+      "Generator sets & transfer switches",
+      "UPS, stabilizers & chargers",
+      "Sub-distribution boards",
+      "Industrial & high-mast lighting",
+    ],
+    replacementForbidden: [
+      /medium[- ]voltage|ring main|\bRMU\b|main low[- ]voltage|transformer|busbar|cable(?! entry)|circuit breaker|solar|energy storage|BESS/i,
+      /الجهد المتوسط|الحلقة الرئيسية|اللوحات? الرئيسية|محولات? التوزيع|مجاري القضبان|كابلات القوى|القواطع وأجهزة|الطاقة الشمسية|تخزين الطاقة/,
+    ],
+    // Primary Arabic names: no market synonym or rejected term as the name.
+    primaryNameForbidden_ar: [
+      /جنريتور|ستابلايزر|يو بي إس|باص داكت|هاي ماست|كشافات هاي باي|خلايا ميديم|إنفرتر$/,
+    ],
   },
 };
 
@@ -617,6 +695,87 @@ for (const sector of sectorsWithGuides) {
       !policy.linkedProductsNonPublic || publicLinks.length === 0,
       publicLinks.map((p) => p.id).join(", "),
     );
+    if (policy.applicationRows !== undefined) {
+      report(
+        `exactly ${policy.applicationRows} application rows`,
+        guide.projects.length === policy.applicationRows,
+        `${guide.projects.length}`,
+      );
+    }
+    if (policy.sectorProductsNonPublic) {
+      const publicRecords = getProductsBySector(sector.id).filter((p) =>
+        hasPublicIdentity(p),
+      );
+      report(
+        "no product record of this sector has a public identity",
+        publicRecords.length === 0,
+        publicRecords.map((p) => p.id).join(", "),
+      );
+    }
+    if (policy.recordlessGuideIds) {
+      const unlinked = equipment.filter((e) => !e.linkedProductId);
+      const unexpected = unlinked.filter(
+        (e) => !policy.recordlessGuideIds.includes(e.id),
+      );
+      report(
+        "only the approved record-less guides have no linked record",
+        unexpected.length === 0 &&
+          policy.recordlessGuideIds.every((id) =>
+            unlinked.some((e) => e.id === id),
+          ),
+        unexpected.map((e) => e.id).join(", "),
+      );
+      const inventedSpecs = [];
+      for (const e of unlinked) {
+        for (const [path, value] of strings.filter(([p]) =>
+          p.startsWith(`equipment.${e.id}.`),
+        )) {
+          for (const pattern of policy.recordlessForbidden) {
+            if (pattern.test(value))
+              inventedSpecs.push(`${path} matches ${pattern}`);
+          }
+        }
+      }
+      report(
+        "record-less guides carry no invented specifications",
+        inventedSpecs.length === 0,
+        inventedSpecs.slice(0, 5).join("; "),
+      );
+    }
+    if (policy.replacementGroups_en && guide.replacement) {
+      const titles = guide.replacement.groups.map((g) => g.title_en);
+      const extra = titles.filter(
+        (t) => !policy.replacementGroups_en.includes(t),
+      );
+      const replacementText = strings.filter(
+        ([p]) =>
+          p.startsWith("replacement.groups") ||
+          p.startsWith("replacement.flow"),
+      );
+      const excludedHits = [];
+      for (const [path, value] of replacementText) {
+        for (const pattern of policy.replacementForbidden) {
+          if (pattern.test(value)) excludedHits.push(`${path}: "${value}"`);
+        }
+      }
+      report(
+        "replacement guidance covers only the approved families",
+        extra.length === 0 && excludedHits.length === 0,
+        [...extra, ...excludedHits].slice(0, 5).join("; "),
+      );
+    }
+    if (policy.primaryNameForbidden_ar) {
+      const badNames = equipment.filter((e) =>
+        policy.primaryNameForbidden_ar.some((pattern) =>
+          pattern.test(e.name_ar),
+        ),
+      );
+      report(
+        "Arabic primary names use the approved technical terms",
+        badNames.length === 0,
+        badNames.map((e) => `${e.id}: ${e.name_ar}`).join("; "),
+      );
+    }
   }
 
   // --- Images ---------------------------------------------------------------
