@@ -24,6 +24,11 @@
  *     customs, stock claims, …), sector-specific claims (no used vehicles
  *     for commercial vehicles) and generic marketing superlatives
  *   - an image path that doesn't exist, or an image without EN/AR alt text
+ *   - a breach of the sector's own policy (`SECTOR_POLICIES`: exact guide
+ *     and application counts, excluded guides / families, replacement
+ *     scope, FAQ count, no generic sections, non-public records, …)
+ * Exact customer-input / disclaimer phrases listed per sector in
+ * `SECTOR_ALLOWED_PHRASES` are removed before the claim patterns run.
  * Reports (without failing) every entry whose technical or Arabic review is
  * not yet "verified". Pass `--require-verified` to make that a failure too.
  *
@@ -207,6 +212,74 @@ const SECTOR_PROHIBITED_CLAIMS = {
     /التشغيل التجريبي/,
     /مقاومة? للانفجار|المناطق الخطرة/,
   ],
+  // Fire protection: equipment supply only, against the customer's or
+  // consultant's documents. GOLTENS never designs, sizes, calculates,
+  // certifies, approves, lists, installs, tests, commissions or maintains,
+  // and makes no system-package, trust, stock, delivery, support or
+  // authority claims. Special-hazard suppression (clean agent, CO2, foam,
+  // gas suppression) is out of scope. The few legitimate customer-input
+  // and disclaimer uses of these words are exact phrases in
+  // `SECTOR_ALLOWED_PHRASES` below — nothing else is exempt.
+  "fire-protection": [
+    /\bcertif/i,
+    /\bapprov/i,
+    /\blist(?:ed|ing)\b/i,
+    /\bcomplete (?:fire protection|systems?|solutions?|packages?)\b/i,
+    /\bsolutions?\b/i,
+    /\btrusted\b|\breliable\b|\bguarantee/i,
+    /technical support|supplier network|sourcing network/i,
+    /\b(?:in |ex[- ])?stock(?:ed|s)?\b/i,
+    /\bimmediate(?:ly)? (?:delivery|available|availability|dispatch)\b/i,
+    /\bdesign/i,
+    /\bsizing\b|\b(?:we|GOLTENS) size/i,
+    /\bcalculat/i,
+    /fire strategy/i,
+    /\binstall/i,
+    /\btest/i,
+    /\bcommission/i,
+    /\bmaintenance\b|\bmaintain(?:s|ing)?\b/i,
+    /authority approval|civil defen[cs]e/i,
+    /\b(?:NFPA|UL|FM|LPCB|VdS|EN|BS|ISO|CE|IEC)\b/,
+    /clean[- ]agent|FM-?200|NOVEC|\bHFC\b|\bFK-|gas suppression|special[- ]hazard|\bCO2\b|suppression/i,
+    /\bfoam (?:systems?|suppression|concentrates?)\b/i,
+    /project references?|completed projects?|our projects|projects we serve/i,
+    /technical catalogues?|coming soon/i,
+    /تصميم|حساب|تركيب|اختبار|تشغيل تجريبي|صيانة/,
+    /شهاد(?:ة|ات)|اعتماد|معتمد/,
+    /مضمون|موثوق|أصلي/,
+    /مخزن|المخزون|فوري/,
+    /الدفاع المدني/,
+    /الدعم الفني/,
+    /حلول|متكامل/,
+    /وكيل|موزع/,
+    /صمام/,
+    /الإخماد|الغاز النظيف|أنظمة (?:الإطفاء|الإخماد) (?:بالغاز|بثاني|بالرغوة)|أنظمة الرغوة/,
+    /مشروعات (?:سابقة|منفذة)|مراجع المشروعات/,
+    /الكتالوجات الفنية|قريبًا/,
+  ],
+};
+
+// Exact customer-input and scope-disclaimer phrases that may contain an
+// otherwise prohibited word (e.g. "approved project documentation",
+// "installation location", the "remain with the customer…" disclaimer).
+// They are removed from a string before the claim patterns run, so the
+// same word anywhere else still fails. Only for the sector listed.
+const SECTOR_ALLOWED_PHRASES = {
+  "fire-protection": [
+    "customer or consultant-approved documentation",
+    "approved project documentation",
+    "listing / approval criteria",
+    "listing or approval requirements",
+    "installation location",
+    "Does GOLTENS design or calculate fire protection systems?",
+    "System design, calculations, installation, testing, commissioning and final acceptance remain with the customer, consultant, contractor or responsible authority, as applicable.",
+    "المستندات المعتمدة من العميل أو الاستشاري",
+    "مستندات المشروع المعتمدة",
+    "متطلبات الإدراج أو الاعتماد",
+    "موقع التركيب",
+    "هل تقوم GOLTENS بتصميم أنظمة مكافحة الحريق أو إجراء حساباتها؟",
+    "ويظل تصميم النظام وحساباته وتركيبه واختباره وتشغيله وقبوله النهائي من مسؤولية العميل أو الاستشاري أو المقاول أو الجهة المسؤولة، بحسب الحالة.",
+  ],
 };
 
 // Sector-specific structure rules, checked in addition to the shared ones.
@@ -278,6 +351,67 @@ const SECTOR_POLICIES = {
     primaryNameForbidden_ar: [
       /جنريتور|ستابلايزر|يو بي إس|باص داكت|هاي ماست|كشافات هاي باي|خلايا ميديم|إنفرتر$/,
     ],
+  },
+  "fire-protection": {
+    categoryCounts: {
+      "fire-pumps": 4,
+      valves: 6,
+      sprinklers: 5,
+      "fire-alarm": 6,
+    },
+    totalGuides: 21,
+    applicationRows: 10,
+    // Special-hazard suppression is excluded from this version: no guide,
+    // no family and no link to its records.
+    forbiddenGuideIds: [
+      "clean-agent-systems",
+      "clean-agent-suppression-systems",
+      "fm200",
+      "fm-200",
+      "novec-1230",
+      "gas-suppression",
+      "co2-systems",
+      "co2-suppression-systems",
+      "foam-systems",
+      "special-hazard-suppression",
+    ],
+    forbiddenLinkedProductIds: [
+      "fm200",
+      "novec-1230",
+      "gas-suppression",
+      "co2-systems",
+      "foam-systems",
+    ],
+    forbiddenCategoryIds: ["fm200", "suppression-systems"],
+    heroVisual: "neutral",
+    availability: { en: "Available on request.", ar: "متاح حسب الطلب." },
+    requireReplacement: true,
+    requireSecondaryChecklist: true,
+    linkedProductsNonPublic: true,
+    sectorProductsNonPublic: true,
+    requireHero: true,
+    faqCount: 8,
+    // No About / Industries / Advantages / Technical Catalogues / Projects /
+    // How We Work sections on the guide page.
+    noGenericSections: true,
+    // The sector's own `data/sectors.ts` title, subtitle and description
+    // (H1, cards, Service structured data) obey the same claim rules.
+    scanSectorRecord: true,
+    // Replacement guidance only for the approved families — never pumps,
+    // controllers, drivers, fire alarm panels, detectors or sprinklers.
+    replacementGroups_en: [
+      "All equipment",
+      "Valves & hydrants",
+      "Hose reels, hoses & cabinets",
+      "Portable fire extinguishers",
+      "Emergency lighting & exit signs",
+    ],
+    replacementForbidden: [
+      /pump|controller|driver|alarm panel|control panel|detector|sprinkler/i,
+      /مضخ|محرك|لوحات? (?:التحكم|إنذار)|كواشف|كاشف|رشاش/,
+    ],
+    // Fire protection valves are «محابس» — never «صمامات» as the name.
+    primaryNameForbidden_ar: [/صمام/],
   },
 };
 
@@ -776,6 +910,50 @@ for (const sector of sectorsWithGuides) {
         badNames.map((e) => `${e.id}: ${e.name_ar}`).join("; "),
       );
     }
+    if (policy.forbiddenCategoryIds) {
+      const hits = categoryIds.filter((id) =>
+        policy.forbiddenCategoryIds.includes(id),
+      );
+      report(
+        `no excluded family (${policy.forbiddenCategoryIds.join(", ")})`,
+        hits.length === 0,
+        hits.join(", "),
+      );
+    }
+    if (policy.requireHero) {
+      report(
+        "sector hero copy is overridden on the guide page",
+        Boolean(content.hero) &&
+          ["subtitle_en", "subtitle_ar", "description_en", "description_ar"]
+            .map((key) => content.hero[key])
+            .every(isNonEmptyString),
+      );
+    }
+    if (policy.faqCount !== undefined) {
+      report(
+        `exactly ${policy.faqCount} FAQs`,
+        (content.faqs ?? []).length === policy.faqCount,
+        `${(content.faqs ?? []).length}`,
+      );
+    }
+    if (policy.noGenericSections) {
+      const present = [
+        "about",
+        "applications",
+        "advantages",
+        "catalogues",
+        "projects",
+        "howWeWork",
+      ].filter((key) => content[key] !== undefined);
+      // `articles` is not checked: `getSectorContent` always derives it from
+      // the Knowledge Center for the legacy article routes, and the sector
+      // page never renders it.
+      report(
+        "no generic About / Industries / Advantages / Catalogues / Projects / How We Work content",
+        present.length === 0,
+        present.join(", "),
+      );
+    }
   }
 
   // --- Images ---------------------------------------------------------------
@@ -843,7 +1021,24 @@ for (const sector of sectorsWithGuides) {
     `hero.${key}`,
     value,
   ]);
-  const textToScan = [...strings, ...heroStrings, ...faqAndSeoStrings];
+  const sectorRecordStrings = policy?.scanSectorRecord
+    ? [
+        "title_en",
+        "title_ar",
+        "subtitle_en",
+        "subtitle_ar",
+        "description_en",
+        "description_ar",
+      ]
+        .filter((key) => typeof sector[key] === "string")
+        .map((key) => [`sectors.${key}`, sector[key]])
+    : [];
+  const textToScan = [
+    ...strings,
+    ...heroStrings,
+    ...faqAndSeoStrings,
+    ...sectorRecordStrings,
+  ];
 
   const brandHits = [];
   for (const [path, value] of textToScan) {
@@ -876,9 +1071,14 @@ for (const sector of sectorsWithGuides) {
     ...PROHIBITED_CLAIMS,
     ...(SECTOR_PROHIBITED_CLAIMS[sector.slug] ?? []),
   ];
+  const allowedPhrases = SECTOR_ALLOWED_PHRASES[sector.slug] ?? [];
   for (const [path, value] of textToScan) {
+    const scanned = allowedPhrases.reduce(
+      (text, phrase) => text.split(phrase).join(" "),
+      value,
+    );
     for (const pattern of claimPatterns) {
-      if (pattern.test(value)) claimHits.push(`${path} matches ${pattern}`);
+      if (pattern.test(scanned)) claimHits.push(`${path} matches ${pattern}`);
     }
   }
   report(
