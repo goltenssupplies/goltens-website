@@ -23,8 +23,8 @@
       "description": "Contact GOLTENS GENERAL SUPPLIES for professional supply solutions for government, industrial, and commercial projects across Egypt."
     },
     "about": {
-      "title": "About Us",
-      "description": "Learn about GOLTENS GENERAL SUPPLIES, your trusted partner for general supplies and procurement serving government, industrial, healthcare, and educational organizations across Egypt."
+      "title": "About GOLTENS General Supplies",
+      "description": "GOLTENS General Supplies is an Egyptian general-supplies and procurement company supplying products and equipment according to customer specifications, BOQs and project or tender requirements."
     },
     "sectors": {
       "title": "Procurement Sectors",
@@ -621,75 +621,138 @@
   },
   "about": {
     "eyebrow": "About Us",
-    "title": "Your Trusted Partner in Industrial & Government Procurement",
-    "description": "GOLTENS GENERAL SUPPLIES is an Egyptian procurement company supplying general supplies and equipment, serving government entities, industrial, healthcare, and educational organizations, and the private sector across Egypt.",
-    "storyTitle": "Our Story",
-    "storyParagraphs": [
-      "GOLTENS GENERAL SUPPLIES was founded to be a trusted link between projects in Egypt and the world's leading manufacturers and suppliers, through a supply network covering industrial chemicals, fire-fighting equipment, pumps, industrial oils, commercial vehicles, and heavy equipment.",
-      "We work with government entities, universities, hospitals, industrial companies, and contractors, and in every procurement process we hold quality, authenticity, and speed of execution as priorities, backed by technical support before and after the sale."
+    "title": "About GOLTENS General Supplies",
+    "description": "GOLTENS General Supplies is an Egyptian general-supplies and procurement company. We supply products and equipment according to customer specifications, BOQs and project or tender requirements.",
+    "primaryCta": "Request a Quotation",
+    "secondaryCta": "View Procurement Sectors",
+    "profileTitle": "Who We Are",
+    "profileParagraphs": [
+      "GOLTENS General Supplies supplies industrial equipment and general supplies to organizations in Egypt. Each request is handled against the requirement the customer provides — a technical specification, a BOQ, an equipment list or a project or tender requirement.",
+      "Our scope is organized into published procurement sectors, from industrial equipment and fire protection to electrical equipment, healthcare supplies, construction materials and general supplies. Each sector page describes its scope of supply."
     ],
+    "contextsTitle": "Typical procurement contexts",
+    "contexts": [
+      "Government entities",
+      "Industrial facilities",
+      "Healthcare facilities",
+      "Educational institutions",
+      "Contractors",
+      "Private-sector projects"
+    ],
+    "processTitle": "How We Work",
+    "processIntro": "A document-driven process, from your requirement to supply.",
+    "processSteps": [
+      {
+        "title": "Requirement",
+        "description": "You send the requirement — item description, specification, BOQ or equipment list, quantity and delivery location."
+      },
+      {
+        "title": "Document & Specification Review",
+        "description": "We review the information you provide and ask for anything missing that is needed to define the items."
+      },
+      {
+        "title": "Sourcing",
+        "description": "We source items that match the stated requirement — or, where you accept one, a technically suitable alternative."
+      },
+      {
+        "title": "Quotation",
+        "description": "You receive a quotation prepared against your stated requirement, showing the offered items, availability and lead time."
+      },
+      {
+        "title": "Supply",
+        "description": "Once the order is confirmed, the items are supplied as agreed in the quotation. Final technical acceptance remains with the customer or consultant, where applicable."
+      }
+    ],
+    "scopeTitle": "What We Supply",
+    "scopeIntro": "Our published procurement sectors. Each sector page describes its scope of supply.",
+    "scopeItems": {
+      "government-procurement": {
+        "title": "Government Procurement",
+        "description": "General supplies and equipment for public-sector requirements."
+      },
+      "industrial-equipment": {
+        "title": "Industrial Equipment & Pumps",
+        "description": "Pumps, valves and compressed-air equipment."
+      },
+      "fire-protection": {
+        "title": "Fire Protection Equipment",
+        "description": "Fire pumps, valves, sprinklers, detection and alarm, and emergency lighting."
+      },
+      "electrical-energy": {
+        "title": "Electrical & Energy Equipment",
+        "description": "Switchgear, standby power, lighting and solar equipment."
+      },
+      "heavy-equipment": {
+        "title": "Heavy Equipment & Machinery",
+        "description": "Earthmoving, lifting and material-handling equipment."
+      },
+      "commercial-vehicles": {
+        "title": "Commercial Vehicles",
+        "description": "Trucks, vans, trailers and specialized vehicles."
+      },
+      "healthcare": {
+        "title": "Hospital Equipment & Medical Supplies",
+        "description": "Hospital equipment, furniture and medical consumables."
+      },
+      "industrial-chemicals": {
+        "title": "Industrial Chemicals",
+        "description": "Industrial chemicals and laboratory reagents to specification."
+      },
+      "construction": {
+        "title": "Construction & Infrastructure",
+        "description": "Materials and equipment for construction and infrastructure projects."
+      },
+      "lubricants-oils": {
+        "title": "Lubricants & Oils",
+        "description": "Industrial and automotive lubricants, oils and greases."
+      },
+      "global-sourcing": {
+        "title": "Global Sourcing",
+        "description": "Hard-to-find or non-standard items sourced against your specification."
+      }
+    },
+    "boqTitle": "BOQs & Tender Requirements",
+    "boqIntro": "Quotations can be prepared against the information you provide, such as:",
+    "boqItems": [
+      "Bill of quantities (BOQ)",
+      "Technical specification",
+      "Equipment or item description",
+      "Model or part number, when available",
+      "Quantity",
+      "Required delivery location",
+      "Project or tender reference",
+      "Customer or consultant requirements"
+    ],
+    "boqNote": "Listing, approval, certification or compliance requirements are set by the customer or consultant. State them in your request so the quotation can address them.",
+    "commitmentsTitle": "Our Commitments",
+    "commitments": [
+      {
+        "title": "Quotations aligned with the stated requirement",
+        "description": "Each quotation is prepared against the specification, BOQ or item list you provide."
+      },
+      {
+        "title": "Offered items and relevant information stated clearly",
+        "description": "The quotation identifies what is offered, so it can be reviewed against your requirement."
+      },
+      {
+        "title": "Availability and lead time stated per quotation",
+        "description": "Availability and lead time depend on the item and are confirmed in each quotation."
+      },
+      {
+        "title": "One clear point of contact for each request",
+        "description": "Each procurement request has one contact for questions and follow-up."
+      }
+    ],
+    "independenceTitle": "An Independent Procurement Company",
+    "independenceText": "GOLTENS is an independent procurement and general-supplies company. References to manufacturers or brands in procurement materials do not by themselves indicate an authorized distributorship or agency relationship unless explicitly stated.",
     "missionTitle": "Our Mission",
-    "missionText": "To deliver reliable, fast procurement solutions that connect Egypt's projects with the world's leading manufacturers, upholding the highest standards of quality and professionalism at every stage.",
+    "missionText": "To respond to procurement requirements with clear quotations, source items according to the stated specifications, and carry out supply in a practical, organized way.",
     "visionTitle": "Our Vision",
-    "visionText": "To be the leading, most trusted procurement partner for industrial and government projects in Egypt and the region.",
-    "valuesTitle": "Our Values",
-    "values": [
-      {
-        "title": "Quality & Authenticity",
-        "description": "We supply only genuine products from trusted global brands."
-      },
-      {
-        "title": "Reliability & Commitment",
-        "description": "Full commitment to agreed timelines and specifications on every project."
-      },
-      {
-        "title": "Technical Expertise",
-        "description": "A specialized team that understands the requirements of industrial, government, and healthcare sectors."
-      },
-      {
-        "title": "Comprehensive Coverage",
-        "description": "Fast delivery covering every region and governorate of Egypt."
-      }
-    ],
-    "whyTitle": "Why GOLTENS?",
-    "whyIntro": "What sets our procurement partnership apart.",
-    "whyPoints": [
-      {
-        "title": "A Certified Global Network",
-        "description": "Direct sourcing channels with certified international manufacturers and suppliers."
-      },
-      {
-        "title": "Support Before & After Sale",
-        "description": "Technical guidance at every stage, from specification to after-sales support."
-      },
-      {
-        "title": "On-Time Execution",
-        "description": "Reliable lead times and fast delivery, project after project."
-      },
-      {
-        "title": "Sector Expertise",
-        "description": "Deep experience in government, industrial, and institutional procurement."
-      }
-    ],
-    "qualityTitle": "Our Commitment to Quality",
-    "qualityIntro": "Every shipment is measured against the same standard, regardless of project size.",
-    "qualityPoints": [
-      {
-        "title": "Genuine, Certified Products",
-        "description": "Sourced through GOLTENS' trusted international supplier network."
-      },
-      {
-        "title": "Quality Assurance",
-        "description": "Every order is checked against your technical specifications before it ships."
-      },
-      {
-        "title": "Full Technical Support",
-        "description": "Our engineering team is available before and after every order."
-      }
-    ],
-    "servedTitle": "Industries We Serve",
-    "ctaTitle": "Have a question about our services?",
-    "ctaButton": "Contact Us"
+    "visionText": "To grow as a well-organized procurement company that organizations in Egypt can turn to for specification-based supply and clear communication.",
+    "ctaTitle": "Have a procurement requirement?",
+    "ctaText": "Send your specification, BOQ or item list and our team will prepare a quotation against it.",
+    "ctaPrimary": "Request a Quotation",
+    "ctaSecondary": "Send Your Requirement"
   },
   "contact": {
     "eyebrow": "Get in Touch",
