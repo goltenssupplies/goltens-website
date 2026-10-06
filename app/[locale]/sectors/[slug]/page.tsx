@@ -60,7 +60,7 @@ import {
 } from "@/data/product-categories";
 import { getProductById, getProductsBySector } from "@/data/products";
 import { getSectorContent } from "@/data/sector-content";
-import { governmentProcurementPage } from "@/data/sector-content/government-procurement-guide";
+import { getCompactGuidePage } from "@/data/sector-content/compact-guide-page";
 import type { SectorEquipmentGuide as SectorEquipmentGuideData } from "@/data/sector-content/types";
 import { getSectorBySlug, getSortedSectors, SECTORS } from "@/data/sectors";
 import { Link } from "@/i18n/navigation";
@@ -86,8 +86,6 @@ const REQUEST_QUOTE_ANCHOR = "request-quote";
 const PROJECT_MATRIX_ANCHOR = "equipment-by-project";
 const QUOTATION_CHECKLIST_ANCHOR = "quotation-checklist";
 const REPLACEMENT_ANCHOR = "replacing-existing-equipment";
-/** Government Procurement only — see `GovernmentProcurementGuideLayout`. */
-const GOVERNMENT_PROCUREMENT_SLUG = "government-procurement";
 const ROUTING_ANCHOR = "other-sector-requirements";
 /** Anchor of one routing entry, e.g. `route-electrical-energy`. */
 const routeAnchor = (sectorSlug: string) => `route-${sectorSlug}`;
@@ -510,12 +508,13 @@ export default async function SectorPage({ params }: SectorPageProps) {
   // treatment and the Footer keeps its sitewide default.
   const heroVisual = content.equipmentGuide?.heroVisual ?? "photo";
 
-  // Government Procurement's own page extras (hero secondary CTA, routing,
+  // A sector registered in `data/sector-content/compact-guide-page.ts`
+  // (Government Procurement, Construction) renders its guide in the compact
+  // layout, with its own page extras (hero secondary CTA, routing,
   // compact-layout labels) — `null` for every other sector.
-  const gpPage =
-    slug === GOVERNMENT_PROCUREMENT_SLUG && content.equipmentGuide
-      ? governmentProcurementPage
-      : null;
+  const compactPage = content.equipmentGuide
+    ? (getCompactGuidePage(slug) ?? null)
+    : null;
 
   // Shared by both layouts below (the generic sector layout and the
   // equipment-guide layout), so neither can drift from the other.
@@ -562,22 +561,22 @@ export default async function SectorPage({ params }: SectorPageProps) {
         sectorsLabel={tNav("sectors")}
         navLabel={tNav("sectors")}
         requestQuoteLabel={
-          gpPage
+          compactPage
             ? isArabic
-              ? gpPage.heroPrimaryCta_ar
-              : gpPage.heroPrimaryCta_en
+              ? compactPage.heroPrimaryCta_ar
+              : compactPage.heroPrimaryCta_en
             : t("heroRequestQuote")
         }
         requestQuoteHref={REQUEST_QUOTE_ANCHOR}
         secondaryCtaLabel={
-          gpPage
+          compactPage
             ? isArabic
-              ? gpPage.heroSecondaryCta.label_ar
-              : gpPage.heroSecondaryCta.label_en
+              ? compactPage.heroSecondaryCta.label_ar
+              : compactPage.heroSecondaryCta.label_en
             : undefined
         }
-        secondaryCtaHref={gpPage?.heroSecondaryCta.href}
-        secondaryCtaKind={gpPage ? "route" : undefined}
+        secondaryCtaHref={compactPage?.heroSecondaryCta.href}
+        secondaryCtaKind={compactPage ? "route" : undefined}
       />
     </>
   );
@@ -665,13 +664,13 @@ export default async function SectorPage({ params }: SectorPageProps) {
       />
     );
 
-    // Government Procurement: compact layout, and no shared Related
-    // Sectors block (its cards carry the other sectors' shared copy — the
-    // page's own cross-sector routing section replaces it).
-    if (gpPage) {
-      const gpLabels = gpPage.labels;
+    // Compact-layout sectors: no shared Related Sectors block (its cards
+    // carry the other sectors' shared copy — the page's own cross-sector
+    // routing section replaces it).
+    if (compactPage) {
+      const compactLabels = compactPage.labels;
       const pick = (en: string, ar: string) => (isArabic ? ar : en);
-      const routes = gpPage.routing.routes
+      const routes = compactPage.routing.routes
         .filter(
           (route) =>
             route.sectorSlug !== slug && getSectorBySlug(route.sectorSlug),
@@ -687,16 +686,22 @@ export default async function SectorPage({ params }: SectorPageProps) {
       return (
         <>
           {pageHead}
-          <GovernmentProcurementGuideLayout
+          <CompactGuideLayout
             guide={guide}
             routing={{
-              title: pick(gpPage.routing.title_en, gpPage.routing.title_ar),
-              intro: pick(gpPage.routing.intro_en, gpPage.routing.intro_ar),
+              title: pick(
+                compactPage.routing.title_en,
+                compactPage.routing.title_ar,
+              ),
+              intro: pick(
+                compactPage.routing.intro_en,
+                compactPage.routing.intro_ar,
+              ),
               routes,
             }}
             contextRows={guide.projectRows.map((row) => ({
               ...row,
-              routes: (gpPage.projectRoutes[row.id] ?? [])
+              routes: (compactPage.projectRoutes[row.id] ?? [])
                 .filter((routeSlug) => routeTitles.has(routeSlug))
                 .map((routeSlug) => ({
                   id: routeAnchor(routeSlug),
@@ -706,18 +711,18 @@ export default async function SectorPage({ params }: SectorPageProps) {
             labels={{
               jumpLinks: tGuide("jumpLinksLabel"),
               categoryNav: pick(
-                gpLabels.categoryNav_en,
-                gpLabels.categoryNav_ar,
+                compactLabels.categoryNav_en,
+                compactLabels.categoryNav_ar,
               ),
               contextItems: pick(
-                gpLabels.contextItems_en,
-                gpLabels.contextItems_ar,
+                compactLabels.contextItems_en,
+                compactLabels.contextItems_ar,
               ),
               contextRoutes: pick(
-                gpLabels.contextRoutes_en,
-                gpLabels.contextRoutes_ar,
+                compactLabels.contextRoutes_en,
+                compactLabels.contextRoutes_ar,
               ),
-              details: pick(gpLabels.details_en, gpLabels.details_ar),
+              details: pick(compactLabels.details_en, compactLabels.details_ar),
               whatItIs: tGuide("whatItIs"),
               usedFor: tGuide("usedFor"),
               applications: tGuide("applications"),
@@ -726,8 +731,8 @@ export default async function SectorPage({ params }: SectorPageProps) {
               requestChecklist: tGuide("requestChecklist"),
               related: tGuide("related"),
               replacementGroups: pick(
-                gpLabels.replacementGroups_en,
-                gpLabels.replacementGroups_ar,
+                compactLabels.replacementGroups_en,
+                compactLabels.replacementGroups_ar,
               ),
             }}
           />
@@ -948,7 +953,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
 type EquipmentGuideView = ReturnType<typeof buildEquipmentGuideView>;
 
-interface GovernmentProcurementGuideLayoutProps {
+interface CompactGuideLayoutProps {
   guide: EquipmentGuideView;
   routing: {
     title: string;
@@ -975,25 +980,26 @@ interface GovernmentProcurementGuideLayoutProps {
   };
 }
 
-const GP_LABEL_CLASS =
+const COMPACT_LABEL_CLASS =
   "text-ink-muted text-xs font-semibold tracking-wide uppercase rtl:tracking-normal";
-const GP_CHIP_CLASS =
+const COMPACT_CHIP_CLASS =
   "border-border text-ink hover:border-gold block rounded-sm border bg-white px-2 py-0.5 text-xs transition-colors";
 
 /**
- * Government Procurement only — a compact presentation of the same guide
- * data the shared equipment-guide layout renders: the twelve guides as
+ * Compact-layout sectors only (see `data/sector-content/compact-guide-page.ts`)
+ * — a compact presentation of the same guide data the shared
+ * equipment-guide layout renders: the guides as
  * short cards (name, summary, typical applications) whose descriptive
  * detail, selection considerations and quotation checklist sit in a native
  * `<details>` block, plus the page's own cross-sector routing section.
  * Every other sector keeps the shared layout below, unchanged.
  */
-function GovernmentProcurementGuideLayout({
+function CompactGuideLayout({
   guide,
   routing,
   contextRows,
   labels,
-}: GovernmentProcurementGuideLayoutProps) {
+}: CompactGuideLayoutProps) {
   return (
     <>
       <Section spacing="sm" background="canvas" className="py-8 sm:py-12">
@@ -1074,13 +1080,16 @@ function GovernmentProcurementGuideLayout({
                 <div className="flex flex-col gap-1.5 lg:justify-center">
                   {row.equipment.length > 0 && (
                     <div className="flex flex-wrap items-center gap-1.5">
-                      <span className={GP_LABEL_CLASS}>
+                      <span className={COMPACT_LABEL_CLASS}>
                         {labels.contextItems}
                       </span>
                       <ul className="contents">
                         {row.equipment.map((item) => (
                           <li key={item.id}>
-                            <a href={`#${item.id}`} className={GP_CHIP_CLASS}>
+                            <a
+                              href={`#${item.id}`}
+                              className={COMPACT_CHIP_CLASS}
+                            >
                               {item.label}
                             </a>
                           </li>
@@ -1090,13 +1099,16 @@ function GovernmentProcurementGuideLayout({
                   )}
                   {row.routes.length > 0 && (
                     <div className="flex flex-wrap items-center gap-1.5">
-                      <span className={GP_LABEL_CLASS}>
+                      <span className={COMPACT_LABEL_CLASS}>
                         {labels.contextRoutes}
                       </span>
                       <ul className="contents">
                         {row.routes.map((route) => (
                           <li key={route.id}>
-                            <a href={`#${route.id}`} className={GP_CHIP_CLASS}>
+                            <a
+                              href={`#${route.id}`}
+                              className={COMPACT_CHIP_CLASS}
+                            >
                               {route.label}
                             </a>
                           </li>
@@ -1120,7 +1132,7 @@ function GovernmentProcurementGuideLayout({
           }))}
         />
         {guide.categories.map((category) => (
-          <GovernmentProcurementFamily
+          <CompactGuideFamily
             key={category.id}
             category={category}
             labels={labels}
@@ -1206,7 +1218,9 @@ function GovernmentProcurementGuideLayout({
                 </QuotePrefillLink>
               </div>
               <div>
-                <p className={GP_LABEL_CLASS}>{guide.replacement.flowLabel}</p>
+                <p className={COMPACT_LABEL_CLASS}>
+                  {guide.replacement.flowLabel}
+                </p>
                 <ol className="mt-2 flex flex-wrap gap-1.5">
                   {guide.replacement.flow.map((step, index) => (
                     <li
@@ -1220,7 +1234,7 @@ function GovernmentProcurementGuideLayout({
                     </li>
                   ))}
                 </ol>
-                <p className={`${GP_LABEL_CLASS} mt-5`}>
+                <p className={`${COMPACT_LABEL_CLASS} mt-5`}>
                   {labels.replacementGroups}
                 </p>
                 <dl className="border-border divide-border mt-2 divide-y rounded-[12px] border bg-white">
@@ -1328,12 +1342,12 @@ function GovernmentProcurementGuideLayout({
   );
 }
 
-function GovernmentProcurementFamily({
+function CompactGuideFamily({
   category,
   labels,
 }: {
   category: EquipmentGuideView["categories"][number];
-  labels: GovernmentProcurementGuideLayoutProps["labels"];
+  labels: CompactGuideLayoutProps["labels"];
 }) {
   const Icon = category.icon;
   const availability = category.equipment[0]?.availability;
@@ -1374,7 +1388,7 @@ function GovernmentProcurementFamily({
         <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {category.equipment.map((item) => (
             <li key={item.id}>
-              <GovernmentProcurementGuideCard item={item} labels={labels} />
+              <CompactGuideCard item={item} labels={labels} />
             </li>
           ))}
         </ul>
@@ -1383,12 +1397,12 @@ function GovernmentProcurementFamily({
   );
 }
 
-function GovernmentProcurementGuideCard({
+function CompactGuideCard({
   item,
   labels,
 }: {
   item: EquipmentGuideView["categories"][number]["equipment"][number];
-  labels: GovernmentProcurementGuideLayoutProps["labels"];
+  labels: CompactGuideLayoutProps["labels"];
 }) {
   return (
     <article
@@ -1412,23 +1426,23 @@ function GovernmentProcurementGuideCard({
         </summary>
         <div className="mt-3 flex flex-col gap-3 text-sm">
           <div>
-            <p className={GP_LABEL_CLASS}>{labels.applications}</p>
+            <p className={COMPACT_LABEL_CLASS}>{labels.applications}</p>
             <p className="text-ink mt-1">{item.applications.join(" · ")}</p>
           </div>
           <div>
-            <p className={GP_LABEL_CLASS}>{labels.whatItIs}</p>
+            <p className={COMPACT_LABEL_CLASS}>{labels.whatItIs}</p>
             <p className="text-ink mt-1">{item.whatItIs}</p>
           </div>
           <div>
-            <p className={GP_LABEL_CLASS}>{labels.usedFor}</p>
+            <p className={COMPACT_LABEL_CLASS}>{labels.usedFor}</p>
             <p className="text-ink mt-1">{item.usedFor}</p>
           </div>
           <div>
-            <p className={GP_LABEL_CLASS}>{labels.industries}</p>
+            <p className={COMPACT_LABEL_CLASS}>{labels.industries}</p>
             <p className="text-ink mt-1">{item.industries.join(" · ")}</p>
           </div>
           <div>
-            <p className={GP_LABEL_CLASS}>{labels.selection}</p>
+            <p className={COMPACT_LABEL_CLASS}>{labels.selection}</p>
             <dl className="mt-1 flex flex-col gap-1.5">
               {item.selectionFactors.map((factor) => (
                 <div key={factor.factor}>
@@ -1439,7 +1453,7 @@ function GovernmentProcurementGuideCard({
             </dl>
           </div>
           <div>
-            <p className={GP_LABEL_CLASS}>{labels.requestChecklist}</p>
+            <p className={COMPACT_LABEL_CLASS}>{labels.requestChecklist}</p>
             <ul className="mt-1 flex flex-col gap-1">
               {item.requestChecklist.map((entry) => (
                 <li key={entry} className="text-ink flex items-start gap-2">
@@ -1454,11 +1468,11 @@ function GovernmentProcurementGuideCard({
           </div>
           {item.related.length > 0 && (
             <div>
-              <p className={GP_LABEL_CLASS}>{labels.related}</p>
+              <p className={COMPACT_LABEL_CLASS}>{labels.related}</p>
               <ul className="mt-1 flex flex-wrap gap-1.5">
                 {item.related.map((related) => (
                   <li key={related.id}>
-                    <a href={`#${related.id}`} className={GP_CHIP_CLASS}>
+                    <a href={`#${related.id}`} className={COMPACT_CHIP_CLASS}>
                       {related.label}
                     </a>
                   </li>
