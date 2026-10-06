@@ -26,7 +26,10 @@
  *   - an image path that doesn't exist, or an image without EN/AR alt text
  *   - a breach of the sector's own policy (`SECTOR_POLICIES`: exact guide
  *     and application counts, excluded guides / families, replacement
- *     scope, FAQ count, no generic sections, non-public records, …)
+ *     scope, FAQ count, no generic sections, non-public records, required
+ *     cross-sector routing, …)
+ *   - cross-sector routing entries that don't resolve to another real
+ *     sector, are duplicated, or a project route with no routing entry
  * Exact customer-input / disclaimer phrases listed per sector in
  * `SECTOR_ALLOWED_PHRASES` are removed before the claim patterns run.
  * Reports (without failing) every entry whose technical or Arabic review is
@@ -51,6 +54,17 @@ const { getProductById, getProductsBySector } = await load(
 );
 const { hasPublicIdentity } = await load("lib/products/public-product.ts");
 const { getActiveDenylistTerms } = await load("data/manufacturers/denylist.ts");
+const { governmentProcurementPage } = await load(
+  "data/sector-content/government-procurement-guide.ts",
+);
+
+// Sector-specific page extras rendered by a sector's own layout exception in
+// `app/[locale]/sectors/[slug]/page.tsx` (hero CTAs, cross-sector routing,
+// matrix route chips, compact-layout labels). Their text obeys the same
+// rules as the guide itself.
+const SECTOR_PAGE_EXTRAS = {
+  "government-procurement": governmentProcurementPage,
+};
 
 const REQUIRE_VERIFIED = process.argv.includes("--require-verified");
 const RESERVED_ANCHORS = new Set([
@@ -59,7 +73,11 @@ const RESERVED_ANCHORS = new Set([
   "equipment-by-project",
   "quotation-checklist",
   "replacing-existing-equipment",
+  "other-sector-requirements",
 ]);
+// Prefix of the page's generated cross-sector routing anchors
+// (`route-<sectorSlug>`) — no guide id may start with it.
+const RESERVED_ANCHOR_PREFIX = "route-";
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 // Brand-derived generic terms used in the Egyptian market — never used as
@@ -257,6 +275,40 @@ const SECTOR_PROHIBITED_CLAIMS = {
     /مشروعات (?:سابقة|منفذة)|مراجع المشروعات/,
     /الكتالوجات الفنية|قريبًا/,
   ],
+  // Government procurement: GOLTENS prepares a quotation against the
+  // customer's documents. No government affiliation, representation or
+  // supplier-status wording, no tender preparation / submission or award
+  // claims, no public-safety / law-enforcement scope, no compliance,
+  // certification or approval claims, no standards, no design /
+  // installation / testing / maintenance services, no package or trust
+  // wording and no stock or delivery promises. The few legitimate
+  // customer-input and disclaimer uses are exact phrases in
+  // `SECTOR_ALLOWED_PHRASES` below — nothing else is exempt.
+  "government-procurement": [
+    /\b(?:government|governmental|public[- ]sector|registered|approved|accredited|official|qualified|pre-?qualified|listed) (?:suppliers?|vendors?|contractors?|partners?)\b/i,
+    /\baffiliat|\bon behalf of\b|\brepresent/i,
+    /\bsubmi(?:t|ts|tted|tting|ssion)\b/i,
+    /\b(?:tender|bid) (?:preparation|management|services?|writing)\b|\bprepar\w* (?:the |your |tender )?(?:tenders?|bids?|documents?)\b/i,
+    /\bguarantee|\bwin(?:s|ning)?\b|\baward/i,
+    /law enforcement|\bpolice\b|\bmilitary\b|\barmed forces\b|\bdefen[cs]e\b|\bcourts?\b|\bprisons?\b/i,
+    /\bradios?\b|\brescue\b|\bPPE\b|protective equipment|\bemergency\b/i,
+    /\bcertif|\bapprov|\bcomplian|\bcomplies\b|\bcompliant\b/i,
+    /\b(?:ISO|IEC|EN|BS|UL|CE|NEMA|ONVIF|NDAA|ANSI|BIFMA|ASTM|DIN|IK|IP)\b/,
+    /\bdesign|\bcalculat|\binstall|\btest(?:s|ed|ing)?\b|\bcommission|\bmaintenance\b|\bmaintain/i,
+    /\bsolutions?\b|\bcomplete\b|\btrusted\b|\breliable\b|\bleading\b|single[- ]source|one[- ]stop|turnkey/i,
+    /\b(?:in |ex[- ])?stock(?:ed|s)?\b|\bimmediate/i,
+    /nationwide|across Egypt|all governorates/i,
+    /مورد (?:حكومي|معتمد|مسجل)|مسجلة? لدى|نيابة عن|تمثل|تمثيل|تابعة? للجهات/,
+    /تقديم العطاء|تقديم العطاءات|إعداد المناقصة|(?:إعداد|تقديم) (?:مستندات|وثائق) المناقصة|تقديمها/,
+    /مضمون|ترسية|الفوز/,
+    /الشرطة|عسكري|القوات المسلحة|المحاكم|السجون|الجمارك/,
+    /لاسلكي|إنقاذ|معدات الوقاية|الطوارئ/,
+    /شهاد(?:ة|ات)|اعتماد|معتمد|الالتزام بشروط|مطابقة? للمعايير/,
+    /تصميم|حساب|تركيب|اختبار|تشغيل تجريبي|صيانة/,
+    /حلول|متكامل|موثوق|مصدر واحد/,
+    /مخزن|المخزون|فوري/,
+    /جميع المحافظات|كافة أنحاء|جميع أنحاء/,
+  ],
 };
 
 // Exact customer-input and scope-disclaimer phrases that may contain an
@@ -279,6 +331,22 @@ const SECTOR_ALLOWED_PHRASES = {
     "موقع التركيب",
     "هل تقوم GOLTENS بتصميم أنظمة مكافحة الحريق أو إجراء حساباتها؟",
     "ويظل تصميم النظام وحساباته وتركيبه واختباره وتشغيله وقبوله النهائي من مسؤولية العميل أو الاستشاري أو المقاول أو الجهة المسؤولة، بحسب الحالة.",
+  ],
+  "government-procurement": [
+    "Does GOLTENS prepare or submit tender documents?",
+    "No. GOLTENS prepares a quotation based on customer-provided documents; it does not prepare or submit the tender itself.",
+    "Tender preparation, tender submission, compliance with tender conditions and final technical acceptance remain with the customer, bidder, consultant or contracting authority, as applicable.",
+    "What if the tender specifies a manufacturer or approved brand?",
+    "or the required or approved-brand list given in the tender",
+    "Required or approved-brand list, only if stated by the customer",
+    "Installation location as customer-provided information",
+    "هل تقوم GOLTENS بإعداد مستندات المناقصة أو تقديمها؟",
+    "لا، تُعد GOLTENS عرض السعر استنادًا إلى المستندات المقدمة من العميل، ولا تقوم بإعداد المناقصة أو تقديم العطاء.",
+    "بينما تظل مسؤولية إعداد المناقصة وتقديم العطاء والالتزام بشروط المناقصة والقبول الفني النهائي على عاتق العميل أو مقدم العرض أو الاستشاري أو الجهة المتعاقدة، بحسب الحالة.",
+    "ماذا لو حددت المناقصة مصنعًا معينًا أو علامة تجارية معتمدة؟",
+    "أو قائمة العلامات المطلوبة أو المعتمدة الواردة في المناقصة",
+    "قائمة العلامات المطلوبة أو المعتمدة إذا نص عليها العميل",
+    "موقع التركيب كبيانات مقدمة من العميل",
   ],
 };
 
@@ -413,6 +481,78 @@ const SECTOR_POLICIES = {
     // Fire protection valves are «محابس» — never «صمامات» as the name.
     primaryNameForbidden_ar: [/صمام/],
   },
+  "government-procurement": {
+    categoryCounts: {
+      "office-institutional-furniture": 5,
+      "security-public-safety": 4,
+      "public-lighting-power": 3,
+    },
+    totalGuides: 12,
+    applicationRows: 10,
+    // No public-safety / emergency-response, backup-power, UPS, generator
+    // or solar-plant guide — power and solar are routed to Electrical &
+    // Energy — and no link to the matching records.
+    forbiddenGuideIds: [
+      "public-safety-response-equipment",
+      "public-backup-power-systems",
+      "solar-power-public-facilities",
+      "backup-power-systems",
+      "ups-systems",
+      "diesel-generator-sets",
+      "solar-power-plants",
+    ],
+    forbiddenLinkedProductIds: [
+      "public-safety-response-equipment",
+      "public-backup-power-systems",
+      "solar-power-public-facilities",
+    ],
+    // Excluded item types may be routed to another sector, but never named
+    // as a guide or in a family's own text.
+    guideForbidden: [
+      /backup|generator|\bUPS\b|diesel|solar (?:power )?plant|photovoltaic|energy storage|\bradios?\b|rescue|emergency|protective equipment/i,
+      /مولد|احتياطي|محطات? (?:الإنتاج )?(?:ال)?شمسي|تخزين الطاقة|لاسلكي|إنقاذ|طوارئ|معدات الوقاية/,
+    ],
+    heroVisual: "neutral",
+    availability: { en: "Available on request.", ar: "متاح حسب الطلب." },
+    requireReplacement: true,
+    requireSecondaryChecklist: true,
+    linkedProductsNonPublic: true,
+    sectorProductsNonPublic: true,
+    requireHero: true,
+    faqCount: 8,
+    noGenericSections: true,
+    scanSectorRecord: true,
+    // No SEO keywords at all (the old list carried supplier-status wording).
+    noSeoKeywords: true,
+    // Replacement guidance only for furniture & storage, CCTV cameras,
+    // access readers, gate / barrier units, luminaires and traffic signal
+    // heads — never whole platforms, solar plants or backup power.
+    replacementGroups_en: [
+      "All items",
+      "Furniture & storage",
+      "Security devices",
+      "Luminaires & traffic signal heads",
+    ],
+    replacementForbidden: [
+      /video management|platform|solar plant|backup|generator|\bUPS\b/i,
+      /منصة|منصات|منظومات|محطات|الطاقة الاحتياطية|مولد/,
+    ],
+    // A real route, not an on-page anchor.
+    heroSecondaryCtaHref: "/sectors",
+    // Cross-sector routing to every sector a government BOQ commonly spans.
+    requireRouting: [
+      "industrial-equipment",
+      "electrical-energy",
+      "fire-protection",
+      "commercial-vehicles",
+      "heavy-equipment",
+      "healthcare",
+      "construction",
+      "global-sourcing",
+      "lubricants-oils",
+      "industrial-chemicals",
+    ],
+  },
 };
 
 let passed = 0;
@@ -440,8 +580,8 @@ function wordPattern(term) {
   );
 }
 
-/** Every rendered string of a guide, with a path for error messages. */
-function collectGuideStrings(guide) {
+/** Every rendered string of a guide (and its page extras), with a path for error messages. */
+function collectGuideStrings(guide, extras) {
   const out = [];
   const push = (path, value) => out.push([path, value]);
   for (const [key, value] of Object.entries(guide.intro)) {
@@ -547,6 +687,28 @@ function collectGuideStrings(guide) {
       pushGroup(`replacement.groups[${i}]`, group),
     );
   }
+  const routing = extras?.routing;
+  if (extras) {
+    for (const key of ["heroPrimaryCta_en", "heroPrimaryCta_ar"]) {
+      push(`extras.${key}`, extras[key]);
+    }
+    for (const key of ["label_en", "label_ar"]) {
+      push(`extras.heroSecondaryCta.${key}`, extras.heroSecondaryCta[key]);
+    }
+    for (const [key, value] of Object.entries(extras.labels)) {
+      push(`extras.labels.${key}`, value);
+    }
+  }
+  if (routing) {
+    for (const key of ["title_en", "title_ar", "intro_en", "intro_ar"]) {
+      push(`routing.${key}`, routing[key]);
+    }
+    for (const route of routing.routes) {
+      for (const key of ["title_en", "title_ar", "items_en", "items_ar"]) {
+        push(`routing.routes.${route.sectorSlug}.${key}`, route[key]);
+      }
+    }
+  }
   for (const [key, value] of Object.entries(guide.quote)) {
     push(`quote.${key}`, value);
   }
@@ -620,7 +782,9 @@ for (const sector of sectorsWithGuides) {
     duplicateAnchors.length === 0,
     duplicateAnchors.join(", "),
   );
-  const reservedHits = anchors.filter((id) => RESERVED_ANCHORS.has(id));
+  const reservedHits = anchors.filter(
+    (id) => RESERVED_ANCHORS.has(id) || id.startsWith(RESERVED_ANCHOR_PREFIX),
+  );
   report(
     "no anchor collides with a reserved page anchor (request-quote, …)",
     reservedHits.length === 0,
@@ -680,9 +844,44 @@ for (const sector of sectorsWithGuides) {
     badProjectRefs.length === 0,
     badProjectRefs.join(", "),
   );
+  const extras = SECTOR_PAGE_EXTRAS[sector.slug];
+  const projectRoutes = extras?.projectRoutes ?? {};
   report(
-    "every project lists at least one equipment type",
-    guide.projects.every((p) => p.equipmentIds.length > 0),
+    "every project lists at least one equipment type or routed sector",
+    guide.projects.every(
+      (p) =>
+        p.equipmentIds.length > 0 || (projectRoutes[p.id] ?? []).length > 0,
+    ),
+  );
+
+  // --- Cross-sector routing -------------------------------------------------
+  const routing = extras?.routing;
+  const routeSlugs = (routing?.routes ?? []).map((r) => r.sectorSlug);
+  if (routing) {
+    const badRoutes = routeSlugs.filter(
+      (slug, i) =>
+        !SECTORS.some((s) => s.slug === slug) ||
+        slug === sector.slug ||
+        routeSlugs.indexOf(slug) !== i,
+    );
+    report(
+      `every routing entry is another real sector, listed once (${routeSlugs.length} routes)`,
+      routeSlugs.length > 0 && badRoutes.length === 0,
+      badRoutes.join(", "),
+    );
+  }
+  const badProjectRoutes = Object.entries(projectRoutes).flatMap(
+    ([projectId, slugs]) =>
+      projectIds.includes(projectId)
+        ? slugs
+            .filter((slug) => !routeSlugs.includes(slug))
+            .map((slug) => `${projectId}→${slug}`)
+        : [`${projectId} (no such project)`],
+  );
+  report(
+    "every project route resolves to a routing entry",
+    badProjectRoutes.length === 0,
+    badProjectRoutes.join(", "),
   );
 
   // --- Linked products ------------------------------------------------------
@@ -711,7 +910,7 @@ for (const sector of sectorsWithGuides) {
   );
 
   // --- Completeness ---------------------------------------------------------
-  const strings = collectGuideStrings(guide);
+  const strings = collectGuideStrings(guide, extras);
   const emptyStrings = strings.filter(([, value]) => !isNonEmptyString(value));
   report(
     `no empty rendered string (${strings.length} checked)`,
@@ -797,7 +996,7 @@ for (const sector of sectorsWithGuides) {
         policy.forbiddenLinkedProductIds.includes(e.linkedProductId),
     );
     report(
-      "no guide for excluded records (relief valves, gas compressors, umbrella)",
+      `no guide for excluded records (${policy.forbiddenGuideIds.join(", ")})`,
       forbiddenGuides.length === 0,
       forbiddenGuides.map((e) => e.id).join(", "),
     );
@@ -920,6 +1119,39 @@ for (const sector of sectorsWithGuides) {
         hits.join(", "),
       );
     }
+    if (policy.heroSecondaryCtaHref !== undefined) {
+      report(
+        `hero secondary CTA links to ${policy.heroSecondaryCtaHref}`,
+        extras?.heroSecondaryCta?.href === policy.heroSecondaryCtaHref,
+        `${extras?.heroSecondaryCta?.href}`,
+      );
+    }
+    if (policy.requireRouting) {
+      const missing = policy.requireRouting.filter(
+        (slug) => !routeSlugs.includes(slug),
+      );
+      report(
+        "cross-sector routing covers every required sector",
+        Boolean(routing) && missing.length === 0,
+        missing.join(", "),
+      );
+    }
+    if (policy.guideForbidden) {
+      const hits = [];
+      for (const [path, value] of strings.filter(
+        ([p]) =>
+          p.startsWith("equipment.") || /^categories\.[^.]+\.title_/.test(p),
+      )) {
+        for (const pattern of policy.guideForbidden) {
+          if (pattern.test(value)) hits.push(`${path}: "${value}"`);
+        }
+      }
+      report(
+        "no excluded item type (backup power, UPS, generators, solar plants, public-safety equipment) in guide text",
+        hits.length === 0,
+        hits.slice(0, 5).join("; "),
+      );
+    }
     if (policy.requireHero) {
       report(
         "sector hero copy is overridden on the guide page",
@@ -934,6 +1166,13 @@ for (const sector of sectorsWithGuides) {
         `exactly ${policy.faqCount} FAQs`,
         (content.faqs ?? []).length === policy.faqCount,
         `${(content.faqs ?? []).length}`,
+      );
+    }
+    if (policy.noSeoKeywords) {
+      report(
+        "no SEO keywords",
+        content.seo?.keywords_en === undefined &&
+          content.seo?.keywords_ar === undefined,
       );
     }
     if (policy.noGenericSections) {

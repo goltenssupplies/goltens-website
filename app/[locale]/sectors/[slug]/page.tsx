@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArrowRight, CheckCircle2, ChevronDown, Info } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
@@ -16,6 +17,7 @@ import {
 } from "@/components/sectors/EquipmentProjectMatrix";
 import { EquipmentReplacementGuide } from "@/components/sectors/EquipmentReplacementGuide";
 import { EquipmentRequestGuide } from "@/components/sectors/EquipmentRequestGuide";
+import { QuotePrefillLink } from "@/components/sectors/QuotePrefillLink";
 import { SectorAbout } from "@/components/sectors/SectorAbout";
 import {
   SectorAdvantages,
@@ -45,9 +47,12 @@ import { SectorQuoteCTA } from "@/components/sectors/SectorQuoteCTA";
 import { RelatedSectors } from "@/components/sectors/RelatedSectors";
 import type { SectorCardItem } from "@/components/sectors/SectorCard";
 import { SendRequirementCTA } from "@/components/rfq/SendRequirementCTA";
+import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { PremiumDarkSection } from "@/components/ui/PremiumDarkSection";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 import { Text } from "@/components/ui/Text";
 import {
   getCategoriesBySector,
@@ -55,8 +60,10 @@ import {
 } from "@/data/product-categories";
 import { getProductById, getProductsBySector } from "@/data/products";
 import { getSectorContent } from "@/data/sector-content";
+import { governmentProcurementPage } from "@/data/sector-content/government-procurement-guide";
 import type { SectorEquipmentGuide as SectorEquipmentGuideData } from "@/data/sector-content/types";
 import { getSectorBySlug, getSortedSectors, SECTORS } from "@/data/sectors";
+import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/metadata";
 import {
@@ -79,6 +86,11 @@ const REQUEST_QUOTE_ANCHOR = "request-quote";
 const PROJECT_MATRIX_ANCHOR = "equipment-by-project";
 const QUOTATION_CHECKLIST_ANCHOR = "quotation-checklist";
 const REPLACEMENT_ANCHOR = "replacing-existing-equipment";
+/** Government Procurement only — see `GovernmentProcurementGuideLayout`. */
+const GOVERNMENT_PROCUREMENT_SLUG = "government-procurement";
+const ROUTING_ANCHOR = "other-sector-requirements";
+/** Anchor of one routing entry, e.g. `route-electrical-energy`. */
+const routeAnchor = (sectorSlug: string) => `route-${sectorSlug}`;
 
 /**
  * Localizes a sector's equipment guide (`SectorContent.equipmentGuide`)
@@ -498,6 +510,13 @@ export default async function SectorPage({ params }: SectorPageProps) {
   // treatment and the Footer keeps its sitewide default.
   const heroVisual = content.equipmentGuide?.heroVisual ?? "photo";
 
+  // Government Procurement's own page extras (hero secondary CTA, routing,
+  // compact-layout labels) — `null` for every other sector.
+  const gpPage =
+    slug === GOVERNMENT_PROCUREMENT_SLUG && content.equipmentGuide
+      ? governmentProcurementPage
+      : null;
+
   // Shared by both layouts below (the generic sector layout and the
   // equipment-guide layout), so neither can drift from the other.
   const pageHead = (
@@ -542,8 +561,23 @@ export default async function SectorPage({ params }: SectorPageProps) {
         homeLabel={tNav("home")}
         sectorsLabel={tNav("sectors")}
         navLabel={tNav("sectors")}
-        requestQuoteLabel={t("heroRequestQuote")}
+        requestQuoteLabel={
+          gpPage
+            ? isArabic
+              ? gpPage.heroPrimaryCta_ar
+              : gpPage.heroPrimaryCta_en
+            : t("heroRequestQuote")
+        }
         requestQuoteHref={REQUEST_QUOTE_ANCHOR}
+        secondaryCtaLabel={
+          gpPage
+            ? isArabic
+              ? gpPage.heroSecondaryCta.label_ar
+              : gpPage.heroSecondaryCta.label_en
+            : undefined
+        }
+        secondaryCtaHref={gpPage?.heroSecondaryCta.href}
+        secondaryCtaKind={gpPage ? "route" : undefined}
       />
     </>
   );
@@ -577,11 +611,15 @@ export default async function SectorPage({ params }: SectorPageProps) {
     </PremiumDarkSection>
   );
 
+  const faqSection = (
+    <PremiumDarkSection>
+      <SectorFAQ title={t("faqTitle")} items={faqItems} />
+    </PremiumDarkSection>
+  );
+
   const pageTail = (
     <>
-      <PremiumDarkSection>
-        <SectorFAQ title={t("faqTitle")} items={faqItems} />
-      </PremiumDarkSection>
+      {faqSection}
 
       <PremiumDarkSection>
         <RelatedSectors
@@ -614,6 +652,90 @@ export default async function SectorPage({ params }: SectorPageProps) {
       isArabic,
       ctaLabel: (equipment) => tGuide("cta", { equipment }),
     });
+
+    const quoteSection = (
+      <SectorQuoteCTA
+        id={REQUEST_QUOTE_ANCHOR}
+        locale={locale as Locale}
+        title={guide.quote.title}
+        subtitle={guide.quote.subtitle}
+        defaultProductCategory={title}
+        sendRequirementHref="/send-requirement"
+        sendRequirementLabel={t("sendRequirementLinkLabel")}
+      />
+    );
+
+    // Government Procurement: compact layout, and no shared Related
+    // Sectors block (its cards carry the other sectors' shared copy — the
+    // page's own cross-sector routing section replaces it).
+    if (gpPage) {
+      const gpLabels = gpPage.labels;
+      const pick = (en: string, ar: string) => (isArabic ? ar : en);
+      const routes = gpPage.routing.routes
+        .filter(
+          (route) =>
+            route.sectorSlug !== slug && getSectorBySlug(route.sectorSlug),
+        )
+        .map((route) => ({
+          slug: route.sectorSlug,
+          anchor: routeAnchor(route.sectorSlug),
+          title: pick(route.title_en, route.title_ar),
+          items: pick(route.items_en, route.items_ar),
+        }));
+      const routeTitles = new Map(routes.map((r) => [r.slug, r.title]));
+
+      return (
+        <>
+          {pageHead}
+          <GovernmentProcurementGuideLayout
+            guide={guide}
+            routing={{
+              title: pick(gpPage.routing.title_en, gpPage.routing.title_ar),
+              intro: pick(gpPage.routing.intro_en, gpPage.routing.intro_ar),
+              routes,
+            }}
+            contextRows={guide.projectRows.map((row) => ({
+              ...row,
+              routes: (gpPage.projectRoutes[row.id] ?? [])
+                .filter((routeSlug) => routeTitles.has(routeSlug))
+                .map((routeSlug) => ({
+                  id: routeAnchor(routeSlug),
+                  label: routeTitles.get(routeSlug) as string,
+                })),
+            }))}
+            labels={{
+              jumpLinks: tGuide("jumpLinksLabel"),
+              categoryNav: pick(
+                gpLabels.categoryNav_en,
+                gpLabels.categoryNav_ar,
+              ),
+              contextItems: pick(
+                gpLabels.contextItems_en,
+                gpLabels.contextItems_ar,
+              ),
+              contextRoutes: pick(
+                gpLabels.contextRoutes_en,
+                gpLabels.contextRoutes_ar,
+              ),
+              details: pick(gpLabels.details_en, gpLabels.details_ar),
+              whatItIs: tGuide("whatItIs"),
+              usedFor: tGuide("usedFor"),
+              applications: tGuide("applications"),
+              industries: tGuide("industries"),
+              selection: tGuide("selection"),
+              requestChecklist: tGuide("requestChecklist"),
+              related: tGuide("related"),
+              replacementGroups: pick(
+                gpLabels.replacementGroups_en,
+                gpLabels.replacementGroups_ar,
+              ),
+            }}
+          />
+          {quoteSection}
+          {faqSection}
+        </>
+      );
+    }
 
     return (
       <>
@@ -703,15 +825,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
           steps={guide.request.steps}
         />
 
-        <SectorQuoteCTA
-          id={REQUEST_QUOTE_ANCHOR}
-          locale={locale as Locale}
-          title={guide.quote.title}
-          subtitle={guide.quote.subtitle}
-          defaultProductCategory={title}
-          sendRequirementHref="/send-requirement"
-          sendRequirementLabel={t("sendRequirementLinkLabel")}
-        />
+        {quoteSection}
 
         {pageTail}
       </>
@@ -829,5 +943,534 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
       {pageTail}
     </>
+  );
+}
+
+type EquipmentGuideView = ReturnType<typeof buildEquipmentGuideView>;
+
+interface GovernmentProcurementGuideLayoutProps {
+  guide: EquipmentGuideView;
+  routing: {
+    title: string;
+    intro: string;
+    routes: { slug: string; anchor: string; title: string; items: string }[];
+  };
+  contextRows: (EquipmentGuideView["projectRows"][number] & {
+    routes: { id: string; label: string }[];
+  })[];
+  labels: {
+    jumpLinks: string;
+    categoryNav: string;
+    contextItems: string;
+    contextRoutes: string;
+    details: string;
+    whatItIs: string;
+    usedFor: string;
+    applications: string;
+    industries: string;
+    selection: string;
+    requestChecklist: string;
+    related: string;
+    replacementGroups: string;
+  };
+}
+
+const GP_LABEL_CLASS =
+  "text-ink-muted text-xs font-semibold tracking-wide uppercase rtl:tracking-normal";
+const GP_CHIP_CLASS =
+  "border-border text-ink hover:border-gold block rounded-sm border bg-white px-2 py-0.5 text-xs transition-colors";
+
+/**
+ * Government Procurement only — a compact presentation of the same guide
+ * data the shared equipment-guide layout renders: the twelve guides as
+ * short cards (name, summary, typical applications) whose descriptive
+ * detail, selection considerations and quotation checklist sit in a native
+ * `<details>` block, plus the page's own cross-sector routing section.
+ * Every other sector keeps the shared layout below, unchanged.
+ */
+function GovernmentProcurementGuideLayout({
+  guide,
+  routing,
+  contextRows,
+  labels,
+}: GovernmentProcurementGuideLayoutProps) {
+  return (
+    <>
+      <Section spacing="sm" background="canvas" className="py-8 sm:py-12">
+        <Container>
+          <Eyebrow>{guide.intro.eyebrow}</Eyebrow>
+          <Text tone="inverse" className="mt-3 max-w-3xl">
+            {guide.intro.lead}
+          </Text>
+          <div className="border-gold/25 bg-gold/[0.06] mt-5 flex max-w-3xl items-start gap-3 rounded-[12px] border p-4">
+            <Info
+              aria-hidden="true"
+              className="text-gold mt-0.5 size-5 shrink-0"
+            />
+            <Text size="sm" tone="muted">
+              {guide.intro.note}
+            </Text>
+          </div>
+          <nav aria-label={labels.jumpLinks} className="mt-6">
+            <ul className="flex flex-wrap gap-2">
+              {[
+                { id: PROJECT_MATRIX_ANCHOR, label: guide.projectsTitle },
+                ...guide.categories.map((category) => ({
+                  id: category.id,
+                  label: category.title,
+                })),
+                { id: ROUTING_ANCHOR, label: routing.title },
+                ...(guide.replacement
+                  ? [{ id: REPLACEMENT_ANCHOR, label: guide.replacement.title }]
+                  : []),
+                { id: QUOTATION_CHECKLIST_ANCHOR, label: guide.request.title },
+              ].map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
+                    className="border-border text-ink hover:border-gold flex items-center gap-1.5 rounded-sm border bg-white px-2.5 py-1 text-xs font-medium transition-colors sm:text-sm"
+                  >
+                    {link.label}
+                    <span aria-hidden="true" className="text-gold">
+                      ↓
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </Container>
+      </Section>
+
+      <Section
+        id={PROJECT_MATRIX_ANCHOR}
+        aria-labelledby={`${PROJECT_MATRIX_ANCHOR}-title`}
+        spacing="sm"
+        className="scroll-mt-28 py-8 sm:py-12"
+      >
+        <Container>
+          <Heading
+            id={`${PROJECT_MATRIX_ANCHOR}-title`}
+            level={2}
+            size={3}
+            tone="inverse"
+          >
+            {guide.projectsTitle}
+          </Heading>
+          <Text tone="muted" className="mt-3 max-w-3xl">
+            {guide.projectsIntro}
+          </Text>
+          <ul className="border-border divide-border mt-6 divide-y rounded-[14px] border bg-white">
+            {contextRows.map((row) => (
+              <li
+                key={row.id}
+                className="grid gap-1.5 px-4 py-2.5 lg:grid-cols-[2fr_3fr] lg:gap-6"
+              >
+                <p className="text-ink-muted text-sm">
+                  <span className="text-ink font-semibold">{row.title}</span>
+                  {" — "}
+                  {row.description}
+                </p>
+                <div className="flex flex-col gap-1.5 lg:justify-center">
+                  {row.equipment.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className={GP_LABEL_CLASS}>
+                        {labels.contextItems}
+                      </span>
+                      <ul className="contents">
+                        {row.equipment.map((item) => (
+                          <li key={item.id}>
+                            <a href={`#${item.id}`} className={GP_CHIP_CLASS}>
+                              {item.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {row.routes.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className={GP_LABEL_CLASS}>
+                        {labels.contextRoutes}
+                      </span>
+                      <ul className="contents">
+                        {row.routes.map((route) => (
+                          <li key={route.id}>
+                            <a href={`#${route.id}`} className={GP_CHIP_CLASS}>
+                              {route.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <div>
+        <SectorCategoryNav
+          label={labels.categoryNav}
+          items={guide.categories.map((category) => ({
+            id: category.id,
+            label: category.title,
+          }))}
+        />
+        {guide.categories.map((category) => (
+          <GovernmentProcurementFamily
+            key={category.id}
+            category={category}
+            labels={labels}
+          />
+        ))}
+      </div>
+
+      <Section
+        id={ROUTING_ANCHOR}
+        aria-labelledby={`${ROUTING_ANCHOR}-title`}
+        spacing="sm"
+        background="canvas"
+        className="scroll-mt-28 py-8 sm:py-12"
+      >
+        <Container>
+          <Heading
+            id={`${ROUTING_ANCHOR}-title`}
+            level={2}
+            size={3}
+            tone="inverse"
+          >
+            {routing.title}
+          </Heading>
+          <Text tone="muted" className="mt-3 max-w-3xl">
+            {routing.intro}
+          </Text>
+          <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+            {routing.routes.map((route) => (
+              <li key={route.slug} id={route.anchor} className="scroll-mt-28">
+                <Link
+                  href={`/sectors/${route.slug}`}
+                  className="border-border hover:border-gold group flex h-full items-start justify-between gap-3 rounded-[12px] border bg-white px-4 py-3 transition-colors"
+                >
+                  <span>
+                    <span className="text-ink block text-sm font-semibold">
+                      {route.title}
+                    </span>
+                    <span className="text-ink-muted mt-0.5 block text-xs">
+                      {route.items}
+                    </span>
+                  </span>
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="text-gold mt-0.5 size-4 shrink-0 rtl:rotate-180"
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      {guide.replacement && (
+        <Section
+          id={REPLACEMENT_ANCHOR}
+          aria-labelledby={`${REPLACEMENT_ANCHOR}-title`}
+          spacing="sm"
+          className="scroll-mt-28 py-8 sm:py-12"
+        >
+          <Container>
+            <div className="grid gap-6 lg:grid-cols-[2fr_3fr] lg:gap-12">
+              <div>
+                <Heading
+                  id={`${REPLACEMENT_ANCHOR}-title`}
+                  level={2}
+                  size={3}
+                  tone="inverse"
+                >
+                  {guide.replacement.title}
+                </Heading>
+                <Text tone="muted" className="mt-3">
+                  {guide.replacement.intro}
+                </Text>
+                <Text size="sm" tone="muted" className="mt-3">
+                  {guide.replacement.note}
+                </Text>
+                <QuotePrefillLink
+                  href={REQUEST_QUOTE_ANCHOR}
+                  prefill={guide.replacement.prefill}
+                  className="mt-5"
+                >
+                  {guide.replacement.ctaLabel}
+                </QuotePrefillLink>
+              </div>
+              <div>
+                <p className={GP_LABEL_CLASS}>{guide.replacement.flowLabel}</p>
+                <ol className="mt-2 flex flex-wrap gap-1.5">
+                  {guide.replacement.flow.map((step, index) => (
+                    <li
+                      key={step}
+                      className="border-border text-ink flex items-center gap-1.5 rounded-sm border bg-white px-2 py-0.5 text-xs"
+                    >
+                      <span className="text-gold font-semibold">
+                        {index + 1}
+                      </span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+                <p className={`${GP_LABEL_CLASS} mt-5`}>
+                  {labels.replacementGroups}
+                </p>
+                <dl className="border-border divide-border mt-2 divide-y rounded-[12px] border bg-white">
+                  {guide.replacement.groups.map((group) => (
+                    <div key={group.title} className="px-4 py-2.5">
+                      <dt className="text-ink text-sm font-semibold">
+                        {group.title}
+                      </dt>
+                      <dd className="text-ink-muted mt-0.5 text-sm">
+                        {group.items.join(" · ")}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      <Section
+        id={QUOTATION_CHECKLIST_ANCHOR}
+        aria-labelledby={`${QUOTATION_CHECKLIST_ANCHOR}-title`}
+        spacing="sm"
+        background="canvas"
+        className="scroll-mt-28 py-8 sm:py-12"
+      >
+        <Container>
+          <Heading
+            id={`${QUOTATION_CHECKLIST_ANCHOR}-title`}
+            level={2}
+            size={3}
+            tone="inverse"
+          >
+            {guide.request.title}
+          </Heading>
+          <Text tone="muted" className="mt-3 max-w-3xl">
+            {guide.request.intro}
+          </Text>
+          <div className="mt-6 grid gap-6 lg:grid-cols-3 lg:gap-10">
+            {[
+              {
+                title: guide.request.checklistTitle,
+                items: guide.request.checklist,
+              },
+              ...(guide.request.secondaryChecklist
+                ? [guide.request.secondaryChecklist]
+                : []),
+            ].map((part) => (
+              <div key={part.title ?? "checklist"}>
+                {part.title && (
+                  <Heading level={3} size={5} tone="inverse">
+                    {part.title}
+                  </Heading>
+                )}
+                <ul className="mt-3 flex flex-col gap-1.5">
+                  {part.items.map((entry) => (
+                    <li key={entry} className="flex items-start gap-2">
+                      <CheckCircle2
+                        aria-hidden="true"
+                        className="text-gold mt-0.5 size-4 shrink-0"
+                      />
+                      <Text size="sm" tone="inverse">
+                        {entry}
+                      </Text>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div>
+              <Heading level={3} size={5} tone="inverse">
+                {guide.request.processTitle}
+              </Heading>
+              <ol className="mt-3 flex flex-col gap-3">
+                {guide.request.steps.map((step, index) => (
+                  <li key={step.title} className="flex items-start gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="bg-gold/15 text-gold flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold"
+                    >
+                      {index + 1}
+                    </span>
+                    <div>
+                      <Text size="sm" weight="semibold" tone="inverse">
+                        {step.title}
+                      </Text>
+                      <Text size="sm" tone="muted">
+                        {step.description}
+                      </Text>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+          {guide.request.checklistNote && (
+            <Text size="sm" tone="muted" className="mt-6 max-w-3xl">
+              {guide.request.checklistNote}
+            </Text>
+          )}
+        </Container>
+      </Section>
+    </>
+  );
+}
+
+function GovernmentProcurementFamily({
+  category,
+  labels,
+}: {
+  category: EquipmentGuideView["categories"][number];
+  labels: GovernmentProcurementGuideLayoutProps["labels"];
+}) {
+  const Icon = category.icon;
+  const availability = category.equipment[0]?.availability;
+  return (
+    <Section
+      id={category.id}
+      aria-labelledby={`${category.id}-title`}
+      spacing="sm"
+      className="scroll-mt-36 py-8 sm:py-12"
+    >
+      <Container>
+        <div className="flex items-start gap-4">
+          <span
+            aria-hidden="true"
+            className="bg-gold/15 text-gold flex size-11 shrink-0 items-center justify-center rounded-xl"
+          >
+            <Icon className="size-6" />
+          </span>
+          <div>
+            <Heading
+              id={`${category.id}-title`}
+              level={2}
+              size={3}
+              tone="inverse"
+            >
+              {category.title}
+            </Heading>
+            <Text tone="muted" className="mt-2 max-w-3xl">
+              {category.intro}
+            </Text>
+            {availability && (
+              <p className="border-gold/25 bg-gold/10 text-ink mt-3 inline-flex rounded-sm border px-3 py-0.5 text-sm">
+                {availability}
+              </p>
+            )}
+          </div>
+        </div>
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {category.equipment.map((item) => (
+            <li key={item.id}>
+              <GovernmentProcurementGuideCard item={item} labels={labels} />
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </Section>
+  );
+}
+
+function GovernmentProcurementGuideCard({
+  item,
+  labels,
+}: {
+  item: EquipmentGuideView["categories"][number]["equipment"][number];
+  labels: GovernmentProcurementGuideLayoutProps["labels"];
+}) {
+  return (
+    <article
+      id={item.id}
+      aria-labelledby={`${item.id}-title`}
+      className="border-border flex h-full scroll-mt-44 flex-col rounded-[14px] border bg-white p-4 sm:p-5"
+    >
+      <Heading id={`${item.id}-title`} level={3} size={5} tone="inverse">
+        {item.name}
+      </Heading>
+      <Text size="sm" tone="muted" className="mt-1.5">
+        {item.summary}
+      </Text>
+      <details className="group border-border mt-auto border-t pt-3 [&:not([open])]:mt-2.5">
+        <summary className="text-ink hover:text-gold flex cursor-pointer list-none items-center justify-between gap-2 text-sm font-medium [&::-webkit-details-marker]:hidden">
+          {labels.details}
+          <ChevronDown
+            aria-hidden="true"
+            className="text-gold size-4 shrink-0 transition-transform group-open:rotate-180"
+          />
+        </summary>
+        <div className="mt-3 flex flex-col gap-3 text-sm">
+          <div>
+            <p className={GP_LABEL_CLASS}>{labels.applications}</p>
+            <p className="text-ink mt-1">{item.applications.join(" · ")}</p>
+          </div>
+          <div>
+            <p className={GP_LABEL_CLASS}>{labels.whatItIs}</p>
+            <p className="text-ink mt-1">{item.whatItIs}</p>
+          </div>
+          <div>
+            <p className={GP_LABEL_CLASS}>{labels.usedFor}</p>
+            <p className="text-ink mt-1">{item.usedFor}</p>
+          </div>
+          <div>
+            <p className={GP_LABEL_CLASS}>{labels.industries}</p>
+            <p className="text-ink mt-1">{item.industries.join(" · ")}</p>
+          </div>
+          <div>
+            <p className={GP_LABEL_CLASS}>{labels.selection}</p>
+            <dl className="mt-1 flex flex-col gap-1.5">
+              {item.selectionFactors.map((factor) => (
+                <div key={factor.factor}>
+                  <dt className="text-ink font-semibold">{factor.factor}</dt>
+                  <dd className="text-ink-muted">{factor.detail}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div>
+            <p className={GP_LABEL_CLASS}>{labels.requestChecklist}</p>
+            <ul className="mt-1 flex flex-col gap-1">
+              {item.requestChecklist.map((entry) => (
+                <li key={entry} className="text-ink flex items-start gap-2">
+                  <CheckCircle2
+                    aria-hidden="true"
+                    className="text-gold mt-0.5 size-4 shrink-0"
+                  />
+                  {entry}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {item.related.length > 0 && (
+            <div>
+              <p className={GP_LABEL_CLASS}>{labels.related}</p>
+              <ul className="mt-1 flex flex-wrap gap-1.5">
+                {item.related.map((related) => (
+                  <li key={related.id}>
+                    <a href={`#${related.id}`} className={GP_CHIP_CLASS}>
+                      {related.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <QuotePrefillLink href={REQUEST_QUOTE_ANCHOR} prefill={item.prefill}>
+            {item.ctaLabel}
+          </QuotePrefillLink>
+        </div>
+      </details>
+    </article>
   );
 }

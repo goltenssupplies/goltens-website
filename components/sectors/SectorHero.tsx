@@ -24,8 +24,14 @@ export interface SectorHeroProps {
   requestQuoteHref: string;
   /** Optional second CTA (e.g. "Download Catalogue") — rendered only when both label and href are provided. */
   secondaryCtaLabel?: string;
-  /** Anchor id (without "#") to scroll to. */
+  /** Anchor id (without "#") to scroll to — or a site route when `secondaryCtaKind` is "route". */
   secondaryCtaHref?: string;
+  /**
+   * "anchor" (default): `secondaryCtaHref` is an anchor on this page.
+   * "route": `secondaryCtaHref` is a site path (e.g. "/sectors"), rendered
+   * as a locale-aware link.
+   */
+  secondaryCtaKind?: "anchor" | "route";
   /**
    * "photo" (default) renders `image` full-bleed, as every sector always
    * has. "neutral" renders a photo-free dark grid treatment instead — for a
@@ -56,6 +62,7 @@ export function SectorHero({
   requestQuoteHref,
   secondaryCtaLabel,
   secondaryCtaHref,
+  secondaryCtaKind = "anchor",
   visual = "photo",
 }: SectorHeroProps) {
   return (
@@ -138,7 +145,11 @@ export function SectorHero({
           </Button>
           {secondaryCtaLabel && secondaryCtaHref && (
             <Button
-              href={`#${secondaryCtaHref}`}
+              href={
+                secondaryCtaKind === "route"
+                  ? secondaryCtaHref
+                  : `#${secondaryCtaHref}`
+              }
               variant="secondary"
               size="lg"
               className="border-canvas/30 text-canvas hover:bg-canvas/10"
