@@ -171,7 +171,7 @@ export const SECTORS: Sector[] = [
   {
     id: "construction",
     slug: "construction",
-    title_en: "Construction & Infrastructure",
+    title_en: "Construction & Infrastructure Materials",
     title_ar: "مواد البناء والبنية التحتية",
     subtitle_en:
       "GOLTENS supplies cement, steel, waterproofing, and construction materials — matched to your BOQ and engineering specification.",

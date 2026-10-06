@@ -54,17 +54,13 @@ const { getProductById, getProductsBySector } = await load(
 );
 const { hasPublicIdentity } = await load("lib/products/public-product.ts");
 const { getActiveDenylistTerms } = await load("data/manufacturers/denylist.ts");
-const { governmentProcurementPage } = await load(
-  "data/sector-content/government-procurement-guide.ts",
-);
-
-// Sector-specific page extras rendered by a sector's own layout exception in
+// Page extras of the sectors rendered in the compact guide layout of
 // `app/[locale]/sectors/[slug]/page.tsx` (hero CTAs, cross-sector routing,
-// matrix route chips, compact-layout labels). Their text obeys the same
-// rules as the guide itself.
-const SECTOR_PAGE_EXTRAS = {
-  "government-procurement": governmentProcurementPage,
-};
+// matrix route chips, compact-layout labels), by sector slug. Their text
+// obeys the same rules as the guide itself.
+const { COMPACT_GUIDE_PAGES: SECTOR_PAGE_EXTRAS } = await load(
+  "data/sector-content/compact-guide-page.ts",
+);
 
 const REQUIRE_VERIFIED = process.argv.includes("--require-verified");
 const RESERVED_ANCHORS = new Set([
@@ -309,6 +305,36 @@ const SECTOR_PROHIBITED_CLAIMS = {
     /مخزن|المخزون|فوري/,
     /جميع المحافظات|كافة أنحاء|جميع أنحاء/,
   ],
+  // Construction: a construction-material procurement and BOQ response
+  // guide. GOLTENS quotes against the customer's documents — no design,
+  // calculation, installation, testing, fabrication or execution of works,
+  // no compliance, certification or approval claims, no standards, no
+  // authenticity / quality / trust / package wording, no support, stock or
+  // delivery promises, no project or client references, no contractor or
+  // tender-documentation implication and no fire-performance claims. The
+  // legitimate approved-equal, consultant-approval and design-disclaimer
+  // uses are exact phrases in `SECTOR_ALLOWED_PHRASES` below.
+  construction: [
+    /\bcertif|\bapprov|\bcomplian|\bcomplies\b|\bcompliant\b|\bconform/i,
+    /\b(?:ISO|IEC|EN|BS|ASTM|AASHTO|ACI|DIN|ECP|ANSI|UL|CE|SASO)\b/,
+    /\bdesign|\bcalculat|\binstall|\btest(?:s|ed|ing)?\b|\bcommission|\bmaintenance\b|\bmaintain|\bexecut|\bfabricat|\bcut[- ]and[- ]bend|\bbending\b|\bcut[- ]to[- ]length/i,
+    /\bgeneral contractor|\bturnkey\b|\bEPC\b|\bwe build\b|pre-?engineered/i,
+    /\bgenuine|\boriginal\b|quality[- ]assured|high[- ]quality|\bpremium\b|\bguarantee|\btrusted\b|\breliable\b|\bleading\b|\bsolutions?\b|\bcomplete\b|single[- ]source|single supplier|one[- ]stop|full[- ]scope/i,
+    /technical support|after[- ]sales|supplier network|sourcing network/i,
+    /\b(?:in |ex[- ])?stock(?:ed|s)?\b|\bimmediate|\bfast\b|\bquick\b|nationwide|across Egypt|all governorates|on[- ]time/i,
+    /project references?|completed projects?|our projects|our clients|clients include/i,
+    /government (?:supplier|projects?)|approved supplier|registered supplier/i,
+    /tender (?:documentation|submission|preparation)/i,
+    /fire[- ]?(?:rated|resistant|proof)|non[- ]combustible/i,
+    /أصلي|مضمون|موثوق|الجودة/,
+    /شهاد(?:ة|ات)|اعتماد|معتمد|مطابقة? للمعايير/,
+    /تصميم|حساب|تركيب|اختبار|تشغيل تجريبي|صيانة|تنفيذ|تصنيع|تقطيع/,
+    /حلول|متكامل|مورد واحد/,
+    /الدعم الفني|بعد البيع|شبكة موردين/,
+    /مخزن|المخزون|فوري|سريع|جميع المحافظات|كافة أنحاء/,
+    /مشروعات منفذة|مشروعاتنا|عملاؤنا|مقاول عام|تسليم مفتاح/,
+    /مقاوم للحريق|غير قابل للاشتعال/,
+  ],
 };
 
 // Exact customer-input and scope-disclaimer phrases that may contain an
@@ -347,6 +373,24 @@ const SECTOR_ALLOWED_PHRASES = {
     "أو قائمة العلامات المطلوبة أو المعتمدة الواردة في المناقصة",
     "قائمة العلامات المطلوبة أو المعتمدة إذا نص عليها العميل",
     "موقع التركيب كبيانات مقدمة من العميل",
+  ],
+  construction: [
+    'What if the specification names a manufacturer or says "approved equal"?',
+    "Specified manufacturer or approved-equal requirement, only if stated by customer",
+    "Equivalence and approval of any proposed item remain with the consultant, engineer or customer, as applicable.",
+    "Who handles consultant approval and submittals?",
+    "Consultant approval and submittals remain with the customer or contractor.",
+    "Does GOLTENS design, calculate, install or execute construction works?",
+    "it does not design, calculate, install or execute construction works.",
+    "Structural design, material selection, mix design, quantities, consultant approval and final technical acceptance remain with the customer, contractor, consultant or engineer of record, as applicable.",
+    "ماذا لو حددت المواصفات مصنعًا معينًا أو نصت على «بديل معتمد مكافئ»؟",
+    "المصنع المحدد أو اشتراط البديل المعتمد المكافئ، فقط إذا نص عليه العميل",
+    "ويظل تأكيد التكافؤ واعتماد أي صنف مقترح من مسؤولية الاستشاري أو المهندس أو العميل، بحسب الحالة.",
+    "من يتولى اعتماد الاستشاري ومستندات التقديم؟",
+    "يظل اعتماد الاستشاري وتقديم المستندات من مسؤولية العميل أو المقاول.",
+    "هل تقوم GOLTENS بالتصميم أو الحسابات أو التركيب أو تنفيذ أعمال الإنشاء؟",
+    "ولا تقوم بالتصميم أو الحسابات أو التركيب أو تنفيذ أعمال الإنشاء.",
+    "بينما تظل مسؤولية التصميم الإنشائي واختيار المواد وتصميم الخلطات والكميات واعتماد الاستشاري والقبول الفني النهائي على عاتق العميل أو المقاول أو الاستشاري أو المهندس المسؤول، بحسب الحالة.",
   ],
 };
 
@@ -551,6 +595,70 @@ const SECTOR_POLICIES = {
       "global-sourcing",
       "lubricants-oils",
       "industrial-chemicals",
+    ],
+  },
+  construction: {
+    categoryCounts: {
+      "cement-concrete-materials": 5,
+      "structural-waterproofing-materials": 5,
+      "site-infrastructure-materials": 5,
+    },
+    totalGuides: 15,
+    applicationRows: 10,
+    // Exactly one guide per internal product record — no family or guide
+    // without a record behind it.
+    oneGuidePerRecord: true,
+    forbiddenGuideIds: [
+      "ready-mix-concrete",
+      "hot-mix-asphalt",
+      "tiles-flooring",
+      "doors-windows-glazing",
+      "hardware-tools",
+      "construction-chemicals",
+    ],
+    forbiddenLinkedProductIds: [],
+    // Unsupported families are never named anywhere on the page (guide,
+    // routing, hero, FAQ, SEO, sector record) — they are routed generically
+    // to Global Sourcing.
+    excludedTerms: [
+      /\btiles?\b|\btiling\b|flooring|\bdoors?\b|\bwindows?\b|glazing|\bhardware\b|\btools?\b|construction chemicals|ready[- ]mix|hot[- ]mix|asphalt/i,
+      // «بلاط» (tiles) as a whole word, with or without attached prefix
+      // letters (و / ف / ب / ل / ك, e.g. «والبلاط», «للبلاط») — «بلاطات»
+      // (slabs) is allowed.
+      /(?<!\p{L})[وفبلك]{0,3}(?:ال)?بلاط(?!\p{L})|سيراميك|أرضيات|أبواب|نوافذ|زجاج|عدد وأدوات|الكيماويات الإنشائية|خرسانة جاهزة|أسفلت/u,
+    ],
+    heroVisual: "neutral",
+    availability: { en: "Available on request.", ar: "متاح حسب الطلب." },
+    requireReplacement: true,
+    requireSecondaryChecklist: true,
+    linkedProductsNonPublic: true,
+    sectorProductsNonPublic: true,
+    requireHero: true,
+    faqCount: 8,
+    noGenericSections: true,
+    scanSectorRecord: true,
+    noSeoKeywords: true,
+    heroSecondaryCtaHref: "/sectors",
+    // "Specified Items & Equivalents": matching existing items only for
+    // sanitary ware, manhole covers / gratings and pipe / plumbing fittings
+    // — never structural or design-dependent materials.
+    replacementGroups_en: [
+      "All requests",
+      "Sanitary ware",
+      "Manhole covers & gratings",
+      "Pipe & plumbing fittings",
+    ],
+    replacementForbidden: [
+      /rebar|steel|structural|cement|concrete|admixture|membrane|insulation|sealant|bitumen|geotext|geomembr|precast|block|brick|aggregate/i,
+      /حديد|إنشائي|أسمنت|خرسان|إضافات|أغشية|عزل|سيلانت|بيتومين|جيو|مسبقة الصب|بلوك|طوب|ركام/,
+    ],
+    requireRouting: [
+      "industrial-equipment",
+      "electrical-energy",
+      "fire-protection",
+      "heavy-equipment",
+      "industrial-chemicals",
+      "global-sourcing",
     ],
   },
 };
@@ -1045,6 +1153,21 @@ for (const sector of sectorsWithGuides) {
         publicRecords.map((p) => p.id).join(", "),
       );
     }
+    if (policy.oneGuidePerRecord) {
+      const recordIds = getProductsBySector(sector.id)
+        .map((p) => p.id)
+        .sort();
+      const linkedIds = equipment
+        .map((e) => e.linkedProductId)
+        .filter(Boolean)
+        .sort();
+      report(
+        `exactly one guide per product record of this sector (${recordIds.length} records)`,
+        equipment.every((e) => e.linkedProductId) &&
+          JSON.stringify(linkedIds) === JSON.stringify(recordIds),
+        `linked: ${linkedIds.join(", ")}`,
+      );
+    }
     if (policy.recordlessGuideIds) {
       const unlinked = equipment.filter((e) => !e.linkedProductId);
       const unexpected = unlinked.filter(
@@ -1325,6 +1448,20 @@ for (const sector of sectorsWithGuides) {
     claimHits.length === 0,
     claimHits.slice(0, 10).join("; "),
   );
+  if (policy?.excludedTerms) {
+    const excludedHits = [];
+    for (const [path, value] of textToScan) {
+      for (const pattern of policy.excludedTerms) {
+        if (pattern.test(value))
+          excludedHits.push(`${path} matches ${pattern}`);
+      }
+    }
+    report(
+      "no unsupported material family is named anywhere on the page",
+      excludedHits.length === 0,
+      excludedHits.slice(0, 10).join("; "),
+    );
+  }
 
   // --- Review states --------------------------------------------------------
   const reviewables = [
