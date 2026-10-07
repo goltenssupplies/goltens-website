@@ -694,6 +694,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
           {pageHead}
           <CompactGuideLayout
             guide={guide}
+            presentation={compactPage.guidePresentation}
             routing={{
               title: pick(
                 compactPage.routing.title_en,
@@ -984,6 +985,8 @@ interface CompactGuideLayoutProps {
     related: string;
     replacementGroups: string;
   };
+  /** "cards" (default) or dense "rows" — see `CompactGuidePage.guidePresentation`. */
+  presentation?: "cards" | "rows";
 }
 
 const COMPACT_LABEL_CLASS =
@@ -1005,6 +1008,7 @@ function CompactGuideLayout({
   routing,
   contextRows,
   labels,
+  presentation,
 }: CompactGuideLayoutProps) {
   return (
     <>
@@ -1142,6 +1146,7 @@ function CompactGuideLayout({
             key={category.id}
             category={category}
             labels={labels}
+            presentation={presentation}
           />
         ))}
       </div>
@@ -1351,12 +1356,65 @@ function CompactGuideLayout({
 function CompactGuideFamily({
   category,
   labels,
+  presentation = "cards",
 }: {
   category: EquipmentGuideView["categories"][number];
   labels: CompactGuideLayoutProps["labels"];
+  presentation?: CompactGuideLayoutProps["presentation"];
 }) {
   const Icon = category.icon;
   const availability = category.equipment[0]?.availability;
+  if (presentation === "rows") {
+    // Dense family panel: one bordered list of compact guide rows (two
+    // columns on large screens) under a slim family heading.
+    return (
+      <Section
+        id={category.id}
+        aria-labelledby={`${category.id}-title`}
+        spacing="sm"
+        className="scroll-mt-36 py-6 sm:py-8"
+      >
+        <Container>
+          <div className="flex items-start gap-3">
+            <span
+              aria-hidden="true"
+              className="bg-gold/15 text-gold flex size-9 shrink-0 items-center justify-center rounded-lg"
+            >
+              <Icon className="size-5" />
+            </span>
+            <div>
+              <Heading
+                id={`${category.id}-title`}
+                level={2}
+                size={3}
+                tone="inverse"
+              >
+                {category.title}
+              </Heading>
+              <p className="text-ink-muted mt-1 max-w-3xl text-sm">
+                {category.intro}
+                {availability && (
+                  <span className="border-gold/25 bg-gold/10 text-ink ms-2 inline-flex rounded-sm border px-2 py-0.5 text-xs">
+                    {availability}
+                  </span>
+                )}
+              </p>
+            </div>
+          </div>
+          <ul className="border-border mt-4 grid rounded-[14px] border bg-white lg:grid-cols-2">
+            {category.equipment.map((item) => (
+              <li
+                key={item.id}
+                className="border-border border-b last:border-b-0 lg:odd:border-e"
+              >
+                <CompactGuideRow item={item} labels={labels} />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+    );
+  }
   return (
     <Section
       id={category.id}
@@ -1430,65 +1488,120 @@ function CompactGuideCard({
             className="text-gold size-4 shrink-0 transition-transform group-open:rotate-180"
           />
         </summary>
-        <div className="mt-3 flex flex-col gap-3 text-sm">
-          <div>
-            <p className={COMPACT_LABEL_CLASS}>{labels.applications}</p>
-            <p className="text-ink mt-1">{item.applications.join(" · ")}</p>
-          </div>
-          <div>
-            <p className={COMPACT_LABEL_CLASS}>{labels.whatItIs}</p>
-            <p className="text-ink mt-1">{item.whatItIs}</p>
-          </div>
-          <div>
-            <p className={COMPACT_LABEL_CLASS}>{labels.usedFor}</p>
-            <p className="text-ink mt-1">{item.usedFor}</p>
-          </div>
-          <div>
-            <p className={COMPACT_LABEL_CLASS}>{labels.industries}</p>
-            <p className="text-ink mt-1">{item.industries.join(" · ")}</p>
-          </div>
-          <div>
-            <p className={COMPACT_LABEL_CLASS}>{labels.selection}</p>
-            <dl className="mt-1 flex flex-col gap-1.5">
-              {item.selectionFactors.map((factor) => (
-                <div key={factor.factor}>
-                  <dt className="text-ink font-semibold">{factor.factor}</dt>
-                  <dd className="text-ink-muted">{factor.detail}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-          <div>
-            <p className={COMPACT_LABEL_CLASS}>{labels.requestChecklist}</p>
-            <ul className="mt-1 flex flex-col gap-1">
-              {item.requestChecklist.map((entry) => (
-                <li key={entry} className="text-ink flex items-start gap-2">
-                  <CheckCircle2
-                    aria-hidden="true"
-                    className="text-gold mt-0.5 size-4 shrink-0"
-                  />
-                  {entry}
-                </li>
-              ))}
-            </ul>
-          </div>
-          {item.related.length > 0 && (
-            <div>
-              <p className={COMPACT_LABEL_CLASS}>{labels.related}</p>
-              <ul className="mt-1 flex flex-wrap gap-1.5">
-                {item.related.map((related) => (
-                  <li key={related.id}>
-                    <a href={`#${related.id}`} className={COMPACT_CHIP_CLASS}>
-                      {related.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+        <CompactGuideDetails item={item} labels={labels} />
+      </details>
+    </article>
+  );
+}
+
+/** The collapsed detail of one compact guide: descriptive text, selection considerations, quotation checklist, related guides and the quote action. */
+function CompactGuideDetails({
+  item,
+  labels,
+}: {
+  item: EquipmentGuideView["categories"][number]["equipment"][number];
+  labels: CompactGuideLayoutProps["labels"];
+}) {
+  return (
+    <div className="mt-3 flex flex-col gap-3 text-sm">
+      <div>
+        <p className={COMPACT_LABEL_CLASS}>{labels.applications}</p>
+        <p className="text-ink mt-1">{item.applications.join(" · ")}</p>
+      </div>
+      <div>
+        <p className={COMPACT_LABEL_CLASS}>{labels.whatItIs}</p>
+        <p className="text-ink mt-1">{item.whatItIs}</p>
+      </div>
+      <div>
+        <p className={COMPACT_LABEL_CLASS}>{labels.usedFor}</p>
+        <p className="text-ink mt-1">{item.usedFor}</p>
+      </div>
+      <div>
+        <p className={COMPACT_LABEL_CLASS}>{labels.industries}</p>
+        <p className="text-ink mt-1">{item.industries.join(" · ")}</p>
+      </div>
+      <div>
+        <p className={COMPACT_LABEL_CLASS}>{labels.selection}</p>
+        <dl className="mt-1 flex flex-col gap-1.5">
+          {item.selectionFactors.map((factor) => (
+            <div key={factor.factor}>
+              <dt className="text-ink font-semibold">{factor.factor}</dt>
+              <dd className="text-ink-muted">{factor.detail}</dd>
             </div>
-          )}
-          <QuotePrefillLink href={REQUEST_QUOTE_ANCHOR} prefill={item.prefill}>
-            {item.ctaLabel}
-          </QuotePrefillLink>
+          ))}
+        </dl>
+      </div>
+      <div>
+        <p className={COMPACT_LABEL_CLASS}>{labels.requestChecklist}</p>
+        <ul className="mt-1 flex flex-col gap-1">
+          {item.requestChecklist.map((entry) => (
+            <li key={entry} className="text-ink flex items-start gap-2">
+              <CheckCircle2
+                aria-hidden="true"
+                className="text-gold mt-0.5 size-4 shrink-0"
+              />
+              {entry}
+            </li>
+          ))}
+        </ul>
+      </div>
+      {item.related.length > 0 && (
+        <div>
+          <p className={COMPACT_LABEL_CLASS}>{labels.related}</p>
+          <ul className="mt-1 flex flex-wrap gap-1.5">
+            {item.related.map((related) => (
+              <li key={related.id}>
+                <a href={`#${related.id}`} className={COMPACT_CHIP_CLASS}>
+                  {related.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <QuotePrefillLink href={REQUEST_QUOTE_ANCHOR} prefill={item.prefill}>
+        {item.ctaLabel}
+      </QuotePrefillLink>
+    </div>
+  );
+}
+
+/**
+ * One guide as a dense row (`guidePresentation: "rows"`): the summary line
+ * carries the name and short description; the full detail and the quote
+ * action stay collapsed in the same native `<details>` block.
+ */
+function CompactGuideRow({
+  item,
+  labels,
+}: {
+  item: EquipmentGuideView["categories"][number]["equipment"][number];
+  labels: CompactGuideLayoutProps["labels"];
+}) {
+  return (
+    <article
+      id={item.id}
+      aria-labelledby={`${item.id}-title`}
+      className="h-full scroll-mt-44"
+    >
+      <details className="group">
+        <summary className="hover:bg-gold/[0.04] flex cursor-pointer list-none items-start justify-between gap-3 px-4 py-2.5 transition-colors [&::-webkit-details-marker]:hidden">
+          <span className="min-w-0">
+            <Heading id={`${item.id}-title`} level={3} size={5} tone="inverse">
+              {item.name}
+            </Heading>
+            <span className="text-ink-muted mt-0.5 block text-sm">
+              {item.summary}
+            </span>
+            <span className="sr-only">{labels.details}</span>
+          </span>
+          <ChevronDown
+            aria-hidden="true"
+            className="text-gold mt-1 size-4 shrink-0 transition-transform group-open:rotate-180"
+          />
+        </summary>
+        <div className="border-border mx-4 border-t pb-4">
+          <CompactGuideDetails item={item} labels={labels} />
         </div>
       </details>
     </article>

@@ -2209,7 +2209,7 @@ export const industrialChemicalsGuide: SectorEquipmentGuide = {
       },
       {
         title_en: "Sourcing / Configuration",
-        title_ar: "التوفير وتحديد التفاصيل",
+        title_ar: "التوريد وتحديد تفاصيل الطلب",
         description_en:
           "Chemicals are sourced to match the stated requirement, with grade, concentration and packaging as requested — or, where the specification allows, a permitted equivalent.",
         description_ar:
@@ -2257,6 +2257,7 @@ export const industrialChemicalsPage: CompactGuidePage = {
     replacementGroups_en: "Information to send",
     replacementGroups_ar: "البيانات المطلوبة",
   },
+  guidePresentation: "rows",
   sourcingCategoryIds: [
     "laboratory-chemicals-reagents",
     "industrial-chemicals-solvents",

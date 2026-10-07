@@ -41,6 +41,11 @@ export interface CompactGuidePage {
    * Every other guide family must be a real product category of the sector.
    */
   sourcingCategoryIds?: string[];
+  /**
+   * How guides render: "cards" (default) — one card per guide; "rows" — each
+   * family as one dense panel of guide rows, details collapsed.
+   */
+  guidePresentation?: "cards" | "rows";
   /** Matrix rows that route to `routing` entries (project id → sector slugs). */
   projectRoutes: Record<string, string[]>;
   routing: {
