@@ -335,6 +335,39 @@ const SECTOR_PROHIBITED_CLAIMS = {
     /مشروعات منفذة|مشروعاتنا|عملاؤنا|مقاول عام|تسليم مفتاح/,
     /مقاوم للحريق|غير قابل للاشتعال/,
   ],
+  // Industrial & laboratory chemicals: a procurement / sourcing guide.
+  // GOLTENS is not a manufacturer, laboratory, formulator, treatment or
+  // coating designer, dosing engineer, hazardous-materials handler or
+  // certifier: no certification, accreditation, regulatory, compliance or
+  // approval claims, no purity / concentration / quality / document
+  // guarantees, no testing, analysis, dosing, formulation, compatibility or
+  // design services, no handling, storage or transport services, no
+  // standards, no support, stock or delivery promises and no client
+  // references. The disclaimer and equivalence sentences are exact phrases
+  // in `SECTOR_ALLOWED_PHRASES` below.
+  "industrial-chemicals": [
+    /\bcertif|\bapprov|\bcomplian|\bcomplies\b|\bcompliant\b|\bconform|\baccredit|\bregulat|\blicen[cs]ed\b|\bregistered\b/i,
+    /\b(?:ISO|ASTM|ASME|ASHRAE|NSF|ANSI|NACE|AMPP|ACS|USP|HPLC|REACH|GHS|OSHA|EPA)\b/,
+    // "solution" is a chemistry term here (buffer / standard solutions);
+    // only the marketing uses are prohibited.
+    /\bgenuine|\boriginal\b|quality[- ]assured|high[- ]quality|\bpremium\b|\bguarantee|\bassured\b|\btrusted\b|\breliable\b|\bleading\b|\b(?:integrated|complete|total|chemical|supply|smart|turnkey|our|procurement|sourcing) solutions?\b|\bsolutions? (?:for|to|provider)\b|\bcomplete\b|single[- ]source|one[- ]stop/i,
+    /\bdos(?:e|es|ing|age)\b|\bformulat|\bcompatib|\btreatment program|\bjar[- ]test|\bdesign|\bcalculat|\bengineer/i,
+    /\bwe (?:test|analy[sz]e|manufacture|produce|blend|formulate)|testing services?|analysis services?|laboratory services?|our laborator|our (?:plant|factory|warehouse)|\bmanufacturer of\b/i,
+    /safe handling|handling services?|storage services?|hazardous[- ]material|dangerous goods|hazmat|transport(?:ation)? of chemicals|\blogistics\b/i,
+    /(?:SDS|safety data sheets?) (?:is |are )?(?:provided|supplied|included|guaranteed|with every)|with (?:an? )?(?:SDS|safety data sheets?)/i,
+    /technical support|after[- ]sales|supplier network|sourcing network|\bsupplier\b|\bsource relationship|\bpartner(?:s|ship)?\b/i,
+    /\b(?:in |ex[- ])?stock(?:ed|s)?\b|\bimmediate|\bfast\b|\bquick\b|nationwide|across Egypt|all governorates|on[- ]time/i,
+    /project references?|our clients|clients include|universities we serve|trusted by/i,
+    /أصلي|مضمون|موثوق|جودة عالية|ضمان الجودة|نقاوة مضمونة/,
+    /شهاد(?:ة|ات)|اعتماد|معتمد|مرخص|مطابقة? للمعايير|الجهات الرقابية/,
+    /الجرعات|جرعة|التركيبات|التوافق الكيميائي|برامج المعالجة|تصميم|حساب|نقوم (?:بالتحليل|بالاختبار|بالتصنيع|بالخلط)|خدمات (?:الاختبار|التحليل|المعامل)|معملنا|مصنعنا/,
+    /التداول|التخزين الآمن|المواد الخطرة|نقل الكيماويات|الخدمات اللوجستية/,
+    /نشرات? بيانات السلامة (?:مرفقة|متوفرة دائمًا|مع كل)/,
+    // «حلول» (solutions, marketing) as a whole word — «محلول» is chemistry.
+    /(?<!\p{L})[وبل]?(?:ال)?حلول(?!\p{L})|متكامل|الدعم الفني|بعد البيع|شبكة موردين|المورد|موردين|شركاء/u,
+    /مخزن|المخزون|فوري|سريع|جميع المحافظات|كافة أنحاء/,
+    /عملاؤنا|مشروعاتنا|الجامعات التي نخدمها/,
+  ],
 };
 
 // Exact customer-input and scope-disclaimer phrases that may contain an
@@ -391,6 +424,12 @@ const SECTOR_ALLOWED_PHRASES = {
     "هل تقوم GOLTENS بالتصميم أو الحسابات أو التركيب أو تنفيذ أعمال الإنشاء؟",
     "ولا تقوم بالتصميم أو الحسابات أو التركيب أو تنفيذ أعمال الإنشاء.",
     "بينما تظل مسؤولية التصميم الإنشائي واختيار المواد وتصميم الخلطات والكميات واعتماد الاستشاري والقبول الفني النهائي على عاتق العميل أو المقاول أو الاستشاري أو المهندس المسؤول، بحسب الحالة.",
+  ],
+  "industrial-chemicals": [
+    "Chemical selection, dosage, formulation, treatment programmes, compatibility, laboratory methods, coating specification, safe handling and storage, and final technical acceptance remain with the customer or responsible technical party, as applicable.",
+    "Final suitability, equivalence and approval remain with the customer, laboratory, consultant or responsible technical party, as applicable.",
+    "بينما يظل اختيار الكيماويات وتحديد الجرعات والتركيبات وبرامج المعالجة والتوافق الكيميائي والطرق المعملية ومواصفات الطلاءات والتداول والتخزين الآمن والقبول الفني النهائي من مسؤولية العميل أو الجهة الفنية المسؤولة، بحسب الحالة.",
+    "ويظل تأكيد الملاءمة والتكافؤ والاعتماد النهائي من مسؤولية العميل أو المعمل أو الاستشاري أو الجهة الفنية المسؤولة، بحسب الحالة.",
   ],
 };
 
@@ -661,6 +700,64 @@ const SECTOR_POLICIES = {
       "global-sourcing",
     ],
   },
+  "industrial-chemicals": {
+    // Families 1–3 are sourcing families (no product category, no record);
+    // families 4–5 are the two real categories, one guide per record.
+    categoryCounts: {
+      "laboratory-chemicals-reagents": 5,
+      "industrial-chemicals-solvents": 5,
+      "resins-chemical-binders": 5,
+      "water-wastewater-chemicals": 5,
+      "corrosion-protection-coatings": 5,
+    },
+    totalGuides: 25,
+    applicationRows: 10,
+    sourcingCategoryIds: [
+      "laboratory-chemicals-reagents",
+      "industrial-chemicals-solvents",
+      "resins-chemical-binders",
+    ],
+    oneGuidePerRecord: true,
+    forbiddenGuideIds: ["methanol", "methyl-alcohol"],
+    forbiddenLinkedProductIds: [],
+    // Excluded everywhere on the page (guide, routing, hero, FAQ, SEO,
+    // sector record): the excluded alcohol solvent and any supplier /
+    // source name or relationship.
+    excludedTerms: [
+      /methanol|methyl alcohol|wood alcohol|\bspr[ie]a\b|spirea|sprea/i,
+      /ميثانول|كحول ميثيلي|كحول الخشب|سبريا|سبيريا/,
+    ],
+    heroVisual: "neutral",
+    availability: { en: "Available on request.", ar: "متاح حسب الطلب." },
+    requireReplacement: true,
+    requireSecondaryChecklist: true,
+    linkedProductsNonPublic: true,
+    sectorProductsNonPublic: true,
+    requireHero: true,
+    faqCount: 8,
+    noGenericSections: true,
+    scanSectorRecord: true,
+    noSeoKeywords: true,
+    heroSecondaryCtaHref: "/sectors",
+    replacementGroups_en: [
+      "All requests",
+      "Chemicals currently in use",
+      "Laboratory chemicals",
+      "Coatings & treatment products",
+    ],
+    replacementForbidden: [
+      /dos(?:e|ing|age)|formulat|treatment program|design|compatib/i,
+      /جرع|تركيب|برامج المعالجة|تصميم|توافق/,
+    ],
+    requireRouting: [
+      "industrial-equipment",
+      "construction",
+      "electrical-energy",
+      "healthcare",
+      "global-sourcing",
+      "lubricants-oils",
+    ],
+  },
 };
 
 let passed = 0;
@@ -850,16 +947,45 @@ for (const sector of sectorsWithGuides) {
   const content = getSectorContent(sector.slug);
   const guide = content.equipmentGuide;
   console.log(`\n== ${sector.slug}`);
+  const extras = SECTOR_PAGE_EXTRAS[sector.slug];
+  // Sourcing-only guide families (compact pages): not product categories,
+  // so they never create category URLs and carry no product record.
+  const sourcingCategoryIds = new Set(extras?.sourcingCategoryIds ?? []);
 
   // --- Categories ---------------------------------------------------------
   const badCategories = guide.categories.filter(
-    (c) => getCategoryById(c.categoryId)?.sectorId !== sector.id,
+    (c) =>
+      getCategoryById(c.categoryId)?.sectorId !== sector.id &&
+      !sourcingCategoryIds.has(c.categoryId),
   );
   report(
-    "every guide category is a real category of this sector",
+    "every guide category is a real category of this sector (or a declared sourcing family)",
     badCategories.length === 0,
     badCategories.map((c) => c.categoryId).join(", "),
   );
+  if (sourcingCategoryIds.size > 0) {
+    const sourcingFamilies = guide.categories.filter((c) =>
+      sourcingCategoryIds.has(c.categoryId),
+    );
+    const problems = [
+      ...[...sourcingCategoryIds]
+        .filter((id) => getCategoryById(id) !== undefined)
+        .map((id) => `${id} is a real product category`),
+      ...[...sourcingCategoryIds]
+        .filter((id) => !guide.categories.some((c) => c.categoryId === id))
+        .map((id) => `${id} has no guide family`),
+      ...sourcingFamilies.flatMap((c) =>
+        c.equipment
+          .filter((e) => e.linkedProductId)
+          .map((e) => `${e.id} links a product record`),
+      ),
+    ];
+    report(
+      `sourcing families are not product categories and link no record (${sourcingCategoryIds.size} families)`,
+      problems.length === 0,
+      problems.join("; "),
+    );
+  }
   const categoryIds = guide.categories.map((c) => c.categoryId);
   report(
     "no category appears twice",
@@ -952,7 +1078,6 @@ for (const sector of sectorsWithGuides) {
     badProjectRefs.length === 0,
     badProjectRefs.join(", "),
   );
-  const extras = SECTOR_PAGE_EXTRAS[sector.slug];
   const projectRoutes = extras?.projectRoutes ?? {};
   report(
     "every project lists at least one equipment type or routed sector",
@@ -1154,6 +1279,11 @@ for (const sector of sectorsWithGuides) {
       );
     }
     if (policy.oneGuidePerRecord) {
+      // Every guide of a real product-category family links its own record
+      // (sourcing families are checked separately and link none).
+      const recordGuides = equipment.filter(
+        (e) => !sourcingCategoryIds.has(e.categoryId),
+      );
       const recordIds = getProductsBySector(sector.id)
         .map((p) => p.id)
         .sort();
@@ -1163,9 +1293,17 @@ for (const sector of sectorsWithGuides) {
         .sort();
       report(
         `exactly one guide per product record of this sector (${recordIds.length} records)`,
-        equipment.every((e) => e.linkedProductId) &&
+        recordGuides.every((e) => e.linkedProductId) &&
           JSON.stringify(linkedIds) === JSON.stringify(recordIds),
         `linked: ${linkedIds.join(", ")}`,
+      );
+    }
+    if (policy.sourcingCategoryIds) {
+      report(
+        `exactly the approved sourcing families (${policy.sourcingCategoryIds.join(", ")})`,
+        JSON.stringify([...sourcingCategoryIds]) ===
+          JSON.stringify(policy.sourcingCategoryIds),
+        [...sourcingCategoryIds].join(", "),
       );
     }
     if (policy.recordlessGuideIds) {
@@ -1457,7 +1595,7 @@ for (const sector of sectorsWithGuides) {
       }
     }
     report(
-      "no unsupported material family is named anywhere on the page",
+      "no unsupported material family is named anywhere on the page (excluded families, chemicals and supplier names)",
       excludedHits.length === 0,
       excludedHits.slice(0, 10).join("; "),
     );

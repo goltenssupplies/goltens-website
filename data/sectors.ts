@@ -154,15 +154,15 @@ export const SECTORS: Sector[] = [
   {
     id: "industrial-chemicals",
     slug: "industrial-chemicals",
-    title_en: "Industrial Chemicals",
-    title_ar: "الكيماويات الصناعية",
+    title_en: "Industrial & Laboratory Chemicals",
+    title_ar: "الكيماويات الصناعية والمعملية",
     subtitle_en:
-      "GOLTENS supplies industrial chemicals and water-treatment products — matched to your process specification, with safety data sheets provided.",
+      "GOLTENS supplies laboratory and industrial chemicals, water-treatment chemicals and protective coatings according to customer specifications.",
     subtitle_ar:
-      "توفر GOLTENS كيماويات صناعية ومواد معالجة مياه — مطابقة لمواصفات عملياتكم، مع توفير نشرات بيانات السلامة.",
+      "توفر GOLTENS الكيماويات المعملية والصناعية وكيماويات معالجة المياه والطلاءات الواقية وفق مواصفات العميل.",
     description_en:
-      "Industrial chemicals and laboratory reagents supplied to specification.",
-    description_ar: "كيماويات صناعية ومواد مختبرية وفق المواصفات المطلوبة.",
+      "Laboratory and industrial chemicals sourced according to customer specifications.",
+    description_ar: "كيماويات معملية وصناعية يتم توفيرها وفق مواصفات العميل.",
     image: "/images/categories/industrial-chemicals.jpg",
     icon: "FlaskConical",
     featured: false,
