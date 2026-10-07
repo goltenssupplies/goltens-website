@@ -1,5 +1,6 @@
 import { constructionPage } from "@/data/sector-content/construction-guide";
 import { governmentProcurementPage } from "@/data/sector-content/government-procurement-guide";
+import { industrialChemicalsPage } from "@/data/sector-content/industrial-chemicals-guide";
 
 /** One "Requirements Covered by Other Sectors" entry — local wording only, never the shared `data/sectors.ts` card copy. */
 export interface CompactGuideRoute {
@@ -34,6 +35,12 @@ export interface CompactGuidePage {
     replacementGroups_en: string;
     replacementGroups_ar: string;
   };
+  /**
+   * Guide families that are sourcing guides only — not backed by a product
+   * category or product record (their guides carry no `linkedProductId`).
+   * Every other guide family must be a real product category of the sector.
+   */
+  sourcingCategoryIds?: string[];
   /** Matrix rows that route to `routing` entries (project id → sector slugs). */
   projectRoutes: Record<string, string[]>;
   routing: {
@@ -49,6 +56,7 @@ export interface CompactGuidePage {
 export const COMPACT_GUIDE_PAGES: Record<string, CompactGuidePage> = {
   "government-procurement": governmentProcurementPage,
   construction: constructionPage,
+  "industrial-chemicals": industrialChemicalsPage,
 };
 
 export function getCompactGuidePage(

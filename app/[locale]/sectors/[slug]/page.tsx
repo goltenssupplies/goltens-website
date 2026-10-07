@@ -104,12 +104,15 @@ function buildEquipmentGuideView({
   slug,
   isArabic,
   ctaLabel,
+  sourcingCategoryIds = [],
 }: {
   guide: SectorEquipmentGuideData;
   sectorId: string;
   slug: string;
   isArabic: boolean;
   ctaLabel: (equipment: string) => string;
+  /** Guide families not backed by a product category (compact pages only). */
+  sourcingCategoryIds?: string[];
 }) {
   const industryLabels = new Map(
     guide.industries.map((industry) => [
@@ -132,7 +135,9 @@ function buildEquipmentGuideView({
 
   const categories: SectorEquipmentGuideCategory[] = guide.categories
     .filter(
-      (category) => getCategoryById(category.categoryId)?.sectorId === sectorId,
+      (category) =>
+        getCategoryById(category.categoryId)?.sectorId === sectorId ||
+        sourcingCategoryIds.includes(category.categoryId),
     )
     .map((category) => {
       const categoryTitle = isArabic ? category.title_ar : category.title_en;
@@ -650,6 +655,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
       slug,
       isArabic,
       ctaLabel: (equipment) => tGuide("cta", { equipment }),
+      sourcingCategoryIds: compactPage?.sourcingCategoryIds,
     });
 
     const quoteSection = (
