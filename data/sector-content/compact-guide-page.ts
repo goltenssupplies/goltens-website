@@ -1,4 +1,5 @@
 import { constructionPage } from "@/data/sector-content/construction-guide";
+import { globalSourcingPage } from "@/data/sector-content/global-sourcing-guide";
 import { governmentProcurementPage } from "@/data/sector-content/government-procurement-guide";
 import { healthcarePage } from "@/data/sector-content/healthcare-guide";
 import { industrialChemicalsPage } from "@/data/sector-content/industrial-chemicals-guide";
@@ -64,6 +65,7 @@ export const COMPACT_GUIDE_PAGES: Record<string, CompactGuidePage> = {
   construction: constructionPage,
   "industrial-chemicals": industrialChemicalsPage,
   healthcare: healthcarePage,
+  "global-sourcing": globalSourcingPage,
 };
 
 export function getCompactGuidePage(

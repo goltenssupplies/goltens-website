@@ -189,16 +189,16 @@ export const SECTORS: Sector[] = [
   {
     id: "global-sourcing",
     slug: "global-sourcing",
-    title_en: "Global Sourcing & OEM Brands",
-    title_ar: "الاستيراد العالمي والعلامات التجارية",
+    title_en: "Global Sourcing & Hard-to-Source Procurement",
+    title_ar: "التوريد العالمي والأصناف صعبة التوفير",
     subtitle_en:
-      "GOLTENS sources spare parts, OEM components, and hard-to-find items through international procurement — matched to your specification.",
+      "Request-led sourcing for hard-to-find parts, components, materials and non-standard items based on customer-provided information.",
     subtitle_ar:
-      "توفر GOLTENS قطع غيار ومكونات OEM وأصنافًا نادرة التوفر من خلال التوريد الدولي — مطابقة لمواصفاتكم.",
+      "توريد حسب الطلب للأصناف والمكونات والخامات والأصناف غير القياسية صعبة التوفير، وفق المعلومات المقدمة من العميل.",
     description_en:
-      "We identify and source genuine products for hard-to-find or non-standard requirements, matched to your specification through direct international procurement.",
+      "GOLTENS reviews customer-provided item information and sources specified or permitted alternative items for quotation.",
     description_ar:
-      "نحدد ونورّد منتجات أصلية للمتطلبات غير القياسية أو صعبة التوفير، مع مطابقة مواصفاتكم من خلال التوريد الدولي المباشر.",
+      "تراجع GOLTENS بيانات الأصناف المقدمة من العميل وتوفر الأصناف المحددة أو البدائل المسموح بها ضمن عرض السعر.",
     image: "/images/categories/marine-logistics.jpg",
     icon: "Globe",
     featured: false,

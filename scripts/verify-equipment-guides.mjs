@@ -149,6 +149,20 @@ const PROHIBITED_CLAIMS = [
   /وثائق المناقصات/,
 ];
 
+// Shared claim patterns one sector may use legitimately, matched by exact
+// pattern (source and flags). Only Global Sourcing — a request-led sourcing
+// service for parts quoted against the customer's own part numbers — may
+// use the spare-parts terms; every other guide page keeps the shared ban.
+// "Genuine spare parts" stays banned everywhere, Global Sourcing included.
+const SECTOR_CLAIM_EXEMPTIONS = {
+  "global-sourcing": [/spare parts/i, /قطع غيار/],
+};
+const isExemptClaim = (slug, pattern) =>
+  (SECTOR_CLAIM_EXEMPTIONS[slug] ?? []).some(
+    (exempt) =>
+      exempt.source === pattern.source && exempt.flags === pattern.flags,
+  );
+
 // Claims that are valid for one sector but not another: heavy equipment can
 // be sourced new or used, commercial vehicles are supplied new only.
 const SECTOR_PROHIBITED_CLAIMS = {
@@ -400,6 +414,41 @@ const SECTOR_PROHIBITED_CLAIMS = {
     /عملاؤنا|مشروعاتنا|(?:ال|لل)?مستشفيات (?:ال)?حكومية|اتفاقيات|إطاري|توريد دوري|عقود توريد/,
     /(?:إعداد|تقديم) (?:مستندات |وثائق )?(?:ال)?(?:مناقصات?|مناقصة|عطاءات?|عطاء)/,
   ],
+  // Global sourcing & hard-to-source procurement: a request-led sourcing
+  // service quoted against the customer's own item information. No OEM,
+  // authenticity, authorised-distributor / agent / representative claims,
+  // no supplier-network or manufacturer marketing, no customs, import or
+  // logistics services, no certification, compliance or approval claims,
+  // no tender-document compilation or submission, no availability, stock,
+  // urgency or delivery promises, no installation, testing, design,
+  // engineering or manufacturing, no package wording or client references,
+  // and no vehicle or heavy-equipment parts. The FAQ denial, alternatives
+  // and boundary sentences are exact phrases in `SECTOR_ALLOWED_PHRASES`;
+  // "installed equipment" names the customer's existing equipment.
+  "global-sourcing": [
+    /\bOEM\b|original equipment manufacturer/i,
+    /\bgenuine|\boriginal\b|\bauthentic/i,
+    /authori[sz]|\bdistributor|\bagent\b|\bagency\b|\bdealer|\brepresentative|\bexclusive/i,
+    /supplier network|sourcing network|(?:trusted|approved|verified|vetted|preferred|qualified|leading|reliable|certified) (?:suppliers?|manufacturers?|sources?|partners?)|\bour (?:suppliers?|partners?|network)\b|\bpartner(?:s|ship)?\b|(?:leading|top|major|world[- ]class|renowned|global) manufacturers?/i,
+    /customs|clearance|\bimport (?:services?|logistics|handling|agent)|\bwe import\b|\blogistics\b|freight|shipping (?:services?|agent)|door[- ]to[- ]door/i,
+    /\bcertif|\bcomplian|\bcomplies\b|\bcompliant\b|\bconform|\bapprov|\baccredit|\bregulat|\blicen[cs]/i,
+    /\bsubmi(?:t|ts|tted|tting|ssion)\b|tender (?:documentation|documents|preparation|compilation|management|services?)|\bcompil/i,
+    /guarantee|\bassured\b|\bensur|in stock|\bstock(?:ed|s|ist|holding)?\b|\bimmediate|\bfast(?:est)?\b|\bquick|\burgent|\bemergenc|nationwide|across Egypt|all governorates|on[- ]time|always available|readily available/i,
+    /\binstall(?!ed\b)|\bcommission|\btest(?:s|ed|ing)?\b|\bcalibrat|\bmaintenance\b|\bmaintain|\brepair|\bdesign|\bengineer|\bsizing\b|\bcalculat|\bwe (?:manufacture|fabricate|machine|produce|make)\b|\bmanufactur(?:e|es|ing) (?:to|services?|capabilit)|reverse[- ]engineer|\bfabricat/i,
+    /\bsolutions?\b|\bcomplete\b|\bturnkey\b|single[- ]source|one[- ]stop|single point of contact|dedicated (?:sourcing )?team|\bend[- ]to[- ]end\b/i,
+    /project references?|our clients|clients include|trusted by|projects we (?:serve|supplied)|government (?:clients|hospitals|ministries)/i,
+    /(?:vehicles?|trucks?|trailers?|fleets?|automotive|cars?|buses|heavy[- ]equipment|machinery|excavators?|cranes?|loaders?|bulldozers?)\b[^.]{0,40}\b(?:spare )?parts\b|\b(?:spare )?parts\b[^.]{0,40}\b(?:vehicles?|trucks?|trailers?|fleets?|automotive|heavy[- ]equipment|machinery|excavators?|cranes?|loaders?|bulldozers?)\b/i,
+    /أصلي|الأصلية|مضمون|موثوق|معتمد|اعتماد|شهاد|مطابقة? للمعايير|الجهات الرقابية|ترخيص|مرخص|يضمن|نضمن|ضمان/,
+    /وكيل|وكالة|موزع|ممثل|حصري/,
+    /شبكة (?:ال)?موردين|موردين (?:موثوقين|معتمدين)|شركاء|شريك|كبرى الشركات|الشركات المصنعة الرائدة/,
+    /جمرك|الجمارك|تخليص|خدمات? (?:الاستيراد|الشحن)|لوجستي/,
+    /نصنع|نقوم بالتصنيع|خدمات? التصنيع|تصميم|هندس|تركيب|تشغيل تجريبي|اختبار|معايرة|صيانة|إصلاح/,
+    /مخزن|المخزون|فوري|سريع|عاجل|طارئ|جميع المحافظات|كافة أنحاء/,
+    /(?<!\p{L})[وبل]?(?:ال)?حلول(?!\p{L})|متكامل|تسليم مفتاح|فريق مخصص|جهة اتصال واحدة/u,
+    /عملاؤنا|مشروعاتنا/,
+    /(?:إعداد|تقديم|تجميع) (?:مستندات |وثائق )?(?:ال)?(?:مناقصات?|مناقصة|عطاءات?|عطاء)/,
+    /قطع (?:ال)?غيار[^.]{0,30}(?:مركبات|سيارات|شاحنات|مقطورات|أساطيل|المعدات الثقيلة|معدات ثقيلة|الآليات)/,
+  ],
 };
 
 // Exact customer-input and scope-disclaimer phrases that may contain an
@@ -467,9 +516,41 @@ const SECTOR_ALLOWED_PHRASES = {
     "Clinical suitability, regulatory requirements, equipment planning and final acceptance remain with the customer, consultant or responsible healthcare/technical authority, as applicable.",
     "بينما تظل الملاءمة السريرية والمتطلبات التنظيمية وتخطيط التجهيزات والقبول النهائي من مسؤولية العميل أو الاستشاري أو الجهة الطبية أو الفنية المسؤولة، بحسب الحالة.",
   ],
+  "global-sourcing": [
+    "Is GOLTENS an authorised distributor or agent?",
+    "GOLTENS is not presented as an authorised distributor or agent of any manufacturer.",
+    "هل GOLTENS موزع أو وكيل معتمد؟",
+    "لا تُقدَّم GOLTENS بوصفها موزعًا أو وكيلًا معتمدًا لأي جهة مصنّعة.",
+    "Final technical suitability, equivalence, specification approval and regulatory or compliance acceptance remain with the customer, consultant or responsible technical party, as applicable.",
+    "ويظل تأكيد الملاءمة الفنية والتكافؤ واعتماد المواصفات والقبول التنظيمي أو قبول المطابقة من مسؤولية العميل أو الاستشاري أو الجهة الفنية المسؤولة، بحسب الحالة.",
+    "Availability of discontinued items is not guaranteed",
+    "Availability is not guaranteed",
+    "ولا يُضمن توافر الأصناف المتوقفة",
+    "لا يُضمن توافر الصنف",
+  ],
 };
 
 // Sector-specific structure rules, checked in addition to the shared ones.
+// Global Sourcing's internal product records — never a guide anchor and
+// never linked from the public page.
+const GLOBAL_SOURCING_RECORD_IDS = [
+  "oem-replacement-parts",
+  "custom-manufactured-components",
+  "spare-parts-all-categories",
+  "non-standard-hard-to-find-items",
+  "obsolete-parts-sourcing",
+  "industrial-raw-materials-sourcing",
+  "bulk-commodity-sourcing",
+  "packaging-materials-sourcing",
+  "specialty-equipment-on-request",
+  "project-specific-procurement",
+  "turnkey-equipment-packages",
+  "certification-compliance-sourcing",
+  "emergency-urgent-procurement",
+  "export-import-logistics-support",
+  "custom-sourcing-requests",
+];
+
 const SECTOR_POLICIES = {
   "industrial-equipment": {
     categoryCounts: {
@@ -897,6 +978,74 @@ const SECTOR_POLICIES = {
       "government-procurement",
     ],
   },
+  "global-sourcing": {
+    // Three sourcing families (request types, not product categories); no
+    // guide links any of the sector's internal records.
+    categoryCounts: {
+      "parts-components-by-reference": 4,
+      "non-standard-specialty-items": 3,
+      "materials-multi-item-requirements": 4,
+    },
+    totalGuides: 11,
+    applicationRows: 10,
+    sourcingCategoryIds: [
+      "parts-components-by-reference",
+      "non-standard-specialty-items",
+      "materials-multi-item-requirements",
+    ],
+    allFamiliesSourcing: true,
+    noGuideImages: true,
+    // No guide reuses an internal record id as its anchor, and none links a
+    // record.
+    forbiddenGuideIds: GLOBAL_SOURCING_RECORD_IDS,
+    forbiddenLinkedProductIds: GLOBAL_SOURCING_RECORD_IDS,
+    // Every guide describes a sourcing request, never a product.
+    guideNature: [/request|sourc|quot/i, /طلب|توفير|توريد|عرض السعر/],
+    // Manufacturer, supplier and brand names are never named anywhere on
+    // the page (guide, routing, hero, FAQ, SEO, sector record); the
+    // records carry no brand slugs, so the shared brand check alone would
+    // not cover them.
+    excludedTerms: [
+      /\b(?:Siemens|ABB|Schneider|Caterpillar|Cummins|Perkins|Bosch|SKF|FAG|NSK|Timken|Grundfos|KSB|Parker|Festo|Honeywell|Emerson|Danfoss|Mitsubishi|Komatsu|Volvo|Mercedes|Toyota|Hyundai|Hitachi|Yokogawa|Endress|Rockwell|Allen[- ]Bradley|Omron|Eaton|Legrand|Philips|GE|Atlas Copco|Ingersoll|Kaeser|Fluke|3M|Makita|DeWalt|XTRA|Morbidelli)\b/,
+      /سيمنز|شنايدر|كاتربيلر|كومنز|بوش|جروندفوس|هانيويل|ميتسوبيشي|كوماتسو|فولفو|مرسيدس|تويوتا|هيونداي|هيتاشي|فيليبس/,
+    ],
+    heroVisual: "neutral",
+    availability: { en: "Available on request.", ar: "متاح حسب الطلب." },
+    requireReplacement: true,
+    requireSecondaryChecklist: true,
+    linkedProductsNonPublic: true,
+    sectorProductsNonPublic: true,
+    requireHero: true,
+    faqCount: 8,
+    noGenericSections: true,
+    scanSectorRecord: true,
+    noSeoKeywords: true,
+    heroSecondaryCtaHref: "/sectors",
+    replacementGroups_en: [
+      "Existing-item matching",
+      "Nameplate & photo identification",
+      "Obsolete & discontinued items",
+      "Non-standard items",
+      "Equivalent & cross-reference requests",
+    ],
+    replacementForbidden: [
+      /install(?!ed\b)|commission|calibrat|maintenance|design|engineer|customs|certif|manufactur(?:e|ing) (?:to|services?)/i,
+      /تركيب|تشغيل تجريبي|معايرة|صيانة|تصميم|هندس|جمارك|شهاد/,
+    ],
+    requireRouting: [
+      "industrial-equipment",
+      "electrical-energy",
+      "fire-protection",
+      "commercial-vehicles",
+      "heavy-equipment",
+      "healthcare",
+      "construction",
+      "industrial-chemicals",
+      "lubricants-oils",
+      "government-procurement",
+    ],
+    exactRouting: true,
+  },
 };
 
 let passed = 0;
@@ -1080,6 +1229,12 @@ console.log(
 report(
   "at least one sector defines an equipment guide",
   sectorsWithGuides.length > 0,
+);
+report(
+  "shared claim exemptions (spare parts) apply to Global Sourcing only",
+  JSON.stringify(Object.keys(SECTOR_CLAIM_EXEMPTIONS)) ===
+    JSON.stringify(["global-sourcing"]),
+  Object.keys(SECTOR_CLAIM_EXEMPTIONS).join(", "),
 );
 
 for (const sector of sectorsWithGuides) {
@@ -1549,6 +1704,44 @@ for (const sector of sectorsWithGuides) {
         tierProblems.join("; "),
       );
     }
+    if (policy.allFamiliesSourcing) {
+      const nonSourcing = guide.categories.filter(
+        (c) => !sourcingCategoryIds.has(c.categoryId),
+      );
+      report(
+        `every family is a sourcing family with no product category (${guide.categories.length} families)`,
+        nonSourcing.length === 0 &&
+          guide.categories.every(
+            (c) => getCategoryById(c.categoryId) === undefined,
+          ),
+        nonSourcing.map((c) => c.categoryId).join(", "),
+      );
+      const linked = equipment.filter((e) => e.linkedProductId);
+      report(
+        "no guide links a product record",
+        linked.length === 0,
+        linked.map((e) => e.id).join(", "),
+      );
+    }
+    if (policy.noGuideImages) {
+      const withImages = equipment.filter((e) => e.image !== null);
+      report(
+        "no guide shows an image (no product images on the page)",
+        withImages.length === 0,
+        withImages.map((e) => e.id).join(", "),
+      );
+    }
+    if (policy.guideNature) {
+      const [natureEn, natureAr] = policy.guideNature;
+      const unclear = equipment.filter(
+        (e) => !natureEn.test(e.whatItIs_en) || !natureAr.test(e.whatItIs_ar),
+      );
+      report(
+        "every guide describes a sourcing request, not a product",
+        unclear.length === 0,
+        unclear.map((e) => e.id).join(", "),
+      );
+    }
     if (policy.requireRouting) {
       const missing = policy.requireRouting.filter(
         (slug) => !routeSlugs.includes(slug),
@@ -1558,6 +1751,17 @@ for (const sector of sectorsWithGuides) {
         Boolean(routing) && missing.length === 0,
         missing.join(", "),
       );
+      if (policy.exactRouting) {
+        const extra = routeSlugs.filter(
+          (slug) => !policy.requireRouting.includes(slug),
+        );
+        report(
+          `cross-sector routing lists exactly the approved sectors (${policy.requireRouting.length})`,
+          extra.length === 0 &&
+            routeSlugs.length === policy.requireRouting.length,
+          extra.join(", "),
+        );
+      }
     }
     if (policy.guideForbidden) {
       const hits = [];
@@ -1731,7 +1935,9 @@ for (const sector of sectorsWithGuides) {
   // --- Prohibited claims and marketing language -----------------------------
   const claimHits = [];
   const claimPatterns = [
-    ...PROHIBITED_CLAIMS,
+    ...PROHIBITED_CLAIMS.filter(
+      (pattern) => !isExemptClaim(sector.slug, pattern),
+    ),
     ...(SECTOR_PROHIBITED_CLAIMS[sector.slug] ?? []),
   ];
   const allowedPhrases = SECTOR_ALLOWED_PHRASES[sector.slug] ?? [];
