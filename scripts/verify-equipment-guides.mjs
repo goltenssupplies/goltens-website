@@ -368,6 +368,38 @@ const SECTOR_PROHIBITED_CLAIMS = {
     /مخزن|المخزون|فوري|سريع|جميع المحافظات|كافة أنحاء/,
     /عملاؤنا|مشروعاتنا|الجامعات التي نخدمها/,
   ],
+  // Hospital equipment & medical supplies: a procurement guide quoted
+  // against the customer's specification, BOQ, equipment schedule or
+  // tender list. GOLTENS is not a manufacturer, hospital, laboratory,
+  // clinical, testing, calibration, installation or maintenance provider,
+  // regulatory body or suitability assessor: no certification, approval,
+  // registration, regulatory or standards claims, no clinical, efficacy,
+  // accuracy, patient-safety, infection-control or sterility claims, no
+  // services, no authenticity / quality / trust / package wording, no
+  // support, stock, urgency or delivery promises, no client references,
+  // framework or recurring-supply commitments, and no tender preparation
+  // or submission. The disclaimer sentence is an exact phrase in
+  // `SECTOR_ALLOWED_PHRASES` below; "sterile reprocessing" is the name of
+  // a hospital department.
+  healthcare: [
+    /\bcertif|\bapprov|\bcomplian|\bcomplies\b|\bcompliant\b|\bconform|\baccredit|\bregulat|\blicen[cs]|\bregist(?:er|ered|ration)\b|\bvalidat/i,
+    /\b(?:ISO|IEC|EN|CE|FDA|USP|AISI|ASTM|ANSI|UL|MDR|EDA|GMP)\b/,
+    /\bclinical|\befficac|\beffective(?:ness)?\b|\baccura(?:te|cy)\b|\bprecis(?:e|ion)\b|\bsafe(?:ty|ly)?\b|\binfection|\bsteril(?:e|ity)\b(?! reprocessing)|\bmedical[- ]grade\b|\bhospital[- ]grade\b|\bpatient outcomes?\b|\btreatment performance\b|\bdiagnos(?:e|es|is|tic accuracy)\b/i,
+    /\bdesign|\bcalculat|\binstall|\btest(?:s|ed|ing)?\b|\bcommission|\bmaintenance\b|\bmaintain|\bcalibrat|\brepair|\bservicing\b|\btraining\b/i,
+    /\bgenuine|\boriginal\b|quality[- ]assured|high[- ]quality|\bpremium\b|\bguarantee|\bassured\b|\btrusted\b|\breliable\b|\bleading\b|\bsolutions?\b|\bcomplete\b|\bturnkey\b|single[- ]source|one[- ]stop|\bpartner(?:s|ship)?\b|continuous(?:ly)? availab/i,
+    /technical support|after[- ]sales|supplier network|sourcing network|\bwe (?:manufacture|produce|test|calibrate|install|service|diagnose|treat)\b|\bmanufacturer of\b|our (?:hospital|clinic|laborator|factory|plant|warehouse)/i,
+    /\b(?:in |ex[- ])?stock(?:ed|s)?\b|\bimmediate|\bfast\b|\bquick\b|\burgent|nationwide|across Egypt|all governorates|on[- ]time/i,
+    /project references?|our clients|clients include|hospitals we (?:serve|supply)|trusted by|government hospitals?|public hospitals?|\bframework\b|recurring (?:supply|orders?|arrangements?)|long[- ]term (?:supply|agreements?|contracts?)/i,
+    /\bsubmi(?:t|ts|tted|tting|ssion)\b|tender (?:documentation|preparation|management|services?)|prepar\w* (?:the |your )?(?:tenders?|bids?)/i,
+    /أصلي|مضمون|موثوق|جودة عالية|ضمان الجودة/,
+    /شهاد(?:ة|ات)|اعتماد|معتمد|مرخص|ترخيص|التسجيل لدى|مسجلة? لدى|مطابقة? للمعايير|الجهات الرقابية|هيئة الدواء|تنظيمي/,
+    /سريري|فعالي|فعّال|دقة|سلامة|آمن|العدوى|كفاءة|معقم/,
+    /تصميم|حساب|تركيب|اختبار|تشغيل تجريبي|صيانة|معايرة|إصلاح|تدريب/,
+    /(?<!\p{L})[وبل]?(?:ال)?حلول(?!\p{L})|متكامل|الدعم الفني|بعد البيع|شبكة موردين|شريك|شركاء/u,
+    /مخزن|المخزون|فوري|سريع|عاجل|جميع المحافظات|كافة أنحاء/,
+    /عملاؤنا|مشروعاتنا|(?:ال|لل)?مستشفيات (?:ال)?حكومية|اتفاقيات|إطاري|توريد دوري|عقود توريد/,
+    /(?:إعداد|تقديم) (?:مستندات |وثائق )?(?:ال)?(?:مناقصات?|مناقصة|عطاءات?|عطاء)/,
+  ],
 };
 
 // Exact customer-input and scope-disclaimer phrases that may contain an
@@ -430,6 +462,10 @@ const SECTOR_ALLOWED_PHRASES = {
     "Final suitability, equivalence and approval remain with the customer, laboratory, consultant or responsible technical party, as applicable.",
     "بينما يظل اختيار الكيماويات وتحديد الجرعات والتركيبات وبرامج المعالجة والتوافق الكيميائي والطرق المعملية ومواصفات الطلاءات والتداول والتخزين الآمن والقبول الفني النهائي من مسؤولية العميل أو الجهة الفنية المسؤولة، بحسب الحالة.",
     "ويظل تأكيد الملاءمة والتكافؤ والاعتماد النهائي من مسؤولية العميل أو المعمل أو الاستشاري أو الجهة الفنية المسؤولة، بحسب الحالة.",
+  ],
+  healthcare: [
+    "Clinical suitability, regulatory requirements, equipment planning and final acceptance remain with the customer, consultant or responsible healthcare/technical authority, as applicable.",
+    "بينما تظل الملاءمة السريرية والمتطلبات التنظيمية وتخطيط التجهيزات والقبول النهائي من مسؤولية العميل أو الاستشاري أو الجهة الطبية أو الفنية المسؤولة، بحسب الحالة.",
   ],
 };
 
@@ -756,6 +792,109 @@ const SECTOR_POLICIES = {
       "healthcare",
       "global-sourcing",
       "lubricants-oils",
+    ],
+  },
+  healthcare: {
+    // The six real product categories, one guide per internal record.
+    categoryCounts: {
+      "patient-monitoring-diagnostic-equipment": 3,
+      "respiratory-emergency-equipment": 3,
+      "sterilization-operating-room-equipment": 3,
+      "hospital-beds-patient-handling": 3,
+      "medical-furniture-trolleys-carts": 3,
+      "surgical-supplies": 3,
+    },
+    totalGuides: 18,
+    applicationRows: 10,
+    oneGuidePerRecord: true,
+    forbiddenGuideIds: [
+      "anesthesia-machines",
+      "defibrillators",
+      "infusion-syringe-pumps",
+      "ventilators",
+    ],
+    forbiddenLinkedProductIds: [],
+    // Healthcare item types with no product record, and medical-device
+    // manufacturer names (the records carry no brand slugs, so the shared
+    // brand check alone would not cover them), are never named anywhere on
+    // the page (guide, routing, hero, FAQ, SEO, sector record).
+    excludedTerms: [
+      /\b(?:Philips|GE Healthcare|Siemens|Healthineers|Mindray|Dr(?:ä|ae|a)ger|Medtronic|Stryker|Hill-?Rom|Getinge|Maquet|Linet|Arjo|Steris|Tuttnauer|Nihon Kohden|Schiller|Masimo|Nonin|Edan|Comen|B\. ?Braun|Johnson & Johnson|Ethicon|3M|Halyard|M(?:ö|o)lnlycke|Cardinal Health|Medline|Hartmann|Covidien|Invacare|Inogen|Yuwell|DeVilbiss|Laerdal|Zoll|Trumpf|Berchtold|Skytron|Merivaara)\b/,
+      /فيليبس|سيمنز|ميندراي|دريجر|ميدترونيك|سترايكر|جيتينج|ماكيه|بي براون/,
+      /\bMRI\b|X-?ray|\bCT\b|ultrasound|imaging|radiolog|\bdental|dentist|ventilator|defibrillat|an(?:a)?esthe|infusion|syringe pump|dialysis|pharmac|wheelchair|veterinar|neonat|home[- ]care|analy[sz]er|laboratory (?:equipment|analy)|rehabilitation|physiotherap/i,
+      /الرنين المغناطيسي|الأشعة|الموجات فوق الصوتية|الأسنان|التنفس الصناعي|مزيل الرجفان|الصدمات الكهربائية|التخدير|التسريب|غسيل الكلى|صيدل|كراسي متحركة|الكراسي المتحركة|بيطري|حديثي الولادة|الرعاية المنزلية|أجهزة التحاليل|العلاج الطبيعي|التأهيل/,
+    ],
+    // Each guide states its alternatives tier as an "Alternatives"
+    // selection factor with the approved wording.
+    alternativeTiers: [
+      {
+        detail_en:
+          "The specified item, or a matching or equivalent item on request.",
+        ids: [
+          "examination-couches",
+          "bedside-cabinets-overbed-tables",
+          "treatment-instrument-trolleys",
+          "resuscitation-carts",
+          "manual-beds-stretchers",
+        ],
+      },
+      {
+        detail_en:
+          "The specified item; an alternative only where the customer's documents allow alternatives.",
+        ids: [
+          "electric-beds",
+          "intensive-care-beds",
+          "surgical-operating-tables",
+          "surgical-lights",
+        ],
+      },
+      {
+        detail_en:
+          "Quoted to the specified item only; alternatives are not proposed.",
+        ids: [
+          "bedside-patient-monitors",
+          "ecg-electrocardiographs",
+          "pulse-oximetry-devices",
+          "oxygen-concentrator-units",
+          "suction-units",
+          "steam-sterilizers",
+          "wound-closure-sutures",
+          "operating-room-gowns",
+          "drapes-and-medical-masks",
+        ],
+      },
+    ],
+    heroVisual: "neutral",
+    availability: { en: "Available on request.", ar: "متاح حسب الطلب." },
+    requireReplacement: true,
+    requireSecondaryChecklist: true,
+    linkedProductsNonPublic: true,
+    sectorProductsNonPublic: true,
+    requireHero: true,
+    faqCount: 8,
+    noGenericSections: true,
+    scanSectorRecord: true,
+    noSeoKeywords: true,
+    heroSecondaryCtaHref: "/sectors",
+    replacementGroups_en: [
+      "All items",
+      "Matching or equivalent items on request",
+      "Alternatives only where your documents allow them",
+      "Specified items only",
+      "Replacing an item in use",
+    ],
+    replacementForbidden: [
+      /install|commission|calibrat|maintenance|design|clinical|validat/i,
+      /تركيب|تشغيل تجريبي|معايرة|صيانة|تصميم|سريري/,
+    ],
+    requireRouting: [
+      "electrical-energy",
+      "fire-protection",
+      "construction",
+      "industrial-chemicals",
+      "commercial-vehicles",
+      "global-sourcing",
+      "government-procurement",
     ],
   },
 };
@@ -1387,6 +1526,29 @@ for (const sector of sectorsWithGuides) {
         `${extras?.heroSecondaryCta?.href}`,
       );
     }
+    if (policy.alternativeTiers) {
+      const expected = new Map(
+        policy.alternativeTiers.flatMap((tier) =>
+          tier.ids.map((id) => [id, tier.detail_en]),
+        ),
+      );
+      const tierProblems = equipment
+        .map((e) => {
+          const stated = e.selectionFactors.filter(
+            (f) => f.factor_en === "Alternatives",
+          );
+          if (!expected.has(e.id)) return `${e.id} has no approved tier`;
+          if (stated.length !== 1 || stated[0].detail_en !== expected.get(e.id))
+            return `${e.id} does not state its approved alternatives tier`;
+          return null;
+        })
+        .filter(Boolean);
+      report(
+        "every guide states its approved alternatives tier",
+        tierProblems.length === 0 && expected.size === equipment.length,
+        tierProblems.join("; "),
+      );
+    }
     if (policy.requireRouting) {
       const missing = policy.requireRouting.filter(
         (slug) => !routeSlugs.includes(slug),
@@ -1432,7 +1594,8 @@ for (const sector of sectorsWithGuides) {
     if (policy.noSeoKeywords) {
       report(
         "no SEO keywords",
-        content.seo?.keywords_en === undefined &&
+        content.seo?.keywords === undefined &&
+          content.seo?.keywords_en === undefined &&
           content.seo?.keywords_ar === undefined,
       );
     }

@@ -1,5 +1,6 @@
 import { constructionPage } from "@/data/sector-content/construction-guide";
 import { governmentProcurementPage } from "@/data/sector-content/government-procurement-guide";
+import { healthcarePage } from "@/data/sector-content/healthcare-guide";
 import { industrialChemicalsPage } from "@/data/sector-content/industrial-chemicals-guide";
 
 /** One "Requirements Covered by Other Sectors" entry — local wording only, never the shared `data/sectors.ts` card copy. */
@@ -62,6 +63,7 @@ export const COMPACT_GUIDE_PAGES: Record<string, CompactGuidePage> = {
   "government-procurement": governmentProcurementPage,
   construction: constructionPage,
   "industrial-chemicals": industrialChemicalsPage,
+  healthcare: healthcarePage,
 };
 
 export function getCompactGuidePage(
