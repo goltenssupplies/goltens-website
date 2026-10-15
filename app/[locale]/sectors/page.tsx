@@ -169,7 +169,16 @@ export default async function SectorsPage({ params }: SectorsPageProps) {
           description: t("sectorsSection.description"),
         }}
       >
-        <div id={SECTOR_GRID_ANCHOR} className="scroll-mt-24">
+        {/* Readability overrides for this listing page's cards only, scoped
+            to this wrapper so the shared `SectorCard` (homepage teaser,
+            Related Sectors, Solutions) stays untouched: a white card
+            surface that separates from the light page backdrop, and
+            ink-muted description / scope-of-supply text plus an ink
+            "Explore" label (gold arrow kept) for AA-level contrast. */}
+        <div
+          id={SECTOR_GRID_ANCHOR}
+          className="[&_.p-5>span]:text-ink [&_.p-5>span>svg]:text-gold [&_a>div]:border-ink/10 [&_h3+p]:text-ink-muted [&_h3+p+p]:text-ink-muted scroll-mt-24 [&_a>div]:bg-white [&_h3+p]:opacity-100 [&_h3+p+p]:opacity-100"
+        >
           <SectorGrid items={items} exploreLabel={t("exploreSector")} />
         </div>
       </PremiumDarkSection>
