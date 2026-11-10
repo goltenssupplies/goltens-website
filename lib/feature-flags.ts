@@ -72,12 +72,16 @@ export const RELATED_PRODUCTS_ENABLED = true;
 export const SOLUTIONS_ENABLED = false;
 
 /**
- * `true` = the Knowledge Platform (`/knowledge` and every `/knowledge/[slug]`
- * article) is discoverable: linked from the footer Quick Links and the
- * product page's "Related Knowledge" section, listed in `app/sitemap.ts`,
- * and served with normal indexable metadata. Flip to `false` to put it back
- * on a discovery-only hold (hidden from those places and served
- * `robots: noindex, nofollow`) — every route stays directly reachable either
- * way, and no route, component, or `data/knowledge/*` content is touched.
+ * `false` = temporary hold on the entire Knowledge Platform (`/knowledge`
+ * and every `/knowledge/[slug]` article) while its content is still being
+ * built out into something strong and complete — this disables *discovery*
+ * only, never the platform itself: hidden from the footer Quick Links and
+ * the product page's "Related Knowledge" section, excluded from
+ * `app/sitemap.ts`, and both route files serve `robots: noindex, nofollow`
+ * instead of their normal indexable metadata. Every route stays directly
+ * reachable for anyone with a direct link — no redirect, no 404 — and no
+ * route, component, or `data/knowledge/*` content is touched. Flip back to
+ * `true` to fully restore normal footer/sitemap/indexing behavior
+ * everywhere at once.
  */
-export const KNOWLEDGE_CENTER_ENABLED = true;
+export const KNOWLEDGE_CENTER_ENABLED = false;
