@@ -22,9 +22,9 @@ const AUTHOR = "GOLTENS Procurement Team";
 const REVIEWED = "2026-11-10";
 
 const LEGAL_NOTE_EN =
-  "This article is general information, not legal advice. The law has been amended since it was issued — always work from the official text published in the Official Gazette and the current executive regulations, and from your entity's Contracts Department.";
+  "This article is for general awareness and is not legal advice. It does not replace the tender documents of each procurement or the official texts in force. The law and its executive regulations have been amended since they were issued — always work from the texts published in the Official Gazette and from your entity's Contracts Department.";
 const LEGAL_NOTE_AR =
-  "هذا المقال معلومات عامة وليس استشارة قانونية. وقد أُدخلت تعديلات على القانون بعد صدوره — فاعتمدوا دائمًا على النص الرسمي المنشور في الجريدة الرسمية واللائحة التنفيذية السارية، وعلى إدارة التعاقدات في جهتكم.";
+  "هذا المحتوى للتوعية العامة وليس استشارة قانونية، ولا يغني عن مراجعة مستندات الطرح الخاصة بكل عملية والنصوص الرسمية السارية. وقد أُدخلت تعديلات على القانون ولائحته التنفيذية بعد صدورهما — فاعتمدوا دائمًا على النصوص المنشورة في الجريدة الرسمية وعلى إدارة التعاقدات في جهتكم.";
 
 export const governmentProcurementArticles: KnowledgeItem[] = [
   {
@@ -39,28 +39,40 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
       "طرق الشراء التي يجيزها قانون تنظيم التعاقدات التي تبرمها الجهات العامة، وشرط اللجوء إلى كل منها، وما يحتاجه المورد منكم لتقديم عرض تحت أي طريقة.",
     sections: [
       {
-        heading_en: "The Law in Brief",
-        heading_ar: "القانون في سطور",
+        heading_en: "Article 7: Public Tender Is the Default",
+        heading_ar: "المادة 7: المناقصة العامة هي الأصل",
         body_en:
-          "Law No. 182 of 2018 regulates contracts concluded by public entities. It was issued and published on 3 October 2018, came into force thirty days later, and replaced the Tenders and Auctions Law No. 89 of 1998. Its executive regulations were issued by Minister of Finance Decree No. 692 of 2019.",
+          "Under Article 7, the purchase or lease of movables, works contracts and services are contracted by public tender. Every other method is an exception that needs a reasoned decision from the competent authority, based on a proposal from the Contracts Department. Once a method is chosen, the procedure may not be converted into another method. The conditions for each exceptional method are set out in Articles 54 to 63.",
         body_ar:
-          "ينظم القانون رقم 182 لسنة 2018 التعاقدات التي تبرمها الجهات العامة. صدر ونُشر في 3 أكتوبر 2018 وبدأ العمل به بعد ثلاثين يومًا من نشره، وحل محل قانون تنظيم المناقصات والمزايدات رقم 89 لسنة 1998. وصدرت لائحته التنفيذية بقرار وزير المالية رقم 692 لسنة 2019.",
+          "وفق المادة 7، يكون التعاقد على شراء أو استئجار المنقولات ومقاولات الأعمال وتلقي الخدمات بطريق المناقصة العامة. وكل طريق آخر استثناء يستلزم قرارًا مسببًا من السلطة المختصة بناءً على عرض إدارة التعاقدات. وبعد اختيار الطريق لا يجوز تحويل الإجراء إلى طريق آخر. أما شروط كل طريق استثنائي فتنظمها المواد من 54 إلى 63.",
         callout: {
           body_en: LEGAL_NOTE_EN,
           body_ar: LEGAL_NOTE_AR,
         },
       },
       {
-        heading_en: "Public Tender Is the Default",
-        heading_ar: "المناقصة العامة هي الأصل",
+        heading_en: "Article 20: Publication and Advertising",
+        heading_ar: "المادة 20: النشر والإعلان",
         body_en:
-          "Under Article 7, the purchase or lease of movables, works contracts and services are contracted by public tender. Any other method is an exception that needs a reasoned decision from the competent authority, based on a proposal from the Contracts Department. Once a method is chosen, the procedure may not be converted into another method.",
+          "Whichever method is used, Article 20 requires the procurement to be published on the Public Procurement Portal, including the method, its conditions, the reasons for choosing it and the evaluation approach. The only exception is what the competent authority decides national security requires not to be published.",
         body_ar:
-          "وفق المادة 7، يكون التعاقد على شراء أو استئجار المنقولات ومقاولات الأعمال وتلقي الخدمات بطريق المناقصة العامة. وأي طريق آخر استثناء يستلزم قرارًا مسببًا من السلطة المختصة بناءً على عرض إدارة التعاقدات. وبعد اختيار الطريق لا يجوز تحويل الإجراء إلى طريق آخر.",
+          "أيًّا كان طريق التعاقد، توجب المادة 20 النشر عن العملية على بوابة التعاقدات العامة، متضمنًا طريقة التعاقد وشروطها وأسباب اتباعها وأسلوب التقييم. والاستثناء الوحيد هو ما تقدّر السلطة المختصة أن اعتبارات الأمن القومي تقتضي عدم نشره.",
+        list_en: [
+          "Public tender and general practice: advertised once in a widely circulated daily newspaper",
+          "External public tender or general practice: also advertised in an international newspaper and notified through embassies and consulates",
+          "Limited tender, local tender and limited practice: invitations sent to the largest possible number of registered, specialised or qualified suppliers",
+          "Postponing the opening session: the new date is announced in the same way as the original",
+        ],
+        list_ar: [
+          "المناقصة العامة والممارسة العامة: الإعلان مرة واحدة في إحدى الصحف اليومية واسعة الانتشار",
+          "المناقصة العامة أو الممارسة العامة الخارجية: الإعلان كذلك في صحيفة دولية مع الإعلام عنها عن طريق السفارات والقنصليات",
+          "المناقصة المحدودة والمحلية والممارسة المحدودة: توجيه الدعوة إلى أكبر عدد ممكن من المسجلين المتخصصين أو المؤهلين",
+          "تأجيل جلسة فتح المظاريف: يُعلن الموعد الجديد بالطريقة نفسها التي أُعلن بها الموعد الأصلي",
+        ],
       },
       {
-        heading_en: "The Other Methods and Their Conditions",
-        heading_ar: "الطرق الأخرى وشروطها",
+        heading_en: "The Exceptional Methods (Articles 54 to 63)",
+        heading_ar: "الطرق الاستثنائية (المواد من 54 إلى 63)",
         body_en:
           "Each exceptional method is tied to a condition. The reasoned decision should name which condition applies.",
         body_ar:
@@ -115,20 +127,20 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
               label_en: "Local tender",
               label_ar: "المناقصة المحلية",
               values_en: [
-                "Value not above EGP 4 million; limited to suppliers whose activity is within the governorate where the contract is performed",
+                "Value not above EGP 4 million under Article 59; limited to suppliers whose activity is within the governorate where the contract is performed. The article also has a specific provision for small and micro enterprises for values up to EGP 2 million",
               ],
               values_ar: [
-                "ما لا تزيد قيمته على 4 ملايين جنيه؛ ويقتصر الاشتراك على الموردين الذين يقع نشاطهم في نطاق المحافظة محل التنفيذ",
+                "ما لا تزيد قيمته على 4 ملايين جنيه وفق المادة 59؛ ويقتصر الاشتراك على الموردين الذين يقع نشاطهم في نطاق المحافظة محل التنفيذ. وتتضمن المادة حكمًا خاصًا بالمشروعات الصغيرة ومتناهية الصغر فيما لا يجاوز مليوني جنيه",
               ],
             },
             {
               label_en: "Direct agreement",
               label_ar: "الاتفاق المباشر",
               values_en: [
-                "Urgent or emergency cases that cannot wait for a tender, a single source with an exclusive right or sole technical ability, or compatibility with existing assets from one source only; within the financial limits set for each authority level",
+                "Only in the cases listed in Article 62 — emergencies and urgent cases that cannot wait for a tender or practice, a single source with sole technical ability or an exclusive right, integration or standardisation with what already exists, work a technical necessity requires from the existing contractor, and support for the State's social or economic policies — and within the limits of Article 63",
               ],
               values_ar: [
-                "الحالات الطارئة أو العاجلة التي لا تحتمل إجراءات المناقصة، أو المصدر الوحيد صاحب الحق الحصري أو القدرة الفنية المنفردة، أو التكامل مع القائم من مصدر واحد؛ وفي الحدود المالية المقررة لكل سلطة",
+                "في الحالات الواردة بالمادة 62 فقط — الطوارئ والحالات العاجلة التي لا تحتمل إجراءات المناقصة أو الممارسة، والمصدر الوحيد صاحب القدرة الفنية أو الحق الحصري، والتكامل أو التوحيد القياسي مع القائم، وما تقتضي الضرورة الفنية تنفيذه بمعرفة المتعاقد القائم، وتعزيز السياسات الاجتماعية أو الاقتصادية للدولة — وفي حدود المادة 63",
               ],
             },
           ],
@@ -138,6 +150,52 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
             "Article 7 also allows a framework agreement to be concluded through any of these methods, for needs that recur over a period.",
           body_ar:
             "تجيز المادة 7 كذلك إبرام اتفاق إطاري بأي من هذه الطرق، للاحتياجات المتكررة خلال مدة معينة.",
+        },
+      },
+      {
+        heading_en: "Direct Agreement Limits (Article 63)",
+        heading_ar: "حدود الاتفاق المباشر (المادة 63)",
+        body_en:
+          "Article 63 sets how much each authority level may approve by direct agreement, according to the type of contract.",
+        body_ar:
+          "تحدد المادة 63 ما يجوز لكل سلطة اعتماده بالاتفاق المباشر بحسب نوع التعاقد.",
+        table: {
+          caption_en: "Direct Agreement: Maximum Value per Authority",
+          caption_ar: "الاتفاق المباشر: الحد الأقصى لكل سلطة",
+          headers_en: [
+            "Purchase or Lease of Movables and Services",
+            "Works Contracts",
+          ],
+          headers_ar: [
+            "شراء أو استئجار المنقولات وتلقي الخدمات",
+            "مقاولات الأعمال",
+          ],
+          rows: [
+            {
+              label_en: "Head of authority or department",
+              label_ar: "رئيس الهيئة أو رئيس المصلحة",
+              values_en: ["EGP 1 million", "EGP 5 million"],
+              values_ar: ["مليون جنيه", "5 ملايين جنيه"],
+            },
+            {
+              label_en: "Minister or governor",
+              label_ar: "الوزير أو المحافظ",
+              values_en: ["EGP 10 million", "EGP 20 million"],
+              values_ar: ["10 ملايين جنيه", "20 مليون جنيه"],
+            },
+          ],
+        },
+        list_en: [
+          "Low-value purchases: up to EGP 20,000 on any one occasion and EGP 100,000 in a year",
+        ],
+        list_ar: [
+          "العمليات منخفضة القيمة: حتى 20 ألف جنيه في المرة الواحدة و100 ألف جنيه في السنة",
+        ],
+        callout: {
+          body_en:
+            "These limits only decide who may approve. They do not replace the cases of Article 62: a direct agreement within the limit is still unlawful if none of those cases applies, and a requirement may not be split to fit under a limit (Article 10).",
+          body_ar:
+            "هذه الحدود تحدد السلطة المختصة بالاعتماد فقط، ولا تغني عن تحقق إحدى حالات المادة 62: فالاتفاق المباشر داخل الحد المالي يظل مخالفًا إذا لم تتوافر إحدى تلك الحالات، ولا يجوز تجزئة الاحتياج للنزول به عن الحد (المادة 10).",
         },
       },
       {
@@ -211,16 +269,20 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
       {
         heading_en: "Sources and Review",
         heading_ar: "المصادر والمراجعة",
-        body_en: "Content last reviewed: 10 November 2026.",
-        body_ar: "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026.",
+        body_en:
+          "Law No. 182 of 2018 came into force thirty days after publication and replaced the Tenders and Auctions Law No. 89 of 1998. Content last reviewed: 10 November 2026. This content is for general awareness and does not replace the tender documents or the official texts in force.",
+        body_ar:
+          "بدأ العمل بالقانون رقم 182 لسنة 2018 بعد ثلاثين يومًا من نشره، وحل محل قانون تنظيم المناقصات والمزايدات رقم 89 لسنة 1998. تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026. هذا المحتوى للتوعية العامة ولا يغني عن مراجعة مستندات الطرح والنصوص الرسمية السارية.",
         list_en: [
-          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette, 3 October 2018, as amended — Articles 7, 10, 11, 14 and 19, and the articles on each contracting method (Articles 54 to 63)",
-          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019",
+          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Articles 7, 10, 11, 14, 19 and 20, and Articles 54 to 63 on the exceptional methods",
+          "Law No. 188 of 2020 amending certain provisions of Law No. 182 of 2018, issued and published 5 September 2020",
+          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019, as amended by Decrees No. 28 of 2020, No. 614 of 2020 and No. 289 of 2021",
           "Ministry of Finance, Guide for Medium, Small and Micro Enterprises to public contracting",
         ],
         list_ar: [
-          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية، 3 أكتوبر 2018، وتعديلاته — المواد 7 و10 و11 و14 و19، والمواد المنظمة لكل طريق تعاقد (المواد من 54 إلى 63)",
-          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018، قرار وزير المالية رقم 692 لسنة 2019",
+          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المواد 7 و10 و11 و14 و19 و20، والمواد من 54 إلى 63 المنظمة للطرق الاستثنائية",
+          "القانون رقم 188 لسنة 2020 بتعديل بعض أحكام القانون رقم 182 لسنة 2018، الصادر والمنشور في 5 سبتمبر 2020",
+          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019، والمعدلة بالقرارات أرقام 28 لسنة 2020 و614 لسنة 2020 و289 لسنة 2021",
           "وزارة المالية، دليل أصحاب المشروعات المتوسطة والصغيرة ومتناهية الصغر للتعاقدات العامة",
         ],
       },
@@ -412,17 +474,21 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
       {
         heading_en: "Sources and Review",
         heading_ar: "المصادر والمراجعة",
-        body_en: "Content last reviewed: 10 November 2026.",
-        body_ar: "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026.",
+        body_en:
+          "Content last reviewed: 10 November 2026. This content is for general awareness and does not replace the tender documents or the official texts in force.",
+        body_ar:
+          "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026. هذا المحتوى للتوعية العامة ولا يغني عن مراجعة مستندات الطرح والنصوص الرسمية السارية.",
         list_en: [
-          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette, 3 October 2018, as amended — Article 14 (technical specifications) and Article 35 (preference for Egyptian products)",
+          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Article 14 (technical specifications) and Article 35 (preference for Egyptian products)",
+          "Law No. 188 of 2020 amending certain provisions of Law No. 182 of 2018, issued and published 5 September 2020",
+          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019, as amended by Decrees No. 28 of 2020, No. 614 of 2020 and No. 289 of 2021",
           "Law No. 5 of 2015 on preference for Egyptian products in government contracts",
-          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019",
         ],
         list_ar: [
-          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية، 3 أكتوبر 2018، وتعديلاته — المادة 14 (المواصفات الفنية) والمادة 35 (تفضيل المنتج المصري)",
+          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المادة 14 (المواصفات الفنية) والمادة 35 (تفضيل المنتج المصري)",
+          "القانون رقم 188 لسنة 2020 بتعديل بعض أحكام القانون رقم 182 لسنة 2018، الصادر والمنشور في 5 سبتمبر 2020",
+          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019، والمعدلة بالقرارات أرقام 28 لسنة 2020 و614 لسنة 2020 و289 لسنة 2021",
           "القانون رقم 5 لسنة 2015 في شأن تفضيل المنتجات المصرية في العقود الحكومية",
-          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018، قرار وزير المالية رقم 692 لسنة 2019",
         ],
       },
     ],
@@ -491,11 +557,11 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
               label_en: "Provisional guarantee (Article 16)",
               label_ar: "التأمين المؤقت (المادة 16)",
               values_en: [
-                "An amount fixed in the tender documents, not above 1.5 % of the estimated value",
+                "A fixed amount stated in the tender documents; 1.5 % of the estimated value is the ceiling, not a fixed rate",
                 "With the offer; valid for 30 days beyond the offer validity period",
               ],
               values_ar: [
-                "مبلغ تحدده كراسة الشروط بما لا يجاوز 1.5٪ من القيمة التقديرية",
+                "مبلغ محدد تنص عليه كراسة الشروط؛ ونسبة 1.5٪ من القيمة التقديرية حد أقصى لا نسبة ثابتة",
                 "مع العطاء، ويظل ساريًا 30 يومًا بعد انتهاء مدة سريان العطاء",
               ],
             },
@@ -504,21 +570,27 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
               label_ar: "التأمين النهائي (المادة 40)",
               values_en: [
                 "5 % of the contract value",
-                "Within 10 working days of notification of acceptance; 20 working days for contractors abroad, extendable by up to 10 working days with approval",
+                "Within 10 working days of notification of acceptance for local contractors, and 20 working days for contractors abroad; the competent authority may grant an extra period of not more than 10 working days",
               ],
               values_ar: [
                 "5٪ من قيمة العقد",
-                "خلال 10 أيام عمل من الإخطار بقبول العطاء؛ و20 يوم عمل للمتعاقد من الخارج، ويجوز مدها بموافقة بما لا يجاوز 10 أيام عمل",
+                "خلال 10 أيام عمل من الإخطار بقبول العطاء للمتعاقد المحلي، و20 يوم عمل للمتعاقد في الخارج؛ ويجوز بموافقة السلطة المختصة منح مهلة إضافية لا تجاوز 10 أيام عمل",
               ],
             },
           ],
+        },
+        callout: {
+          body_en:
+            "The provisional guarantee is not a flat 1.5 %. The entity fixes an amount that may be lower, and the guarantee must stay valid for 30 days after the offer validity period ends.",
+          body_ar:
+            "التأمين المؤقت ليس نسبة ثابتة قدرها 1.5٪. فالجهة تحدد مبلغًا قد يقل عن ذلك، ويجب أن يظل التأمين ساريًا 30 يومًا بعد انتهاء مدة صلاحية العطاء.",
         },
       },
       {
         heading_en: "Worked Example",
         heading_ar: "مثال محسوب",
         body_en:
-          "A supply tender has an estimated value of EGP 2,000,000 and an offer validity of 90 days. The provisional guarantee stated in the documents cannot exceed EGP 30,000 (1.5 %), and it must remain valid for 120 days from the opening date.\n\nThe contract is awarded at EGP 1,900,000. The final guarantee is EGP 95,000 (5 %), due within 10 working days of the acceptance notice.",
+          "A supply tender has an estimated value of EGP 2,000,000 and an offer validity of 90 days. The provisional guarantee stated in the documents cannot exceed EGP 30,000 (1.5 %), and it must remain valid for 120 days from the opening date.\n\nThe contract is awarded at EGP 1,900,000. The final guarantee is EGP 95,000 (5 %), due within 10 working days of the acceptance notice for a local contractor.",
         body_ar:
           "مناقصة توريد قيمتها التقديرية 2,000,000 جنيه ومدة سريان العطاء فيها 90 يومًا. التأمين المؤقت المنصوص عليه في الكراسة لا يجوز أن يتجاوز 30,000 جنيه (1.5٪)، ويجب أن يظل ساريًا 120 يومًا من تاريخ فتح المظاريف.\n\nرست العملية بقيمة 1,900,000 جنيه. فيكون التأمين النهائي 95,000 جنيه (5٪) يُسدد خلال 10 أيام عمل من الإخطار بالقبول.",
       },
@@ -586,16 +658,20 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
       {
         heading_en: "Sources and Review",
         heading_ar: "المصادر والمراجعة",
-        body_en: "Content last reviewed: 10 November 2026.",
-        body_ar: "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026.",
+        body_en:
+          "Content last reviewed: 10 November 2026. This content is for general awareness and does not replace the tender documents or the official texts in force.",
+        body_ar:
+          "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026. هذا المحتوى للتوعية العامة ولا يغني عن مراجعة مستندات الطرح والنصوص الرسمية السارية.",
         list_en: [
-          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette, 3 October 2018, as amended — Articles 16, 22, 40 and 41 (guarantees), 59 and 75 (medium, small and micro enterprises)",
-          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019",
+          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Articles 16, 22, 40 and 41 (guarantees), 59 and 75 (medium, small and micro enterprises)",
+          "Law No. 188 of 2020 amending certain provisions of Law No. 182 of 2018, issued and published 5 September 2020",
+          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019, as amended by Decrees No. 28 of 2020, No. 614 of 2020 and No. 289 of 2021",
           "Ministry of Finance, Guide for Medium, Small and Micro Enterprises to public contracting",
         ],
         list_ar: [
-          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية، 3 أكتوبر 2018، وتعديلاته — المواد 16 و22 و40 و41 (التأمينات)، و59 و75 (المشروعات المتوسطة والصغيرة ومتناهية الصغر)",
-          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018، قرار وزير المالية رقم 692 لسنة 2019",
+          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المواد 16 و22 و40 و41 (التأمينات)، و59 و75 (المشروعات المتوسطة والصغيرة ومتناهية الصغر)",
+          "القانون رقم 188 لسنة 2020 بتعديل بعض أحكام القانون رقم 182 لسنة 2018، الصادر والمنشور في 5 سبتمبر 2020",
+          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019، والمعدلة بالقرارات أرقام 28 لسنة 2020 و614 لسنة 2020 و289 لسنة 2021",
           "وزارة المالية، دليل أصحاب المشروعات المتوسطة والصغيرة ومتناهية الصغر للتعاقدات العامة",
         ],
       },

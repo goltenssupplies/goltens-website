@@ -37,9 +37,9 @@ export const electricalEnergyArticles: KnowledgeItem[] = [
         heading_en: "Scope: What the Standard Covers",
         heading_ar: "النطاق: ما الذي تغطيه المواصفة",
         body_en:
-          "Medium voltage switchgear receives power from the distribution network and switches, protects and isolates the feeders and transformers of a facility. Factory-assembled metal-enclosed switchgear for rated voltages above 1 kV and up to and including 52 kV is covered by IEC 62271-200, the reference most project specifications use. Air-insulated, gas-insulated and ring main unit designs all fall under this same standard.",
+          "Medium voltage switchgear receives power from the distribution network and switches, protects and isolates the feeders and transformers of a facility. Factory-assembled metal-enclosed switchgear for rated voltages above 1 kV and up to and including 52 kV is covered by IEC 62271-200:2021+AMD1:2024, the reference most project specifications use. Air-insulated, gas-insulated and ring main unit designs all fall under this same standard.",
         body_ar:
-          "تستقبل لوحات الجهد المتوسط التغذية من شبكة التوزيع وتقوم بفصل وحماية وعزل المغذيات والمحولات داخل المنشأة. وتخضع اللوحات المعدنية المغلقة المجمّعة في المصنع للجهود المقننة الأعلى من 1 ك.ف وحتى 52 ك.ف للمواصفة IEC 62271-200، وهي المرجع الذي تعتمد عليه أغلب مواصفات المشروعات. وتندرج اللوحات المعزولة بالهواء والمعزولة بالغاز ووحدات الحلقة الرئيسية كلها تحت هذه المواصفة نفسها.",
+          "تستقبل لوحات الجهد المتوسط التغذية من شبكة التوزيع وتقوم بفصل وحماية وعزل المغذيات والمحولات داخل المنشأة. وتخضع اللوحات المعدنية المغلقة المجمّعة في المصنع للجهود المقننة الأعلى من 1 ك.ف وحتى 52 ك.ف للمواصفة IEC 62271-200:2021+AMD1:2024، وهي المرجع الذي تعتمد عليه أغلب مواصفات المشروعات. وتندرج اللوحات المعزولة بالهواء والمعزولة بالغاز ووحدات الحلقة الرئيسية كلها تحت هذه المواصفة نفسها.",
       },
       {
         heading_en: "First Choice: Insulation Medium (AIS or GIS)",
@@ -300,15 +300,15 @@ export const electricalEnergyArticles: KnowledgeItem[] = [
         body_ar:
           "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026. هذا المقال إرشاد عام ولا يغني عن نصوص المواصفات نفسها ولا عن تصميم الاستشاري.",
         list_en: [
-          "IEC 62271-200:2021, Edition 3.0 (with Amendment 1:2024) — AC metal-enclosed switchgear and controlgear for rated voltages above 1 kV and up to and including 52 kV",
-          "IEC 62271-1:2017, Edition 2.0 — High-voltage switchgear and controlgear: common specifications",
-          "IEC 60038:2009, Edition 7.0 — IEC standard voltages",
+          "IEC 62271-200:2021+AMD1:2024, Edition 3.0 consolidated with Amendment 1 — AC metal-enclosed switchgear and controlgear for rated voltages above 1 kV and up to and including 52 kV",
+          "IEC 62271-1:2017+AMD1:2021, Edition 2.0 with Amendment 1 — High-voltage switchgear and controlgear: common specifications",
+          "IEC 60038:2009+AMD1:2021, Edition 7.0 with Amendment 1 — IEC standard voltages",
           "IEC 62271-214:2019 — Internal arc classification for pole-mounted switchgear",
         ],
         list_ar: [
-          "IEC 62271-200:2021، الإصدار 3.0 (مع التعديل 1 لسنة 2024) — لوحات المفاتيح والتحكم المعدنية المغلقة للتيار المتردد للجهود المقننة الأعلى من 1 ك.ف وحتى 52 ك.ف",
-          "IEC 62271-1:2017، الإصدار 2.0 — المواصفات المشتركة لمعدات المفاتيح والتحكم للجهد العالي",
-          "IEC 60038:2009، الإصدار 7.0 — الجهود القياسية",
+          "IEC 62271-200:2021+AMD1:2024، الإصدار 3.0 مدمجًا مع التعديل 1 — لوحات المفاتيح والتحكم المعدنية المغلقة للتيار المتردد للجهود المقننة الأعلى من 1 ك.ف وحتى 52 ك.ف",
+          "IEC 62271-1:2017+AMD1:2021، الإصدار 2.0 مع التعديل 1 — المواصفات المشتركة لمعدات المفاتيح والتحكم للجهد العالي",
+          "IEC 60038:2009+AMD1:2021، الإصدار 7.0 مع التعديل 1 — الجهود القياسية",
           "IEC 62271-214:2019 — تصنيف القوس الداخلي للمعدات المركبة على الأعمدة",
         ],
       },
@@ -417,9 +417,9 @@ export const electricalEnergyArticles: KnowledgeItem[] = [
         },
         callout: {
           body_en:
-            "The 2018 edition also added data centre power (DCP) and a maximum power rating for low-power sets. Manufacturers' own rating names can differ in detail from the ISO classes, so ask each bidder to state the ISO 8528-1 class their figure corresponds to.",
+            "The 2018 edition also added data centre power (DCP), a class specific to data centre applications: use it only when the set feeds a data centre, and ask the manufacturer to declare it. For any other site, choose among ESP, LTP, PRP and COP. Manufacturers' own rating names can differ in detail from the ISO classes, so ask each bidder to state the ISO 8528-1 class their figure corresponds to.",
           body_ar:
-            "أضاف إصدار 2018 كذلك قدرة مراكز البيانات (DCP) وقدرة قصوى للمولدات الصغيرة. وقد تختلف تسميات المصنّعين لقدراتهم في بعض التفاصيل عن فئات ISO، فاطلبوا من كل متقدم أن يحدد فئة ISO 8528-1 المقابلة للقيمة التي يعرضها.",
+            "أضاف إصدار 2018 كذلك قدرة مراكز البيانات (DCP)، وهي فئة خاصة بتطبيقات مراكز البيانات: لا تُطلب إلا إذا كان المولد يغذي مركز بيانات، مع مطالبة المصنّع بإعلانها. وفي أي موقع آخر يكون الاختيار بين ESP و LTP و PRP و COP. وقد تختلف تسميات المصنّعين لقدراتهم في بعض التفاصيل عن فئات ISO، فاطلبوا من كل متقدم أن يحدد فئة ISO 8528-1 المقابلة للقيمة التي يعرضها.",
         },
       },
       {
@@ -511,10 +511,10 @@ export const electricalEnergyArticles: KnowledgeItem[] = [
         body_ar:
           "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026. هذا المقال إرشاد عام ولا يغني عن نص المواصفة نفسها ولا عن بيانات القدرة الصادرة من المصنّع.",
         list_en: [
-          "ISO 8528-1:2018, third edition (February 2018) — Reciprocating internal combustion engine driven alternating current generating sets, Part 1: Application, ratings and performance; rating classes in clause 14",
+          "ISO 8528-1:2018, third edition (February 2018) — Reciprocating internal combustion engine driven alternating current generating sets, Part 1: Application, ratings and performance; rating classes in clause 14 (COP 14.3.2, PRP 14.3.3, LTP 14.3.4, ESP 14.3.5, DCP 14.3.6)",
         ],
         list_ar: [
-          "ISO 8528-1:2018، الإصدار الثالث (فبراير 2018) — مجموعات توليد التيار المتردد المدارة بمحركات الاحتراق الداخلي الترددية، الجزء 1: التطبيق والقدرات والأداء؛ فئات القدرة في البند 14",
+          "ISO 8528-1:2018، الإصدار الثالث (فبراير 2018) — مجموعات توليد التيار المتردد المدارة بمحركات الاحتراق الداخلي الترددية، الجزء 1: التطبيق والقدرات والأداء؛ فئات القدرة في البند 14 (COP 14.3.2، PRP 14.3.3، LTP 14.3.4، ESP 14.3.5، DCP 14.3.6)",
         ],
       },
     ],
@@ -641,9 +641,9 @@ export const electricalEnergyArticles: KnowledgeItem[] = [
         },
         callout: {
           body_en:
-            "If protection of personnel against internal arcing is required, specify it separately with reference to IEC TR 61641 — the form of separation does not cover it. Higher forms also mean a larger and more expensive panel, so ask for the form the operation actually needs.",
+            "If protection of personnel against internal arcing is required, specify it separately with reference to IEC TS 61641:2026 — the form of separation does not cover it. Higher forms also mean a larger and more expensive panel, so ask for the form the operation actually needs.",
           body_ar:
-            "إذا كان المطلوب حماية الأشخاص من القوس الداخلي فيجب النص على ذلك مستقلًا بالإشارة إلى IEC TR 61641، فشكل الفصل لا يغطيه. والأشكال الأعلى تعني لوحة أكبر وأعلى تكلفة، فاطلبوا الشكل الذي يحتاجه التشغيل فعلًا.",
+            "إذا كان المطلوب حماية الأشخاص من القوس الداخلي فيجب النص على ذلك مستقلًا بالإشارة إلى IEC TS 61641:2026، فشكل الفصل لا يغطيه. والأشكال الأعلى تعني لوحة أكبر وأعلى تكلفة، فاطلبوا الشكل الذي يحتاجه التشغيل فعلًا.",
         },
       },
       {
@@ -706,12 +706,12 @@ export const electricalEnergyArticles: KnowledgeItem[] = [
         list_en: [
           "IEC 61439-1:2020, Edition 3.0 — Low-voltage switchgear and controlgear assemblies, Part 1: General rules",
           "IEC 61439-2:2020, Edition 3.0 (July 2020) — Part 2: Power switchgear and controlgear assemblies; forms of internal separation in 8.101, Table 104 and Annex BB",
-          "IEC TR 61641:2014, Edition 3.0 — Guide for testing enclosed low-voltage assemblies under conditions of arcing due to internal fault",
+          "IEC TS 61641:2026, Edition 1.0 (August 2026) — Internal arc-fault protection of low-voltage switchgear and controlgear assemblies in accordance with the IEC 61439 series; it replaced IEC TR 61641:2014 and IEC TS 63107:2020",
         ],
         list_ar: [
           "IEC 61439-1:2020، الإصدار 3.0 — مجمّعات مفاتيح وتحكم الجهد المنخفض، الجزء 1: القواعد العامة",
           "IEC 61439-2:2020، الإصدار 3.0 (يوليو 2020) — الجزء 2: مجمّعات مفاتيح وتحكم القدرة؛ أشكال الفصل الداخلي في البند 8.101 والجدول 104 والملحق BB",
-          "IEC TR 61641:2014، الإصدار 3.0 — دليل اختبار المجمّعات المغلقة للجهد المنخفض في ظروف القوس الناتج عن عطل داخلي",
+          "IEC TS 61641:2026، الإصدار 1.0 (أغسطس 2026) — الحماية من أعطال القوس الداخلي في مجمّعات مفاتيح وتحكم الجهد المنخفض وفق سلسلة IEC 61439؛ وقد حلّت محل IEC TR 61641:2014 و IEC TS 63107:2020",
         ],
       },
     ],
