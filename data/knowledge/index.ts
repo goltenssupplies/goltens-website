@@ -1,5 +1,6 @@
 import { electricalEnergyArticles } from "@/data/knowledge/articles/electrical-energy";
 import { fireProtectionArticles } from "@/data/knowledge/articles/fire-protection";
+import { governmentProcurementArticles } from "@/data/knowledge/articles/government-procurement";
 import type { KnowledgeItem, KnowledgeType } from "@/data/knowledge/types";
 
 /**
@@ -12,6 +13,7 @@ import type { KnowledgeItem, KnowledgeType } from "@/data/knowledge/types";
 const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
   ...fireProtectionArticles,
   ...electricalEnergyArticles,
+  ...governmentProcurementArticles,
 ];
 
 export function getAllKnowledgeItems(): KnowledgeItem[] {
