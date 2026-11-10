@@ -365,6 +365,15 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     sectorId: "lubricants-oils",
     name_en: "Hydraulic Oils",
     name_ar: "الزيوت الهيدروليكية",
+    description_en:
+      "Hydraulic oils transmit power in presses, injection-moulding machines, mobile equipment and industrial hydraulic systems. They are normally specified by ISO viscosity grade and by the performance level the equipment manufacturer requires, such as anti-wear (HLP/HM) or high-viscosity-index (HVLP/HV) types. GOLTENS supplies hydraulic oils against the grade, specification and quantity stated in your request or tender documents — send the equipment manual requirement or the current product in use and we will quote a matching grade.",
+    description_ar:
+      "تنقل الزيوت الهيدروليكية القدرة في المكابس وماكينات الحقن والمعدات المتحركة والأنظمة الهيدروليكية الصناعية. وتُحدَّد عادةً بدرجة اللزوجة ISO وبمستوى الأداء الذي يطلبه مصنّع المعدة، مثل الأنواع المقاومة للتآكل (HLP/HM) أو ذات معامل اللزوجة المرتفع (HVLP/HV). تورّد GOLTENS الزيوت الهيدروليكية وفق الدرجة والمواصفة والكمية المذكورة في طلبكم أو في كراسة الشروط — أرسلوا متطلبات كتيّب المعدة أو المنتج المستخدم حاليًا لنقدّم عرض سعر بدرجة مطابقة.",
+    seo: {
+      title_en: "Hydraulic Oils Supply in Egypt",
+      title_ar: "توريد الزيوت الهيدروليكية في مصر",
+    },
+    indexable: true,
   },
   {
     id: "gear-oils-category",
@@ -372,6 +381,15 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     sectorId: "lubricants-oils",
     name_en: "Gear Oils",
     name_ar: "زيوت التروس",
+    description_en:
+      "Gear oils lubricate enclosed industrial gearboxes, reducers and open gears working under high load. Selection depends on the ISO viscosity grade, the load-carrying (EP) requirement and whether a mineral or synthetic base is specified by the gearbox manufacturer. GOLTENS supplies gear oils against the grade and specification in your request or tender documents, in the pack sizes your maintenance plan needs.",
+    description_ar:
+      "تُستخدم زيوت التروس في تزييت علب التروس الصناعية المغلقة والمخفّضات والتروس المكشوفة العاملة تحت أحمال عالية. ويعتمد الاختيار على درجة اللزوجة ISO ومتطلبات تحمّل الضغط العالي (EP) وعلى نوع الزيت الأساسي، معدني أو تخليقي، الذي يحدده مصنّع علبة التروس. تورّد GOLTENS زيوت التروس وفق الدرجة والمواصفة المذكورة في طلبكم أو في كراسة الشروط، وبأحجام العبوات التي تحتاجها خطة الصيانة لديكم.",
+    seo: {
+      title_en: "Industrial Gear Oils Supply in Egypt",
+      title_ar: "توريد زيوت التروس الصناعية في مصر",
+    },
+    indexable: true,
   },
   {
     id: "greases",
@@ -379,6 +397,15 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     sectorId: "lubricants-oils",
     name_en: "Greases",
     name_ar: "الشحوم",
+    description_en:
+      "Greases lubricate bearings, joints and slow-moving or exposed components where oil would not stay in place. They are specified by thickener type (for example lithium, lithium complex or calcium sulfonate), NLGI consistency grade, base-oil viscosity and operating temperature range. GOLTENS supplies industrial greases against the specification and quantity in your request or tender documents — tell us the application and the grease currently in use and we will quote a matching product.",
+    description_ar:
+      "تُستخدم الشحوم في تزييت الرولمان بلي والمفاصل والأجزاء البطيئة أو المكشوفة التي لا يثبت عليها الزيت. وتُحدَّد بنوع المادة المثخّنة (مثل الليثيوم أو مركّب الليثيوم أو سلفونات الكالسيوم) ودرجة القوام NLGI ولزوجة الزيت الأساسي ونطاق درجة حرارة التشغيل. تورّد GOLTENS الشحوم الصناعية وفق المواصفة والكمية المذكورة في طلبكم أو في كراسة الشروط — أخبرونا بالتطبيق وبالشحم المستخدم حاليًا لنقدّم عرض سعر بمنتج مطابق.",
+    seo: {
+      title_en: "Industrial Greases Supply in Egypt",
+      title_ar: "توريد الشحوم الصناعية في مصر",
+    },
+    indexable: true,
   },
   {
     id: "metalworking-fluids-category",
@@ -386,6 +413,15 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     sectorId: "lubricants-oils",
     name_en: "Metalworking Fluids",
     name_ar: "سوائل التشغيل المعدني",
+    description_en:
+      "Metalworking fluids cool and lubricate the tool and workpiece in turning, milling, drilling and grinding. The main types are water-miscible fluids (soluble oils, semi-synthetics and synthetics) and neat cutting oils, chosen according to the metal being machined and the operation. GOLTENS supplies metalworking fluids against the type and specification in your request — share the material, the operation and the fluid currently in use and we will quote accordingly.",
+    description_ar:
+      "تعمل سوائل التشغيل المعدني على تبريد وتزييت العدّة والشغلة في عمليات الخراطة والتفريز والثقب والتجليخ. وأنواعها الرئيسية هي السوائل القابلة للامتزاج بالماء (الزيوت القابلة للذوبان وشبه التخليقية والتخليقية) وزيوت القطع الصافية، ويُختار النوع حسب المعدن المشغَّل ونوع العملية. تورّد GOLTENS سوائل التشغيل المعدني وفق النوع والمواصفة المذكورة في طلبكم — شاركونا نوع المعدن والعملية والسائل المستخدم حاليًا لنقدّم عرض السعر المناسب.",
+    seo: {
+      title_en: "Metalworking Fluids Supply in Egypt",
+      title_ar: "توريد سوائل التشغيل المعدني في مصر",
+    },
+    indexable: true,
   },
   {
     id: "specialty-industrial-lubricants",
@@ -404,6 +440,15 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     sectorId: "lubricants-oils",
     name_en: "Refrigeration Oils",
     name_ar: "زيوت التبريد",
+    description_en:
+      "Refrigeration oils lubricate the compressors of chillers, cold stores and air-conditioning systems, and must be compatible with the refrigerant in the circuit. The base type — mineral, alkylbenzene, polyolester (POE) or others — and the viscosity grade are set by the compressor manufacturer for each refrigerant. GOLTENS supplies refrigeration oils against the type and grade stated in your request; send the compressor model and refrigerant and we will quote a matching oil.",
+    description_ar:
+      "تُستخدم زيوت التبريد في تزييت ضواغط التشيلرات وغرف التبريد وأنظمة التكييف، ويجب أن تكون متوافقة مع غاز التبريد المستخدم في الدائرة. ويحدّد مصنّع الضاغط نوع الزيت الأساسي — معدني أو ألكيل بنزين أو بولي أول إستر (POE) أو غيرها — ودرجة اللزوجة لكل غاز تبريد. تورّد GOLTENS زيوت التبريد وفق النوع والدرجة المذكورين في طلبكم؛ أرسلوا موديل الضاغط ونوع غاز التبريد لنقدّم عرض سعر بزيت مطابق.",
+    seo: {
+      title_en: "Refrigeration Compressor Oils Supply in Egypt",
+      title_ar: "توريد زيوت ضواغط التبريد في مصر",
+    },
+    indexable: true,
   },
   {
     // MOLLUBE overhead-conductor protective greases — functionally and
@@ -560,8 +605,10 @@ export function getAllCategoryParams() {
  * otherwise index a near-empty product-grid page (thin content); written
  * description text with no explicit approval must never be indexed purely
  * because it exists. Never derived from product count, sector, or any
- * other signal. Every one of today's 38 categories returns `false` here,
- * since none has authored `description_en`/`description_ar` yet.
+ * other signal. Today only the five lubricant categories that list public
+ * products (hydraulic oils, gear oils, greases, metalworking fluids,
+ * refrigeration oils) are approved and described; every other category
+ * still returns `false`.
  */
 export function isCategoryIndexable(category: ProductCategory): boolean {
   return (

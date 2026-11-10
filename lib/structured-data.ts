@@ -3,6 +3,7 @@ import {
   contactPhoneHref,
   linkedInUrl,
   siteName,
+  siteNameArabic,
   siteUrl,
 } from "@/lib/site";
 
@@ -25,6 +26,7 @@ export function organizationJsonLd(locale: string) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: siteName,
+    alternateName: siteNameArabic,
     url: `${siteUrl}/${locale}`,
     logo: `${siteUrl}/brand/goltens-logo-premium.png`,
     email: contactEmail,
