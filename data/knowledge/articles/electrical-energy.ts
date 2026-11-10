@@ -413,13 +413,25 @@ export const electricalEnergyArticles: KnowledgeItem[] = [
               values_en: ["Constant load", "Unlimited"],
               values_ar: ["حمل ثابت", "غير محدودة"],
             },
+            {
+              label_en: "Maximum power for low-power generating sets (MAX)",
+              label_ar: "القدرة القصوى للمولدات منخفضة القدرة (MAX)",
+              values_en: [
+                "A class for low-power generating sets only, defined in clause 14.3.7",
+                "As declared by the manufacturer",
+              ],
+              values_ar: [
+                "فئة خاصة بالمولدات منخفضة القدرة فقط، معرّفة في البند 14.3.7",
+                "وفق ما يعلنه المصنّع",
+              ],
+            },
           ],
         },
         callout: {
           body_en:
-            "The 2018 edition also added data centre power (DCP), a class specific to data centre applications: use it only when the set feeds a data centre, and ask the manufacturer to declare it. For any other site, choose among ESP, LTP, PRP and COP. Manufacturers' own rating names can differ in detail from the ISO classes, so ask each bidder to state the ISO 8528-1 class their figure corresponds to.",
+            "The 2018 edition also added data centre power (DCP), a class specific to data centre applications: use it only when the set feeds a data centre, and ask the manufacturer to declare it. For any other site, choose among ESP, LTP, PRP and COP; MAX applies only to low-power sets. A fourth edition is in preparation as ISO/DIS 8528-1: it is a draft under development, not a published standard in force, so specify against ISO 8528-1:2018. Manufacturers' own rating names can differ in detail from the ISO classes, so ask each bidder to state the ISO 8528-1 class their figure corresponds to.",
           body_ar:
-            "أضاف إصدار 2018 كذلك قدرة مراكز البيانات (DCP)، وهي فئة خاصة بتطبيقات مراكز البيانات: لا تُطلب إلا إذا كان المولد يغذي مركز بيانات، مع مطالبة المصنّع بإعلانها. وفي أي موقع آخر يكون الاختيار بين ESP و LTP و PRP و COP. وقد تختلف تسميات المصنّعين لقدراتهم في بعض التفاصيل عن فئات ISO، فاطلبوا من كل متقدم أن يحدد فئة ISO 8528-1 المقابلة للقيمة التي يعرضها.",
+            "أضاف إصدار 2018 كذلك قدرة مراكز البيانات (DCP)، وهي فئة خاصة بتطبيقات مراكز البيانات: لا تُطلب إلا إذا كان المولد يغذي مركز بيانات، مع مطالبة المصنّع بإعلانها. وفي أي موقع آخر يكون الاختيار بين ESP و LTP و PRP و COP؛ أما MAX فتخص المولدات منخفضة القدرة فقط. ويجري إعداد إصدار رابع باسم ISO/DIS 8528-1: وهو مشروع إصدار قيد التطوير وليس معيارًا منشورًا ساريًا، فتُكتب المواصفات على أساس ISO 8528-1:2018. وقد تختلف تسميات المصنّعين لقدراتهم في بعض التفاصيل عن فئات ISO، فاطلبوا من كل متقدم أن يحدد فئة ISO 8528-1 المقابلة للقيمة التي يعرضها.",
         },
       },
       {
@@ -511,10 +523,10 @@ export const electricalEnergyArticles: KnowledgeItem[] = [
         body_ar:
           "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026. هذا المقال إرشاد عام ولا يغني عن نص المواصفة نفسها ولا عن بيانات القدرة الصادرة من المصنّع.",
         list_en: [
-          "ISO 8528-1:2018, third edition (February 2018) — Reciprocating internal combustion engine driven alternating current generating sets, Part 1: Application, ratings and performance; rating classes in clause 14 (COP 14.3.2, PRP 14.3.3, LTP 14.3.4, ESP 14.3.5, DCP 14.3.6)",
+          "ISO 8528-1:2018, third edition (February 2018) — Reciprocating internal combustion engine driven alternating current generating sets, Part 1: Application, ratings and performance; rating classes in clause 14 (COP 14.3.2, PRP 14.3.3, LTP 14.3.4, ESP 14.3.5, DCP 14.3.6, MAX 14.3.7). ISO/DIS 8528-1 (Edition 4) is a draft at enquiry stage and has not been published; ISO 8528-1:2018 remains the edition in force",
         ],
         list_ar: [
-          "ISO 8528-1:2018، الإصدار الثالث (فبراير 2018) — مجموعات توليد التيار المتردد المدارة بمحركات الاحتراق الداخلي الترددية، الجزء 1: التطبيق والقدرات والأداء؛ فئات القدرة في البند 14 (COP 14.3.2، PRP 14.3.3، LTP 14.3.4، ESP 14.3.5، DCP 14.3.6)",
+          "ISO 8528-1:2018، الإصدار الثالث (فبراير 2018) — مجموعات توليد التيار المتردد المدارة بمحركات الاحتراق الداخلي الترددية، الجزء 1: التطبيق والقدرات والأداء؛ فئات القدرة في البند 14 (COP 14.3.2، PRP 14.3.3، LTP 14.3.4، ESP 14.3.5، DCP 14.3.6، MAX 14.3.7). أما ISO/DIS 8528-1 (الإصدار 4) فمشروع في مرحلة الاستطلاع ولم يُنشر بعد، ويظل ISO 8528-1:2018 هو الإصدار الساري",
         ],
       },
     ],

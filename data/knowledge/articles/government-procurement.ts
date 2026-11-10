@@ -54,21 +54,55 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
         heading_en: "Article 20: Publication and Advertising",
         heading_ar: "المادة 20: النشر والإعلان",
         body_en:
-          "Whichever method is used, Article 20 requires the procurement to be published on the Public Procurement Portal, including the method, its conditions, the reasons for choosing it and the evaluation approach. The only exception is what the competent authority decides national security requires not to be published.",
+          "Article 20 sets two layers of publicity. The first applies to every procurement under every method in Article 7: it is published on the Public Procurement Portal. The second depends on the method: a press advertisement or direct invitations.",
         body_ar:
-          "أيًّا كان طريق التعاقد، توجب المادة 20 النشر عن العملية على بوابة التعاقدات العامة، متضمنًا طريقة التعاقد وشروطها وأسباب اتباعها وأسلوب التقييم. والاستثناء الوحيد هو ما تقدّر السلطة المختصة أن اعتبارات الأمن القومي تقتضي عدم نشره.",
-        list_en: [
-          "Public tender and general practice: advertised once in a widely circulated daily newspaper",
-          "External public tender or general practice: also advertised in an international newspaper and notified through embassies and consulates",
-          "Limited tender, local tender and limited practice: invitations sent to the largest possible number of registered, specialised or qualified suppliers",
-          "Postponing the opening session: the new date is announced in the same way as the original",
+          "تضع المادة 20 مستويين للعلانية. الأول يسري على كل عملية بأي طريق من طرق المادة 7: النشر على بوابة التعاقدات العامة. والثاني يختلف بحسب طريق التعاقد: إعلان صحفي أو توجيه دعوات.",
+        subsections: [
+          {
+            heading_en: "Publication on the Public Procurement Portal",
+            heading_ar: "النشر على بوابة التعاقدات العامة",
+            body_en: "The portal entry must show:",
+            body_ar: "يجب أن يتضمن النشر على البوابة:",
+            list_en: [
+              "The contracting method and its conditions",
+              "The reasons for choosing that method",
+              "The evaluation approach",
+              "Exception: what the competent authority decides national security requires not to be published",
+            ],
+            list_ar: [
+              "طريقة التعاقد وشروطها",
+              "أسباب اتباع هذه الطريقة",
+              "أسلوب التقييم",
+              "الاستثناء: ما تقدّر السلطة المختصة أن اعتبارات الأمن القومي تقتضي عدم نشره",
+            ],
+          },
+          {
+            heading_en: "Press Advertisement or Invitations, by Method",
+            heading_ar: "الإعلان الصحفي أو الدعوات بحسب طريق التعاقد",
+            body_en:
+              "Every advertisement needs the competent authority's approval, which may also allow advertising in more than one Egyptian or international newspaper.",
+            body_ar:
+              "يستلزم كل إعلان موافقة السلطة المختصة، ويجوز بموافقتها الإعلان في أكثر من صحيفة مصرية أو دولية.",
+            list_en: [
+              "Public tender and general practice (internal): one advertisement in a widely circulated daily newspaper",
+              "Public tender and general practice (external): one advertisement in a widely circulated daily newspaper and in an international newspaper, with notice through embassies and consulates",
+              "Limited tender, local tender and limited practice: invitations to the largest possible number of registered, specialised or qualified parties working in the activity",
+              "Postponement of the opening session: the new date is announced in the same way as the original",
+            ],
+            list_ar: [
+              "المناقصة العامة والممارسة العامة (الداخلية): إعلان مرة واحدة في إحدى الصحف اليومية واسعة الانتشار",
+              "المناقصة العامة والممارسة العامة (الخارجية): إعلان مرة واحدة في صحيفة يومية واسعة الانتشار وفي صحيفة دولية، مع الإعلام عنها عن طريق السفارات والقنصليات",
+              "المناقصة المحدودة والمناقصة المحلية والممارسة المحدودة: توجيه الدعوة إلى أكبر عدد ممكن من المسجلين المتخصصين أو المؤهلين المشتغلين بالنشاط",
+              "تأجيل جلسة فتح المظاريف: يُعلن الموعد الجديد بالطريقة نفسها التي أُعلن بها الموعد الأصلي",
+            ],
+          },
         ],
-        list_ar: [
-          "المناقصة العامة والممارسة العامة: الإعلان مرة واحدة في إحدى الصحف اليومية واسعة الانتشار",
-          "المناقصة العامة أو الممارسة العامة الخارجية: الإعلان كذلك في صحيفة دولية مع الإعلام عنها عن طريق السفارات والقنصليات",
-          "المناقصة المحدودة والمحلية والممارسة المحدودة: توجيه الدعوة إلى أكبر عدد ممكن من المسجلين المتخصصين أو المؤهلين",
-          "تأجيل جلسة فتح المظاريف: يُعلن الموعد الجديد بالطريقة نفسها التي أُعلن بها الموعد الأصلي",
-        ],
+        callout: {
+          body_en:
+            "For a supplier: a procurement that does not appear on the portal, and is not one of the national-security exceptions, has not met Article 20. Register on the portal and follow the entity's page there instead of relying on the press advertisement alone.",
+          body_ar:
+            "بالنسبة للمورد: العملية التي لا تظهر على البوابة وليست من استثناءات الأمن القومي لم تستوفِ المادة 20. سجّلوا على البوابة وتابعوا صفحة الجهة عليها ولا تعتمدوا على الإعلان الصحفي وحده.",
+        },
       },
       {
         heading_en: "The Exceptional Methods (Articles 54 to 63)",
@@ -127,20 +161,20 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
               label_en: "Local tender",
               label_ar: "المناقصة المحلية",
               values_en: [
-                "Value not above EGP 4 million under Article 59; limited to suppliers whose activity is within the governorate where the contract is performed. The article also has a specific provision for small and micro enterprises for values up to EGP 2 million",
+                "Value not above EGP 4 million; limited to suppliers whose activity is within the governorate where the contract is performed (Article 59, detailed below)",
               ],
               values_ar: [
-                "ما لا تزيد قيمته على 4 ملايين جنيه وفق المادة 59؛ ويقتصر الاشتراك على الموردين الذين يقع نشاطهم في نطاق المحافظة محل التنفيذ. وتتضمن المادة حكمًا خاصًا بالمشروعات الصغيرة ومتناهية الصغر فيما لا يجاوز مليوني جنيه",
+                "ما لا تزيد قيمته على 4 ملايين جنيه؛ ويقتصر الاشتراك على الموردين الذين يقع نشاطهم في نطاق المحافظة محل التنفيذ (المادة 59، وتفصيلها أدناه)",
               ],
             },
             {
               label_en: "Direct agreement",
               label_ar: "الاتفاق المباشر",
               values_en: [
-                "Only in the cases listed in Article 62 — emergencies and urgent cases that cannot wait for a tender or practice, a single source with sole technical ability or an exclusive right, integration or standardisation with what already exists, work a technical necessity requires from the existing contractor, and support for the State's social or economic policies — and within the limits of Article 63",
+                "Only in one of the seven cases of Article 62 and within the limits of Article 63 (both detailed below)",
               ],
               values_ar: [
-                "في الحالات الواردة بالمادة 62 فقط — الطوارئ والحالات العاجلة التي لا تحتمل إجراءات المناقصة أو الممارسة، والمصدر الوحيد صاحب القدرة الفنية أو الحق الحصري، والتكامل أو التوحيد القياسي مع القائم، وما تقتضي الضرورة الفنية تنفيذه بمعرفة المتعاقد القائم، وتعزيز السياسات الاجتماعية أو الاقتصادية للدولة — وفي حدود المادة 63",
+                "في إحدى الحالات السبع الواردة بالمادة 62 فقط وفي حدود المادة 63 (وتفصيلهما أدناه)",
               ],
             },
           ],
@@ -153,6 +187,60 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
         },
       },
       {
+        heading_en: "Local Tender in Detail (Article 59)",
+        heading_ar: "المناقصة المحلية بالتفصيل (المادة 59)",
+        body_en:
+          "Article 59 serves two purposes: a lighter procedure for lower-value needs, and access for local medium, small and micro enterprises.",
+        body_ar:
+          "تؤدي المادة 59 غرضين: إجراء أخف للاحتياجات محدودة القيمة، وإتاحة الفرصة للمشروعات المتوسطة والصغيرة ومتناهية الصغر المحلية.",
+        list_en: [
+          "Ceiling: contracts whose value does not exceed EGP 4 million",
+          "Who may take part: suppliers, contractors, service providers and consultants whose activity is within the governorate where the contract is performed, including medium, small and micro enterprises",
+          "Restriction to medium, small and micro enterprises: for values not above EGP 2 million the local tender is restricted to these enterprises",
+          "Provisional guarantee exception: where the tender is restricted to them, the tender documents may, with the competent authority's approval, include a declaration form in place of the provisional guarantee; the bidder signs it, encloses it in the technical envelope and undertakes to proceed with the procedure",
+          "If the winner then fails to pay the final guarantee: an amount equal to the provisional guarantee is deducted from its dues with the entity or with any other administrative entity, and the contract is cancelled or performed by the next bidder in order of priority",
+        ],
+        list_ar: [
+          "الحد الأقصى: ما لا تجاوز قيمته 4 ملايين جنيه",
+          "من يشترك: الموردون والمقاولون ومقدمو الخدمات والاستشاريون الذين يقع نشاطهم في نطاق المحافظة التي يُنفذ بها التعاقد، ومنهم المشروعات المتوسطة والصغيرة ومتناهية الصغر",
+          "القصر على المشروعات المتوسطة والصغيرة ومتناهية الصغر: فيما لا تجاوز قيمته مليوني جنيه يُقصر الطرح بالمناقصة المحلية على هذه المشروعات",
+          "استثناء التأمين المؤقت: إذا قُصر الطرح عليها جاز بموافقة السلطة المختصة تضمين كراسة الشروط نموذج إقرار بديلًا عن التأمين المؤقت، يوقعه صاحب العطاء ويرفقه بالمظروف الفني ويلتزم فيه بالسير في الإجراءات",
+          "إذا تقاعس الفائز بعد ذلك عن سداد التأمين النهائي: يُخصم ما يعادل التأمين المؤقت من مستحقاته لدى الجهة أو لدى أي جهة إدارية أخرى، ويُلغى العقد أو يُنفذ بواسطة صاحب العطاء التالي في ترتيب الأولوية",
+        ],
+      },
+      {
+        heading_en: "Direct Agreement Cases (Article 62)",
+        heading_ar: "حالات الاتفاق المباشر (المادة 62)",
+        body_en:
+          "Direct agreement is allowed only in one of these seven cases:",
+        body_ar: "لا يجوز الاتفاق المباشر إلا في إحدى هذه الحالات السبع:",
+        listStyle: "number",
+        list_en: [
+          "Emergencies arising from sudden circumstances that cannot wait for tender or practice procedures",
+          "A single source with the technical ability to meet the requirement, or holding an exclusive or monopoly right over it",
+          "Integration with what already exists, where there is only one source",
+          "A requirement not covered by an existing contract which technical necessity requires the existing contractor to perform",
+          "Standardisation with what already exists — price quotations required",
+          "Promoting social or economic policies adopted by the State — price quotations required",
+          "Urgent cases whose time frame does not allow tender or practice procedures — price quotations required",
+        ],
+        list_ar: [
+          "الحالات الطارئة الناجمة عن ظروف مفاجئة لا تحتمل إجراءات المناقصة أو الممارسة",
+          "وجود مصدر واحد له القدرة الفنية على تلبية متطلبات التعاقد، أو له الحق الحصري أو الاحتكاري لموضوعه",
+          "تحقيق التكامل مع ما هو قائم مع عدم وجود سوى مصدر واحد",
+          "موضوع غير مشمول في عقد قائم وتقتضي الضرورة الفنية تنفيذه بمعرفة المتعاقد القائم",
+          "التوحيد القياسي مع ما هو قائم — مع وجوب الحصول على عروض أسعار",
+          "تعزيز السياسات الاجتماعية أو الاقتصادية التي تتبناها الدولة — مع وجوب الحصول على عروض أسعار",
+          "الحالات العاجلة التي لا تسمح مدتها باتخاذ إجراءات المناقصة أو الممارسة — مع وجوب الحصول على عروض أسعار",
+        ],
+        callout: {
+          body_en:
+            "In cases 5, 6 and 7 the entity must obtain price quotations before contracting. A supplier invited under one of these cases should expect to be one of several asked to quote, and should submit a complete written offer, not a verbal price.",
+          body_ar:
+            "في الحالات 5 و6 و7 يجب على الجهة الحصول على عروض أسعار قبل التعاقد. والمورد المدعو تحت إحدى هذه الحالات يكون واحدًا من عدة موردين طُلبت منهم عروض، فعليه تقديم عرض مكتوب مكتمل لا سعر شفهي.",
+        },
+      },
+      {
         heading_en: "Direct Agreement Limits (Article 63)",
         heading_ar: "حدود الاتفاق المباشر (المادة 63)",
         body_en:
@@ -160,8 +248,9 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
         body_ar:
           "تحدد المادة 63 ما يجوز لكل سلطة اعتماده بالاتفاق المباشر بحسب نوع التعاقد.",
         table: {
-          caption_en: "Direct Agreement: Maximum Value per Authority",
-          caption_ar: "الاتفاق المباشر: الحد الأقصى لكل سلطة",
+          caption_en:
+            "Direct Agreement: Maximum Value per Authority (Article 63)",
+          caption_ar: "الاتفاق المباشر: الحد الأقصى لكل سلطة (المادة 63)",
           headers_en: [
             "Purchase or Lease of Movables and Services",
             "Works Contracts",
@@ -186,17 +275,61 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           ],
         },
         list_en: [
-          "Low-value purchases: up to EGP 20,000 on any one occasion and EGP 100,000 in a year",
+          "Low-value direct agreement (Article 63 of the Law; procedure in Article 135 of the Executive Regulations): not more than EGP 20,000 on any one occasion and not more than EGP 100,000 in a year",
+          "No splitting (Article 10): a requirement may not be divided in order to fall under any of these limits or to avoid a procedure",
         ],
         list_ar: [
-          "العمليات منخفضة القيمة: حتى 20 ألف جنيه في المرة الواحدة و100 ألف جنيه في السنة",
+          "الاتفاق المباشر منخفض القيمة (المادة 63 من القانون، وإجراءاته في المادة 135 من اللائحة التنفيذية): بما لا يجاوز 20 ألف جنيه في المرة الواحدة وبما لا يجاوز 100 ألف جنيه في السنة",
+          "حظر التجزئة (المادة 10): لا يجوز تقسيم الاحتياج بقصد النزول به عن أي من هذه الحدود أو تفادي إجراء",
+        ],
+        subsections: [
+          {
+            heading_en: "What This Means for the Supplier",
+            heading_ar: "ما يهم المورد",
+            body_en:
+              "These controls decide whether a direct order is sound, and a supplier is affected if it is not.",
+            body_ar:
+              "هذه الضوابط تحدد سلامة أمر التوريد المباشر، والمورد يتأثر إذا لم يكن سليمًا.",
+            list_en: [
+              "Ask which Article 62 case the request is made under and keep the entity's written request for quotation",
+              "A request to split one requirement across several invoices or orders to stay under EGP 20,000 or under an authority limit conflicts with Article 10 — quote the requirement as one",
+              "Your offer must state your legal nature and beneficial owner with supporting documents (Executive Regulations, Article 133)",
+              "The result of a direct agreement is published on the Public Procurement Portal once approved, including that data (Executive Regulations, Article 132)",
+            ],
+            list_ar: [
+              "اسألوا عن الحالة من حالات المادة 62 التي يستند إليها الطلب، واحتفظوا بطلب عرض السعر المكتوب الصادر من الجهة",
+              "طلب تقسيم احتياج واحد على عدة فواتير أو أوامر توريد للبقاء تحت 20 ألف جنيه أو تحت حد سلطة معينة يخالف المادة 10 — قدّموا عرضكم عن الاحتياج كاملًا",
+              "يجب أن يتضمن عرضكم بيان الطبيعة القانونية والمستفيد الحقيقي مع المستندات المؤيدة (المادة 133 من اللائحة التنفيذية)",
+              "تُنشر نتيجة الاتفاق المباشر على بوابة التعاقدات العامة فور اعتمادها متضمنة هذه البيانات (المادة 132 من اللائحة التنفيذية)",
+            ],
+          },
         ],
         callout: {
           body_en:
-            "These limits only decide who may approve. They do not replace the cases of Article 62: a direct agreement within the limit is still unlawful if none of those cases applies, and a requirement may not be split to fit under a limit (Article 10).",
+            "These limits only decide who may approve. They do not replace the cases of Article 62: a direct agreement within the limit is still unlawful if none of those cases applies.",
           body_ar:
-            "هذه الحدود تحدد السلطة المختصة بالاعتماد فقط، ولا تغني عن تحقق إحدى حالات المادة 62: فالاتفاق المباشر داخل الحد المالي يظل مخالفًا إذا لم تتوافر إحدى تلك الحالات، ولا يجوز تجزئة الاحتياج للنزول به عن الحد (المادة 10).",
+            "هذه الحدود تحدد السلطة المختصة بالاعتماد فقط، ولا تغني عن تحقق إحدى حالات المادة 62: فالاتفاق المباشر داخل الحد المالي يظل مخالفًا إذا لم تتوافر إحدى تلك الحالات.",
         },
+      },
+      {
+        heading_en: "Disclosure of Legal Nature and Beneficial Owner",
+        heading_ar: "الإفصاح عن الطبيعة القانونية والمستفيد الحقيقي",
+        body_en:
+          "Minister of Finance Decree No. 289 of 2021 amended the Executive Regulations so that every bidder discloses who stands behind the offer, and the entity publishes it for the winner. The beneficial owner is any natural person, other than the bidder, who ultimately owns or controls the bidder, or on whose behalf the transaction is carried out.",
+        body_ar:
+          "عدّل قرار وزير المالية رقم 289 لسنة 2021 اللائحة التنفيذية بحيث يفصح كل متقدم عمّن يقف خلف العطاء، وتنشر الجهة ذلك بالنسبة للفائز. والمستفيد الحقيقي هو أي شخص طبيعي غير صاحب العطاء تؤول إليه فعليًا ملكيته أو تكون له السيطرة عليه، أو الشخص الطبيعي الذي تُنفَّذ العملية لحسابه أو نيابة عنه.",
+        list_en: [
+          "With the offer (Regulations Articles 49 and 157) and with a quotation under direct agreement (Article 133): a statement of the bidder's legal nature and beneficial owner, with supporting documents",
+          "Companies: a certified copy of the articles of incorporation or statutes, or the capital structure, as last amended",
+          "Other bidders: ownership data and documents",
+          "After approval, the Contracts Department publishes the winner's legal nature and beneficial owner on the Public Procurement Portal (Articles 79 and 132)",
+        ],
+        list_ar: [
+          "مع العطاء (المادتان 49 و157 من اللائحة) ومع عرض السعر في الاتفاق المباشر (المادة 133): بيان الطبيعة القانونية لصاحب العطاء والمستفيد الحقيقي منه مع المستندات المؤيدة",
+          "الشركات: صورة معتمدة من عقد التأسيس أو النظام الأساسي أو هيكل رأس المال وفق آخر تعديل",
+          "غير الشركات: بيانات ومستندات الملكية",
+          "بعد الاعتماد تنشر إدارة التعاقدات بيانات الطبيعة القانونية للفائز والمستفيد الحقيقي منه على بوابة التعاقدات العامة (المادتان 79 و132)",
+        ],
       },
       {
         heading_en: "Rules That Apply Whichever Method You Use",
@@ -253,7 +386,7 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "Contracting method and the session or submission date",
           "Delivery location, delivery period and partial-delivery rules",
           "Bid validity period and guarantee requirements",
-          "Payment terms and required documents (tax card, commercial register, registrations)",
+          "Payment terms and required documents (tax card, commercial register, registrations, legal nature and beneficial owner statement)",
           "Inspection and acceptance procedure, and warranty period",
         ],
         list_ar: [
@@ -262,7 +395,7 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "طريق التعاقد وموعد الجلسة أو تقديم العروض",
           "مكان التوريد ومدته وقواعد التوريد على دفعات",
           "مدة سريان العطاء ومتطلبات التأمين",
-          "شروط السداد والمستندات المطلوبة (البطاقة الضريبية، السجل التجاري، شهادات القيد)",
+          "شروط السداد والمستندات المطلوبة (البطاقة الضريبية، السجل التجاري، شهادات القيد، بيان الطبيعة القانونية والمستفيد الحقيقي)",
           "إجراءات الفحص والاستلام ومدة الضمان",
         ],
       },
@@ -274,16 +407,22 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
         body_ar:
           "بدأ العمل بالقانون رقم 182 لسنة 2018 بعد ثلاثين يومًا من نشره، وحل محل قانون تنظيم المناقصات والمزايدات رقم 89 لسنة 1998. تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026. هذا المحتوى للتوعية العامة ولا يغني عن مراجعة مستندات الطرح والنصوص الرسمية السارية.",
         list_en: [
-          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Articles 7, 10, 11, 14, 19 and 20, and Articles 54 to 63 on the exceptional methods",
+          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Articles 7, 10, 11, 14, 19 and 20; Articles 54 to 63 on the exceptional methods, including Article 59 (local tender), Article 62 (direct agreement cases) and Article 63 (direct agreement limits)",
           "Law No. 188 of 2020 amending certain provisions of Law No. 182 of 2018, issued and published 5 September 2020",
-          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019, as amended by Decrees No. 28 of 2020, No. 614 of 2020 and No. 289 of 2021",
-          "Ministry of Finance, Guide for Medium, Small and Micro Enterprises to public contracting",
+          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019 — Articles 129 and 132 to 135",
+          "Minister of Finance Decree No. 28 of 2020, 16 January 2020 — amends the Executive Regulations (forms of paying the provisional and final guarantees)",
+          "Minister of Finance Decree No. 614 of 2020, Al-Waqa'i' Al-Misriyya issue 284 (supplement B), 16 December 2020 — amends the Executive Regulations",
+          "Minister of Finance Decree No. 289 of 2021, Al-Waqa'i' Al-Misriyya issue 125 (supplement), 6 June 2021 — legal nature and beneficial owner disclosure and publication (Regulations Articles 49, 79, 132, 133 and 157)",
+          "Official sources: Public Procurement Portal, etenders.gov.eg — Ministry of Finance, mof.gov.eg — General Authority for Government Printing Offices (Official Gazette), alamiria.com",
         ],
         list_ar: [
-          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المواد 7 و10 و11 و14 و19 و20، والمواد من 54 إلى 63 المنظمة للطرق الاستثنائية",
+          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المواد 7 و10 و11 و14 و19 و20؛ والمواد من 54 إلى 63 المنظمة للطرق الاستثنائية، ومنها المادة 59 (المناقصة المحلية) والمادة 62 (حالات الاتفاق المباشر) والمادة 63 (حدود الاتفاق المباشر)",
           "القانون رقم 188 لسنة 2020 بتعديل بعض أحكام القانون رقم 182 لسنة 2018، الصادر والمنشور في 5 سبتمبر 2020",
-          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019، والمعدلة بالقرارات أرقام 28 لسنة 2020 و614 لسنة 2020 و289 لسنة 2021",
-          "وزارة المالية، دليل أصحاب المشروعات المتوسطة والصغيرة ومتناهية الصغر للتعاقدات العامة",
+          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019 — المواد 129 ومن 132 إلى 135",
+          "قرار وزير المالية رقم 28 لسنة 2020 في 16 يناير 2020 — بتعديل اللائحة التنفيذية (صور أداء التأمين المؤقت والنهائي)",
+          "قرار وزير المالية رقم 614 لسنة 2020، الوقائع المصرية العدد 284 تابع (ب) في 16 ديسمبر 2020 — بتعديل اللائحة التنفيذية",
+          "قرار وزير المالية رقم 289 لسنة 2021، الوقائع المصرية العدد 125 (تابع) في 6 يونيو 2021 — الإفصاح عن الطبيعة القانونية والمستفيد الحقيقي والنشر (المواد 49 و79 و132 و133 و157 من اللائحة)",
+          "المصادر الرسمية: بوابة التعاقدات العامة etenders.gov.eg — وزارة المالية mof.gov.eg — الهيئة العامة لشئون المطابع الأميرية (الجريدة الرسمية) alamiria.com",
         ],
       },
     ],
@@ -458,7 +597,7 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "Item schedule with function, measurable performance and quantities",
           "Applicable standards with their numbers",
           "For compatibility items: existing machine make, model and part number",
-          "Documents and samples required with the offer",
+          "Documents and samples required with the offer, including the legal nature and beneficial owner statement",
           "Inspection and acceptance method",
           "Delivery location and period, warranty and payment terms",
         ],
@@ -466,7 +605,7 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "جدول الأصناف متضمنًا الوظيفة والأداء القابل للقياس والكميات",
           "المواصفات القياسية المطبقة بأرقامها",
           "في أصناف التوافق: ماركة المعدة القائمة وموديلها ورقم القطعة",
-          "المستندات والعيّنات المطلوبة مع العرض",
+          "المستندات والعيّنات المطلوبة مع العرض، ومنها بيان الطبيعة القانونية والمستفيد الحقيقي",
           "طريقة الفحص والاستلام",
           "مكان التوريد ومدته والضمان وشروط السداد",
         ],
@@ -479,16 +618,24 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
         body_ar:
           "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026. هذا المحتوى للتوعية العامة ولا يغني عن مراجعة مستندات الطرح والنصوص الرسمية السارية.",
         list_en: [
-          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Article 14 (technical specifications) and Article 35 (preference for Egyptian products)",
+          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Article 14 (technical specifications), Article 10 (no splitting) and Article 35 (preference for Egyptian products)",
           "Law No. 188 of 2020 amending certain provisions of Law No. 182 of 2018, issued and published 5 September 2020",
-          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019, as amended by Decrees No. 28 of 2020, No. 614 of 2020 and No. 289 of 2021",
+          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019",
+          "Minister of Finance Decree No. 28 of 2020, 16 January 2020 — amends the Executive Regulations (forms of paying the provisional and final guarantees)",
+          "Minister of Finance Decree No. 614 of 2020, Al-Waqa'i' Al-Misriyya issue 284 (supplement B), 16 December 2020 — amends the Executive Regulations",
+          "Minister of Finance Decree No. 289 of 2021, Al-Waqa'i' Al-Misriyya issue 125 (supplement), 6 June 2021 — legal nature and beneficial owner disclosure and publication (Regulations Articles 49, 79, 132, 133 and 157)",
           "Law No. 5 of 2015 on preference for Egyptian products in government contracts",
+          "Official sources: Public Procurement Portal, etenders.gov.eg — Ministry of Finance, mof.gov.eg — General Authority for Government Printing Offices (Official Gazette), alamiria.com",
         ],
         list_ar: [
-          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المادة 14 (المواصفات الفنية) والمادة 35 (تفضيل المنتج المصري)",
+          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المادة 14 (المواصفات الفنية) والمادة 10 (حظر التجزئة) والمادة 35 (تفضيل المنتج المصري)",
           "القانون رقم 188 لسنة 2020 بتعديل بعض أحكام القانون رقم 182 لسنة 2018، الصادر والمنشور في 5 سبتمبر 2020",
-          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019، والمعدلة بالقرارات أرقام 28 لسنة 2020 و614 لسنة 2020 و289 لسنة 2021",
+          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019",
+          "قرار وزير المالية رقم 28 لسنة 2020 في 16 يناير 2020 — بتعديل اللائحة التنفيذية (صور أداء التأمين المؤقت والنهائي)",
+          "قرار وزير المالية رقم 614 لسنة 2020، الوقائع المصرية العدد 284 تابع (ب) في 16 ديسمبر 2020 — بتعديل اللائحة التنفيذية",
+          "قرار وزير المالية رقم 289 لسنة 2021، الوقائع المصرية العدد 125 (تابع) في 6 يونيو 2021 — الإفصاح عن الطبيعة القانونية والمستفيد الحقيقي والنشر (المواد 49 و79 و132 و133 و157 من اللائحة)",
           "القانون رقم 5 لسنة 2015 في شأن تفضيل المنتجات المصرية في العقود الحكومية",
+          "المصادر الرسمية: بوابة التعاقدات العامة etenders.gov.eg — وزارة المالية mof.gov.eg — الهيئة العامة لشئون المطابع الأميرية (الجريدة الرسمية) alamiria.com",
         ],
       },
     ],
@@ -548,14 +695,16 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
         body_en: "The figures below are those of Articles 16 and 40.",
         body_ar: "القيم التالية هي ما ورد في المادتين 16 و40.",
         table: {
-          caption_en: "Guarantees for Supply, Works and Service Contracts",
-          caption_ar: "التأمينات في عقود التوريد والمقاولات والخدمات",
+          caption_en: "Guarantee Rates and Deadlines",
+          caption_ar: "نسب التأمينات ومهلها",
           headers_en: ["Amount", "When"],
           headers_ar: ["القيمة", "الموعد"],
           rows: [
             {
-              label_en: "Provisional guarantee (Article 16)",
-              label_ar: "التأمين المؤقت (المادة 16)",
+              label_en:
+                "Provisional guarantee — supply, works and services (Article 16)",
+              label_ar:
+                "التأمين المؤقت — التوريدات والأعمال والخدمات (المادة 16)",
               values_en: [
                 "A fixed amount stated in the tender documents; 1.5 % of the estimated value is the ceiling, not a fixed rate",
                 "With the offer; valid for 30 days beyond the offer validity period",
@@ -566,49 +715,84 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
               ],
             },
             {
+              label_en:
+                "Provisional guarantee — purchase or lease of real estate (Article 16)",
+              label_ar: "التأمين المؤقت — شراء أو استئجار العقارات (المادة 16)",
+              values_en: [
+                "A fixed amount stated in the tender documents; the ceiling is 0.5 % of the estimated value",
+                "With the offer; valid for 30 days beyond the offer validity period",
+              ],
+              values_ar: [
+                "مبلغ محدد تنص عليه كراسة الشروط؛ والحد الأقصى 0.5٪ من القيمة التقديرية",
+                "مع العطاء، ويظل ساريًا 30 يومًا بعد انتهاء مدة سريان العطاء",
+              ],
+            },
+            {
               label_en: "Final guarantee (Article 40)",
               label_ar: "التأمين النهائي (المادة 40)",
               values_en: [
                 "5 % of the contract value",
-                "Within 10 working days of notification of acceptance for local contractors, and 20 working days for contractors abroad; the competent authority may grant an extra period of not more than 10 working days",
+                "Within 10 working days for local contractors and 20 working days for contractors abroad, counted from the day following notification of acceptance; the competent authority may grant an extra period of not more than 10 working days",
               ],
               values_ar: [
                 "5٪ من قيمة العقد",
-                "خلال 10 أيام عمل من الإخطار بقبول العطاء للمتعاقد المحلي، و20 يوم عمل للمتعاقد في الخارج؛ ويجوز بموافقة السلطة المختصة منح مهلة إضافية لا تجاوز 10 أيام عمل",
+                "خلال 10 أيام عمل للمتعاقد المحلي و20 يوم عمل للمتعاقد في الخارج، تبدأ من اليوم التالي للإخطار بقبول العطاء؛ ويجوز بموافقة السلطة المختصة منح مهلة إضافية لا تجاوز 10 أيام عمل",
               ],
             },
           ],
         },
         callout: {
           body_en:
-            "The provisional guarantee is not a flat 1.5 %. The entity fixes an amount that may be lower, and the guarantee must stay valid for 30 days after the offer validity period ends.",
+            "The provisional guarantee is not a flat rate. The entity fixes an amount within the ceiling for the type of contract — 1.5 % for supply, works and services, 0.5 % for real estate — and the guarantee must stay valid for 30 days after the offer validity period ends.",
           body_ar:
-            "التأمين المؤقت ليس نسبة ثابتة قدرها 1.5٪. فالجهة تحدد مبلغًا قد يقل عن ذلك، ويجب أن يظل التأمين ساريًا 30 يومًا بعد انتهاء مدة صلاحية العطاء.",
+            "التأمين المؤقت ليس نسبة ثابتة. فالجهة تحدد مبلغًا في حدود الحد الأقصى لنوع التعاقد — 1.5٪ للتوريدات والأعمال والخدمات و0.5٪ للعقارات — ويجب أن يظل التأمين ساريًا 30 يومًا بعد انتهاء مدة صلاحية العطاء.",
         },
       },
       {
         heading_en: "Worked Example",
         heading_ar: "مثال محسوب",
         body_en:
-          "A supply tender has an estimated value of EGP 2,000,000 and an offer validity of 90 days. The provisional guarantee stated in the documents cannot exceed EGP 30,000 (1.5 %), and it must remain valid for 120 days from the opening date.\n\nThe contract is awarded at EGP 1,900,000. The final guarantee is EGP 95,000 (5 %), due within 10 working days of the acceptance notice for a local contractor.",
+          "A supply tender has an estimated value of EGP 2,000,000 and an offer validity of 90 days. The provisional guarantee stated in the documents cannot exceed EGP 30,000 (1.5 %), and it must remain valid for 120 days from the opening date.\n\nThe contract is awarded at EGP 1,900,000. The final guarantee is EGP 95,000 (5 %), due within 10 working days for a local contractor, counted from the day after the acceptance notice: if the notice is received on a Sunday, the first working day counted is Monday.",
         body_ar:
-          "مناقصة توريد قيمتها التقديرية 2,000,000 جنيه ومدة سريان العطاء فيها 90 يومًا. التأمين المؤقت المنصوص عليه في الكراسة لا يجوز أن يتجاوز 30,000 جنيه (1.5٪)، ويجب أن يظل ساريًا 120 يومًا من تاريخ فتح المظاريف.\n\nرست العملية بقيمة 1,900,000 جنيه. فيكون التأمين النهائي 95,000 جنيه (5٪) يُسدد خلال 10 أيام عمل من الإخطار بالقبول.",
+          "مناقصة توريد قيمتها التقديرية 2,000,000 جنيه ومدة سريان العطاء فيها 90 يومًا. التأمين المؤقت المنصوص عليه في الكراسة لا يجوز أن يتجاوز 30,000 جنيه (1.5٪)، ويجب أن يظل ساريًا 120 يومًا من تاريخ فتح المظاريف.\n\nرست العملية بقيمة 1,900,000 جنيه. فيكون التأمين النهائي 95,000 جنيه (5٪) يُسدد خلال 10 أيام عمل تبدأ من اليوم التالي للإخطار بالقبول: فإذا ورد الإخطار يوم الأحد كان الاثنين أول يوم عمل محسوب.",
       },
       {
         heading_en: "What Happens If the Final Guarantee Is Not Paid",
         heading_ar: "ماذا يحدث إذا لم يُسدَّد التأمين النهائي",
         body_en:
-          "Under Article 41, if the winning bidder does not pay the final guarantee within the period, the entity may cancel the award or contract with the next bidder in order of priority. For a supplier, the ten working days start on notification, so the bank facility for the guarantee should be arranged before the offer is submitted, not after the award.",
+          "Under Article 41, if the winning bidder does not pay the final guarantee within the period, the entity may cancel the award or contract with the next bidder in order of priority. For a supplier, the ten working days start on the day after notification, so the bank facility for the guarantee should be arranged before the offer is submitted, not after the award.",
         body_ar:
-          "وفق المادة 41، إذا لم يسدد صاحب العطاء الفائز التأمين النهائي خلال المهلة جاز للجهة إلغاء الترسية أو التعاقد مع صاحب العطاء التالي في الترتيب. وبالنسبة للمورد تبدأ الأيام العشرة من تاريخ الإخطار، فيجب ترتيب التسهيل البنكي الخاص بخطاب الضمان قبل تقديم العطاء لا بعد الترسية.",
+          "وفق المادة 41، إذا لم يسدد صاحب العطاء الفائز التأمين النهائي خلال المهلة جاز للجهة إلغاء الترسية أو التعاقد مع صاحب العطاء التالي في الترتيب. وبالنسبة للمورد تبدأ الأيام العشرة من اليوم التالي للإخطار، فيجب ترتيب التسهيل البنكي الخاص بخطاب الضمان قبل تقديم العطاء لا بعد الترسية.",
       },
       {
-        heading_en: "Medium, Small and Micro Enterprises",
-        heading_ar: "المشروعات المتوسطة والصغيرة ومتناهية الصغر",
+        heading_en: "Medium, Small and Micro Enterprises (Article 59)",
+        heading_ar: "المشروعات المتوسطة والصغيرة ومتناهية الصغر (المادة 59)",
         body_en:
-          "The law gives these enterprises specific treatment: local tenders in which they may take part (Article 59) and rules on contracting with them (Article 75). Where a tender is restricted to them, the tender documents may, with the competent authority's approval, accept a signed undertaking in place of the provisional guarantee. Check the tender documents for whether this applies before preparing a guarantee.",
+          "Where a local tender is restricted to these enterprises — values not above EGP 2 million — the provisional guarantee may be replaced by a declaration.",
         body_ar:
-          "يخص القانون هذه المشروعات بمعاملة محددة: المناقصات المحلية التي يجوز لها الاشتراك فيها (المادة 59) وقواعد التعاقد معها (المادة 75). وإذا اقتصر الطرح عليها جاز بموافقة السلطة المختصة أن تتضمن كراسة الشروط إقرارًا يوقعه صاحب العطاء بديلًا عن التأمين المؤقت. فراجعوا الكراسة لمعرفة ما إذا كان ذلك مطبقًا قبل تجهيز التأمين.",
+          "إذا قُصرت المناقصة المحلية على هذه المشروعات — فيما لا يجاوز مليوني جنيه — جاز أن يحل إقرار محل التأمين المؤقت.",
+        list_en: [
+          "The exception needs the competent authority's approval and must appear in the tender documents as a declaration form",
+          "The bidder signs the declaration, encloses it in the technical envelope and undertakes to proceed with the procedure",
+          "The final guarantee is still due from the winner at 5 %",
+          "If the winner fails to pay it, an amount equal to the provisional guarantee is deducted from its dues with the entity or with any other administrative entity, and the contract is cancelled or performed by the next bidder in order of priority",
+          "Article 75 sets the rules on contracting with these enterprises more generally",
+        ],
+        list_ar: [
+          "يستلزم الاستثناء موافقة السلطة المختصة وأن يرد في كراسة الشروط في صورة نموذج إقرار",
+          "يوقع صاحب العطاء الإقرار ويرفقه بالمظروف الفني ويلتزم فيه بالسير في الإجراءات",
+          "يظل التأمين النهائي مستحقًا على الفائز بنسبة 5٪",
+          "إذا تقاعس الفائز عن سداده يُخصم ما يعادل التأمين المؤقت من مستحقاته لدى الجهة أو لدى أي جهة إدارية أخرى، ويُلغى العقد أو يُنفذ بواسطة صاحب العطاء التالي في ترتيب الأولوية",
+          "وتنظم المادة 75 قواعد التعاقد مع هذه المشروعات بصفة عامة",
+        ],
+      },
+      {
+        heading_en: "Forms of Paying the Guarantees",
+        heading_ar: "صور أداء التأمين",
+        body_en:
+          "The accepted forms of paying the provisional and final guarantees are set by the Executive Regulations as amended by Minister of Finance Decree No. 28 of 2020. The tender documents state which forms the entity accepts and the exact name of the beneficiary; a guarantee in a form the documents do not list risks exclusion of the offer.",
+        body_ar:
+          "تحدد اللائحة التنفيذية، بعد تعديلها بقرار وزير المالية رقم 28 لسنة 2020، صور أداء التأمين المؤقت والتأمين النهائي. وتنص كراسة الشروط على الصور التي تقبلها الجهة والاسم الدقيق للمستفيد؛ وتقديم التأمين في صورة غير واردة بالكراسة يعرّض العطاء للاستبعاد.",
       },
       {
         heading_en: "What the Tender Documents Should State",
@@ -663,16 +847,24 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
         body_ar:
           "تاريخ آخر مراجعة للمحتوى: 10 نوفمبر 2026. هذا المحتوى للتوعية العامة ولا يغني عن مراجعة مستندات الطرح والنصوص الرسمية السارية.",
         list_en: [
-          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Articles 16, 22, 40 and 41 (guarantees), 59 and 75 (medium, small and micro enterprises)",
+          "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Articles 16, 22, 40 and 41 (guarantees), Article 59 (local tender and the provisional guarantee exception) and Article 75 (medium, small and micro enterprises)",
           "Law No. 188 of 2020 amending certain provisions of Law No. 182 of 2018, issued and published 5 September 2020",
-          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019, as amended by Decrees No. 28 of 2020, No. 614 of 2020 and No. 289 of 2021",
+          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019",
+          "Minister of Finance Decree No. 28 of 2020, 16 January 2020 — amends the Executive Regulations (forms of paying the provisional and final guarantees)",
+          "Minister of Finance Decree No. 614 of 2020, Al-Waqa'i' Al-Misriyya issue 284 (supplement B), 16 December 2020 — amends the Executive Regulations",
+          "Minister of Finance Decree No. 289 of 2021, Al-Waqa'i' Al-Misriyya issue 125 (supplement), 6 June 2021 — legal nature and beneficial owner disclosure and publication (Regulations Articles 49, 79, 132, 133 and 157)",
           "Ministry of Finance, Guide for Medium, Small and Micro Enterprises to public contracting",
+          "Official sources: Public Procurement Portal, etenders.gov.eg — Ministry of Finance, mof.gov.eg — General Authority for Government Printing Offices (Official Gazette), alamiria.com",
         ],
         list_ar: [
-          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المواد 16 و22 و40 و41 (التأمينات)، و59 و75 (المشروعات المتوسطة والصغيرة ومتناهية الصغر)",
+          "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المواد 16 و22 و40 و41 (التأمينات)، والمادة 59 (المناقصة المحلية واستثناء التأمين المؤقت) والمادة 75 (المشروعات المتوسطة والصغيرة ومتناهية الصغر)",
           "القانون رقم 188 لسنة 2020 بتعديل بعض أحكام القانون رقم 182 لسنة 2018، الصادر والمنشور في 5 سبتمبر 2020",
-          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019، والمعدلة بالقرارات أرقام 28 لسنة 2020 و614 لسنة 2020 و289 لسنة 2021",
+          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019",
+          "قرار وزير المالية رقم 28 لسنة 2020 في 16 يناير 2020 — بتعديل اللائحة التنفيذية (صور أداء التأمين المؤقت والنهائي)",
+          "قرار وزير المالية رقم 614 لسنة 2020، الوقائع المصرية العدد 284 تابع (ب) في 16 ديسمبر 2020 — بتعديل اللائحة التنفيذية",
+          "قرار وزير المالية رقم 289 لسنة 2021، الوقائع المصرية العدد 125 (تابع) في 6 يونيو 2021 — الإفصاح عن الطبيعة القانونية والمستفيد الحقيقي والنشر (المواد 49 و79 و132 و133 و157 من اللائحة)",
           "وزارة المالية، دليل أصحاب المشروعات المتوسطة والصغيرة ومتناهية الصغر للتعاقدات العامة",
+          "المصادر الرسمية: بوابة التعاقدات العامة etenders.gov.eg — وزارة المالية mof.gov.eg — الهيئة العامة لشئون المطابع الأميرية (الجريدة الرسمية) alamiria.com",
         ],
       },
     ],
