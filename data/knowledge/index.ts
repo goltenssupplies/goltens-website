@@ -1,3 +1,4 @@
+import { electricalEnergyArticles } from "@/data/knowledge/articles/electrical-energy";
 import { fireProtectionArticles } from "@/data/knowledge/articles/fire-protection";
 import type { KnowledgeItem, KnowledgeType } from "@/data/knowledge/types";
 
@@ -8,7 +9,10 @@ import type { KnowledgeItem, KnowledgeType } from "@/data/knowledge/types";
  * existing `data/knowledge/<group>/<file>.ts`, or one new file plus one line
  * below; no lookup function or component is ever touched.
  */
-const KNOWLEDGE_ITEMS: KnowledgeItem[] = [...fireProtectionArticles];
+const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
+  ...fireProtectionArticles,
+  ...electricalEnergyArticles,
+];
 
 export function getAllKnowledgeItems(): KnowledgeItem[] {
   return KNOWLEDGE_ITEMS;
