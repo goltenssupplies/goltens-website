@@ -1,5 +1,9 @@
 export const siteName = "GOLTENS GENERAL SUPPLIES";
 
+// The company's Arabic trade name as customers actually search for it —
+// emitted as the Organization schema's `alternateName`.
+export const siteNameArabic = "جولتنز للتوريدات العمومية";
+
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.goltenssupplies.com";
 
