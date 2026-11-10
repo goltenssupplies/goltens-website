@@ -199,6 +199,7 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "Restriction to medium, small and micro enterprises: for values not above EGP 2 million the local tender is restricted to these enterprises",
           "Provisional guarantee exception: where the tender is restricted to them, the tender documents may, with the competent authority's approval, include a declaration form in place of the provisional guarantee; the bidder signs it, encloses it in the technical envelope and undertakes to proceed with the procedure",
           "If the winner then fails to pay the final guarantee: an amount equal to the provisional guarantee is deducted from its dues with the entity or with any other administrative entity, and the contract is cancelled or performed by the next bidder in order of priority",
+          "Re-tender when no small enterprises apply: if the tender was restricted to medium, small and micro enterprises and none of them applied, the invitation is re-issued to them and to others; the provisional-guarantee declaration exception under this article no longer applies to the re-issued tender",
         ],
         list_ar: [
           "الحد الأقصى: ما لا تجاوز قيمته 4 ملايين جنيه",
@@ -206,6 +207,7 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "القصر على المشروعات المتوسطة والصغيرة ومتناهية الصغر: فيما لا تجاوز قيمته مليوني جنيه يُقصر الطرح بالمناقصة المحلية على هذه المشروعات",
           "استثناء التأمين المؤقت: إذا قُصر الطرح عليها جاز بموافقة السلطة المختصة تضمين كراسة الشروط نموذج إقرار بديلًا عن التأمين المؤقت، يوقعه صاحب العطاء ويرفقه بالمظروف الفني ويلتزم فيه بالسير في الإجراءات",
           "إذا تقاعس الفائز بعد ذلك عن سداد التأمين النهائي: يُخصم ما يعادل التأمين المؤقت من مستحقاته لدى الجهة أو لدى أي جهة إدارية أخرى، ويُلغى العقد أو يُنفذ بواسطة صاحب العطاء التالي في ترتيب الأولوية",
+          "إعادة الطرح عند عدم تقدم مشروعات صغيرة: إذا قُصرت المناقصة على المشروعات المتوسطة والصغيرة ومتناهية الصغر ولم يتقدم أي منها، تُعاد الدعوة لها ولغيرها؛ ولا يستمر استثناء الإقرار البديل عن التأمين المؤقت المقرر بهذه المادة في الطرح المُعاد",
         ],
       },
       {
@@ -293,14 +295,14 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
             list_en: [
               "Ask which Article 62 case the request is made under and keep the entity's written request for quotation",
               "A request to split one requirement across several invoices or orders to stay under EGP 20,000 or under an authority limit conflicts with Article 10 — quote the requirement as one",
-              "Your offer must state your legal nature and beneficial owner with supporting documents (Executive Regulations, Article 133)",
-              "The result of a direct agreement is published on the Public Procurement Portal once approved, including that data (Executive Regulations, Article 132)",
+              "Your offer must state your legal nature, ownership structure and beneficial owner with supporting documents (Regulations Article 133, as amended by Decrees 614/2020 and 289/2021)",
+              "The result of a direct agreement is published on the Public Procurement Portal once approved, including that data (Regulations Article 132, as amended by Decrees 614/2020 and 289/2021)",
             ],
             list_ar: [
               "اسألوا عن الحالة من حالات المادة 62 التي يستند إليها الطلب، واحتفظوا بطلب عرض السعر المكتوب الصادر من الجهة",
               "طلب تقسيم احتياج واحد على عدة فواتير أو أوامر توريد للبقاء تحت 20 ألف جنيه أو تحت حد سلطة معينة يخالف المادة 10 — قدّموا عرضكم عن الاحتياج كاملًا",
-              "يجب أن يتضمن عرضكم بيان الطبيعة القانونية والمستفيد الحقيقي مع المستندات المؤيدة (المادة 133 من اللائحة التنفيذية)",
-              "تُنشر نتيجة الاتفاق المباشر على بوابة التعاقدات العامة فور اعتمادها متضمنة هذه البيانات (المادة 132 من اللائحة التنفيذية)",
+              "يجب أن يتضمن عرضكم بيان الطبيعة القانونية وهيكل الملكية والمستفيد الحقيقي مع المستندات المؤيدة (المادة 133 من اللائحة المعدلة بالقرارين 614 لسنة 2020 و289 لسنة 2021)",
+              "تُنشر نتيجة الاتفاق المباشر على بوابة التعاقدات العامة فور اعتمادها متضمنة هذه البيانات (المادة 132 من اللائحة المعدلة بالقرارين 614 لسنة 2020 و289 لسنة 2021)",
             ],
           },
         ],
@@ -312,23 +314,90 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
         },
       },
       {
-        heading_en: "Disclosure of Legal Nature and Beneficial Owner",
-        heading_ar: "الإفصاح عن الطبيعة القانونية والمستفيد الحقيقي",
+        heading_en:
+          "Low-Value Direct Agreement Controls (Regulations Article 135, as amended by Decree No. 614/2020)",
+        heading_ar:
+          "ضوابط الاتفاق المباشر منخفض القيمة (المادة 135 من اللائحة التنفيذية، المعدلة بالقرار 614 لسنة 2020)",
         body_en:
-          "Minister of Finance Decree No. 289 of 2021 amended the Executive Regulations so that every bidder discloses who stands behind the offer, and the entity publishes it for the winner. The beneficial owner is any natural person, other than the bidder, who ultimately owns or controls the bidder, or on whose behalf the transaction is carried out.",
+          "Article 135 of the Executive Regulations sets seven controls for low-value direct agreements (up to EGP 20,000 per occasion and EGP 100,000 per year under Article 63 of the Law). A standing committee formed by the competent authority carries out the procedure.",
         body_ar:
-          "عدّل قرار وزير المالية رقم 289 لسنة 2021 اللائحة التنفيذية بحيث يفصح كل متقدم عمّن يقف خلف العطاء، وتنشر الجهة ذلك بالنسبة للفائز. والمستفيد الحقيقي هو أي شخص طبيعي غير صاحب العطاء تؤول إليه فعليًا ملكيته أو تكون له السيطرة عليه، أو الشخص الطبيعي الذي تُنفَّذ العملية لحسابه أو نيابة عنه.",
+          "تضع المادة 135 من اللائحة التنفيذية سبعة ضوابط للاتفاق المباشر منخفض القيمة (بما لا يجاوز 20 ألف جنيه في المرة الواحدة و100 ألف جنيه سنويًا وفق المادة 63 من القانون). وتتولى الإجراء لجنة دائمة تُشكَّل بقرار من السلطة المختصة.",
+        listStyle: "number",
         list_en: [
-          "With the offer (Regulations Articles 49 and 157) and with a quotation under direct agreement (Article 133): a statement of the bidder's legal nature and beneficial owner, with supporting documents",
-          "Companies: a certified copy of the articles of incorporation or statutes, or the capital structure, as last amended",
-          "Other bidders: ownership data and documents",
-          "After approval, the Contracts Department publishes the winner's legal nature and beneficial owner on the Public Procurement Portal (Articles 79 and 132)",
+          "The procedure is carried out by a standing committee formed by the competent authority for this purpose",
+          "The committee verifies that the item is actually needed and that the quantity matches the actual requirement",
+          "The committee obtains the market price of the item from documented, reliable sources and verifies that the price offered is consistent with the prevailing market price",
+          "The item must meet the technical specifications and quality requirements of the entity",
+          "The committee selects the lowest-priced offer that meets the technical and quality conditions",
+          "The committee may not contract with the same supplier or contractor more than once for the same item in the same operation",
+          "The committee keeps a register of all operations, showing the item, the quantity, the price, the supplier, and the date, and reports periodically to the competent authority",
         ],
         list_ar: [
-          "مع العطاء (المادتان 49 و157 من اللائحة) ومع عرض السعر في الاتفاق المباشر (المادة 133): بيان الطبيعة القانونية لصاحب العطاء والمستفيد الحقيقي منه مع المستندات المؤيدة",
-          "الشركات: صورة معتمدة من عقد التأسيس أو النظام الأساسي أو هيكل رأس المال وفق آخر تعديل",
-          "غير الشركات: بيانات ومستندات الملكية",
-          "بعد الاعتماد تنشر إدارة التعاقدات بيانات الطبيعة القانونية للفائز والمستفيد الحقيقي منه على بوابة التعاقدات العامة (المادتان 79 و132)",
+          "يتولى الإجراء لجنة دائمة تُشكَّل بقرار من السلطة المختصة لهذا الغرض",
+          "تتحقق اللجنة من أن الصنف مطلوب فعلًا وأن الكمية تتناسب مع الاحتياج الحقيقي",
+          "تحصل اللجنة على السعر السوقي للصنف من مصادر موثقة وموثوقة وتتحقق من أن السعر المعروض يتوافق مع السعر السائد في السوق",
+          "يجب أن يتوافق الصنف مع المواصفات الفنية ومتطلبات الجودة لدى الجهة",
+          "تختار اللجنة أقل العروض سعرًا من بين المستوفية للشروط الفنية والجودة",
+          "لا يجوز للجنة التعاقد مع المورد أو المقاول نفسه أكثر من مرة لنفس الصنف في العملية الواحدة",
+          "تمسك اللجنة سجلًا بجميع العمليات يتضمن الصنف والكمية والسعر والمورد والتاريخ، وتقدم تقارير دورية إلى السلطة المختصة",
+        ],
+        callout: {
+          body_en:
+            "Warning — No splitting (Article 10 of the Law): a requirement may not be divided across several purchase orders or invoices in order to keep each one under the EGP 20,000 occasion limit or the EGP 100,000 annual limit, or to avoid any other contracting procedure. Splitting is a violation of the law regardless of the intent.",
+          body_ar:
+            "تحذير — حظر التجزئة (المادة 10 من القانون): لا يجوز تقسيم الاحتياج على عدة أوامر توريد أو فواتير بقصد البقاء تحت حد 20 ألف جنيه في المرة أو حد 100 ألف جنيه سنويًا، أو لتفادي أي إجراء تعاقدي آخر. والتجزئة مخالفة للقانون بصرف النظر عن القصد.",
+        },
+      },
+      {
+        heading_en:
+          "Disclosure of Legal Nature, Ownership Structure and Beneficial Owner",
+        heading_ar:
+          "الإفصاح عن الطبيعة القانونية وهيكل الملكية والمستفيد الحقيقي",
+        body_en:
+          "Minister of Finance Decree No. 614 of 2020 amended the Executive Regulations (Articles 49, 79, 132, 133 and 157) to require disclosure of the bidder's legal nature and ownership structure, and added Articles 29 bis (a) and 29 bis (b) on the valuation of real estate in government contracts. Decree No. 289 of 2021 then further amended these same articles to add the requirement to disclose the beneficial owner and to define it. These are two distinct obligations.",
+        body_ar:
+          "عدّل قرار وزير المالية رقم 614 لسنة 2020 المواد 49 و79 و132 و133 و157 من اللائحة التنفيذية لإلزام المتقدمين بالإفصاح عن الطبيعة القانونية وهيكل الملكية، وأضاف المادتين 29 مكررًا (أ) و29 مكررًا (ب) الخاصتين بتقييم العقارات في التعاقدات الحكومية. ثم عدّل قرار وزير المالية رقم 289 لسنة 2021 هذه المواد ذاتها لإضافة الإلزام بالإفصاح عن المستفيد الحقيقي وتعريفه. وهما التزامان مستقلان.",
+        subsections: [
+          {
+            heading_en:
+              "Legal Nature and Ownership Structure (Decree No. 614/2020)",
+            heading_ar:
+              "الطبيعة القانونية وهيكل الملكية (القرار 614 لسنة 2020)",
+            body_en:
+              "Every bidder must state its legal form (sole proprietorship, partnership, limited liability company, joint stock company, etc.) and provide documents showing the ownership structure.",
+            body_ar:
+              "يجب على كل متقدم بيان شكله القانوني (منشأة فردية، شركة أشخاص، شركة ذات مسؤولية محدودة، شركة مساهمة، إلخ) وتقديم المستندات الدالة على هيكل الملكية.",
+            list_en: [
+              "Companies: a certified copy of the articles of incorporation or statutes, or the capital structure, as last amended",
+              "Other bidders: ownership data and documents",
+            ],
+            list_ar: [
+              "الشركات: صورة معتمدة من عقد التأسيس أو النظام الأساسي أو هيكل رأس المال وفق آخر تعديل",
+              "غير الشركات: بيانات ومستندات الملكية",
+            ],
+          },
+          {
+            heading_en:
+              "Beneficial Owner (Decree No. 289/2021, amending Decree No. 614/2020)",
+            heading_ar:
+              "المستفيد الحقيقي (القرار 289 لسنة 2021، المعدل للقرار 614 لسنة 2020)",
+            body_en:
+              "The beneficial owner is any natural person, other than the bidder, who ultimately owns or controls the bidder, or on whose behalf the transaction is carried out. Decree 289 added the definition to Article 1 of the Regulations and amended Articles 49, 79, 132, 133 and 157 to require its disclosure alongside the legal nature.",
+            body_ar:
+              "المستفيد الحقيقي هو أي شخص طبيعي — غير صاحب العطاء — تؤول إليه فعليًا ملكيته أو تكون له السيطرة عليه، أو الشخص الطبيعي الذي تُنفَّذ العملية لحسابه أو نيابة عنه. وأضاف القرار 289 التعريف إلى المادة 1 من اللائحة وعدّل المواد 49 و79 و132 و133 و157 لإلزام الإفصاح عنه إلى جانب الطبيعة القانونية.",
+          },
+        ],
+        list_en: [
+          "With the offer (Regulations Article 49, as amended by Decrees 614/2020 and 289/2021; and Article 157 for consultancy): a statement of the bidder's legal nature, ownership structure and beneficial owner, with supporting documents",
+          "With a quotation under direct agreement (Regulations Article 133, as amended by Decrees 614/2020 and 289/2021): the same statement and documents",
+          "After approval, the Contracts Department publishes the winner's legal nature, ownership structure and beneficial owner on the Public Procurement Portal (Regulations Articles 79 and 132, as amended by Decrees 614/2020 and 289/2021)",
+          "Real-estate valuation: Decree 614/2020 added Regulations Articles 29 bis (a) and 29 bis (b), which set the rules for valuing real estate in government contracts",
+        ],
+        list_ar: [
+          "مع العطاء (المادة 49 من اللائحة المعدلة بالقرارين 614 لسنة 2020 و289 لسنة 2021؛ والمادة 157 للاستشارات): بيان الطبيعة القانونية لصاحب العطاء وهيكل ملكيته والمستفيد الحقيقي منه مع المستندات المؤيدة",
+          "مع عرض السعر في الاتفاق المباشر (المادة 133 من اللائحة المعدلة بالقرارين 614 لسنة 2020 و289 لسنة 2021): البيان والمستندات ذاتها",
+          "بعد الاعتماد تنشر إدارة التعاقدات بيانات الطبيعة القانونية للفائز وهيكل ملكيته والمستفيد الحقيقي منه على بوابة التعاقدات العامة (المادتان 79 و132 من اللائحة المعدلتان بالقرارين 614 لسنة 2020 و289 لسنة 2021)",
+          "تقييم العقارات: أضاف القرار 614 لسنة 2020 المادتين 29 مكررًا (أ) و29 مكررًا (ب) من اللائحة التنفيذية اللتين تحددان قواعد تقييم العقارات في التعاقدات الحكومية",
         ],
       },
       {
@@ -409,19 +478,19 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
         list_en: [
           "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Articles 7, 10, 11, 14, 19 and 20; Articles 54 to 63 on the exceptional methods, including Article 59 (local tender), Article 62 (direct agreement cases) and Article 63 (direct agreement limits)",
           "Law No. 188 of 2020 amending certain provisions of Law No. 182 of 2018, issued and published 5 September 2020",
-          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019 — Articles 129 and 132 to 135",
-          "Minister of Finance Decree No. 28 of 2020, 16 January 2020 — amends the Executive Regulations (forms of paying the provisional and final guarantees)",
-          "Minister of Finance Decree No. 614 of 2020, Al-Waqa'i' Al-Misriyya issue 284 (supplement B), 16 December 2020 — amends the Executive Regulations",
-          "Minister of Finance Decree No. 289 of 2021, Al-Waqa'i' Al-Misriyya issue 125 (supplement), 6 June 2021 — legal nature and beneficial owner disclosure and publication (Regulations Articles 49, 79, 132, 133 and 157)",
+          "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019 — Articles 1, 29 bis (a), 29 bis (b), 49, 79, 129, 132 to 135 and 157",
+          "Minister of Finance Decree No. 28 of 2020, 16 January 2020 — amends Regulations Articles 31 and 82 (forms of paying the provisional and final guarantees, including payment from the supplier's dues at other administrative entities)",
+          "Minister of Finance Decree No. 614 of 2020, Al-Waqa'i' Al-Misriyya issue 284 (supplement B), 16 December 2020 — amends Regulations Articles 49, 79, 132, 133 and 157 (legal nature and ownership disclosure) and adds Articles 29 bis (a) and 29 bis (b) (real-estate valuation)",
+          "Minister of Finance Decree No. 289 of 2021, Al-Waqa'i' Al-Misriyya issue 125 (supplement), 6 June 2021 — further amends Regulations Articles 49, 79, 132, 133 and 157 (adds beneficial-owner disclosure and definition in Article 1)",
           "Official sources: Public Procurement Portal, etenders.gov.eg — Ministry of Finance, mof.gov.eg — General Authority for Government Printing Offices (Official Gazette), alamiria.com",
         ],
         list_ar: [
           "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المواد 7 و10 و11 و14 و19 و20؛ والمواد من 54 إلى 63 المنظمة للطرق الاستثنائية، ومنها المادة 59 (المناقصة المحلية) والمادة 62 (حالات الاتفاق المباشر) والمادة 63 (حدود الاتفاق المباشر)",
           "القانون رقم 188 لسنة 2020 بتعديل بعض أحكام القانون رقم 182 لسنة 2018، الصادر والمنشور في 5 سبتمبر 2020",
-          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019 — المواد 129 ومن 132 إلى 135",
-          "قرار وزير المالية رقم 28 لسنة 2020 في 16 يناير 2020 — بتعديل اللائحة التنفيذية (صور أداء التأمين المؤقت والنهائي)",
-          "قرار وزير المالية رقم 614 لسنة 2020، الوقائع المصرية العدد 284 تابع (ب) في 16 ديسمبر 2020 — بتعديل اللائحة التنفيذية",
-          "قرار وزير المالية رقم 289 لسنة 2021، الوقائع المصرية العدد 125 (تابع) في 6 يونيو 2021 — الإفصاح عن الطبيعة القانونية والمستفيد الحقيقي والنشر (المواد 49 و79 و132 و133 و157 من اللائحة)",
+          "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019 — المواد 1 و29 مكررًا (أ) و(ب) و49 و79 و129 ومن 132 إلى 135 و157",
+          "قرار وزير المالية رقم 28 لسنة 2020 في 16 يناير 2020 — بتعديل المادتين 31 و82 من اللائحة التنفيذية (صور أداء التأمين المؤقت والنهائي، بما فيها السداد من مستحقات المورد لدى جهات إدارية أخرى)",
+          "قرار وزير المالية رقم 614 لسنة 2020، الوقائع المصرية العدد 284 تابع (ب) في 16 ديسمبر 2020 — بتعديل المواد 49 و79 و132 و133 و157 من اللائحة (الإفصاح عن الطبيعة القانونية وهيكل الملكية) وإضافة المادتين 29 مكررًا (أ) و(ب) (تقييم العقارات)",
+          "قرار وزير المالية رقم 289 لسنة 2021، الوقائع المصرية العدد 125 (تابع) في 6 يونيو 2021 — يعدّل المواد 49 و79 و132 و133 و157 من اللائحة مجددًا (يضيف الإفصاح عن المستفيد الحقيقي ويعرّفه في المادة 1)",
           "المصادر الرسمية: بوابة التعاقدات العامة etenders.gov.eg — وزارة المالية mof.gov.eg — الهيئة العامة لشئون المطابع الأميرية (الجريدة الرسمية) alamiria.com",
         ],
       },
@@ -621,9 +690,9 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Article 14 (technical specifications), Article 10 (no splitting) and Article 35 (preference for Egyptian products)",
           "Law No. 188 of 2020 amending certain provisions of Law No. 182 of 2018, issued and published 5 September 2020",
           "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019",
-          "Minister of Finance Decree No. 28 of 2020, 16 January 2020 — amends the Executive Regulations (forms of paying the provisional and final guarantees)",
-          "Minister of Finance Decree No. 614 of 2020, Al-Waqa'i' Al-Misriyya issue 284 (supplement B), 16 December 2020 — amends the Executive Regulations",
-          "Minister of Finance Decree No. 289 of 2021, Al-Waqa'i' Al-Misriyya issue 125 (supplement), 6 June 2021 — legal nature and beneficial owner disclosure and publication (Regulations Articles 49, 79, 132, 133 and 157)",
+          "Minister of Finance Decree No. 28 of 2020, 16 January 2020 — amends Regulations Articles 31 and 82 (forms of paying the provisional and final guarantees, including payment from the supplier's dues at other administrative entities)",
+          "Minister of Finance Decree No. 614 of 2020, Al-Waqa'i' Al-Misriyya issue 284 (supplement B), 16 December 2020 — amends Regulations Articles 49, 79, 132, 133 and 157 (legal nature and ownership disclosure) and adds Articles 29 bis (a) and 29 bis (b) (real-estate valuation)",
+          "Minister of Finance Decree No. 289 of 2021, Al-Waqa'i' Al-Misriyya issue 125 (supplement), 6 June 2021 — further amends Regulations Articles 49, 79, 132, 133 and 157 (adds beneficial-owner disclosure and definition in Article 1)",
           "Law No. 5 of 2015 on preference for Egyptian products in government contracts",
           "Official sources: Public Procurement Portal, etenders.gov.eg — Ministry of Finance, mof.gov.eg — General Authority for Government Printing Offices (Official Gazette), alamiria.com",
         ],
@@ -631,9 +700,9 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المادة 14 (المواصفات الفنية) والمادة 10 (حظر التجزئة) والمادة 35 (تفضيل المنتج المصري)",
           "القانون رقم 188 لسنة 2020 بتعديل بعض أحكام القانون رقم 182 لسنة 2018، الصادر والمنشور في 5 سبتمبر 2020",
           "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019",
-          "قرار وزير المالية رقم 28 لسنة 2020 في 16 يناير 2020 — بتعديل اللائحة التنفيذية (صور أداء التأمين المؤقت والنهائي)",
-          "قرار وزير المالية رقم 614 لسنة 2020، الوقائع المصرية العدد 284 تابع (ب) في 16 ديسمبر 2020 — بتعديل اللائحة التنفيذية",
-          "قرار وزير المالية رقم 289 لسنة 2021، الوقائع المصرية العدد 125 (تابع) في 6 يونيو 2021 — الإفصاح عن الطبيعة القانونية والمستفيد الحقيقي والنشر (المواد 49 و79 و132 و133 و157 من اللائحة)",
+          "قرار وزير المالية رقم 28 لسنة 2020 في 16 يناير 2020 — بتعديل المادتين 31 و82 من اللائحة التنفيذية (صور أداء التأمين المؤقت والنهائي، بما فيها السداد من مستحقات المورد لدى جهات إدارية أخرى)",
+          "قرار وزير المالية رقم 614 لسنة 2020، الوقائع المصرية العدد 284 تابع (ب) في 16 ديسمبر 2020 — بتعديل المواد 49 و79 و132 و133 و157 من اللائحة (الإفصاح عن الطبيعة القانونية وهيكل الملكية) وإضافة المادتين 29 مكررًا (أ) و(ب) (تقييم العقارات)",
+          "قرار وزير المالية رقم 289 لسنة 2021، الوقائع المصرية العدد 125 (تابع) في 6 يونيو 2021 — يعدّل المواد 49 و79 و132 و133 و157 من اللائحة مجددًا (يضيف الإفصاح عن المستفيد الحقيقي ويعرّفه في المادة 1)",
           "القانون رقم 5 لسنة 2015 في شأن تفضيل المنتجات المصرية في العقود الحكومية",
           "المصادر الرسمية: بوابة التعاقدات العامة etenders.gov.eg — وزارة المالية mof.gov.eg — الهيئة العامة لشئون المطابع الأميرية (الجريدة الرسمية) alamiria.com",
         ],
@@ -777,6 +846,7 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "The final guarantee is still due from the winner at 5 %",
           "If the winner fails to pay it, an amount equal to the provisional guarantee is deducted from its dues with the entity or with any other administrative entity, and the contract is cancelled or performed by the next bidder in order of priority",
           "Article 75 sets the rules on contracting with these enterprises more generally",
+          "If no medium, small or micro enterprises apply when the tender was restricted to them, the invitation is re-issued to them and to others; the provisional-guarantee declaration exception no longer applies to the re-issued tender",
         ],
         list_ar: [
           "يستلزم الاستثناء موافقة السلطة المختصة وأن يرد في كراسة الشروط في صورة نموذج إقرار",
@@ -784,15 +854,26 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "يظل التأمين النهائي مستحقًا على الفائز بنسبة 5٪",
           "إذا تقاعس الفائز عن سداده يُخصم ما يعادل التأمين المؤقت من مستحقاته لدى الجهة أو لدى أي جهة إدارية أخرى، ويُلغى العقد أو يُنفذ بواسطة صاحب العطاء التالي في ترتيب الأولوية",
           "وتنظم المادة 75 قواعد التعاقد مع هذه المشروعات بصفة عامة",
+          "إذا قُصرت المناقصة على هذه المشروعات ولم يتقدم أي منها تُعاد الدعوة لها ولغيرها؛ ولا يستمر استثناء الإقرار البديل عن التأمين المؤقت في الطرح المُعاد",
         ],
       },
       {
-        heading_en: "Forms of Paying the Guarantees",
-        heading_ar: "صور أداء التأمين",
+        heading_en:
+          "Forms of Paying the Guarantees (Regulations Articles 31 and 82, as amended by Decree No. 28/2020)",
+        heading_ar:
+          "صور أداء التأمين (المادتان 31 و82 من اللائحة التنفيذية، المعدلتان بالقرار 28 لسنة 2020)",
         body_en:
-          "The accepted forms of paying the provisional and final guarantees are set by the Executive Regulations as amended by Minister of Finance Decree No. 28 of 2020. The tender documents state which forms the entity accepts and the exact name of the beneficiary; a guarantee in a form the documents do not list risks exclusion of the offer.",
+          "Minister of Finance Decree No. 28 of 2020 amended Regulations Articles 31 (provisional guarantee) and 82 (final guarantee) to widen the accepted forms of payment. A key addition is that both the provisional and the final guarantee may be paid from the supplier's dues held at other administrative entities, subject to the procedures and supporting documents specified in the Regulations. The tender documents state which forms the entity accepts and the exact name of the beneficiary; a guarantee in a form the documents do not list risks exclusion of the offer.",
         body_ar:
-          "تحدد اللائحة التنفيذية، بعد تعديلها بقرار وزير المالية رقم 28 لسنة 2020، صور أداء التأمين المؤقت والتأمين النهائي. وتنص كراسة الشروط على الصور التي تقبلها الجهة والاسم الدقيق للمستفيد؛ وتقديم التأمين في صورة غير واردة بالكراسة يعرّض العطاء للاستبعاد.",
+          "عدّل قرار وزير المالية رقم 28 لسنة 2020 المادتين 31 (التأمين المؤقت) و82 (التأمين النهائي) من اللائحة التنفيذية لتوسيع صور أداء التأمين. ومن أبرز ما أُضيف إمكانية سداد التأمين المؤقت والنهائي من مستحقات المورد لدى جهات إدارية أخرى، وفقًا للإجراءات والمستندات المحددة في اللائحة. وتنص كراسة الشروط على الصور التي تقبلها الجهة والاسم الدقيق للمستفيد؛ وتقديم التأمين في صورة غير واردة بالكراسة يعرّض العطاء للاستبعاد.",
+        list_en: [
+          "The supplier should check with the entity whether payment from dues at another entity is accepted, and prepare the necessary assignment or deduction documents in advance",
+          "Even where this form is accepted, the supplier remains responsible for ensuring the guarantee is in place within the deadline",
+        ],
+        list_ar: [
+          "يُنصح المورد بالتأكد من الجهة ما إذا كان السداد من المستحقات لدى جهة أخرى مقبولًا، وأن يُعدّ مستندات الحوالة أو الخصم اللازمة مقدمًا",
+          "حتى في حالة قبول هذه الصورة يظل المورد مسؤولًا عن ضمان توفير التأمين خلال المهلة المحددة",
+        ],
       },
       {
         heading_en: "What the Tender Documents Should State",
@@ -850,9 +931,9 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "Law No. 182 of 2018 regulating contracts concluded by public entities, Official Gazette issue 39 bis (D), 3 October 2018 — Articles 16, 22, 40 and 41 (guarantees), Article 59 (local tender and the provisional guarantee exception) and Article 75 (medium, small and micro enterprises)",
           "Law No. 188 of 2020 amending certain provisions of Law No. 182 of 2018, issued and published 5 September 2020",
           "Executive Regulations of Law No. 182 of 2018, Minister of Finance Decree No. 692 of 2019",
-          "Minister of Finance Decree No. 28 of 2020, 16 January 2020 — amends the Executive Regulations (forms of paying the provisional and final guarantees)",
-          "Minister of Finance Decree No. 614 of 2020, Al-Waqa'i' Al-Misriyya issue 284 (supplement B), 16 December 2020 — amends the Executive Regulations",
-          "Minister of Finance Decree No. 289 of 2021, Al-Waqa'i' Al-Misriyya issue 125 (supplement), 6 June 2021 — legal nature and beneficial owner disclosure and publication (Regulations Articles 49, 79, 132, 133 and 157)",
+          "Minister of Finance Decree No. 28 of 2020, 16 January 2020 — amends Regulations Articles 31 and 82 (forms of paying the provisional and final guarantees, including payment from the supplier's dues at other administrative entities)",
+          "Minister of Finance Decree No. 614 of 2020, Al-Waqa'i' Al-Misriyya issue 284 (supplement B), 16 December 2020 — amends Regulations Articles 49, 79, 132, 133 and 157 (legal nature and ownership disclosure) and adds Articles 29 bis (a) and 29 bis (b) (real-estate valuation)",
+          "Minister of Finance Decree No. 289 of 2021, Al-Waqa'i' Al-Misriyya issue 125 (supplement), 6 June 2021 — further amends Regulations Articles 49, 79, 132, 133 and 157 (adds beneficial-owner disclosure and definition in Article 1)",
           "Ministry of Finance, Guide for Medium, Small and Micro Enterprises to public contracting",
           "Official sources: Public Procurement Portal, etenders.gov.eg — Ministry of Finance, mof.gov.eg — General Authority for Government Printing Offices (Official Gazette), alamiria.com",
         ],
@@ -860,9 +941,9 @@ export const governmentProcurementArticles: KnowledgeItem[] = [
           "القانون رقم 182 لسنة 2018 بإصدار قانون تنظيم التعاقدات التي تبرمها الجهات العامة، الجريدة الرسمية العدد 39 مكرر (د) في 3 أكتوبر 2018 — المواد 16 و22 و40 و41 (التأمينات)، والمادة 59 (المناقصة المحلية واستثناء التأمين المؤقت) والمادة 75 (المشروعات المتوسطة والصغيرة ومتناهية الصغر)",
           "القانون رقم 188 لسنة 2020 بتعديل بعض أحكام القانون رقم 182 لسنة 2018، الصادر والمنشور في 5 سبتمبر 2020",
           "اللائحة التنفيذية للقانون رقم 182 لسنة 2018 الصادرة بقرار وزير المالية رقم 692 لسنة 2019",
-          "قرار وزير المالية رقم 28 لسنة 2020 في 16 يناير 2020 — بتعديل اللائحة التنفيذية (صور أداء التأمين المؤقت والنهائي)",
-          "قرار وزير المالية رقم 614 لسنة 2020، الوقائع المصرية العدد 284 تابع (ب) في 16 ديسمبر 2020 — بتعديل اللائحة التنفيذية",
-          "قرار وزير المالية رقم 289 لسنة 2021، الوقائع المصرية العدد 125 (تابع) في 6 يونيو 2021 — الإفصاح عن الطبيعة القانونية والمستفيد الحقيقي والنشر (المواد 49 و79 و132 و133 و157 من اللائحة)",
+          "قرار وزير المالية رقم 28 لسنة 2020 في 16 يناير 2020 — بتعديل المادتين 31 و82 من اللائحة التنفيذية (صور أداء التأمين المؤقت والنهائي، بما فيها السداد من مستحقات المورد لدى جهات إدارية أخرى)",
+          "قرار وزير المالية رقم 614 لسنة 2020، الوقائع المصرية العدد 284 تابع (ب) في 16 ديسمبر 2020 — بتعديل المواد 49 و79 و132 و133 و157 من اللائحة (الإفصاح عن الطبيعة القانونية وهيكل الملكية) وإضافة المادتين 29 مكررًا (أ) و(ب) (تقييم العقارات)",
+          "قرار وزير المالية رقم 289 لسنة 2021، الوقائع المصرية العدد 125 (تابع) في 6 يونيو 2021 — يعدّل المواد 49 و79 و132 و133 و157 من اللائحة مجددًا (يضيف الإفصاح عن المستفيد الحقيقي ويعرّفه في المادة 1)",
           "وزارة المالية، دليل أصحاب المشروعات المتوسطة والصغيرة ومتناهية الصغر للتعاقدات العامة",
           "المصادر الرسمية: بوابة التعاقدات العامة etenders.gov.eg — وزارة المالية mof.gov.eg — الهيئة العامة لشئون المطابع الأميرية (الجريدة الرسمية) alamiria.com",
         ],
